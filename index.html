@@ -234,4 +234,11 @@ document.addEventListener('click',function(e){
  var el=document.querySelector(id);if(!el)return;
  e.preventDefault();el.scrollIntoView({behavior:'smooth'});
 });
+</script><script>
+(function(){
+ var isMobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)&&('ontouchstart' in window);
+ if(isMobile)return;
+ var t=document.querySelector('.cf-tel');
+ if(t){t.addEventListener('click',function(e){e.preventDefault();});t.style.cursor='default';}
+})();
 </script></body></html>
