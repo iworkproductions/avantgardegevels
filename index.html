@@ -227,4 +227,11 @@ function verstuur(e){e.preventDefault();
  var body=encodeURIComponent('Naam: '+n+'\nTelefoon: '+t+'\nE-mail: '+m+'\nWoonplaats: '+p+'\n\nBericht:\n'+b+'\n\n(Verzonden via avantgardegevels.nl)');
  window.location.href='mailto:iworkproductions@outlook.com?subject='+subject+'&body='+body;
  return false;}
+</script><script>
+document.addEventListener('click',function(e){
+ var a=e.target.closest&&e.target.closest('a[href^="#"]');
+ if(!a)return;var id=a.getAttribute('href');if(id.length<2)return;
+ var el=document.querySelector(id);if(!el)return;
+ e.preventDefault();el.scrollIntoView({behavior:'smooth'});
+});
 </script></body></html>
