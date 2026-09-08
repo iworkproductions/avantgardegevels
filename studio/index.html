@@ -1,214 +1,245 @@
 <!doctype html><html lang="nl"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gevel-configurator · intern dashboard · Avant-Garde</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Studio · Avant-Garde</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#211d18;--bg:#1a1712;--panel:#26221c;--lijn:#3a352d;--goud:#c9a678;--hout:#9c6b3f;--tekst:#e8e2d8;--zacht:#9a9184}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Jost,sans-serif;background:var(--bg);color:var(--tekst);font-weight:300;line-height:1.6}
-.top{background:var(--ink);padding:20px 34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--lijn)}
-.top .b{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:15px;color:#fff}
-.top .tag{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 66px)}
-.links{padding:44px 44px 60px;border-right:1px solid var(--lijn)}
-.rechts{padding:44px;background:var(--panel)}
-h1{font-size:24px;font-weight:600;margin-bottom:6px;color:#fff}
-.sub{color:var(--zacht);font-size:14px;margin-bottom:34px}
-.blok{margin-bottom:34px}
-.blok label{display:block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud);margin-bottom:14px}
-/* file */
-.drop{border:1px dashed var(--lijn);border-radius:10px;padding:26px;text-align:center;cursor:pointer;transition:.2s;background:#221e18}
-.drop:hover{border-color:var(--goud)}
-.drop span{color:var(--zacht);font-size:14px}
-.preview{margin-top:14px;border-radius:10px;overflow:hidden;display:none}
-.preview img{width:100%;display:block;max-height:230px;object-fit:cover}
-/* sliders */
-.rij{margin-bottom:26px}
-.rij .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-.rij .nm{font-size:15px;color:#fff;font-weight:500}
-.rij .vl{font-size:22px;font-weight:600;color:var(--goud)}
-input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:5px;background:var(--lijn);outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--goud);cursor:pointer;border:3px solid var(--panel)}
-input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--goud);cursor:pointer;border:3px solid var(--panel)}
-.hint{font-size:12px;color:var(--zacht);margin-top:8px}
-/* verhoudingsbalk */
-.vbalk{display:flex;height:20px;border-radius:6px;overflow:hidden;margin:8px 0 4px}
-.vbalk i{display:block;transition:width .15s}
-.vbalk .c{background:#d9c9b0}.vbalk .s{background:#8a8278}.vbalk .h{background:#9c6b3f}
-.vlbl{display:flex;justify-content:space-between;font-size:11px;color:var(--zacht);letter-spacing:.05em}
-/* kleuren */
-.kleuren{display:flex;gap:10px;flex-wrap:wrap}
-.sw{width:38px;height:38px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:.15s}
-.sw.on{border-color:var(--goud);transform:scale(1.08)}
-.kl-groep{margin-bottom:18px}
-.kl-groep .t{font-size:12px;color:var(--zacht);margin-bottom:8px}
-/* keywords */
-textarea{width:100%;background:#221e18;border:1px solid var(--lijn);border-radius:10px;color:var(--tekst);padding:14px;font-family:inherit;font-size:14px;resize:vertical;min-height:70px}
-textarea:focus{outline:none;border-color:var(--goud)}
-/* prompt */
-.rechts h2{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud);margin-bottom:8px}
-.rechts .note{color:var(--zacht);font-size:13px;margin-bottom:22px}
-.promptbox{background:#14110d;border:1px solid var(--lijn);border-radius:12px;padding:22px;font-family:'SF Mono',Consolas,monospace;font-size:13.5px;line-height:1.7;color:#d9cfbf;white-space:pre-wrap;min-height:220px}
-.acties{display:flex;gap:12px;margin-top:16px}
-.btn{flex:1;text-align:center;padding:14px;border-radius:10px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:0;font-family:inherit;font-weight:500}
-.btn.p{background:var(--goud);color:var(--ink)}
-.btn.s{background:transparent;border:1px solid var(--lijn);color:var(--tekst)}
-.mini{font-size:12px;color:var(--zacht);margin-top:14px;line-height:1.6}
-.samenv{margin-top:26px;padding-top:20px;border-top:1px solid var(--lijn);font-size:13px;color:var(--zacht)}
-.samenv b{color:#fff;font-weight:500}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.links{border-right:0;border-bottom:1px solid var(--lijn)}}
-</style>
-<style>
+/* GATE */
 #gate{position:fixed;inset:0;background:#1a1712;z-index:9999;display:flex;align-items:center;justify-content:center}
 #gate .box{text-align:center;max-width:340px;width:100%;padding:0 30px}
-#gate .lg{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;letter-spacing:.24em;color:#fff;text-transform:uppercase;margin-bottom:8px}
+#gate .lg{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:.24em;color:#fff;text-transform:uppercase;margin-bottom:8px}
 #gate .sub{color:#9a9184;font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:34px}
 #gate input{width:100%;background:#221e18;border:1px solid #3a352d;border-radius:8px;color:#e8e2d8;padding:15px 16px;font-family:Jost,sans-serif;font-size:15px;margin-bottom:12px;text-align:center;letter-spacing:.1em}
 #gate input:focus{outline:none;border-color:#c9a678}
-#gate button{width:100%;background:#c9a678;color:#211d18;border:0;padding:15px;border-radius:8px;font-family:Jost,sans-serif;font-weight:600;font-size:13px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+#gate button{width:100%;background:#c9a678;color:#211d18;border:0;padding:15px;border-radius:8px;font-weight:600;font-size:13px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
 #gate .err{color:#d98b6a;font-size:13px;margin-top:12px;min-height:18px}
 #app{display:none}
+/* TOP */
+.top{background:var(--ink);padding:18px 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--lijn)}
+.top .b{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:16px;color:#fff}
+.top .tabs{display:flex;gap:8px}
+.top .tab{background:transparent;border:1px solid var(--lijn);color:var(--tekst);padding:9px 18px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:.05em}
+.top .tab.on{background:var(--goud);color:var(--ink);border-color:var(--goud);font-weight:500}
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 62px)}
+.links{padding:34px 34px 60px;border-right:1px solid var(--lijn)}
+.rechts{padding:34px;background:var(--panel)}
+h1{font-size:22px;font-weight:600;margin-bottom:4px;color:#fff}
+.sub{color:var(--zacht);font-size:14px;margin-bottom:28px}
+.blok{margin-bottom:28px}
+.blok label{display:block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud);margin-bottom:12px}
+.drop{border:1px dashed var(--lijn);border-radius:10px;padding:24px;text-align:center;cursor:pointer;background:#221e18}
+.drop:hover{border-color:var(--goud)}.drop span{color:var(--zacht);font-size:14px}
+.preview{margin-top:12px;border-radius:10px;overflow:hidden;display:none}
+.preview img{width:100%;display:block;max-height:220px;object-fit:cover}
+.rij{margin-bottom:22px}
+.rij .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.rij .nm{font-size:15px;color:#fff;font-weight:500}.rij .vl{font-size:20px;font-weight:600;color:var(--goud)}
+input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:5px;background:var(--lijn);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--goud);cursor:pointer;border:3px solid var(--panel)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--goud);cursor:pointer;border:3px solid var(--panel)}
+.hint{font-size:12px;color:var(--zacht);margin-top:6px}
+.vbalk{display:flex;height:18px;border-radius:6px;overflow:hidden;margin:8px 0 4px}
+.vbalk i{display:block;transition:width .15s}.vbalk .c{background:#d9c9b0}.vbalk .s{background:#8a8278}.vbalk .h{background:#9c6b3f}
+.vlbl{display:flex;justify-content:space-between;font-size:11px;color:var(--zacht)}
+.kl-groep{margin-bottom:16px}.kl-groep .t{font-size:12px;color:var(--zacht);margin-bottom:7px}
+.kleuren{display:flex;gap:9px;flex-wrap:wrap}
+.sw{width:36px;height:36px;border-radius:8px;cursor:pointer;border:2px solid transparent}
+.sw.on{border-color:var(--goud);transform:scale(1.08)}
+input[type=text],textarea{width:100%;background:#221e18;border:1px solid var(--lijn);border-radius:10px;color:var(--tekst);padding:13px;font-family:inherit;font-size:14px}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--goud)}
+textarea{resize:vertical;min-height:64px}
+.rechts h2{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud);margin-bottom:8px}
+.rechts .note{color:var(--zacht);font-size:13px;margin-bottom:18px}
+.promptbox{background:#14110d;border:1px solid var(--lijn);border-radius:12px;padding:20px;font-family:'SF Mono',Consolas,monospace;font-size:13px;line-height:1.7;color:#d9cfbf;white-space:pre-wrap;min-height:180px}
+.acties{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btn{flex:1;min-width:120px;text-align:center;padding:13px;border-radius:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:0;font-family:inherit;font-weight:500}
+.btn.p{background:var(--goud);color:var(--ink)}.btn.g{background:var(--hout);color:#fff}.btn.s{background:transparent;border:1px solid var(--lijn);color:var(--tekst)}
+.samenv{margin-top:20px;padding-top:16px;border-top:1px solid var(--lijn);font-size:13px;color:var(--zacht)}
+.samenv b{color:#fff;font-weight:500}
+.mini{font-size:12px;color:var(--zacht);margin-top:14px;line-height:1.6}
+/* LIJST */
+#lijstview{display:none;padding:34px}
+.lijst-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.lijst-top h1{font-size:22px}
+.kaarten{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.kk{background:var(--panel);border:1px solid var(--lijn);border-radius:12px;overflow:hidden}
+.kk .foto{height:150px;background-size:cover;background-position:center;background-color:#333}
+.kk .in{padding:16px 18px}
+.kk h3{font-size:17px;color:#fff;font-weight:500;margin-bottom:4px}
+.kk .meta{font-size:13px;color:var(--zacht);margin-bottom:12px}
+.kk .knoppen{display:flex;gap:8px;flex-wrap:wrap}
+.kk .knoppen button{flex:1;min-width:70px;padding:9px;border-radius:7px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border:0;font-family:inherit}
+.kk .b-in{background:var(--goud);color:var(--ink)}.kk .b-arch{background:transparent;border:1px solid var(--lijn);color:var(--tekst)}.kk .b-del{background:transparent;border:1px solid #6b3a3a;color:#d98b6a}
+.leeg{text-align:center;color:var(--zacht);padding:80px 20px;font-size:15px}
+.badge{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--lijn);color:var(--zacht);padding:3px 9px;border-radius:20px;margin-left:8px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.links{border-right:0;border-bottom:1px solid var(--lijn)}.top{flex-direction:column;gap:12px}}
 </style></head>
 <body>
 <div id="gate"><div class="box">
-  <div class="lg">Avant-Garde</div>
-  <div class="sub">Studio · besloten</div>
+  <div class="lg">Avant-Garde</div><div class="sub">Studio · besloten</div>
   <input type="password" id="pw" placeholder="Wachtwoord" autofocus>
-  <button id="go">Toegang</button>
-  <div class="err" id="err"></div>
+  <button id="go">Toegang</button><div class="err" id="err"></div>
 </div></div>
+
 <div id="app">
-
-<div class="top"><div class="b">Avant-Garde · Gevelconfigurator</div><div class="tag">Intern · voor Midas</div></div>
-<div class="grid">
-  <div class="links">
-    <h1>Configureer de gevel</h1>
-    <p class="sub">Stel samen met de klant de verhouding en de kleuren in. De prompt rechts wordt automatisch opgebouwd.</p>
-
-    <div class="blok"><label>1 · Foto van de woning</label>
-      <div class="drop" id="drop"><span>Klik om een foto van de bestaande woning te kiezen</span>
-        <input type="file" id="file" accept="image/*" style="display:none"></div>
-      <div class="preview" id="prev"><img id="previmg"></div>
-    </div>
-
-    <div class="blok"><label>2 · Verhouding materialen</label>
-      <div class="rij"><div class="hd"><span class="nm">Crepi (basis)</span><span class="vl" id="vC">70%</span></div>
-        <input type="range" id="sC" min="65" max="90" value="70">
-        <div class="hint">Crepi is altijd de basis, minimaal 65%.</div></div>
-      <div class="rij"><div class="hd"><span class="nm">Rest: natuursteen ↔ hout</span><span class="vl"><span id="vS">20</span>% / <span id="vH">10</span>%</span></div>
-        <input type="range" id="sR" min="0" max="100" value="67">
-        <div class="hint">Verdeel de resterende ruimte tussen natuursteen en hout.</div></div>
-      <div class="vbalk"><i class="c" id="bC"></i><i class="s" id="bS"></i><i class="h" id="bH"></i></div>
-      <div class="vlbl"><span>Crepi</span><span>Natuursteen</span><span>Hout</span></div>
-    </div>
-
-    <div class="blok"><label>3 · Kleuren</label>
-      <div class="kl-groep"><div class="t">Crepi</div><div class="kleuren" data-mat="crepi">
-        <div class="sw on" style="background:#f2ede4" data-c="gebroken wit"></div>
-        <div class="sw" style="background:#e3d7c3" data-c="crème"></div>
-        <div class="sw" style="background:#cbb79a" data-c="zandbeige"></div>
-        <div class="sw" style="background:#8d8579" data-c="taupe"></div>
-        <div class="sw" style="background:#3a3a38" data-c="antraciet"></div></div></div>
-      <div class="kl-groep"><div class="t">Natuursteen</div><div class="kleuren" data-mat="steen">
-        <div class="sw on" style="background:#c9bda6" data-c="licht kalksteen"></div>
-        <div class="sw" style="background:#9a9184" data-c="grijs"></div>
-        <div class="sw" style="background:#7d6a52" data-c="warm bruin"></div></div></div>
-      <div class="kl-groep"><div class="t">Hout</div><div class="kleuren" data-mat="hout">
-        <div class="sw on" style="background:#c08f57" data-c="licht eiken"></div>
-        <div class="sw" style="background:#9c6b3f" data-c="warm noten"></div>
-        <div class="sw" style="background:#5f4327" data-c="donker"></div></div></div>
-    </div>
-
-    <div class="blok"><label>4 · Keywords uit de opname / notities</label>
-      <textarea id="kw" placeholder="bijv. hoekwoning, zwarte kozijnen, plat dak, entree links, veel glas"></textarea>
+  <div class="top">
+    <div class="b">Avant-Garde · Studio</div>
+    <div class="tabs">
+      <button class="tab on" id="tabConf">Configureren</button>
+      <button class="tab" id="tabLijst">Klanten <span class="badge" id="cnt">0</span></button>
     </div>
   </div>
 
-  <div class="rechts">
-    <h2>Gegenereerde prompt</h2>
-    <p class="note">Kopieer deze prompt en de gekozen woningfoto naar Midjourney om de visualisatie te maken.</p>
-    <div class="promptbox" id="prompt"></div>
-    <div class="acties">
-      <button class="btn p" id="copy">Kopieer prompt</button>
-      <button class="btn s" id="reset">Reset</button>
+  <!-- CONFIGURATOR -->
+  <div id="confview"><div class="grid">
+    <div class="links">
+      <h1 id="confTitel">Nieuwe klant</h1>
+      <p class="sub">Stel de gevel samen. De prompt rechts bouwt automatisch op.</p>
+      <div class="blok"><label>Klantnaam</label><input type="text" id="cf-klant" placeholder="Naam of adres van de klant"></div>
+      <div class="blok"><label>Foto van de woning</label>
+        <div class="drop" id="drop"><span>Klik om een foto te kiezen</span><input type="file" id="file" accept="image/*" style="display:none"></div>
+        <div class="preview" id="prev"><img id="previmg"></div>
+      </div>
+      <div class="blok"><label>Verhouding materialen</label>
+        <div class="rij"><div class="hd"><span class="nm">Crepi (basis)</span><span class="vl" id="vC">70%</span></div>
+          <input type="range" id="sC" min="65" max="90" value="70"><div class="hint">Crepi is altijd de basis, minimaal 65%.</div></div>
+        <div class="rij"><div class="hd"><span class="nm">Natuursteen ↔ hout</span><span class="vl"><span id="vS">20</span>% / <span id="vH">10</span>%</span></div>
+          <input type="range" id="sR" min="0" max="100" value="67"><div class="hint">Verdeel de rest tussen natuursteen en hout.</div></div>
+        <div class="vbalk"><i class="c" id="bC"></i><i class="s" id="bS"></i><i class="h" id="bH"></i></div>
+        <div class="vlbl"><span>Crepi</span><span>Natuursteen</span><span>Hout</span></div>
+      </div>
+      <div class="blok"><label>Kleuren</label>
+        <div class="kl-groep"><div class="t">Crepi</div><div class="kleuren" data-mat="crepi">
+          <div class="sw on" style="background:#f2ede4" data-c="gebroken wit"></div><div class="sw" style="background:#e3d7c3" data-c="crème"></div><div class="sw" style="background:#cbb79a" data-c="zandbeige"></div><div class="sw" style="background:#8d8579" data-c="taupe"></div><div class="sw" style="background:#3a3a38" data-c="antraciet"></div></div></div>
+        <div class="kl-groep"><div class="t">Natuursteen</div><div class="kleuren" data-mat="steen">
+          <div class="sw on" style="background:#c9bda6" data-c="licht kalksteen"></div><div class="sw" style="background:#9a9184" data-c="grijs"></div><div class="sw" style="background:#7d6a52" data-c="warm bruin"></div></div></div>
+        <div class="kl-groep"><div class="t">Hout</div><div class="kleuren" data-mat="hout">
+          <div class="sw on" style="background:#c08f57" data-c="licht eiken"></div><div class="sw" style="background:#9c6b3f" data-c="warm noten"></div><div class="sw" style="background:#5f4327" data-c="donker"></div></div></div>
+      </div>
+      <div class="blok"><label>Keywords uit de opname / notities</label>
+        <textarea id="kw" placeholder="bijv. hoekwoning, zwarte kozijnen, plat dak"></textarea></div>
     </div>
-    <p class="mini">Tip: sleep in Midjourney de woningfoto als beeldreferentie erin, plak deze prompt erachter, en gebruik <b>--ar 3:2 --style raw</b> voor een fotorealistisch resultaat.</p>
-    <div class="samenv" id="samenv"></div>
+    <div class="rechts">
+      <h2>Gegenereerde prompt</h2>
+      <p class="note">Kopieer deze prompt en de woningfoto naar Midjourney.</p>
+      <div class="promptbox" id="prompt"></div>
+      <div class="acties">
+        <button class="btn p" id="copy">Kopieer prompt</button>
+        <button class="btn g" id="opslaan">Klant opslaan</button>
+        <button class="btn s" id="nieuw">Nieuw</button>
+      </div>
+      <p class="mini">Tip: sleep de woningfoto als beeldreferentie in Midjourney, plak de prompt erachter, gebruik <b>--ar 3:2 --style raw</b>.</p>
+      <div class="samenv" id="samenv"></div>
+    </div>
+  </div></div>
+
+  <!-- KLANTENLIJST -->
+  <div id="lijstview">
+    <div class="lijst-top">
+      <h1>Klanten</h1>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="tab" id="toonActief">Actief</button>
+        <button class="tab" id="toonArchief">Archief</button>
+        <button class="tab" id="exportBtn">Backup exporteren</button>
+        <label class="tab" style="cursor:pointer">Backup importeren<input type="file" id="importFile" accept="application/json" style="display:none"></label>
+      </div>
+    </div>
+    <div class="kaarten" id="kaarten"></div>
+    <div class="leeg" id="leeg" style="display:none">Nog geen klanten opgeslagen.</div>
   </div>
 </div>
+
 <script>
-var sC=document.getElementById('sC'),sR=document.getElementById('sR'),
- vC=document.getElementById('vC'),vS=document.getElementById('vS'),vH=document.getElementById('vH'),
- bC=document.getElementById('bC'),bS=document.getElementById('bS'),bH=document.getElementById('bH'),
- kw=document.getElementById('kw'),prompt=document.getElementById('prompt'),samenv=document.getElementById('samenv');
+var WW="12Honden";
+/* GATE */
+(function(){
+ function unlock(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';try{sessionStorage.setItem('ag_studio','1')}catch(e){};renderLijst();}
+ try{if(sessionStorage.getItem('ag_studio')==='1')unlock();}catch(e){}
+ function ch(){if(document.getElementById('pw').value===WW)unlock();else document.getElementById('err').textContent='Onjuist wachtwoord';}
+ document.getElementById('go').addEventListener('click',ch);
+ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')ch();});
+})();
+
+/* TABS */
+var tabConf=document.getElementById('tabConf'),tabLijst=document.getElementById('tabLijst');
+tabConf.addEventListener('click',function(){tabConf.classList.add('on');tabLijst.classList.remove('on');document.getElementById('confview').style.display='block';document.getElementById('lijstview').style.display='none';});
+tabLijst.addEventListener('click',function(){tabLijst.classList.add('on');tabConf.classList.remove('on');document.getElementById('confview').style.display='none';document.getElementById('lijstview').style.display='block';renderLijst();});
+
+/* CONFIG STATE */
 var kleur={crepi:'gebroken wit',steen:'licht kalksteen',hout:'licht eiken'};
-
-document.querySelectorAll('.kleuren').forEach(function(g){
-  g.addEventListener('click',function(e){
-    var sw=e.target.closest('.sw'); if(!sw)return;
-    g.querySelectorAll('.sw').forEach(function(x){x.classList.remove('on')});
-    sw.classList.add('on'); kleur[g.dataset.mat]=sw.dataset.c; render();
-  });
-});
-
-function calc(){
-  var c=parseInt(sC.value);           // crepi 65-90
-  var rest=100-c;                     // te verdelen
-  var r=parseInt(sR.value)/100;       // 0=all steen, 1=all hout
-  var s=Math.round(rest*(1-r));
-  var h=rest-s;
-  return {c:c,s:s,h:h};
+var fotoData="";var bewerktId=null;
+document.querySelectorAll('.kleuren').forEach(function(g){g.addEventListener('click',function(e){var sw=e.target.closest('.sw');if(!sw)return;g.querySelectorAll('.sw').forEach(function(x){x.classList.remove('on')});sw.classList.add('on');kleur[g.dataset.mat]=sw.dataset.c;render();});});
+var sC=document.getElementById('sC'),sR=document.getElementById('sR');
+function calc(){var c=parseInt(sC.value),rest=100-c,r=parseInt(sR.value)/100,s=Math.round(rest*(1-r)),h=rest-s;return{c:c,s:s,h:h};}
+function render(){var v=calc();
+ document.getElementById('vC').textContent=v.c+'%';document.getElementById('vS').textContent=v.s;document.getElementById('vH').textContent=v.h;
+ document.getElementById('bC').style.width=v.c+'%';document.getElementById('bS').style.width=v.s+'%';document.getElementById('bH').style.width=v.h+'%';
+ var extra=document.getElementById('kw').value.trim();
+ var p='modern Dutch house facade renovation, based on the uploaded photo of the existing home, keep the same building shape, roofline and windows, '+v.c+'% crepi render in '+kleur.crepi+' as the main surface, '+v.s+'% natural stone masonry in '+kleur.steen+' on plinth and entrance accents, '+v.h+'% vertical wooden slats in '+kleur.hout+' as accent, '+(extra?extra+', ':'')+'architectural exterior photography, golden hour, shallow depth of field, photorealistic --ar 3:2 --style raw';
+ document.getElementById('prompt').textContent=p;
+ document.getElementById('samenv').innerHTML='<b>Samenvatting:</b> Crepi '+v.c+'% ('+kleur.crepi+') · Natuursteen '+v.s+'% ('+kleur.steen+') · Hout '+v.h+'% ('+kleur.hout+')';
 }
-function render(){
-  var v=calc();
-  vC.textContent=v.c+'%'; vS.textContent=v.s; vH.textContent=v.h;
-  bC.style.width=v.c+'%'; bS.style.width=v.s+'%'; bH.style.width=v.h+'%';
-  var extra=kw.value.trim();
-  var p='modern Dutch house facade renovation, based on the uploaded photo of the existing home, '
-    +'keep the same building shape, roofline and windows, '
-    +v.c+'% crepi render in '+kleur.crepi+' as the main surface, '
-    +v.s+'% natural stone masonry in '+kleur.steen+' on plinth and entrance accents, '
-    +v.h+'% vertical wooden slats in '+kleur.hout+' as accent, '
-    +(extra? extra+', ':'')
-    +'architectural exterior photography, golden hour, shallow depth of field, photorealistic --ar 3:2 --style raw';
-  prompt.textContent=p;
-  samenv.innerHTML='<b>Samenvatting:</b> Crepi '+v.c+'% ('+kleur.crepi+') · Natuursteen '+v.s+'% ('+kleur.steen+') · Hout '+v.h+'% ('+kleur.hout+')';
-}
-sC.addEventListener('input',render); sR.addEventListener('input',render); kw.addEventListener('input',render);
-
-// file
+sC.addEventListener('input',render);sR.addEventListener('input',render);document.getElementById('kw').addEventListener('input',render);
+/* FILE */
 var drop=document.getElementById('drop'),file=document.getElementById('file'),prev=document.getElementById('prev'),previmg=document.getElementById('previmg');
 drop.addEventListener('click',function(){file.click()});
-file.addEventListener('change',function(e){
-  var f=e.target.files[0]; if(!f)return;
-  var r=new FileReader(); r.onload=function(ev){previmg.src=ev.target.result; prev.style.display='block';}; r.readAsDataURL(f);
-});
-// copy
-document.getElementById('copy').addEventListener('click',function(){
-  navigator.clipboard.writeText(prompt.textContent).then(function(){
-    var b=document.getElementById('copy'); b.textContent='Gekopieerd ✓'; setTimeout(function(){b.textContent='Kopieer prompt'},1500);
-  });
-});
-document.getElementById('reset').addEventListener('click',function(){
-  sC.value=70; sR.value=67; kw.value=''; 
-  kleur={crepi:'gebroken wit',steen:'licht kalksteen',hout:'licht eiken'};
-  document.querySelectorAll('.kleuren').forEach(function(g){var sws=g.querySelectorAll('.sw');sws.forEach(function(x){x.classList.remove('on')});sws[0].classList.add('on');});
-  render();
-});
-render();
-</script>
+file.addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){fotoData=ev.target.result;previmg.src=fotoData;prev.style.display='block';};r.readAsDataURL(f);});
+/* COPY */
+document.getElementById('copy').addEventListener('click',function(){navigator.clipboard.writeText(document.getElementById('prompt').textContent).then(function(){var b=document.getElementById('copy');b.textContent='Gekopieerd ✓';setTimeout(function(){b.textContent='Kopieer prompt'},1500);});});
 
-</div>
-<script>
-(function(){
- var WW="avantgarde2026";
- function unlock(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';try{sessionStorage.setItem('ag_studio','1');}catch(e){}}
- if(function(){try{return sessionStorage.getItem('ag_studio')==='1';}catch(e){return false;}}())unlock();
- function check(){var v=document.getElementById('pw').value;if(v===WW){unlock();}else{document.getElementById('err').textContent='Onjuist wachtwoord';}}
- document.getElementById('go').addEventListener('click',check);
- document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')check();});
-})();
+/* OPSLAG */
+function getKlanten(){try{return JSON.parse(localStorage.getItem('ag_klanten')||'[]');}catch(e){return[];}}
+function setKlanten(a){localStorage.setItem('ag_klanten',JSON.stringify(a));document.getElementById('cnt').textContent=a.filter(function(k){return !k.archief;}).length;}
+function nieuwForm(){bewerktId=null;document.getElementById('confTitel').textContent='Nieuwe klant';document.getElementById('cf-klant').value='';document.getElementById('kw').value='';fotoData='';prev.style.display='none';sC.value=70;sR.value=67;kleur={crepi:'gebroken wit',steen:'licht kalksteen',hout:'licht eiken'};document.querySelectorAll('.kleuren').forEach(function(g){var s=g.querySelectorAll('.sw');s.forEach(function(x){x.classList.remove('on')});s[0].classList.add('on');});render();}
+document.getElementById('nieuw').addEventListener('click',nieuwForm);
+document.getElementById('opslaan').addEventListener('click',function(){
+ var naam=document.getElementById('cf-klant').value.trim()||'Naamloos';
+ var v=calc();var rec={id:bewerktId||('k'+Date.now()),naam:naam,foto:fotoData,c:v.c,s:v.s,h:v.h,kleur:JSON.parse(JSON.stringify(kleur)),kw:document.getElementById('kw').value,prompt:document.getElementById('prompt').textContent,datum:new Date().toLocaleDateString('nl-NL'),archief:false};
+ var a=getKlanten();var idx=a.findIndex(function(k){return k.id===rec.id;});
+ if(idx>=0){rec.archief=a[idx].archief;a[idx]=rec;}else{a.unshift(rec);}
+ setKlanten(a);var b=document.getElementById('opslaan');b.textContent='Opgeslagen ✓';setTimeout(function(){b.textContent='Klant opslaan'},1500);
+});
+
+/* LIJST */
+var toonMode='actief';
+document.getElementById('toonActief').addEventListener('click',function(){toonMode='actief';renderLijst();});
+document.getElementById('toonArchief').addEventListener('click',function(){toonMode='archief';renderLijst();});
+function renderLijst(){
+ var a=getKlanten();setKlanten(a);
+ var lijst=a.filter(function(k){return toonMode==='archief'?k.archief:!k.archief;});
+ var wrap=document.getElementById('kaarten');wrap.innerHTML='';
+ document.getElementById('leeg').style.display=lijst.length?'none':'block';
+ document.getElementById('toonActief').classList.toggle('on',toonMode==='actief');
+ document.getElementById('toonArchief').classList.toggle('on',toonMode==='archief');
+ lijst.forEach(function(k){
+  var el=document.createElement('div');el.className='kk';
+  el.innerHTML='<div class="foto" style="background-image:url('+(k.foto||'')+')"></div><div class="in"><h3>'+k.naam+'</h3><div class="meta">Crepi '+k.c+'% · Steen '+k.s+'% · Hout '+k.h+'% · '+k.datum+'</div><div class="knoppen"><button class="b-in" data-a="in">Inzien</button><button class="b-arch" data-a="arch">'+(k.archief?'Terug':'Archief')+'</button><button class="b-del" data-a="del">Verwijder</button></div></div>';
+  el.querySelector('[data-a=in]').addEventListener('click',function(){laadKlant(k);});
+  el.querySelector('[data-a=arch]').addEventListener('click',function(){var arr=getKlanten();var i=arr.findIndex(function(x){return x.id===k.id;});arr[i].archief=!arr[i].archief;setKlanten(arr);renderLijst();});
+  el.querySelector('[data-a=del]').addEventListener('click',function(){if(confirm('Klant "'+k.naam+'" verwijderen?')){var arr=getKlanten().filter(function(x){return x.id!==k.id;});setKlanten(arr);renderLijst();}});
+  wrap.appendChild(el);
+ });
+}
+function laadKlant(k){
+ bewerktId=k.id;document.getElementById('confTitel').textContent='Klant: '+k.naam;
+ document.getElementById('cf-klant').value=k.naam;document.getElementById('kw').value=k.kw||'';
+ fotoData=k.foto||'';if(fotoData){previmg.src=fotoData;prev.style.display='block';}else{prev.style.display='none';}
+ sC.value=k.c;var rest=100-k.c;sR.value=rest?Math.round((1-(k.s/rest))*100):50;kleur=JSON.parse(JSON.stringify(k.kleur));
+ document.querySelectorAll('.kleuren').forEach(function(g){var m=g.dataset.mat;g.querySelectorAll('.sw').forEach(function(x){x.classList.toggle('on',x.dataset.c===kleur[m]);});});
+ render();tabConf.click();
+}
+/* EXPORT / IMPORT */
+document.getElementById('exportBtn').addEventListener('click',function(){
+ var blob=new Blob([JSON.stringify(getKlanten(),null,2)],{type:'application/json'});
+ var u=URL.createObjectURL(blob);var a=document.createElement('a');a.href=u;a.download='avantgarde-klanten-backup.json';a.click();
+});
+document.getElementById('importFile').addEventListener('change',function(e){
+ var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){try{var d=JSON.parse(ev.target.result);if(Array.isArray(d)){setKlanten(d);renderLijst();alert('Backup geïmporteerd: '+d.length+' klanten.');}}catch(x){alert('Ongeldig backup-bestand.');}};r.readAsText(f);
+});
+render();setKlanten(getKlanten());
 </script>
 </body></html>
