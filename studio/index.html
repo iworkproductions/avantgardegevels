@@ -1,0 +1,214 @@
+<!doctype html><html lang="nl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gevel-configurator · intern dashboard · Avant-Garde</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#211d18;--bg:#1a1712;--panel:#26221c;--lijn:#3a352d;--goud:#c9a678;--hout:#9c6b3f;--tekst:#e8e2d8;--zacht:#9a9184}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Jost,sans-serif;background:var(--bg);color:var(--tekst);font-weight:300;line-height:1.6}
+.top{background:var(--ink);padding:20px 34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--lijn)}
+.top .b{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:15px;color:#fff}
+.top .tag{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 66px)}
+.links{padding:44px 44px 60px;border-right:1px solid var(--lijn)}
+.rechts{padding:44px;background:var(--panel)}
+h1{font-size:24px;font-weight:600;margin-bottom:6px;color:#fff}
+.sub{color:var(--zacht);font-size:14px;margin-bottom:34px}
+.blok{margin-bottom:34px}
+.blok label{display:block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud);margin-bottom:14px}
+/* file */
+.drop{border:1px dashed var(--lijn);border-radius:10px;padding:26px;text-align:center;cursor:pointer;transition:.2s;background:#221e18}
+.drop:hover{border-color:var(--goud)}
+.drop span{color:var(--zacht);font-size:14px}
+.preview{margin-top:14px;border-radius:10px;overflow:hidden;display:none}
+.preview img{width:100%;display:block;max-height:230px;object-fit:cover}
+/* sliders */
+.rij{margin-bottom:26px}
+.rij .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.rij .nm{font-size:15px;color:#fff;font-weight:500}
+.rij .vl{font-size:22px;font-weight:600;color:var(--goud)}
+input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:5px;background:var(--lijn);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--goud);cursor:pointer;border:3px solid var(--panel)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--goud);cursor:pointer;border:3px solid var(--panel)}
+.hint{font-size:12px;color:var(--zacht);margin-top:8px}
+/* verhoudingsbalk */
+.vbalk{display:flex;height:20px;border-radius:6px;overflow:hidden;margin:8px 0 4px}
+.vbalk i{display:block;transition:width .15s}
+.vbalk .c{background:#d9c9b0}.vbalk .s{background:#8a8278}.vbalk .h{background:#9c6b3f}
+.vlbl{display:flex;justify-content:space-between;font-size:11px;color:var(--zacht);letter-spacing:.05em}
+/* kleuren */
+.kleuren{display:flex;gap:10px;flex-wrap:wrap}
+.sw{width:38px;height:38px;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:.15s}
+.sw.on{border-color:var(--goud);transform:scale(1.08)}
+.kl-groep{margin-bottom:18px}
+.kl-groep .t{font-size:12px;color:var(--zacht);margin-bottom:8px}
+/* keywords */
+textarea{width:100%;background:#221e18;border:1px solid var(--lijn);border-radius:10px;color:var(--tekst);padding:14px;font-family:inherit;font-size:14px;resize:vertical;min-height:70px}
+textarea:focus{outline:none;border-color:var(--goud)}
+/* prompt */
+.rechts h2{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--goud);margin-bottom:8px}
+.rechts .note{color:var(--zacht);font-size:13px;margin-bottom:22px}
+.promptbox{background:#14110d;border:1px solid var(--lijn);border-radius:12px;padding:22px;font-family:'SF Mono',Consolas,monospace;font-size:13.5px;line-height:1.7;color:#d9cfbf;white-space:pre-wrap;min-height:220px}
+.acties{display:flex;gap:12px;margin-top:16px}
+.btn{flex:1;text-align:center;padding:14px;border-radius:10px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:0;font-family:inherit;font-weight:500}
+.btn.p{background:var(--goud);color:var(--ink)}
+.btn.s{background:transparent;border:1px solid var(--lijn);color:var(--tekst)}
+.mini{font-size:12px;color:var(--zacht);margin-top:14px;line-height:1.6}
+.samenv{margin-top:26px;padding-top:20px;border-top:1px solid var(--lijn);font-size:13px;color:var(--zacht)}
+.samenv b{color:#fff;font-weight:500}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.links{border-right:0;border-bottom:1px solid var(--lijn)}}
+</style>
+<style>
+#gate{position:fixed;inset:0;background:#1a1712;z-index:9999;display:flex;align-items:center;justify-content:center}
+#gate .box{text-align:center;max-width:340px;width:100%;padding:0 30px}
+#gate .lg{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;letter-spacing:.24em;color:#fff;text-transform:uppercase;margin-bottom:8px}
+#gate .sub{color:#9a9184;font-size:13px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:34px}
+#gate input{width:100%;background:#221e18;border:1px solid #3a352d;border-radius:8px;color:#e8e2d8;padding:15px 16px;font-family:Jost,sans-serif;font-size:15px;margin-bottom:12px;text-align:center;letter-spacing:.1em}
+#gate input:focus{outline:none;border-color:#c9a678}
+#gate button{width:100%;background:#c9a678;color:#211d18;border:0;padding:15px;border-radius:8px;font-family:Jost,sans-serif;font-weight:600;font-size:13px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+#gate .err{color:#d98b6a;font-size:13px;margin-top:12px;min-height:18px}
+#app{display:none}
+</style></head>
+<body>
+<div id="gate"><div class="box">
+  <div class="lg">Avant-Garde</div>
+  <div class="sub">Studio · besloten</div>
+  <input type="password" id="pw" placeholder="Wachtwoord" autofocus>
+  <button id="go">Toegang</button>
+  <div class="err" id="err"></div>
+</div></div>
+<div id="app">
+
+<div class="top"><div class="b">Avant-Garde · Gevelconfigurator</div><div class="tag">Intern · voor Midas</div></div>
+<div class="grid">
+  <div class="links">
+    <h1>Configureer de gevel</h1>
+    <p class="sub">Stel samen met de klant de verhouding en de kleuren in. De prompt rechts wordt automatisch opgebouwd.</p>
+
+    <div class="blok"><label>1 · Foto van de woning</label>
+      <div class="drop" id="drop"><span>Klik om een foto van de bestaande woning te kiezen</span>
+        <input type="file" id="file" accept="image/*" style="display:none"></div>
+      <div class="preview" id="prev"><img id="previmg"></div>
+    </div>
+
+    <div class="blok"><label>2 · Verhouding materialen</label>
+      <div class="rij"><div class="hd"><span class="nm">Crepi (basis)</span><span class="vl" id="vC">70%</span></div>
+        <input type="range" id="sC" min="65" max="90" value="70">
+        <div class="hint">Crepi is altijd de basis, minimaal 65%.</div></div>
+      <div class="rij"><div class="hd"><span class="nm">Rest: natuursteen ↔ hout</span><span class="vl"><span id="vS">20</span>% / <span id="vH">10</span>%</span></div>
+        <input type="range" id="sR" min="0" max="100" value="67">
+        <div class="hint">Verdeel de resterende ruimte tussen natuursteen en hout.</div></div>
+      <div class="vbalk"><i class="c" id="bC"></i><i class="s" id="bS"></i><i class="h" id="bH"></i></div>
+      <div class="vlbl"><span>Crepi</span><span>Natuursteen</span><span>Hout</span></div>
+    </div>
+
+    <div class="blok"><label>3 · Kleuren</label>
+      <div class="kl-groep"><div class="t">Crepi</div><div class="kleuren" data-mat="crepi">
+        <div class="sw on" style="background:#f2ede4" data-c="gebroken wit"></div>
+        <div class="sw" style="background:#e3d7c3" data-c="crème"></div>
+        <div class="sw" style="background:#cbb79a" data-c="zandbeige"></div>
+        <div class="sw" style="background:#8d8579" data-c="taupe"></div>
+        <div class="sw" style="background:#3a3a38" data-c="antraciet"></div></div></div>
+      <div class="kl-groep"><div class="t">Natuursteen</div><div class="kleuren" data-mat="steen">
+        <div class="sw on" style="background:#c9bda6" data-c="licht kalksteen"></div>
+        <div class="sw" style="background:#9a9184" data-c="grijs"></div>
+        <div class="sw" style="background:#7d6a52" data-c="warm bruin"></div></div></div>
+      <div class="kl-groep"><div class="t">Hout</div><div class="kleuren" data-mat="hout">
+        <div class="sw on" style="background:#c08f57" data-c="licht eiken"></div>
+        <div class="sw" style="background:#9c6b3f" data-c="warm noten"></div>
+        <div class="sw" style="background:#5f4327" data-c="donker"></div></div></div>
+    </div>
+
+    <div class="blok"><label>4 · Keywords uit de opname / notities</label>
+      <textarea id="kw" placeholder="bijv. hoekwoning, zwarte kozijnen, plat dak, entree links, veel glas"></textarea>
+    </div>
+  </div>
+
+  <div class="rechts">
+    <h2>Gegenereerde prompt</h2>
+    <p class="note">Kopieer deze prompt en de gekozen woningfoto naar Midjourney om de visualisatie te maken.</p>
+    <div class="promptbox" id="prompt"></div>
+    <div class="acties">
+      <button class="btn p" id="copy">Kopieer prompt</button>
+      <button class="btn s" id="reset">Reset</button>
+    </div>
+    <p class="mini">Tip: sleep in Midjourney de woningfoto als beeldreferentie erin, plak deze prompt erachter, en gebruik <b>--ar 3:2 --style raw</b> voor een fotorealistisch resultaat.</p>
+    <div class="samenv" id="samenv"></div>
+  </div>
+</div>
+<script>
+var sC=document.getElementById('sC'),sR=document.getElementById('sR'),
+ vC=document.getElementById('vC'),vS=document.getElementById('vS'),vH=document.getElementById('vH'),
+ bC=document.getElementById('bC'),bS=document.getElementById('bS'),bH=document.getElementById('bH'),
+ kw=document.getElementById('kw'),prompt=document.getElementById('prompt'),samenv=document.getElementById('samenv');
+var kleur={crepi:'gebroken wit',steen:'licht kalksteen',hout:'licht eiken'};
+
+document.querySelectorAll('.kleuren').forEach(function(g){
+  g.addEventListener('click',function(e){
+    var sw=e.target.closest('.sw'); if(!sw)return;
+    g.querySelectorAll('.sw').forEach(function(x){x.classList.remove('on')});
+    sw.classList.add('on'); kleur[g.dataset.mat]=sw.dataset.c; render();
+  });
+});
+
+function calc(){
+  var c=parseInt(sC.value);           // crepi 65-90
+  var rest=100-c;                     // te verdelen
+  var r=parseInt(sR.value)/100;       // 0=all steen, 1=all hout
+  var s=Math.round(rest*(1-r));
+  var h=rest-s;
+  return {c:c,s:s,h:h};
+}
+function render(){
+  var v=calc();
+  vC.textContent=v.c+'%'; vS.textContent=v.s; vH.textContent=v.h;
+  bC.style.width=v.c+'%'; bS.style.width=v.s+'%'; bH.style.width=v.h+'%';
+  var extra=kw.value.trim();
+  var p='modern Dutch house facade renovation, based on the uploaded photo of the existing home, '
+    +'keep the same building shape, roofline and windows, '
+    +v.c+'% crepi render in '+kleur.crepi+' as the main surface, '
+    +v.s+'% natural stone masonry in '+kleur.steen+' on plinth and entrance accents, '
+    +v.h+'% vertical wooden slats in '+kleur.hout+' as accent, '
+    +(extra? extra+', ':'')
+    +'architectural exterior photography, golden hour, shallow depth of field, photorealistic --ar 3:2 --style raw';
+  prompt.textContent=p;
+  samenv.innerHTML='<b>Samenvatting:</b> Crepi '+v.c+'% ('+kleur.crepi+') · Natuursteen '+v.s+'% ('+kleur.steen+') · Hout '+v.h+'% ('+kleur.hout+')';
+}
+sC.addEventListener('input',render); sR.addEventListener('input',render); kw.addEventListener('input',render);
+
+// file
+var drop=document.getElementById('drop'),file=document.getElementById('file'),prev=document.getElementById('prev'),previmg=document.getElementById('previmg');
+drop.addEventListener('click',function(){file.click()});
+file.addEventListener('change',function(e){
+  var f=e.target.files[0]; if(!f)return;
+  var r=new FileReader(); r.onload=function(ev){previmg.src=ev.target.result; prev.style.display='block';}; r.readAsDataURL(f);
+});
+// copy
+document.getElementById('copy').addEventListener('click',function(){
+  navigator.clipboard.writeText(prompt.textContent).then(function(){
+    var b=document.getElementById('copy'); b.textContent='Gekopieerd ✓'; setTimeout(function(){b.textContent='Kopieer prompt'},1500);
+  });
+});
+document.getElementById('reset').addEventListener('click',function(){
+  sC.value=70; sR.value=67; kw.value=''; 
+  kleur={crepi:'gebroken wit',steen:'licht kalksteen',hout:'licht eiken'};
+  document.querySelectorAll('.kleuren').forEach(function(g){var sws=g.querySelectorAll('.sw');sws.forEach(function(x){x.classList.remove('on')});sws[0].classList.add('on');});
+  render();
+});
+render();
+</script>
+
+</div>
+<script>
+(function(){
+ var WW="avantgarde2026";
+ function unlock(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';try{sessionStorage.setItem('ag_studio','1');}catch(e){}}
+ if(function(){try{return sessionStorage.getItem('ag_studio')==='1';}catch(e){return false;}}())unlock();
+ function check(){var v=document.getElementById('pw').value;if(v===WW){unlock();}else{document.getElementById('err').textContent='Onjuist wachtwoord';}}
+ document.getElementById('go').addEventListener('click',check);
+ document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')check();});
+})();
+</script>
+</body></html>
