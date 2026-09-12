@@ -167,7 +167,9 @@ function ga(n){document.querySelectorAll('.scherm').forEach(function(s){s.classL
  var p=S('punten'),stap=['kies-steen','kies-hout','verhouding'].indexOf(n);
  p.classList.toggle('zichtbaar',stap>=0);p.classList.toggle('donker',n==='verhouding');
  p.querySelectorAll('i').forEach(function(d,i){d.classList.toggle('actief',i===stap)});}
-function terug(){if(idx>0)ga(volgorde[idx-1]);}
+var vanHome=false;
+function terug(){if(vanHome&&idx===1){location.href='/';return;}if(idx>0)ga(volgorde[idx-1]);}
+if(location.hash==='#start'){vanHome=true;document.getElementById('intro').style.transition='none';ga('uitleg');}
 function kiesMet(el,naam,cb){
  var r=el.getBoundingClientRect(),f=document.getElementById('flits');
  f.style.backgroundImage=el.style.backgroundImage;f.style.backgroundPosition=el.style.backgroundPosition||'center';
