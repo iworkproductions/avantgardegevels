@@ -1,0 +1,44 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>De Collectie · Avant-Garde Gevels</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"><style>
+:root{--ink:#211d18;--creme:#faf8f4;--goud:#b5946a;--hout:#9c6b3f;--lijn:#e2dbcf;--zacht:#6a6258}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Jost,sans-serif;background:#faf8f4;color:var(--ink);font-weight:300;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:0 44px}
+/* HERO */
+.hero{height:64vh;min-height:440px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(rgba(33,29,24,.4),rgba(33,29,24,.66)),url(/assets/materialen/villa-hero.jpg) center/cover;color:var(--creme)}
+.hero .eye{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--goud);margin-bottom:24px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:500;line-height:1.05;max-width:780px}
+.hero .sub{font-size:17px;font-weight:300;max-width:460px;margin:24px auto 34px;opacity:.9}
+.hero .acties{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero a{text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:16px 34px;border-radius:4px;transition:.25s}
+.hero .prim{background:#faf8f4;color:var(--ink)}.hero .prim:hover{background:#fff}
+.hero .sec{border:1px solid rgba(245,241,234,.5);color:var(--creme)}.hero .sec:hover{background:#faf8f4;color:var(--ink)}
+/* SECTIE */
+.sec-kop{text-align:center;padding:100px 0 50px}
+.sec-kop .eye{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--hout);margin-bottom:18px}
+.sec-kop h2{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:500;line-height:1.1}
+.sec-kop p{font-size:17px;color:var(--zacht);max-width:520px;margin:16px auto 0;font-weight:300}
+/* GALERIJ */
+.galerij{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;padding-bottom:40px}
+.mat{cursor:default}
+.mat .beeld{height:320px;background-size:cover;background-position:center;border-radius:4px;margin-bottom:22px;position:relative;overflow:hidden}
+.mat .beeld::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(33,29,24,0),rgba(33,29,24,.25));transition:.4s}
+.mat:hover .beeld::after{background:linear-gradient(rgba(33,29,24,0),rgba(33,29,24,.1))}
+.mat{display:block;color:inherit;text-decoration:none}
+.mat .naam{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;margin-bottom:4px}
+.mat .naam .cat{font-weight:400;color:var(--zacht)}
+.mat .meer{margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.55;transition:.3s}
+.mat:hover .meer{opacity:1;color:var(--hout)}
+.mat .type{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--goud);margin-bottom:14px}
+.mat .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);line-height:1.4;margin-bottom:12px}
+.mat .oms{font-size:14.5px;line-height:1.75;color:var(--zacht)}
+.scheiding{border:0;border-top:1px solid var(--lijn);max-width:1240px;margin:60px auto}
+/* CTA */
+.cta{padding:120px 0;text-align:center;background:#efe7da}
+.cta h2{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:500;line-height:1.1;margin-bottom:20px}
+.cta p{font-size:17px;color:var(--zacht);max-width:480px;margin:0 auto 34px;font-weight:300}
+.cta a{display:inline-block;background:var(--ink);color:var(--creme);text-decoration:none;font-size:13px;letter-spacing:.2em;text-transform:uppercase;padding:19px 46px;border-radius:4px;transition:.25s}
+.cta a:hover{background:var(--hout)}
+footer{background:var(--ink);color:#9a9184;padding:44px 0;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:900px){.galerij{grid-template-columns:1fr}.hero h1{font-size:42px}.sec-kop h2,.cta h2{font-size:34px}.wrap{padding:0 26px}}
+</style></head><body><section class="hero"><div class="eye">De Collectie</div><h1>De materialen die<br>uw gevel maken.</h1><div class="sub">Drie natuurstenen, drie houtlooks in composiet. Elk met een eigen naam, herkomst en karakter. Bekijk de collectie, of beleef de reis.</div><div class="acties"><a class="prim" href="/reis/">Beleef de reis</a><a class="sec" href="#collectie">Bekijk de collectie</a></div></section><div id="collectie"></div><section><div class="wrap"><div class="sec-kop"><div class="eye">De basis</div><h2>Natuursteen</h2><p>Handgevormd, met de hand gezet. Het accent dat karakter en warmte geeft.</p></div><div class="galerij"><a class="mat" href="/collectie/atlas/"><div class="beeld" style="background-image:url(/assets/materialen/atlas.jpg)"></div><div class="naam">Atlas<span class="cat">-natuursteen</span></div><div class="type">Travertijn · Noord-Italië</div><div class="quote">“Kracht die je voelt.”</div><div class="oms">Handgevormde travertijn met diepe warme tinten. Het accent dat een gevel aardt en verankert.</div><div class="meer">Ontdek Atlas →</div></a><a class="mat" href="#"><div class="beeld" style="background-image:url(/assets/materialen/freya.jpg)"></div><div class="naam">Freya<span class="cat">-natuursteen</span></div><div class="type">Kalksteen · Bourgogne, Frankrijk</div><div class="quote">“Ingetogen schoonheid.”</div><div class="oms">Koel grijs met een levendige breuk. Ingetogen, maar met een stille kracht.</div><div class="meer">Ontdek Freya →</div></a><a class="mat" href="#"><div class="beeld" style="background-image:url(/assets/materialen/hermes.jpg)"></div><div class="naam">Hermes<span class="cat">-natuursteen</span></div><div class="type">Kalksteen · Alentejo, Portugal</div><div class="quote">“Spreekt zonder stem.”</div><div class="oms">Uitgebalanceerd en veelzijdig, past moeiteloos bij elke architectuur.</div><div class="meer">Ontdek Hermes →</div></a></div></div></section><hr class="scheiding"><section><div class="wrap"><div class="sec-kop"><div class="eye">Het ritme</div><h2>Composiet houtlook</h2><p>Verticale latten die de gevel laten leven met het licht. Onderhoudsarm, generaties lang mee.</p></div><div class="galerij"><a class="mat" href="#"><div class="beeld" style="background-image:url(/assets/materialen/evergreen.jpg)"></div><div class="naam">Evergreen<span class="cat">-composiet houtlook</span></div><div class="type">Composiet · Europese fabricage</div><div class="quote">“Nooit uit de tijd.”</div><div class="oms">Warme, natuurlijke tint die altijd klopt. De tijdloze keuze die generaties meegaat.</div><div class="meer">Ontdek Evergreen →</div></a><a class="mat" href="#"><div class="beeld" style="background-image:url(/assets/materialen/ember.jpg)"></div><div class="naam">Ember<span class="cat">-composiet houtlook</span></div><div class="type">Composiet · Europese fabricage</div><div class="quote">“Vangt het licht.”</div><div class="oms">Een diepe, gloeiende tint die de gevel laat leven in het avondlicht.</div><div class="meer">Ontdek Ember →</div></a><a class="mat" href="#"><div class="beeld" style="background-image:url(/assets/materialen/empire.jpg)"></div><div class="naam">Empire<span class="cat">-composiet houtlook</span></div><div class="type">Composiet · Europese fabricage</div><div class="quote">“Strak en zeker.”</div><div class="oms">Donker, egaal en scherp belijnd. Zelfverzekerd, voor het contrast.</div><div class="meer">Ontdek Empire →</div></a></div></div></section><section class="cta"><h2>Stel uw eigen<br>Avant-Garde look samen.</h2><p>Combineer uw natuursteen en uw hout, en ontdek uw signatuur. Wij komen vrijblijvend langs om het op uw eigen woning te laten zien.</p><a href="/reis/">Beleef de reis &amp; stel samen</a></section><footer>Avant-Garde Gevels · De Collectie · www.avantgardegevels.nl</footer></body></html>
