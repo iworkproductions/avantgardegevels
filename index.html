@@ -25,6 +25,8 @@ header{position:absolute;top:0;left:0;right:0;z-index:20}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:60px;line-height:1.1;font-weight:500;max-width:960px;margin:0 auto 26px;text-shadow:0 2px 24px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.6)}
 .hero h1 .ag{font-size:88px;font-weight:600;display:block;margin-top:6px;letter-spacing:.01em;white-space:nowrap}.hero h1 .ag-sub{display:block;font-family:Jost,sans-serif;font-weight:400;font-size:15px;letter-spacing:.32em;text-transform:uppercase;margin-top:14px;opacity:.9;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .hero p{font-size:20px;max-width:560px;margin:0 auto;font-weight:300;opacity:.95;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero-cta{display:inline-block;margin-top:38px;background:#fff;color:var(--ink);text-decoration:none;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:20px 54px;border-radius:40px;transition:.3s cubic-bezier(.4,0,.2,1);box-shadow:0 14px 40px rgba(0,0,0,.28)}
+.hero-cta:hover{background:var(--hout);color:#fff;transform:translateY(-2px)}
 .scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
 /* INTRO */
 .intro-sec{padding:150px 0 120px;text-align:center}
@@ -37,6 +39,9 @@ header{position:absolute;top:0;left:0;right:0;z-index:20}
 .mat-sec .head{text-align:center;margin-bottom:70px}
 .mat-sec .eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--hout);margin-bottom:20px}
 .mat-sec h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500}
+.mat-meer{text-align:center;margin-top:60px}
+.mat-meer a{color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--lijn);padding-bottom:8px;transition:.25s}
+.mat-meer a:hover{color:var(--hout);border-color:var(--hout)}
 .drie{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 .m{text-align:center}
 .m .foto{height:300px;background-size:cover;background-position:center;margin-bottom:28px}
@@ -69,6 +74,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:20}
 .wg p{color:#b0a89b;font-size:15px;font-weight:300}
 .bron{margin-top:56px;font-size:11px;color:#7a7266;letter-spacing:.06em}
 /* CTA */
+.st-link{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--lijn);transition:.25s}.st-link:hover{color:var(--hout);border-color:var(--hout)}
 .cta{padding:150px 0;text-align:center}
 .cta .eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--hout);margin-bottom:24px}
 .cta h2{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:500;line-height:1.1;margin-bottom:28px}
@@ -152,6 +158,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div>
     <h1>Gevelrenovatie die vooroploopt.<br><span class="ag">Avant-Garde</span><span class="ag-sub">Premium gevelrenovatie</span></h1>
     <p>Crepi, natuursteen en hout, vakkundig gecombineerd tot één moderne gevel die isoleert én er prachtig uitziet. Uw gevel, kozijnen en bouwwerk in één hand. Wij ontzorgen, u geniet.</p>
+    <a class="hero-cta" href="/reis/">Ontwerp uw gevel</a>
   </div>
   <a class="scroll" id="scrollbtn" href="#intro-tekst"><span>Ontdek</span><span class="arr">&#8595;</span></a>
 </section>
@@ -194,8 +201,9 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div class="drie">
     <div class="m"><div class="foto" style="background-image:url(assets/detail-crepi.jpg)"></div><h3>Crepi</h3><div class="pct">De rustige basis</div><p>Een strakke, egale isolerende schil die de woning inpakt en de toon zet.</p></div>
     <div class="m"><div class="foto" style="background-image:url(assets/detail-steen.jpg)"></div><h3>Natuursteen</h3><div class="pct">Het karakter</div><p>Gemetselde natuursteen op plint en entree geeft diepte, warmte en robuustheid.</p></div>
-    <div class="m"><div class="foto" style="background-image:url(assets/detail-hout.jpg)"></div><h3>Hout</h3><div class="pct">Het accent</div><p>Verticale houten latten brengen ritme en een warme, eigentijdse signatuur.</p></div>
+    <div class="m"><div class="foto" style="background-image:url(assets/detail-hout.jpg)"></div><h3>Composiet houtlook</h3><div class="pct">Het accent</div><p>Verticale latten in composiet brengen ritme en een warme, eigentijdse signatuur. Nooit schilderen.</p></div>
   </div>
+  <div class="mat-meer"><a href="/collectie/">Bekijk de collectie: Atlas, Freya, Hermes, Evergreen, Ember en Empire</a></div>
 </div></section>
 <section class="waarde"><div class="wrap">
   <div class="eyebrow">De waarde</div>
@@ -211,7 +219,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div class="head-c"><div class="eyebrow-d">Zo werkt het</div><h2>Van eerste gesprek<br>tot opgeleverde gevel.</h2></div>
   <div class="stappen4">
     <div class="st"><span class="nr">01</span><h3>Adviesgesprek</h3><p>Wij komen vrijblijvend langs, bekijken uw woning en luisteren naar uw wensen. U krijgt eerlijk advies over de mogelijkheden.</p></div>
-    <div class="st"><span class="nr">02</span><h3>Ontwerp op maat</h3><p>Wij vertalen uw woning en wensen naar een gevelontwerp: de verhouding Crepi, natuursteen en hout, met de juiste kleuren.</p></div>
+    <div class="st"><span class="nr">02</span><h3>Ontwerp op maat</h3><p>Wij vertalen uw woning en wensen naar een gevelontwerp: de verhouding crepi, natuursteen en composiet houtlook. Of begin vanavond al zelf: <a class="st-link" href="/reis/">ontwerp uw gevel online</a> en ontvang uw stijldossier.</p></div>
     <div class="st"><span class="nr">03</span><h3>Uitvoering</h3><p>Onze vakmensen brengen de isolatie aan, plaatsen de materialen en werken alles strak af. Eén vast aanspreekpunt.</p></div>
     <div class="st"><span class="nr">04</span><h3>Oplevering</h3><p>Uw gevel is klaar: beter geïsoleerd én een compleet nieuwe uitstraling. Wij lopen alles met u na tot in het detail.</p></div>
   </div>
@@ -249,7 +257,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div class="cf-of">of bel ons direct</div>
   <a class="cf-tel" href="tel:+31640506451">06 40 50 64 51</a>
 </div></section>
-<footer>Avant-Garde Gevels · Compositie in Crepi, natuursteen en hout</footer>
+<footer>Avant-Garde Gevels · Compositie in crepi, natuursteen en composiet houtlook</footer>
 <script>
 // intro fade out
 window.addEventListener('load',function(){setTimeout(function(){var i=document.getElementById('intro');if(i)i.classList.add('done');},2200);});
