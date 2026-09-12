@@ -17,6 +17,9 @@ body{font-family:Jost,sans-serif;color:var(--ink);background:var(--creme);line-h
 header{position:absolute;top:0;left:0;right:0;z-index:20}
 .hb{display:flex;align-items:center;justify-content:space-between;height:104px}
 .brand{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;letter-spacing:.24em;color:#fff;text-transform:uppercase}
+.kop-nav{display:flex;align-items:center;gap:34px}
+.kop-link{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.85;transition:.25s}.kop-link:hover{opacity:1}
+@media(max-width:640px){.kop-link{display:none}}
 .bel{color:#fff;text-decoration:none;font-size:12px;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(255,255,255,.45);padding:13px 28px;transition:.25s}
 .bel:hover{background:#fff;color:var(--ink)}
 /* HERO */
@@ -39,6 +42,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:20}
 .mat-sec .head{text-align:center;margin-bottom:70px}
 .mat-sec .eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--hout);margin-bottom:20px}
 .mat-sec h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500}
+.drie a.m{color:inherit;text-decoration:none;display:block}.drie a.m .foto{transition:transform .6s cubic-bezier(.2,.8,.2,1)}.drie a.m:hover .foto{transform:scale(1.02)}
 .mat-meer{text-align:center;margin-top:60px}
 .mat-meer a{color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--lijn);padding-bottom:8px;transition:.25s}
 .mat-meer a:hover{color:var(--hout);border-color:var(--hout)}
@@ -152,7 +156,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
 @media(max-width:600px){.stappen4{grid-template-columns:1fr}}
 </style></head><body>
 <div class="intro" id="intro"><img src="assets/logo-ag.png" alt="Avant-Garde" class="intro-logo"></div>
-<header><div class="wrap hb"><a href="#" class="brand"><img src="assets/logo-ag-wit.png" alt="Avant-Garde" class="brand-logo"></a><a class="bel" href="#advies">Adviesgesprek</a></div></header>
+<header><div class="wrap hb"><a href="#" class="brand"><img src="assets/logo-ag-wit.png" alt="Avant-Garde" class="brand-logo"></a><nav class="kop-nav"><a class="kop-link" href="/collectie/">De collectie</a><a class="bel" href="#advies">Adviesgesprek</a></nav></div></header>
 
 <section class="hero"><div class="slideshow"><div class="slide" style="background-image:url(assets/villa-na.jpg)"></div><div class="slide" style="background-image:url(assets/farm-na.jpg)"></div><div class="slide" style="background-image:url(assets/bungalow-na.jpg)"></div><div class="slide" style="background-image:url(assets/gal-1.jpg)"></div><div class="hero-tint"></div></div>
   <div>
@@ -199,9 +203,9 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
 <section class="mat-sec"><div class="wrap">
   <div class="head"><div class="eyebrow">De compositie</div><h2>Drie materialen, één handschrift.</h2></div>
   <div class="drie">
-    <div class="m"><div class="foto" style="background-image:url(assets/detail-crepi.jpg)"></div><h3>Crepi</h3><div class="pct">De rustige basis</div><p>Een strakke, egale isolerende schil die de woning inpakt en de toon zet.</p></div>
-    <div class="m"><div class="foto" style="background-image:url(assets/detail-steen.jpg)"></div><h3>Natuursteen</h3><div class="pct">Het karakter</div><p>Gemetselde natuursteen op plint en entree geeft diepte, warmte en robuustheid.</p></div>
-    <div class="m"><div class="foto" style="background-image:url(assets/detail-hout.jpg)"></div><h3>Composiet houtlook</h3><div class="pct">Het accent</div><p>Verticale latten in composiet brengen ritme en een warme, eigentijdse signatuur. Nooit schilderen.</p></div>
+    <a class="m" href="/collectie/"><div class="foto" style="background-image:url(assets/detail-crepi.jpg)"></div><h3>Crepi</h3><div class="pct">De rustige basis</div><p>Een strakke, egale isolerende schil die de woning inpakt en de toon zet.</p></a>
+    <a class="m" href="/collectie/"><div class="foto" style="background-image:url(assets/detail-steen.jpg)"></div><h3>Natuursteen</h3><div class="pct">Het karakter</div><p>Gemetselde natuursteen op plint en entree geeft diepte, warmte en robuustheid.</p></a>
+    <a class="m" href="/collectie/"><div class="foto" style="background-image:url(assets/detail-hout.jpg)"></div><h3>Composiet houtlook</h3><div class="pct">Het accent</div><p>Verticale latten in composiet brengen ritme en een warme, eigentijdse signatuur. Nooit schilderen.</p></a>
   </div>
   <div class="mat-meer"><a href="/collectie/">Bekijk de collectie: Atlas, Freya, Hermes, Evergreen, Ember en Empire</a></div>
 </div></section>
