@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=103">
+<link rel="stylesheet" href="/assets/site.css?v=104">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -112,14 +112,16 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 /* slot: links dossier, rechts formulier */
 .slot{padding:12vh max(24px,6vw) 20vh}
 .slot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.dossier-blok{}
+.dk-titel{font-size:clamp(20px,2vw,28px);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--goud);margin-bottom:22px;text-align:center}
 .dossier-kaart{background:var(--pap);border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(33,29,24,.16)}
 .dk-beeld{aspect-ratio:16/10;overflow:hidden;position:relative}
 .dk-beeld img.dk-logo-op{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(180px,44%);height:auto;filter:brightness(0) invert(1);opacity:.95;z-index:2}
-.dk-beeld::after{content:"";position:absolute;inset:0;background:rgba(13,11,9,.28)}
+
 .dk-beeld img{width:100%;height:100%;object-fit:cover;display:block}
-.dk-body{padding:clamp(28px,3vw,40px)}
-.dk-label{font-size:clamp(16px,1.6vw,22px);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--goud)}
-.dk-naam{font-size:15px;color:var(--dim);margin-top:6px}
+.dk-body{padding:clamp(28px,3vw,40px);position:relative}
+.dk-merk img{height:22px;width:auto;margin-bottom:22px}
+.dk-naam{font-size:15px;color:var(--dim);margin-top:20px;text-align:right}
 .dk-naam:empty{display:none}
 .dossier-kaart .pb{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--creme);margin-bottom:12px}
 .dossier-kaart .ptitel{font-size:clamp(28px,3vw,42px);line-height:1.02}
@@ -269,16 +271,19 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 <!-- STIJLDOSSIER + FORMULIER -->
 <section class="slot" id="dossier">
   <div class="slot-grid">
-    <div class="dossier-kaart" data-in>
-      <div class="dk-beeld"><img src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning" loading="lazy"><img class="dk-logo-op" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></div>
-      <div class="dk-body">
-        <div class="dk-label">Avant-Garde Stijldossier</div>
-        <div class="dk-naam" id="dk-naam"></div>
-        <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
-        <div class="samenvat">
-          <span class="chip"><span class="dot" id="d-crepi-dot" style="background:#efe9dd"></span>Crepi · <b id="sv-crepi">Warm wit</b></span>
-          <span class="chip"><span class="dot" style="background:#b8a888"></span>Steen · <b id="sv-steen">Atlas</b></span>
-          <span class="chip"><span class="dot" style="background:#6b4a2e"></span>Houtlook · <b id="sv-hout">Evergreen</b></span>
+    <div class="dossier-blok" data-in>
+      <div class="dk-titel">Avant-Garde Stijldossier</div>
+      <div class="dossier-kaart">
+        <div class="dk-beeld"><img src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning" loading="lazy"></div>
+        <div class="dk-body">
+          <div class="dk-merk"><img src="/assets/logo-ag.png" alt="Avant-Garde Gevels"></div>
+          <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
+          <div class="samenvat">
+            <span class="chip"><span class="dot" id="d-crepi-dot" style="background:#efe9dd"></span>Crepi · <b id="sv-crepi">Warm wit</b></span>
+            <span class="chip"><span class="dot" style="background:#b8a888"></span>Steen · <b id="sv-steen">Atlas</b></span>
+            <span class="chip"><span class="dot" style="background:#6b4a2e"></span>Houtlook · <b id="sv-hout">Evergreen</b></span>
+          </div>
+          <div class="dk-naam" id="dk-naam"></div>
         </div>
       </div>
     </div>
