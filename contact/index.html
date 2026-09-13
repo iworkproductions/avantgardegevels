@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=118">
+<link rel="stylesheet" href="/assets/site.css?v=119">
 
 <style>
 .c-kop{padding:16vh 8vw 8vh;max-width:1120px}
@@ -46,13 +46,9 @@
 </section>
 
 <div class="c-grid">
-  <form class="cf" id="cf" onsubmit="return verstuur(event)">
-    <input type="text" id="cf-naam" placeholder="Naam" autocomplete="name" required>
-    <div class="twee"><input type="email" id="cf-mail" placeholder="E-mailadres" autocomplete="email" required><input type="tel" id="cf-tel" placeholder="Telefoonnummer" autocomplete="tel"></div>
-    <input type="text" id="cf-pc" placeholder="Postcode" autocomplete="postal-code">
-    <textarea id="cf-ber" placeholder="Vertel kort over uw woning"></textarea>
-    <button type="submit" class="pil groot">Vrijblijvend adviesgesprek</button>
-  </form>
+  <div class="c-form">
+    <iframe data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Adviesgesprek"></iframe>
+  </div>
   <div class="c-info">
     <div class="c-blok"><div class="l">Telefoon</div><a href="tel:+31640506451">06 40 50 64 51</a></div>
     <div class="c-blok"><div class="l">E-mail</div><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a></div>
@@ -71,14 +67,9 @@
 </section>
 
 <footer class="voet">
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v118</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v119</span></div>
 </footer>
 
-<script>
-function verstuur(e){e.preventDefault();
- var n=document.getElementById('cf-naam').value,m=document.getElementById('cf-mail').value,t=document.getElementById('cf-tel').value,p=document.getElementById('cf-pc').value,b=document.getElementById('cf-ber').value;
- location.href='mailto:iworkproductions@outlook.com?subject='+encodeURIComponent('Adviesgesprek - '+n)+'&body='+encodeURIComponent('Naam: '+n+'\nE-mail: '+m+'\nTelefoon: '+t+'\nPostcode: '+p+'\n\nWoning:\n'+b+'\n\n(Verzonden via avantgardegevels.nl/contact/)');
- return false;}
-</script>
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>

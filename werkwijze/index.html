@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=118">
+<link rel="stylesheet" href="/assets/site.css?v=119">
 
 <style>
 .kop-blok{padding:14vh 24px 8vh;max-width:1120px;margin:0 auto}
@@ -149,13 +149,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
     <div class="eye">Adviesgesprek</div>
     <h2>Laat uw woning<br>opnieuw ontstaan.</h2>
     <p>Wij komen bij u thuis, kijken naar de woning en vertalen haar karakter naar een gevel die blijft.</p>
-    <form class="cf" id="cf" onsubmit="return verstuur(event)">
-      <input type="text" id="cf-naam" placeholder="Naam" autocomplete="name" required>
-      <div class="twee"><input type="tel" id="cf-tel" placeholder="Telefoonnummer" autocomplete="tel"><input type="email" id="cf-mail" placeholder="E-mailadres" autocomplete="email" required></div>
-      <input type="text" id="cf-plaats" placeholder="Woonplaats" autocomplete="address-level2">
-      <textarea id="cf-ber" placeholder="Waar kunnen we u mee helpen?"></textarea>
-      <button type="submit" class="pil groot">Plan een adviesgesprek</button>
-    </form>
+    <div class="advies-form"><iframe data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Adviesgesprek"></iframe></div>
     <div class="of">of bel direct</div>
     <a class="bel" href="tel:+31640506451">06 40 50 64 51</a>
   </div>
@@ -175,7 +169,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
     <li>Gemiddelde besparing op aardgasverbruik door gevelisolatie volgens Milieu Centraal; het werkelijke effect hangt af van woning en gebruik.</li>
     <li>ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v118</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v119</span></div>
 </footer>
 
 <script>
@@ -187,14 +181,8 @@ function calc(v){v=Math.max(0,v||0);var sub=Math.max(0,Math.min(170,v))*20.25;
 if(m){m.addEventListener('input',function(){r.value=Math.min(200,m.value||0);calc(+m.value);});
  r.addEventListener('input',function(){m.value=r.value;calc(+r.value);});calc(+m.value);}
 })();
-function verstuur(e){e.preventDefault();
- var n=document.getElementById('cf-naam').value,t=document.getElementById('cf-tel').value,
-     m=document.getElementById('cf-mail').value,p=document.getElementById('cf-plaats').value,
-     b=document.getElementById('cf-ber').value;
- var subject=encodeURIComponent('Adviesgesprek - '+n);
- var body=encodeURIComponent('Naam: '+n+'\nTelefoon: '+t+'\nE-mail: '+m+'\nWoonplaats: '+p+'\n\nBericht:\n'+b+'\n\n(Verzonden via avantgardegevels.nl/werkwijze/)');
- window.location.href='mailto:iworkproductions@outlook.com?subject='+subject+'&body='+body;
- return false;}
+
 </script>
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
