@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=90">
+<link rel="stylesheet" href="/assets/site.css?v=91">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -55,7 +55,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .streng-plak{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding-top:60px}
 .streng-kop{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
 .streng-logo{height:26px;width:auto;filter:brightness(0)}
-.streng-dna{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,34px);letter-spacing:.28em;color:var(--goud);padding-left:.28em}
+.streng-dna{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,20px);letter-spacing:.14em;color:var(--goud);padding-left:.14em}
 .streng-stage{position:relative;width:100%;max-width:400px;aspect-ratio:1024/1536}
 .streng-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s var(--ease);will-change:opacity}
 .streng-stage img.zicht{opacity:1}
@@ -99,6 +99,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 /* stijldossier floating card */
 .dossier-wrap{padding:14vh max(24px,6vw) 18vh;display:flex;justify-content:center}
 .dossier{background:var(--zwart);color:var(--creme);border-radius:20px;padding:clamp(32px,5vw,64px);max-width:720px;width:100%;box-shadow:0 50px 120px rgba(33,29,24,.3)}
+.dossier-visual{width:100%;max-width:220px;border-radius:12px;margin-bottom:28px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
 .dossier .eye{color:var(--creme)}
 .dossier h2{font-size:clamp(30px,3.6vw,52px);margin-bottom:16px}
 .dossier p{color:#c9c1b4;line-height:1.5;max-width:46ch}
@@ -135,7 +136,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 <div class="atelier" id="atelier">
   <div class="streng-kolom">
     <div class="streng-plak">
-      <div class="streng-kop"><img class="streng-logo" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"><span class="streng-dna">DNA</span></div>
+      <div class="streng-kop"><img class="streng-logo" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"><span class="streng-dna">Uw Avant-Garde DNA</span></div>
       <div class="streng-stage">
         <img id="st-crepi" class="zicht" src="/assets/atelier/streng-crepi.png" alt="Gevelstreng — crepi">
         <img id="st-steen" src="/assets/atelier/streng-steen.png" alt="Gevelstreng — crepi en natuursteen">
@@ -201,7 +202,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 
 <!-- WONING -->
 <section class="woning" id="woning">
-  <img src="/assets/atelier/woning.jpg" alt="Avant-Garde woning met uw materiaalcombinatie">
+  <img src="/assets/atelier/woning2.jpg" alt="Avant-Garde woning met uw materiaalcombinatie">
   <div class="op"></div>
   <div class="txt" data-in><h3>Losse keuzes,<br>nu architectuur.</h3></div>
 </section>
@@ -209,6 +210,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 <!-- STIJLDOSSIER -->
 <div class="dossier-wrap">
   <div class="dossier" id="dossier" data-in>
+    <img class="dossier-visual" src="/assets/atelier/stijldossier.jpg" alt="Uw Avant-Garde stijldossier met materiaalstalen">
     <div class="eye">Uw persoonlijke stijldossier</div>
     <h2>Staat klaar.</h2>
     <p>Met uw materiaalcombinatie, inspiratie en advies. Wij brengen uw signatuur tot leven op uw eigen woning.</p>
