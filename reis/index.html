@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=93">
+<link rel="stylesheet" href="/assets/site.css?v=95">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -97,7 +97,34 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .woning .txt{position:absolute;left:max(24px,6vw);bottom:8vh;z-index:2;color:#fff}
 .woning .txt h3{font-size:clamp(28px,4vw,56px);line-height:1}
 
-/* stijldossier floating card */
+/* slot: links dossier, rechts formulier */
+.slot{padding:12vh max(24px,6vw) 20vh}
+.slot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.dossier-kaart{background:var(--pap);border-radius:18px;padding:clamp(28px,3vw,44px);box-shadow:0 40px 100px rgba(33,29,24,.14)}
+.dossier-visual{width:100%;max-width:240px;border-radius:12px;margin-bottom:26px;box-shadow:0 20px 50px rgba(33,29,24,.16)}
+.dossier-kaart .pb{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--creme);margin-bottom:12px}
+.dossier-kaart .ptitel{font-size:clamp(28px,3vw,42px);line-height:1.02}
+.dossier-kaart .ptitel .amp{color:var(--goud)}
+.samenvat{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.samenvat .chip{font-size:15px;color:var(--dim)}
+.samenvat .chip b{color:var(--zwart);font-weight:500}
+.samenvat .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:9px;vertical-align:middle}
+.form-kolom h2{font-size:clamp(30px,3.4vw,52px);margin:14px 0 0}
+.form-kolom .lead{margin-top:18px;max-width:40ch}
+.cf{display:grid;gap:14px;margin-top:32px}
+.cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf input{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid var(--lijn);color:var(--zwart);padding:14px 0;font-family:'Geist',sans-serif;font-size:16px;transition:border-color .25s}
+.cf input:focus{outline:none;border-bottom-color:var(--goud)}
+.cf input::placeholder{color:#a89f92}
+.pil{display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:var(--zwart);color:var(--creme);padding:15px 34px;border-radius:980px;font-weight:500;font-size:15px;border:0;cursor:pointer;font-family:'Geist',sans-serif;transition:background .25s;margin-top:8px;justify-self:start}
+.pil:hover{background:#000}
+.cf .tel{margin-top:16px;font-size:14px;color:var(--dim)}.cf .tel b{color:var(--zwart)}
+.klaar-form{display:none}.form-kolom.verzonden .cf{display:none}.form-kolom.verzonden .klaar-form{display:block}
+@media(max-width:900px){.slot-grid{grid-template-columns:1fr;gap:6vh}}
+@media(max-width:560px){.cf .twee{grid-template-columns:1fr}}
+
+/* (oude floating card CSS hieronder ongebruikt) */
+.OUD-floating{
 .dossier-wrap{padding:14vh max(24px,6vw) 18vh;display:flex;justify-content:center}
 .dossier{background:var(--zwart);color:var(--creme);border-radius:20px;padding:clamp(32px,5vw,64px);max-width:720px;width:100%;box-shadow:0 50px 120px rgba(33,29,24,.3)}
 .dossier-visual{width:100%;max-width:220px;border-radius:12px;margin-bottom:28px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
@@ -202,36 +229,34 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
   </div>
 </section>
 
-<!-- WONING -->
-<section class="woning" id="woning">
-  <img src="/assets/atelier/woning2.jpg" alt="Avant-Garde woning met uw materiaalcombinatie">
-  <div class="op"></div>
-  <div class="txt" data-in><h3>Losse keuzes,<br>nu architectuur.</h3></div>
-</section>
-
-<!-- STIJLDOSSIER -->
-<div class="dossier-wrap">
-  <div class="dossier" id="dossier" data-in>
-    <img class="dossier-visual" src="/assets/atelier/stijldossier.jpg" alt="Uw Avant-Garde stijldossier met materiaalstalen">
-    <div class="eye">Uw persoonlijke stijldossier</div>
-    <h2>Staat klaar.</h2>
-    <p>Met uw materiaalcombinatie, inspiratie en advies. Wij brengen uw signatuur tot leven op uw eigen woning.</p>
-    <div class="samenvat">
-      <span>Crepi · <b id="sv-crepi">Warm wit</b></span>
-      <span>Natuursteen · <b id="sv-steen">Atlas</b></span>
-      <span>Houtlook · <b id="sv-hout">Evergreen</b></span>
+<!-- STIJLDOSSIER + FORMULIER -->
+<section class="slot" id="dossier">
+  <div class="slot-grid">
+    <div class="dossier-kaart" data-in>
+      <img class="dossier-visual" src="/assets/atelier/stijldossier.jpg" alt="Uw Avant-Garde stijldossier met materiaalstalen">
+      <div class="pb">Uw Avant-Garde stijldossier</div>
+      <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
+      <div class="samenvat">
+        <span class="chip"><span class="dot" id="d-crepi-dot" style="background:#efe9dd"></span>Crepi · <b id="sv-crepi">Warm wit</b></span>
+        <span class="chip"><span class="dot" style="background:#b8a888"></span>Steen · <b id="sv-steen">Atlas</b></span>
+        <span class="chip"><span class="dot" style="background:#6b4a2e"></span>Houtlook · <b id="sv-hout">Evergreen</b></span>
+      </div>
     </div>
-    <button class="pil start" onclick="document.getElementById('dossier').classList.add('open')">Ontvang mijn stijldossier →</button>
-    <form class="cf" onsubmit="return verstuur(event)">
-      <input id="f-naam" placeholder="Naam" autocomplete="name" required>
-      <div class="twee"><input id="f-mail" type="email" placeholder="E-mailadres" autocomplete="email" required><input id="f-tel" type="tel" placeholder="Telefoonnummer" autocomplete="tel"></div>
-      <input id="f-plaats" placeholder="Woonplaats" autocomplete="address-level2">
-      <button type="submit" class="pil">Ontvang mijn stijldossier</button>
-      <div class="tel">Daarna plannen wij een <b>vrijblijvend adviesgesprek</b> · 06 40 50 64 51</div>
-    </form>
-    <div class="klaar-form"><h2>Het is onderweg.</h2><p>Uw stijldossier staat binnen enkele minuten in uw mailbox. Wij bellen u kort voor een vrijblijvend adviesgesprek.</p></div>
+    <div class="form-kolom" data-in>
+      <div class="eye">Ontvang uw stijldossier</div>
+      <h2>Zie het op<br>uw eigen woning.</h2>
+      <p class="lead">U ontvangt uw stijldossier direct per mail. Daarna plannen wij een vrijblijvend adviesgesprek.</p>
+      <form class="cf" id="cf" onsubmit="return verstuur(event)">
+        <input id="f-naam" placeholder="Naam" autocomplete="name" required>
+        <div class="twee"><input id="f-mail" type="email" placeholder="E-mailadres" autocomplete="email" required><input id="f-tel" type="tel" placeholder="Telefoonnummer" autocomplete="tel"></div>
+        <input id="f-plaats" placeholder="Woonplaats" autocomplete="address-level2">
+        <button type="submit" class="pil">Ontvang mijn stijldossier</button>
+        <div class="tel">of bel direct <b>06 40 50 64 51</b></div>
+      </form>
+      <div class="klaar-form" id="klaar-form"><h2>Het is onderweg.</h2><p class="lead">Uw stijldossier staat binnen enkele minuten in uw mailbox. Wij bellen u kort voor een vrijblijvend adviesgesprek.</p></div>
+    </div>
   </div>
-</div>
+</section>
 
 <script>
 (function(){
@@ -239,10 +264,9 @@ var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var g=function(i){return document.getElementById(i)};
 var keuze={crepi:{naam:'Warm wit',kleur:'#efe9dd'},steen:{naam:'Atlas',img:'/assets/materialen/atlas.jpg'},hout:{naam:'Evergreen',img:'/assets/materialen/evergreen.jpg'}};
 
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='woning')return;io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
-var wio=new IntersectionObserver(function(es){es.forEach(function(e){g('woning').classList.toggle('in',e.isIntersecting)})},{threshold:.3});
-wio.observe(g('woning'));
+
 
 /* streng-staat volgen op scroll: welke keuzestap is in beeld */
 var stappen=[{el:g('stap-crepi'),s:'crepi'},{el:g('stap-steen'),s:'steen'},{el:g('stap-hout'),s:'hout'}];
@@ -286,7 +310,7 @@ update();
 window.verstuur=function(e){e.preventDefault();
   var n=g('f-naam').value,m=g('f-mail').value,t=g('f-tel').value,p=g('f-plaats').value;
   var body='Naam: '+n+'\nE-mail: '+m+'\nTelefoon: '+t+'\nWoonplaats: '+p+'\n\nStijldossier:\nCrepi '+keuze.crepi.naam+' · '+keuze.steen.naam+'-natuursteen · '+keuze.hout.naam+'-composiet houtlook';
-  g('dossier').classList.add('verzonden');
+  g('cf').closest('.form-kolom').classList.add('verzonden');
   location.href='mailto:iworkproductions@outlook.com?subject='+encodeURIComponent('Stijldossier: '+keuze.steen.naam+' & '+keuze.hout.naam+' - '+n)+'&body='+encodeURIComponent(body);
   return false;};
 })();
