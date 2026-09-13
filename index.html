@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=23">
+<link rel="stylesheet" href="/assets/site.css?v=24">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -55,21 +55,57 @@
 .manifest .slotregel{color:var(--creme)}
 @media(max-width:760px){.scene{height:140vh}.hero-in{flex-direction:column;align-items:flex-start;left:6vw;right:6vw;bottom:9vh;gap:26px}.hero .acties{justify-content:flex-start}.glas{padding:0 6vw}.manifest p{font-size:clamp(26px,7.4vw,38px)}}
 
-/* ---------- transformatie: vastgepind, de villa verandert onder de scroll ---------- */
-.opener{position:relative;height:260vh;margin-top:12vh}
-.opener .plak{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.opener .laag{position:absolute;inset:0;background-size:cover;background-position:center 40%;will-change:opacity,transform}
+/* ---------- 03 film ---------- */
+.film{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
+.film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,.2),rgba(13,11,9,0) 40%,rgba(13,11,9,.7))}
+.film-in{position:absolute;left:8vw;bottom:10vh;z-index:2}
+.film-in h2{font-size:clamp(40px,5.4vw,84px);line-height:.98;color:var(--creme)}
+
+/* ---------- koppen van hoofdstukken 4–6 ---------- */
+.kop-blok{padding:16vh 8vw 8vh;max-width:1400px}
+.kop-blok h2{font-size:clamp(44px,6.4vw,112px);line-height:.96;max-width:12ch}
+.kop-blok .intro-tekst{max-width:560px;margin-top:40px;font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:var(--dim)}
+.licht .kop-blok .intro-tekst{color:#5d564d}
+
+/* ---------- 04 materiaal: enorme beelden, weinig tekst ---------- */
+.materiaal{padding-bottom:12vh}
+.moment{margin:0 0 10vh;position:relative}
+.moment img{width:100%;height:88vh;height:88svh;object-fit:cover;display:block}
+.moment.smal img{width:62vw;margin-left:auto;height:78vh}
+.moment figcaption{padding:28px 8vw 0;max-width:560px}
+.moment.rechts figcaption{margin-left:auto;padding-right:8vw}
+.moment figcaption .eye{margin-bottom:12px;color:#211d18}
+.moment figcaption b{display:block;font-weight:400;font-size:clamp(28px,3vw,44px);letter-spacing:-.02em;line-height:1}
+.moment figcaption p{margin-top:12px;font-size:16px;line-height:1.6;color:#5d564d}
+.materiaal-uit{padding:0 8vw}
+.licht .link{color:#211d18}
+@media(max-width:760px){.moment img{height:64vh}.moment.smal img{width:86vw;height:60vh}.moment figcaption{padding:20px 6vw 0}.kop-blok{padding:12vh 6vw 6vh}}
+
+/* ---------- 05 transformatie: vastgepind, de gevel verandert onder de scroll ---------- */
+.opener{position:relative;height:320vh}
+.opener .plak{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
+.opener .laag{position:absolute;inset:0;background-size:cover;background-position:center 40%;will-change:clip-path}
 .opener .voor{background-image:url(/assets/villa-voor.jpg)}
-.opener .na{background-image:url(/assets/villa-na.jpg);opacity:0}
-.opener .vignet{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,.6) 0%,rgba(13,11,9,.1) 30%,rgba(13,11,9,0) 55%,rgba(13,11,9,.82) 100%)}
-.opener .kop{position:absolute;left:24px;right:24px;top:calc(52px + 5vh);z-index:2}
+.opener .na{background-image:url(/assets/villa-na.jpg);clip-path:inset(0 100% 0 0)}
+.opener .vignet{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,0) 70%,rgba(13,11,9,.7))}
 .opener .staat-wrap{position:absolute;left:0;right:0;bottom:max(38px,6vh);text-align:center;padding:0 24px}
 .opener .staat{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,237,227,.7)}
-.opener .staat i{width:min(120px,24vw);height:1px;background:rgba(243,237,227,.25);position:relative;display:block}
-.opener .staat i b{position:absolute;left:0;top:0;height:100%;width:0;background:var(--goud)}
+.opener .staat i{width:min(160px,28vw);height:1px;background:rgba(243,237,227,.25);position:relative;display:block}
+.opener .staat i b{position:absolute;left:0;top:0;height:100%;width:0;background:var(--creme)}
 .opener .staat .w{color:rgba(243,237,227,.38);transition:color .4s}.opener .staat .w.aan{color:var(--creme)}
-.opener h2{font-size:clamp(30px,4.6vw,58px);line-height:1.02;color:var(--creme);margin-top:22px;opacity:0;transform:translateY(16px);transition:opacity .7s,transform .9s var(--ease)}
-.opener h2.aan{opacity:1;transform:none}
+@media(max-width:760px){.opener{height:240vh}}
+
+/* ---------- 06 vakmanschap: donker, detail ---------- */
+.vak{background:var(--zwart);padding-bottom:10vh}
+.vak-rij{display:flex;gap:2vw;padding:0 0 2vw}
+.vak-item{margin:0;position:relative;flex:1}
+.vak-item.groot{flex:1.7}
+.vak-item img{width:100%;height:72vh;object-fit:cover;display:block}
+.vak-item.vol img{height:92vh}
+.vak-item figcaption{position:absolute;left:24px;bottom:22px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,237,227,.9)}
+.vak-slot{padding:14vh 8vw 6vh;font-size:clamp(34px,4.6vw,72px);letter-spacing:-.025em;line-height:1;color:var(--creme)}
+@media(max-width:760px){.vak-rij{flex-direction:column;gap:12px;padding-bottom:12px}.vak-item img{height:52vh}.vak-item.vol img{height:64vh}}
 
 /* ---------- hoofdstuk: eyebrow · kop · beeld · alinea · galerij ---------- */
 .hfd{padding:16vh 0 6vh}
@@ -147,7 +183,7 @@ a.kaart:hover .f{transform:scale(1.05)}
 .router p{color:var(--dim);font-size:16px;margin:10px 0 14px;max-width:420px;line-height:1.55}
 @media(max-width:820px){.routers{grid-template-columns:1fr;width:calc(100% - 36px)}.router{min-height:340px;padding:28px}}
 
-@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.opener h2{opacity:1;transform:none}.opener .na{opacity:1!important}.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}}
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.opener .na{clip-path:none!important}.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}}
 </style>
 </head>
 <body>
@@ -183,68 +219,61 @@ a.kaart:hover .f{transform:scale(1.05)}
 </section>
 <div class="na-glas" aria-hidden="true"></div>
 
-<!-- HOOFDSTUK 1 · HET SYSTEEM -->
-<section class="hfd" id="systeem">
-  <div class="kop"><div class="eye">Het systeem</div><h2>Drie lagen.<br>Eén handschrift.</h2></div>
-  <div class="media" data-in style="background-image:url(/assets/detail-crepi.jpg)"><div class="bijschrift">Crepi · de basis</div></div>
-  <p class="alinea">Elke Avant-Garde gevel is opgebouwd uit dezelfde drie lagen. <b>Crepi</b> als rustige, isolerende basis, altijd minimaal 60%.<sup>1</sup> <b>Natuursteen</b> als het accent dat de woning aardt. <b>Composiet houtlook</b> als het accent dat de gevel laat leven. Binnen dit systeem klopt elke combinatie. U hoeft geen ontwerper te zijn; het systeem is het ontwerp.</p>
-  <div class="lade-wrap"><div class="lade">
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/materialen/crepi.jpg);background-position:left center"></div><div class="t"><div class="n">Crepi <span>· de basis</span></div><p>Een strakke, egale, isolerende schil die de woning inpakt en de toon zet. Nooit minder dan 60% van de gevel.</p></div></div>
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/detail-steen.jpg)"></div><div class="t"><div class="n">Natuursteen <span>· het accent dat aardt</span></div><p>Met de hand gezet op plint, entree of hoek. Geeft diepte, warmte en het gevoel dat het huis er altijd al stond.</p></div></div>
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/detail-hout.jpg)"></div><div class="t"><div class="n">Composiet houtlook <span>· het accent dat leeft</span></div><p>Verticale latten die het licht vangen. De warmte van hout, zonder één kwast verf.<sup>2</sup></p></div></div>
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/gal-1.jpg)"></div><div class="t"><div class="n">De verhouding <span>· uw hand</span></div><p>U bepaalt hoeveel steen en hoeveel houtlook de crepi mag aanvullen, en ziet live wat het doet.</p></div></div>
-  </div><div class="lade-nav"><button aria-label="Vorige" onclick="schuif(this,-1)">‹</button><button aria-label="Volgende" onclick="schuif(this,1)">›</button></div></div>
+<!-- 03 · DE FILM (placeholder: /assets/film-materiaal.mp4 nog te leveren; tot die tijd toont het posterbeeld) -->
+<section class="film" id="film" aria-label="Van materiaal naar architectuur">
+  <video class="film-video" poster="/assets/materialen/villa-hero.jpg" muted playsinline loop autoplay preload="none" aria-hidden="true">
+    <source src="/assets/film-materiaal.mp4" type="video/mp4">
+  </video>
+  <div class="film-in" data-in><div class="eye">03 — De film</div><h2>Van materiaal<br>naar architectuur.</h2></div>
 </section>
 
-<!-- HOOFDSTUK 2 · NATUURSTEEN -->
-<section class="hfd" id="steen">
-  <div class="kop"><div class="eye">Natuursteen</div><h2>Steen die aardt.</h2></div>
-  <div class="media" data-in style="background-image:url(/assets/materialen/atlas.jpg)"><div class="bijschrift">Atlas-natuursteen · Noord-Italië</div></div>
-  <p class="alinea">Drie stenen, elk met een eigen naam, herkomst en karakter. <b>Atlas</b> is warm en robuust, <b>Freya</b> koel en ingetogen, <b>Hermes</b> elegant en tijdloos. Elke steen draagt een steenpaspoort: de groeve waar hij vandaan komt, de coördinaten, het karakter.<br><a class="link" href="/collectie/">Bekijk de collectie</a></p>
-  <div class="lade-wrap"><div class="lade">
-    <a class="kaart" data-in href="/collectie/atlas/"><div class="f" style="background-image:url(/assets/materialen/atlas.jpg)"></div><div class="t"><div class="n">Atlas<span>-natuursteen</span></div><p>Handgevormde travertijn uit Noord-Italië. Diepe warme tinten, een levend oppervlak.</p><span class="m">Steenpaspoort ›</span></div></a>
-    <a class="kaart" data-in href="/collectie/freya/"><div class="f" style="background-image:url(/assets/materialen/freya.jpg)"></div><div class="t"><div class="n">Freya<span>-natuursteen</span></div><p>Koel grijs met een levendige breuk. Ingetogen, met een stille kracht.</p><span class="m">Steenpaspoort ›</span></div></a>
-    <a class="kaart" data-in href="/collectie/hermes/"><div class="f" style="background-image:url(/assets/materialen/hermes.jpg)"></div><div class="t"><div class="n">Hermes<span>-natuursteen</span></div><p>Zandkleurig en uitgebalanceerd. Past bij elke architectuur.</p><span class="m">Steenpaspoort ›</span></div></a>
-  </div><div class="lade-nav"><button aria-label="Vorige" onclick="schuif(this,-1)">‹</button><button aria-label="Volgende" onclick="schuif(this,1)">›</button></div></div>
+<!-- 04 · MATERIAAL -->
+<section class="materiaal licht" id="materiaal">
+  <div class="kop-blok">
+    <div class="eye">04 — Materiaal</div>
+    <h2>Alles begint<br>bij het materiaal.</h2>
+    <p class="intro-tekst">Elke Avant-Garde gevel bestaat uit dezelfde drie lagen. Crepi als rustige, isolerende basis, altijd minimaal 60%.<sup>1</sup> Natuursteen als het accent dat de woning aardt. Composiet houtlook als het accent dat de gevel laat leven.<sup>2</sup> Binnen dit systeem klopt elke combinatie.</p>
+  </div>
+  <figure class="moment"><img src="/assets/materialen/crepi.jpg" alt="Crepi, de egale isolerende basis" loading="lazy"><figcaption><span class="eye">Crepi · de basis</span><b>Textuur.</b><p>Een egale, naadloze huid van hoek tot hoek. De isolatie zit eronder; u ziet alleen rust.</p></figcaption></figure>
+  <figure class="moment smal rechts"><img src="/assets/materialen/atlas-detail.jpg" alt="Atlas-natuursteen van dichtbij" loading="lazy"><figcaption><span class="eye">Natuursteen · Atlas, Freya, Hermes</span><b>Diepte.</b><p>Met de hand gezet, steen voor steen. Geen twee gelijk. Elke steen draagt een steenpaspoort met herkomst en karakter.</p></figcaption></figure>
+  <figure class="moment"><img src="/assets/materialen/evergreen.jpg" alt="Evergreen-composiet houtlook" loading="lazy"><figcaption><span class="eye">Composiet houtlook · Evergreen, Ember, Empire</span><b>Licht.</b><p>Verticale latten die het licht vangen. De warmte van hout, zonder één kwast verf.</p></figcaption></figure>
+  <div class="materiaal-uit"><a class="link" href="/collectie/">Bekijk de collectie</a></div>
 </section>
 
-<!-- HOOFDSTUK 3 · COMPOSIET HOUTLOOK -->
-<section class="hfd" id="houtlook">
-  <div class="kop"><div class="eye">Composiet houtlook</div><h2>Warmte zonder onderhoud.</h2></div>
-  <div class="media" data-in style="background-image:url(/assets/materialen/evergreen.jpg)"><div class="bijschrift">Evergreen-composiet houtlook</div></div>
-  <p class="alinea">Het ziet eruit als hout en voelt als hout, maar het is composiet: houtvezel en polyethyleen met een beschermlaag die vocht, zon en vorst buiten houdt. <b>Evergreen</b> is tijdloos en natuurlijk, <b>Ember</b> warm en gloedvol, <b>Empire</b> donker en strak. Geen schilderwerk, geen steigers, geen onderhoudsplanning.<sup>2</sup></p>
-  <div class="lade-wrap"><div class="lade">
-    <a class="kaart" data-in href="/collectie/evergreen/"><div class="f" style="background-image:url(/assets/materialen/evergreen.jpg)"></div><div class="t"><div class="n">Evergreen<span>-composiet houtlook</span></div><p>Rustige tekening, warme ondertoon. De tijdloze keuze.</p><span class="m">Steenpaspoort ›</span></div></a>
-    <a class="kaart" data-in href="/collectie/ember/"><div class="f" style="background-image:url(/assets/materialen/ember.jpg)"></div><div class="t"><div class="n">Ember<span>-composiet houtlook</span></div><p>Gloeit als as die nog warm is. Laat de gevel leven in het avondlicht.</p><span class="m">Steenpaspoort ›</span></div></a>
-    <a class="kaart" data-in href="/collectie/empire/"><div class="f" style="background-image:url(/assets/materialen/empire.jpg)"></div><div class="t"><div class="n">Empire<span>-composiet houtlook</span></div><p>Donker, egaal, scherp belijnd. Het contrast dat de gevel maakt.</p><span class="m">Steenpaspoort ›</span></div></a>
-  </div><div class="lade-nav"><button aria-label="Vorige" onclick="schuif(this,-1)">‹</button><button aria-label="Volgende" onclick="schuif(this,1)">›</button></div></div>
-</section>
-
-<!-- HOOFDSTUK 4 · VAN DICHTBIJ -->
-<section class="hfd" id="dichtbij">
-  <div class="kop"><div class="eye">Van dichtbij</div><h2>Drie materialen,<br>één gevel.</h2></div>
-  <div class="media" data-in style="background-image:url(/assets/materialen/atlas-detail.jpg)"><div class="bijschrift">Atlas-natuursteen · met de hand gezet</div></div>
-  <p class="alinea">Van een afstand valt de gevel op. Van dichtbij overtuigt hij. De egale huid van de crepi, de poriën in de steen, het ritme van de latten: drie texturen die elkaar niet overstemmen, maar elkaar ruimte geven.</p>
-  <div class="lade-wrap"><div class="lade">
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/detail-crepi.jpg)"></div><div class="t"><div class="n">De huid <span>· crepi</span></div><p>Egaal, zonder naad, van hoek tot hoek. De isolatie zit eronder; u ziet alleen rust.</p></div></div>
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/detail-steen.jpg)"></div><div class="t"><div class="n">De korrel <span>· natuursteen</span></div><p>Geen twee stenen gelijk. Elke steen wordt met de hand gekozen en gezet.</p></div></div>
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/detail-hout.jpg)"></div><div class="t"><div class="n">Het ritme <span>· composiet houtlook</span></div><p>Verticale latten met verborgen bevestiging. Geen schroef in beeld.</p></div></div>
-    <div class="kaart" data-in><div class="f" style="background-image:url(/assets/gal-2.jpg)"></div><div class="t"><div class="n">Het geheel <span>· de gevel</span></div><p>Horizontale steen, verticale houtlook, een rustige basis. Zo zit het systeem in elkaar.</p></div></div>
-  </div><div class="lade-nav"><button aria-label="Vorige" onclick="schuif(this,-1)">‹</button><button aria-label="Volgende" onclick="schuif(this,1)">›</button></div></div>
-</section>
-
-<!-- DE TRANSFORMATIE -->
-<section class="opener" id="transformatie" aria-label="Dezelfde woning, voor en na">
-  <div class="plak">
-    <div class="laag voor" id="voor"></div>
-    <div class="laag na" id="na"></div>
-    <div class="vignet"></div>
-    <div class="kop"><div class="eye">De transformatie</div></div>
-    <div class="staat-wrap">
-      <div class="staat"><span class="w aan" id="w1">Origineel</span><i><b id="balk"></b></i><span class="w" id="w2">Avant-Garde</span></div>
-      <h2 id="slotzin">Dezelfde woning. Een ander leven.</h2>
+<!-- 05 · DE TRANSFORMATIE -->
+<section class="transformatie licht" id="transformatie">
+  <div class="kop-blok">
+    <div class="eye">05 — De transformatie</div>
+    <h2>Dezelfde woning.<br>Een ander karakter.</h2>
+  </div>
+  <div class="opener" id="opener">
+    <div class="plak">
+      <div class="laag voor" id="voor"></div>
+      <div class="laag na" id="na"></div>
+      <div class="vignet"></div>
+      <div class="staat-wrap">
+        <div class="staat"><span class="w aan" id="w1">Bestaand</span><i><b id="balk"></b></i><span class="w" id="w2">Avant-Garde</span></div>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- 06 · VAKMANSCHAP -->
+<section class="vak" id="vakmanschap">
+  <div class="kop-blok">
+    <div class="eye">06 — Vakmanschap</div>
+    <h2>Het verschil zit<br>in wat u bijna niet ziet.</h2>
+  </div>
+  <div class="vak-rij">
+    <figure class="vak-item groot" data-in><img src="/assets/detail-steen.jpg" alt="Natuursteen op de hoek, met de hand gezet" loading="lazy"><figcaption>Uitlijning</figcaption></figure>
+    <figure class="vak-item" data-in><img src="/assets/detail-crepi.jpg" alt="Overgang van crepi naar kozijn" loading="lazy"><figcaption>Overgangen</figcaption></figure>
+  </div>
+  <div class="vak-rij">
+    <figure class="vak-item" data-in><img src="/assets/materialen/atlas-detail.jpg" alt="Atlas-natuursteen van dichtbij" loading="lazy"><figcaption>Materiaal</figcaption></figure>
+    <figure class="vak-item groot" data-in><img src="/assets/detail-hout.jpg" alt="Verticale latten composiet houtlook met verborgen bevestiging" loading="lazy"><figcaption>Afwerking</figcaption></figure>
+  </div>
+  <figure class="vak-item vol" data-in><img src="/assets/gal-2.jpg" alt="Afgewerkte Avant-Garde gevel" loading="lazy"><figcaption>Precisie</figcaption></figure>
+  <p class="vak-slot" data-in>Dat is Avant-Garde.</p>
 </section>
 
 <!-- DE REIS -->
@@ -291,7 +320,7 @@ a.kaart:hover .f{transform:scale(1.05)}
     <li>In elk Avant-Garde ontwerp vormt crepi minimaal 60% van het gevelvlak; de verhouding natuursteen en composiet houtlook bepaalt u zelf binnen de overige 40%.</li>
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v23</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v24</span></div>
 </footer>
 
 <script>
@@ -318,18 +347,15 @@ function scene(){
   var k=1-kl(p,.12,.34);heroin.style.opacity=k;heroin.style.transform='translate3d(0,'+(-24*(1-k))+'px,0)';
   var n=regels.length;regels.forEach(function(el,i){var a=.26+.6*i/n,f=kl(p,a,a+.12);el.style.opacity=f;el.style.transform='translate3d(0,'+(20*(1-f))+'px,0)';});
 }
-/* transformatie: voortgang 0..1 over de vastgepinde hoogte */
-var op=g('transformatie'),voor=g('voor'),na=g('na'),balk=g('balk'),w1=g('w1'),w2=g('w2'),slotzin=g('slotzin');
+/* transformatie: wipe van links naar rechts, daarna houden */
+var op=g('opener'),na=g('na'),balk=g('balk'),w1=g('w1'),w2=g('w2');
 function opener(){
   var r=op.getBoundingClientRect(),vh=window.innerHeight,p=kl(-r.top,0,r.height-vh);
-  if(rm){na.style.opacity=1;balk.style.width='100%';w1.classList.remove('aan');w2.classList.add('aan');slotzin.classList.add('aan');return;}
-  var f=kl(p,.18,.62);
-  na.style.opacity=f;
-  voor.style.transform='scale('+(1+.06*kl(p,0,.62))+')';
-  na.style.transform='scale('+(1.06-.06*kl(p,.18,.9))+')';
+  if(rm){na.style.clipPath='none';balk.style.width='100%';w1.classList.remove('aan');w2.classList.add('aan');return;}
+  var f=kl(p,.08,.68);
+  na.style.clipPath='inset(0 '+((1-f)*100).toFixed(2)+'% 0 0)';
   balk.style.width=(f*100)+'%';
   w1.classList.toggle('aan',f<.5);w2.classList.toggle('aan',f>=.5);
-  slotzin.classList.toggle('aan',p>.66);
 }
 var tick=false;function scroll(){if(tick)return;tick=true;requestAnimationFrame(function(){scene();opener();tick=false;});}
 window.addEventListener('scroll',scroll,{passive:true});window.addEventListener('resize',function(){mob=window.innerWidth<760;scroll();});scroll();
