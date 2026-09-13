@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=113">
+<link rel="stylesheet" href="/assets/site.css?v=114">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -136,6 +136,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .samenvat .chip{font-size:15px;color:var(--dim)}
 .samenvat .chip b{color:var(--zwart);font-weight:500}
 .samenvat .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:9px;vertical-align:middle}
+#tally-embed{margin-top:24px;background:transparent}
 .form-kolom h2{font-size:clamp(30px,3.4vw,52px);margin:14px 0 0}
 .form-kolom .lead{margin-top:18px;max-width:40ch}
 .cf{display:grid;gap:14px;margin-top:32px}
@@ -291,7 +292,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
       <div class="eye">Ontvang uw stijldossier</div>
       <h2>Zie het op<br>uw eigen woning.</h2>
       <p class="lead">U ontvangt uw stijldossier per mail. Voeg desgewenst twee foto's van uw woning toe; wij bewerken ze in uw gekozen Avant-Garde-look. Daarna plannen wij een vrijblijvend adviesgesprek.</p>
-      <a class="pil" id="dossier-cta" href="https://tally.so/r/RGAZKP" target="_blank" rel="noopener">Ontvang mijn stijldossier</a>
+      <iframe id="tally-embed" data-tally-src="https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Stijldossier"></iframe>
       <div class="tel">of bel direct <b>06 40 50 64 51</b></div>
     </div>
   </div>
@@ -351,9 +352,9 @@ window.verdeel=function(){
 };
 var verh={crepi:60,steen:20,hout:20};
 function tallyLink(){
-  var cta=g('dossier-cta'); if(!cta)return;
-  var q='?crepi='+encodeURIComponent(keuze.crepi.naam)+'&steen='+encodeURIComponent(keuze.steen.naam)+'&houtlook='+encodeURIComponent(keuze.hout.naam)+'&verhouding='+encodeURIComponent('Crepi '+verh.crepi+'% · '+keuze.steen.naam+' '+verh.steen+'% · '+keuze.hout.naam+' '+verh.hout+'%');
-  cta.href='https://tally.so/r/RGAZKP'+q;
+  var f=g('tally-embed'); if(!f)return;
+  var q='&crepi='+encodeURIComponent(keuze.crepi.naam)+'&steen='+encodeURIComponent(keuze.steen.naam)+'&houtlook='+encodeURIComponent(keuze.hout.naam)+'&verhouding='+encodeURIComponent('Crepi '+verh.crepi+'% · '+keuze.steen.naam+' '+verh.steen+'% · '+keuze.hout.naam+' '+verh.hout+'%');
+  f.setAttribute('data-tally-src','https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'+q);
 }
 function update(){
   g('d-steen').textContent=keuze.steen.naam; g('d-hout').textContent=keuze.hout.naam;
@@ -365,5 +366,6 @@ function update(){
 update();
 })();
 </script>
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
