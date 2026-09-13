@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=42">
+<link rel="stylesheet" href="/assets/site.css?v=43">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -38,6 +38,9 @@
 
 .foto{position:absolute;inset:0;background-size:cover;background-position:center 45%;transform:scale(1.12);animation:inzoom 11s cubic-bezier(.16,.6,.2,1) .2s forwards;backface-visibility:hidden}
 @keyframes inzoom{to{transform:scale(1)}}
+.hero-video{position:absolute;left:50%;top:50%;width:max(100%,150vh);height:max(66.67vw,100%);transform:translate(-50%,-50%);object-fit:cover;opacity:0;visibility:hidden;transition:opacity 1s;pointer-events:none}
+.hero-video.speelt{opacity:1;visibility:visible}
+.hero.met-video .foto{animation:none;transform:none}
 .hero-tint{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,.42),rgba(13,11,9,.08) 40%,rgba(13,11,9,.72));z-index:1}
 .hero-in{position:absolute;left:8vw;right:8vw;bottom:12vh;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:40px,transform}
 .hero .eye{margin-bottom:18px;opacity:0;animation:komop 1s var(--ease) .9s forwards}
@@ -192,8 +195,10 @@
 <!-- 01 HERO + 02 MANIFEST · één scène -->
 <section class="scene" id="scene">
   <div class="stage">
-    <div class="hero" id="hero">
-      <div class="foto" style="background-image:url(/assets/farm-na.jpg)" role="img" aria-label="Boerderij met Avant-Garde gevel"></div>
+    <div class="hero met-video" id="hero">
+      <div class="foto" style="background-image:url(/assets/hero-boerderij.jpg)" role="img" aria-label="Boerderij met Avant-Garde gevel"></div>
+      <!-- HERO_MODE in build.py: "video" of "foto" -->
+      <video class="hero-video" muted playsinline loop autoplay preload="auto" aria-hidden="true"><source src="/assets/hero-boerderij.mp4" type="video/mp4"></video>
       <div class="donker" id="donker"></div><div class="hero-tint"></div>
       <div class="hero-in" id="heroin">
         <div>
@@ -348,7 +353,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v42</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v43</span></div>
 </footer>
 
 <script>
