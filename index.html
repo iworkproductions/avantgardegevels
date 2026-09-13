@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=18">
+<link rel="stylesheet" href="/assets/site.css?v=19">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -30,7 +30,11 @@
 .nav+.scene{padding-top:0}
 .scene{position:relative;height:170vh}
 .scene .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
-.hero{position:absolute;inset:0;will-change:transform,filter;transform-origin:center}
+.hero{position:absolute;inset:0;will-change:transform;transform-origin:center}
+.glas .wazig{position:absolute;inset:-24px;background-size:cover;background-position:center;filter:blur(22px);opacity:.85;will-change:transform;pointer-events:none}
+.glas .manifest{position:relative;z-index:2}
+.donker{position:absolute;inset:0;background:#0d0b09;opacity:0;z-index:1;will-change:opacity;pointer-events:none}
+.hero.stil .slide{animation-play-state:paused}
 .slideshow{position:absolute;inset:0}
 .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:slidefade 24s infinite;transform:scale(1.06)}
 .slide:nth-child(1){animation-delay:0s}.slide:nth-child(2){animation-delay:8s}.slide:nth-child(3){animation-delay:16s}
@@ -156,7 +160,7 @@ a.kaart:hover .f{transform:scale(1.05)}
   <div class="stage">
     <div class="hero" id="hero">
       <div class="slideshow"><div class="slide" style="background-image:url(/assets/farm-na.jpg)"></div><div class="slide" style="background-image:url(/assets/villa-na.jpg)"></div><div class="slide" style="background-image:url(/assets/bungalow-na.jpg)"></div></div>
-      <div class="hero-tint"></div>
+      <div class="donker" id="donker"></div><div class="hero-tint"></div>
       <div class="hero-in" id="heroin">
         <div>
           <div class="eye">Avant-Garde Gevels</div>
@@ -167,6 +171,7 @@ a.kaart:hover .f{transform:scale(1.05)}
       </div>
     </div>
     <div class="glas" id="glas">
+      <div class="wazig" id="wazig"></div>
       <div class="manifest" id="manifest">
         <div class="groep"><p>Geen afwerking.</p><p>Maar architectuur.</p><p>Gevormd door materiaal.</p></div>
         <div class="groep"><p>Verfijnd in detail.</p><p>Gebouwd met vakmanschap.</p><p>Ontworpen voor uw woning.</p></div>
@@ -285,7 +290,7 @@ a.kaart:hover .f{transform:scale(1.05)}
     <li>In elk Avant-Garde ontwerp vormt crepi minimaal 60% van het gevelvlak; de verhouding natuursteen en composiet houtlook bepaalt u zelf binnen de overige 40%.</li>
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v18</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v19</span></div>
 </footer>
 
 <script>
@@ -294,21 +299,28 @@ var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var g=function(i){return document.getElementById(i)};
 var kl=function(v,a,b){return Math.min(1,Math.max(0,(v-a)/(b-a)))};
 /* intro-logo */
-window.addEventListener('load',function(){setTimeout(function(){var i=g('intro');if(i)i.classList.add('done');},1300);});
+setTimeout(function(){var i=g('intro');if(i)i.classList.add('done');},1300);
 /* 01+02: hero blijft, glas schuift eroverheen */
-var sc=g('scene'),hero=g('hero'),heroin=g('heroin'),glas=g('glas'),regels=g('manifest').querySelectorAll('p'),mob=window.innerWidth<760;
+var sc=g('scene'),hero=g('hero'),heroin=g('heroin'),glas=g('glas'),wazig=g('wazig'),donker=g('donker'),regels=g('manifest').querySelectorAll('p'),mob=window.innerWidth<760,bevroren=false;
+function bevries(aan){
+  if(aan===bevroren)return;bevroren=aan;
+  if(aan){var best=null,bo=-1;hero.querySelectorAll('.slide').forEach(function(sl){var o=parseFloat(getComputedStyle(sl).opacity);if(o>bo){bo=o;best=sl;}});
+    if(best)wazig.style.backgroundImage=best.style.backgroundImage;hero.classList.add('stil');}
+  else hero.classList.remove('stil');
+}
+var last=-1;
 function scene(){
   if(rm)return;
   var r=sc.getBoundingClientRect(),vh=window.innerHeight,p=kl(-r.top,0,r.height-vh);
-  var d=kl(p,0,.55);
-  glas.style.transform='translateY('+((1-d)*100)+'%)';
-  var bl=(mob?4:6)+(mob?10:16)*d, al=.62+.26*d;
-  glas.style.background='rgba(245,241,234,'+al.toFixed(3)+')';
-  glas.style.backdropFilter=glas.style.webkitBackdropFilter='blur('+bl.toFixed(1)+'px) saturate(90%)';
+  if(p===last)return;last=p;
+  var d=kl(p,0,.6);if(!bevroren&&d>0.01){}
+  bevries(d>0.01);
+  glas.style.transform='translate3d(0,'+((1-d)*100)+'%,0)';
+  wazig.style.transform='translate3d(0,'+(-(1-d)*100)+'%,0)';wazig.style.opacity=(.85-.5*d).toFixed(3);
+  donker.style.opacity=.3*d;
   hero.style.transform='scale('+(1+.03*d)+')';
-  hero.style.filter='brightness('+(1-.28*d)+') contrast('+(1-.15*d)+')';
-  var k=1-kl(p,.08,.26);heroin.style.opacity=k;heroin.style.transform='translateY('+(-24*(1-k))+'px)';
-  var n=regels.length;regels.forEach(function(el,i){var a=.22+.62*i/n,f=kl(p,a,a+.12);el.style.opacity=f;el.style.transform='translateY('+(20*(1-f))+'px)';});
+  var k=1-kl(p,.12,.34);heroin.style.opacity=k;heroin.style.transform='translate3d(0,'+(-24*(1-k))+'px,0)';
+  var n=regels.length;regels.forEach(function(el,i){var a=.26+.6*i/n,f=kl(p,a,a+.12);el.style.opacity=f;el.style.transform='translate3d(0,'+(20*(1-f))+'px,0)';});
 }
 /* transformatie: voortgang 0..1 over de vastgepinde hoogte */
 var op=g('transformatie'),voor=g('voor'),na=g('na'),balk=g('balk'),w1=g('w1'),w2=g('w2'),slotzin=g('slotzin');
