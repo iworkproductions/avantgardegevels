@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=84">
+<link rel="stylesheet" href="/assets/site.css?v=85">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -116,11 +116,25 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 @media(max-width:900px){.dossier{grid-template-columns:1fr;gap:8vh}.kaart-dossier{padding:32px}}
 @media(max-width:560px){.cf .twee{grid-template-columns:1fr}}
 
-@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.intro .scroldown svg{animation:none}html{scroll-behavior:auto}}
+/* ---------- boomlijn: één verticale lijn die de stappen verbindt ---------- */
+.boom{position:fixed;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);z-index:1;pointer-events:none}
+.boom .spoor{position:absolute;inset:0;background:var(--lijn)}
+.boom .vul{position:absolute;left:0;top:0;width:100%;height:0;background:var(--goud);transition:height .12s linear}
+.knoop{position:relative;z-index:2;width:44px;height:44px;margin:0 auto;border-radius:50%;background:var(--creme);border:1px solid var(--lijn);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--dim);transition:.4s var(--ease)}
+.knoop.aan{border-color:var(--goud);color:var(--goud);box-shadow:0 0 0 6px rgba(156,122,74,.08)}
+.knoop-wrap{text-align:center;padding:6vh 0 0}
+.tak-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:14px;transition:color .4s}
+.tak-label.aan{color:var(--goud)}
+section{position:relative;z-index:2}
+.stap,.intro,.verhouding,.dossier{position:relative}
+@media(max-width:760px){.boom{left:24px;transform:none}.knoop{margin:0}.knoop-wrap{text-align:left;padding-left:0}}
+
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.boom .vul{transition:none}.intro .scroldown svg{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <a class="merk-reis" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a>
+<div class="boom" aria-hidden="true"><div class="spoor"></div><div class="vul" id="boomvul"></div></div>
 <div class="voortgang" id="voortgang"></div>
 
 <!-- INTRO -->
@@ -133,6 +147,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
+<div class="knoop-wrap"><div class="knoop" data-knoop="0">01</div><div class="tak-label" data-knooplabel="0">Het systeem</div></div>
 <!-- SYSTEEM -->
 <section class="stap" id="systeem">
   <div data-in>
@@ -147,6 +162,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
+<div class="knoop-wrap"><div class="knoop" data-knoop="1">02</div><div class="tak-label" data-knooplabel="1">Natuursteen</div></div>
 <!-- KIES STEEN -->
 <section class="stap" id="steen">
   <div data-in>
@@ -160,6 +176,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
+<div class="knoop-wrap"><div class="knoop" data-knoop="2">03</div><div class="tak-label" data-knooplabel="2">Composiet houtlook</div></div>
 <!-- KIES HOUT -->
 <section class="stap" id="hout">
   <div data-in>
@@ -173,6 +190,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
+<div class="knoop-wrap"><div class="knoop" data-knoop="3">04</div><div class="tak-label" data-knooplabel="3">De verhouding</div></div>
 <!-- VERHOUDING -->
 <section class="verhouding" id="verhouding">
   <div data-in>
@@ -190,6 +208,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
+<div class="knoop-wrap"><div class="knoop" data-knoop="4">✓</div><div class="tak-label" data-knooplabel="4">Uw stijldossier</div></div>
 <!-- STIJLDOSSIER + FORMULIER -->
 <section class="dossier" id="dossier">
   <div class="kaart-dossier" data-in>
@@ -236,6 +255,14 @@ document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
 /* voortgangsbalk */
 function voortgang(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);g('voortgang').style.width=(p*100)+'%';}
 addEventListener('scroll',voortgang,{passive:true});voortgang();
+/* boomlijn: vullen tot het midden van het scherm, knopen oplichten als de lijn ze bereikt */
+var knopen=[].slice.call(document.querySelectorAll('.knoop')),labels=[].slice.call(document.querySelectorAll('.tak-label')),boomvul=g('boomvul');
+function boom(){
+  var mid=scrollY+innerHeight*0.5;
+  boomvul.style.height=Math.max(0,mid)+'px';
+  knopen.forEach(function(k,i){var y=k.getBoundingClientRect().top+scrollY+22;var aan=mid>=y;k.classList.toggle('aan',aan);if(labels[i])labels[i].classList.toggle('aan',aan);});
+}
+addEventListener('scroll',boom,{passive:true});addEventListener('resize',boom);boom();
 /* materiaalkeuze */
 window.kies=function(btn){
   var t=btn.dataset.type;
