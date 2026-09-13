@@ -9,7 +9,7 @@
 <link rel="preload" as="image" href="/assets/villa-voor.jpg"><link rel="preload" as="image" href="/assets/villa-na.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--zwart:#0d0b09;--kaart:#1b1814;--tekst:#f5f1ea;--dim:#a49c90;--goud:#c9a877;--hout:#9c6b3f;--ink:#211d18;--ease:cubic-bezier(.2,.8,.2,1)}
+:root{--zwart:#faf8f4;--kaart:#f1ebe1;--tekst:#211d18;--dim:#6a6258;--goud:#b5946a;--hout:#9c6b3f;--ink:#211d18;--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;font-weight:300;background:var(--zwart);color:var(--tekst);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -18,14 +18,14 @@ img{display:block}
 h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-.005em}
 
 /* ---------- lokale navigatie (Apple: 48px, blur, product links, actie rechts) ---------- */
-.lnav{position:sticky;top:0;z-index:50;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc(50% - 560px));background:rgba(13,11,9,.68);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+.lnav{position:sticky;top:0;z-index:50;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc(50% - 560px));background:rgba(250,248,244,.74);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(33,29,24,.08)}
 .lnav .merk{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500}
-.lnav nav{display:flex;align-items:center;gap:28px;font-size:12px;letter-spacing:.06em;color:rgba(245,241,234,.72)}
-.lnav nav a{transition:color .25s}.lnav nav a:hover{color:#fff}
-.pill{display:inline-block;background:var(--tekst);color:var(--ink);padding:9px 18px;border-radius:980px;font-size:12px;font-weight:400;letter-spacing:.04em;transition:.25s}
-.pill:hover{background:#fff}
+.lnav nav{display:flex;align-items:center;gap:28px;font-size:12px;letter-spacing:.06em;color:rgba(33,29,24,.7)}
+.lnav nav a{transition:color .25s}.lnav nav a:hover{color:var(--ink)}
+.pill{display:inline-block;background:var(--ink);color:#faf8f4;padding:9px 18px;border-radius:980px;font-size:12px;font-weight:400;letter-spacing:.04em;transition:.25s}
+.pill:hover{background:var(--hout)}
 .pill.groot{padding:15px 32px;font-size:14px}
-.link{color:var(--goud);font-size:14px;letter-spacing:.02em}.link::after{content:' ›';font-weight:400}
+.link{color:var(--hout);font-size:14px;letter-spacing:.02em}.link::after{content:' ›';font-weight:400}
 .link:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:700px){.lnav nav a:not(.pill){display:none}}
 
@@ -35,11 +35,11 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-sp
 .opener .laag{position:absolute;inset:0;background-size:cover;background-position:center 40%;will-change:opacity,transform}
 .opener .voor{background-image:url(/assets/villa-voor.jpg)}
 .opener .na{background-image:url(/assets/villa-na.jpg);opacity:0}
-.opener .vignet{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,.78) 0%,rgba(13,11,9,.25) 38%,rgba(13,11,9,0) 60%,rgba(13,11,9,.9) 100%)}
-.opener .kop{position:absolute;left:0;right:0;top:0;padding:calc(50px + 7vh) 24px 0;text-align:center;will-change:opacity,transform}
-.opener .eye{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--goud);margin-bottom:22px}
+.opener .vignet{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,.72) 0%,rgba(13,11,9,.22) 38%,rgba(13,11,9,0) 60%,rgba(13,11,9,.78) 100%)}
+.opener .kop{color:#fff;position:absolute;left:0;right:0;top:0;padding:calc(50px + 7vh) 24px 0;text-align:center;will-change:opacity,transform}
+.opener .eye{font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#c9a877;margin-bottom:22px}
 .opener h1{font-size:clamp(46px,7.2vw,104px);line-height:.98}
-.opener .sub{font-size:clamp(18px,2.1vw,25px);font-weight:200;color:rgba(245,241,234,.86);max-width:620px;margin:22px auto 0;line-height:1.4}
+.opener .sub{font-size:clamp(18px,2.1vw,25px);font-weight:200;color:rgba(255,255,255,.9);max-width:620px;margin:22px auto 0;line-height:1.4}
 .opener .acties{display:flex;align-items:center;justify-content:center;gap:26px;margin-top:30px;flex-wrap:wrap}
 .opener .eye,.opener h1,.opener .sub,.opener .acties{opacity:0;transform:translateY(22px);animation:komop 1.2s var(--ease) forwards}
 .opener h1{animation-delay:.15s}.opener .sub{animation-delay:.3s}.opener .acties{animation-delay:.45s}
@@ -47,31 +47,31 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-sp
 .opener .voet{position:absolute;left:0;right:0;bottom:max(34px,5vh);text-align:center;padding:0 24px}
 .opener .staat{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,241,234,.7)}
 .opener .staat i{width:120px;height:1px;background:rgba(245,241,234,.25);position:relative;display:block}
-.opener .staat i b{position:absolute;left:0;top:0;height:100%;width:0;background:var(--goud)}
+.opener .staat i b{position:absolute;left:0;top:0;height:100%;width:0;background:#c9a877}
 .opener .staat .w{color:rgba(245,241,234,.35);transition:color .4s}.opener .staat .w.aan{color:#fff}
 .opener .slotzin{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.4vw,44px);color:#fff;margin-top:22px;opacity:0;transform:translateY(16px);transition:opacity .6s,transform .8s var(--ease)}
 .opener .slotzin.aan{opacity:1;transform:none}
 .opener .hint{position:absolute;left:50%;bottom:max(34px,5vh);transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,241,234,.55);animation:komop 1s var(--ease) 1.2s forwards;opacity:0}
-.opener .hint::after{content:'';display:block;width:1px;height:34px;background:linear-gradient(var(--goud),transparent);margin:12px auto 0;animation:dip 2.2s ease-in-out infinite}
+.opener .hint::after{content:'';display:block;width:1px;height:34px;background:linear-gradient(#c9a877,transparent);margin:12px auto 0;animation:dip 2.2s ease-in-out infinite}
 @keyframes dip{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.3}50%{transform:scaleY(1);opacity:1}}
 
 /* ---------- tekst die oplicht met de scroll ---------- */
 .woorden{padding:24vh 24px 12vh;max-width:980px;margin:0 auto}
 .woorden p{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5.2vw,68px);line-height:1.12;margin-bottom:9vh}
-.woorden p span{color:rgba(245,241,234,.16);transition:color .45s}
-.woorden p span.aan{color:var(--tekst)}
-.woorden p.slot span.aan{color:var(--goud)}
+.woorden p span{color:var(--tekst);opacity:.28;transition:opacity .5s,text-shadow .6s}
+.woorden p span.aan{opacity:1;text-shadow:0 0 14px rgba(201,168,119,.55),0 0 34px rgba(201,168,119,.28)}
+.woorden p.slot span.aan{text-shadow:0 0 16px rgba(156,107,63,.6),0 0 44px rgba(156,107,63,.35)}
 
 /* ---------- hoofdstuk: eyebrow, kop, beeld, alinea, lade ---------- */
 .hfd{padding:16vh 0 6vh}
 .hfd .kop{padding:0 24px;max-width:1120px;margin:0 auto 48px}
-.eye{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--goud);margin-bottom:16px}
+.eye{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--hout);margin-bottom:16px}
 .hfd h2{font-size:clamp(42px,5.8vw,84px);line-height:1;max-width:860px}
-.hfd .media{width:min(1240px,calc(100% - 48px));margin:0 auto;aspect-ratio:16/8.4;border-radius:22px;background-size:cover;background-position:center;box-shadow:0 70px 160px rgba(0,0,0,.65);overflow:hidden;position:relative}
+.hfd .media{width:min(1240px,calc(100% - 48px));margin:0 auto;aspect-ratio:16/8.4;border-radius:22px;background-size:cover;background-position:center;box-shadow:0 50px 120px rgba(33,29,24,.22);overflow:hidden;position:relative}
 .hfd .media::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,0) 70%,rgba(13,11,9,.55))}
-.hfd .media .bijschrift{position:absolute;left:34px;bottom:28px;z-index:2;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,241,234,.8)}
-.hfd .alinea{max-width:780px;margin:56px auto 0;padding:0 24px;font-size:clamp(19px,2vw,23px);font-weight:200;line-height:1.5;color:rgba(245,241,234,.86)}
-.hfd .alinea b{font-weight:400;color:#fff}
+.hfd .media .bijschrift{position:absolute;left:34px;bottom:28px;z-index:2;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.hfd .alinea{max-width:780px;margin:56px auto 0;padding:0 24px;font-size:clamp(19px,2vw,23px);font-weight:300;line-height:1.5;color:#3d3730}
+.hfd .alinea b{font-weight:500;color:var(--ink)}
 .hfd .alinea .link{display:inline-block;margin-top:18px;font-size:clamp(16px,1.6vw,19px)}
 
 /* in-beeld animaties */
@@ -88,26 +88,26 @@ h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-sp
 .kaart .f{aspect-ratio:4/3.1;background-size:cover;background-position:center;transition:transform 1.4s var(--ease)}
 a.kaart:hover .f{transform:scale(1.05)}
 .kaart .t{padding:24px 26px 28px}
-.kaart .n{font-size:27px;line-height:1.02}
+.kaart .n{font-size:27px;line-height:1.02;color:var(--ink)}
 .kaart .n span{font-weight:400;font-size:.6em;color:var(--dim)}
 .kaart p{font-size:15px;line-height:1.6;color:var(--dim);margin-top:10px}
-.kaart .m{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--goud)}
+.kaart .m{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--hout)}
 .lade-nav{display:flex;gap:10px;justify-content:flex-end;padding:0 max(24px,calc(50% - 560px))}
-.lade-nav button{width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;font-size:20px;line-height:1;cursor:pointer;transition:.2s}
-.lade-nav button:hover{background:rgba(255,255,255,.2)}
+.lade-nav button{width:38px;height:38px;border-radius:50%;border:0;background:rgba(33,29,24,.08);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;transition:.2s}
+.lade-nav button:hover{background:rgba(33,29,24,.16)}
 .lade-nav button:disabled{opacity:.3;cursor:default}
 
 /* ---------- van dichtbij: drie texturen die ademen ---------- */
 .dichtbij{padding:14vh 0 8vh}
 .dichtbij .kop{text-align:center;padding:0 24px;margin-bottom:44px}
 .dichtbij h2{font-size:clamp(40px,5vw,72px);line-height:1}
-.stroken{display:flex;height:64vh;min-height:420px;width:min(1240px,calc(100% - 48px));margin:0 auto;border-radius:22px;overflow:hidden;box-shadow:0 60px 140px rgba(0,0,0,.6)}
+.stroken{display:flex;height:64vh;min-height:420px;width:min(1240px,calc(100% - 48px));margin:0 auto;border-radius:22px;overflow:hidden;box-shadow:0 50px 120px rgba(33,29,24,.22)}
 .strook{flex:1;position:relative;background-size:cover;background-position:center;transition:flex .8s var(--ease);display:flex;align-items:flex-end;padding:30px;cursor:default}
 .strook:hover{flex:2.4}
 .strook::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,0) 55%,rgba(13,11,9,.75))}
 .strook .l{position:relative;z-index:2}
-.strook .l b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;line-height:1}
-.strook .l span{display:block;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--goud);margin-top:8px;opacity:0;transform:translateY(8px);transition:.5s var(--ease)}
+.strook .l{color:#fff}.strook .l b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;line-height:1}
+.strook .l span{display:block;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#c9a877;margin-top:8px;opacity:0;transform:translateY(8px);transition:.5s var(--ease)}
 .strook:hover .l span{opacity:1;transform:none}
 .strook+.strook{box-shadow:-1px 0 0 rgba(245,241,234,.25)}
 @media(max-width:700px){.stroken{flex-direction:column;height:80vh}.strook:hover{flex:1.8}.strook+.strook{box-shadow:0 -1px 0 rgba(245,241,234,.25)}}
@@ -116,39 +116,39 @@ a.kaart:hover .f{transform:scale(1.05)}
 .cijfers{padding:18vh 24px 14vh;text-align:center}
 .cijfers h2{font-size:clamp(36px,4.8vw,64px);line-height:1.04;max-width:820px;margin:0 auto 76px}
 .cijfers .rij{display:flex;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto}
-.cijfers .c{flex:1 1 230px;padding:26px 18px;border-left:1px solid rgba(255,255,255,.09)}
+.cijfers .c{flex:1 1 230px;padding:26px 18px;border-left:1px solid rgba(33,29,24,.12)}
 .cijfers .c:first-child{border-left:0}
-.cijfers .c b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(64px,8.6vw,120px);line-height:1;color:#fff}
-.cijfers .c b small{font-size:.45em;color:var(--goud)}
+.cijfers .c b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(64px,8.6vw,120px);line-height:1;color:var(--ink)}
+.cijfers .c b small{font-size:.45em;color:var(--hout)}
 .cijfers .c span{display:block;font-size:15px;color:var(--dim);margin-top:12px;line-height:1.55}
 @media(max-width:700px){.cijfers .c{flex-basis:50%;border-left:0}}
 
 /* ---------- routers (Apple: twee grote kaarten die doorverwijzen) ---------- */
 .routers{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:min(1240px,calc(100% - 48px));margin:0 auto;padding:4vh 0 10vh}
 .router{position:relative;min-height:440px;border-radius:28px;overflow:hidden;background:var(--kaart);display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
-.router .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.55;transition:transform 1.6s var(--ease),opacity .6s}
-.router:hover .bg{transform:scale(1.04);opacity:.7}
-.router::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,0) 30%,rgba(13,11,9,.92))}
+.router .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.85;transition:transform 1.6s var(--ease),opacity .6s}
+.router:hover .bg{transform:scale(1.04);opacity:1}
+.router::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(250,248,244,0) 28%,rgba(250,248,244,.97) 68%)}
 .router .in{position:relative;z-index:2}
-.router h3{font-size:clamp(30px,3.2vw,44px);line-height:1.02}
+.router h3{font-size:clamp(30px,3.2vw,44px);line-height:1.02;color:var(--ink)}
 .router p{color:var(--dim);font-size:16px;margin:10px 0 18px;max-width:420px;line-height:1.55}
 @media(max-width:820px){.routers{grid-template-columns:1fr}.router{min-height:340px;padding:28px}}
 
 /* ---------- slot ---------- */
 .slot{position:relative;padding:20vh 24px;text-align:center;overflow:hidden}
-.slot .bg{position:absolute;inset:0;background:url(/assets/materialen/villa-hero.jpg) center/cover;opacity:.32}
-.slot .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(var(--zwart),rgba(13,11,9,.25) 50%,var(--zwart))}
+.slot .bg{position:absolute;inset:0;background:url(/assets/materialen/villa-hero.jpg) center/cover;opacity:.55}
+.slot .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(var(--zwart),rgba(250,248,244,.55) 50%,var(--zwart))}
 .slot .in{position:relative}
 .slot h2{font-size:clamp(44px,6.4vw,92px);line-height:.98}
-.slot p{font-size:clamp(17px,2vw,22px);font-weight:200;color:rgba(245,241,234,.86);margin:22px auto 34px;max-width:580px;line-height:1.5}
+.slot p{font-size:clamp(17px,2vw,22px);font-weight:300;color:#3d3730;margin:22px auto 34px;max-width:580px;line-height:1.5}
 .slot .acties{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap}
 
 /* ---------- voet met kleine lettertjes ---------- */
-footer{padding:48px max(24px,calc(50% - 560px)) 60px;border-top:1px solid rgba(255,255,255,.07);color:rgba(164,156,144,.85);font-size:12px;line-height:1.7}
+footer{padding:48px max(24px,calc(50% - 560px)) 60px;border-top:1px solid rgba(33,29,24,.1);color:var(--dim);font-size:12px;line-height:1.7}
 footer ol{padding-left:18px;max-width:820px}
 footer .rij{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
 
-@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none;transition:none}.opener .eye,.opener h1,.opener .sub,.opener .acties,.opener .hint{animation:none;opacity:1;transform:none}.woorden p span{color:var(--tekst)}}
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none;transition:none}.opener .eye,.opener h1,.opener .sub,.opener .acties,.opener .hint{animation:none;opacity:1;transform:none}.woorden p span{opacity:1}}
 </style>
 </head>
 <body>
@@ -165,7 +165,7 @@ footer .rij{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;m
       <div class="eye">Avant-Garde Gevels</div>
       <h1>Uw gevel.<br>Opnieuw gedacht.</h1>
       <p class="sub">Crepi, natuursteen en composiet houtlook, samengebracht in één handschrift.</p>
-      <div class="acties"><a class="pill groot" href="/reis/#start">Ontwerp uw gevel</a><a class="link" href="/#advies">Adviesgesprek</a></div>
+      <div class="acties"><a class="pill groot" href="/reis/#start">Ontwerp uw gevel</a><a class="link" style="color:#c9a877" href="/#advies">Adviesgesprek</a></div>
     </div>
     <div class="hint" id="hint">Scrol</div>
     <div class="voet" id="voet" style="opacity:0">
