@@ -294,7 +294,7 @@ function opener(){
   na.style.transform='scale('+(1.06-.06*kl(p,.22,.9))+')';
   var k=1-kl(p,.02,.2);                      /* kop wijkt */
   kop.style.opacity=k;kop.style.transform='translateY('+(-40*(1-k))+'px)';
-  hint.style.opacity=p<.03?'':0;
+  hint.style.visibility=p<.03?'':'hidden';
   voet.style.opacity=kl(p,.1,.2);
   balk.style.width=(f*100)+'%';
   w1.classList.toggle('aan',f<.5);w2.classList.toggle('aan',f>=.5);
