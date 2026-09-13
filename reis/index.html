@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=116">
+<link rel="stylesheet" href="/assets/site.css?v=118">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -144,6 +144,10 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .samenvat .chip b{color:var(--zwart);font-weight:500}
 .samenvat .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:9px;vertical-align:middle}
 #tally-embed{margin-top:24px;background:transparent}
+.slot.klaar .form-kolom .eye{color:var(--creme)}
+.form-kolom .klaar-hint{display:none;margin-top:14px;font-size:13px;color:var(--goud);opacity:0;transform:translateY(6px);transition:opacity .6s,transform .6s}
+.slot.klaar .form-kolom .klaar-hint{display:block;opacity:1;transform:none}
+.slot.klaar .dossier-kaart{box-shadow:0 40px 100px rgba(33,29,24,.16),0 0 0 2px rgba(156,122,74,.5);transition:box-shadow .8s var(--ease)}
 .form-kolom h2{font-size:clamp(30px,3.4vw,52px);margin:14px 0 0}
 .form-kolom .lead{margin-top:18px;max-width:40ch}
 .cf{display:grid;gap:14px;margin-top:32px}
@@ -310,6 +314,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
     <div class="form-kolom" data-in>
       <div class="eye">Ontvang uw stijldossier</div>
       <h2>Zie het op<br>uw eigen woning.</h2>
+      <div class="klaar-hint">✓ Uw stijl is compleet — ontvang uw dossier hieronder.</div>
       <p class="lead">U ontvangt uw stijldossier per mail. Voeg desgewenst twee foto's van uw woning toe; wij bewerken ze in uw gekozen Avant-Garde-look. Daarna plannen wij een vrijblijvend adviesgesprek.</p>
       <iframe id="tally-embed" data-tally-src="https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Stijldossier"></iframe>
       <div class="tel">of bel direct <b>06 40 50 64 51</b></div>
@@ -323,6 +328,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var g=function(i){return document.getElementById(i)};
 var keuze={crepi:{naam:'Warm wit',kleur:'#efe9dd'},steen:{naam:'Atlas',img:'/assets/materialen/atlas.jpg'},hout:{naam:'Evergreen',img:'/assets/materialen/evergreen.jpg'}};
+var geraakt={crepi:false,steen:false,hout:false};
 
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
@@ -355,10 +361,12 @@ window.kies=function(btn){
   btn.classList.add('gekozen');
   if(t==='crepi')keuze.crepi={naam:btn.dataset.naam,kleur:btn.dataset.kleur};
   else keuze[t]={naam:btn.dataset.naam,img:btn.dataset.img};
+  geraakt[t]=true;checkKlaar();
   update();
   var next=t==='crepi'?g('stap-steen'):t==='steen'?g('stap-hout'):g('stap-verhouding');
   if(next&&!rm)setTimeout(function(){next.scrollIntoView({behavior:'smooth',block:'center'});},280);
 };
+function checkKlaar(){ if(geraakt.crepi&&geraakt.steen&&geraakt.hout){var d=g('dossier');if(d)d.classList.add('klaar');} }
 window.verdeel=function(){
   var crepi=+g('sl-crepi').value, accent=100-crepi, vd=+g('sl-verdeling').value;
   var hout=Math.round(accent*vd/100/5)*5, steen=accent-hout;
