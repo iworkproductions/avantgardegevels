@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=59">
+<link rel="stylesheet" href="/assets/site.css?v=60">
 
 <style>
 .kop-blok{padding:14vh 24px 8vh;max-width:1120px;margin:0 auto}
@@ -31,6 +31,25 @@
 .stap p a{color:var(--creme);text-decoration:underline;text-underline-offset:4px}.stap p a:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.stappen{grid-template-columns:1fr 1fr;width:calc(100% - 36px)}}
 @media(max-width:560px){.stappen{grid-template-columns:1fr}.stap{min-height:0}.stap h2{margin-top:22px}}
+
+/* subsidie */
+.subsidie{padding:8vh 24px 12vh;background:var(--kaart)}
+.sub-in{max-width:640px;margin:0 auto;text-align:center}
+.sub-in h2{font-size:clamp(34px,4.4vw,60px);line-height:1}
+.sub-lead{font-size:clamp(16px,1.5vw,19px);color:var(--dim);margin:20px auto 40px;max-width:480px;line-height:1.5}
+.sub-calc{max-width:420px;margin:0 auto;text-align:left}
+.sub-calc label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.sub-rij{display:flex;align-items:baseline;gap:10px;margin:8px 0 18px;font-size:clamp(20px,2vw,24px);color:var(--creme)}
+.sub-rij input{width:120px;background:transparent;border:0;border-bottom:1px solid rgba(243,237,227,.3);color:var(--creme);font-family:'Geist',sans-serif;font-size:clamp(28px,3.4vw,44px);padding:6px 0}
+.sub-rij input:focus{outline:none;border-bottom-color:var(--goud)}
+input[type=range]{-webkit-appearance:none;width:100%;height:2px;background:rgba(243,237,227,.25);border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--creme);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:var(--creme);cursor:pointer}
+.sub-uit{margin-top:32px;text-align:center}
+.sub-bedrag{display:block;font-size:clamp(48px,7vw,88px);line-height:1;color:var(--creme);letter-spacing:-.02em}
+.sub-note{display:block;margin-top:10px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.sub-klein{margin-top:34px;font-size:13px;color:var(--dim);max-width:460px;margin-left:auto;margin-right:auto;line-height:1.5}
+.sub-klein sup,.sub-lead sup{color:var(--goud)}
 
 /* de waarde: cijfers met voetnoten */
 .waarde{padding:18vh 24px 10vh;text-align:center}
@@ -74,7 +93,7 @@
 </head>
 <body>
 
-<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/werkwijze/#advies">Adviesgesprek</a><a class="pil" href="/reis/#start">Ontwerp uw gevel</a></nav></div>
+<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/reis/#start">Ontwerp uw gevel</a></nav></div>
 
 <section class="kop-blok">
   <div class="eye">Werkwijze</div>
@@ -96,6 +115,21 @@
     <div class="c"><b>15–25%</b><span>minder aardgasverbruik door<br>een goed geïsoleerde gevel<sup>1</sup></span></div>
     <div class="c"><b>€40,50</b><span>ISDE-subsidie per m² bij twee<br>isolatiemaatregelen; €20,25 bij één<sup>2</sup></span></div>
     <div class="c"><b>2 in 1</b><span>isolatie en architectuur<br>onder één gevel</span></div>
+  </div>
+</section>
+
+
+<section class="subsidie" id="subsidie" aria-label="Subsidie berekenen">
+  <div class="sub-in">
+    <h2>Bereken uw subsidie.</h2>
+    <p class="sub-lead">Met gevelisolatie vanaf 12 cm ontvangt u ISDE-subsidie van &euro;20,25 per m&sup2;.<sup>2</sup> Vul uw geveloppervlak in.</p>
+    <div class="sub-calc">
+      <label for="sub-m2">Geveloppervlak</label>
+      <div class="sub-rij"><input type="number" id="sub-m2" min="0" step="1" value="80" inputmode="numeric"> m&sup2;</div>
+      <input type="range" id="sub-range" min="0" max="200" step="1" value="80" aria-label="Geveloppervlak in vierkante meter">
+      <div class="sub-uit"><span class="sub-bedrag" id="sub-bedrag">&euro;1.620</span><span class="sub-note" id="sub-note">geschatte ISDE-subsidie</span></div>
+    </div>
+    <p class="sub-klein">Indicatie. Subsidie geldt vanaf 10 m&sup2; en tot 170 m&sup2;, bij isolatie van minimaal Rd 3,5 (circa 12 cm). Wij verzorgen de aanvraag bij de RVO.<sup>2</sup></p>
   </div>
 </section>
 
@@ -141,10 +175,18 @@
     <li>Gemiddelde besparing op aardgasverbruik door gevelisolatie volgens Milieu Centraal; het werkelijke effect hangt af van woning en gebruik.</li>
     <li>ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v59</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · Noord-Brabant · v60</span></div>
 </footer>
 
 <script>
+(function(){var m=document.getElementById('sub-m2'),r=document.getElementById('sub-range'),b=document.getElementById('sub-bedrag'),n=document.getElementById('sub-note');
+function euro(x){return '\u20ac'+Math.round(x).toLocaleString('nl-NL');}
+function calc(v){v=Math.max(0,v||0);var sub=Math.max(0,Math.min(170,v))*20.25;
+ if(v>0&&v<10){b.textContent='\u2014';n.textContent='vanaf 10 m\u00b2 subsidiabel';}
+ else{b.textContent=euro(sub);n.textContent=v>170?'geschat, tot 170 m\u00b2 subsidiabel':'geschatte ISDE-subsidie';}}
+if(m){m.addEventListener('input',function(){r.value=Math.min(200,m.value||0);calc(+m.value);});
+ r.addEventListener('input',function(){m.value=r.value;calc(+r.value);});calc(+m.value);}
+})();
 function verstuur(e){e.preventDefault();
  var n=document.getElementById('cf-naam').value,t=document.getElementById('cf-tel').value,
      m=document.getElementById('cf-mail').value,p=document.getElementById('cf-plaats').value,
