@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=76">
+<link rel="stylesheet" href="/assets/site.css?v=77">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -180,7 +180,10 @@
 .lade .kaart{flex:0 0 min(40vw,560px);scroll-snap-align:start;scroll-snap-stop:always}
 .lade .media{position:relative;aspect-ratio:3/2;border-radius:22px;overflow:hidden;background:#000}
 .lade .media img,.lade .media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.lade .kaart:hover .media img{transform:scale(1.05)}
+.lade .kaart{transition:transform .5s var(--ease)}
+#projecten .lade .kaart:hover{transform:scale(1.06)}
+#projecten .lade .kaart{transform-origin:center}
+.lade .kaart:hover .media img{transform:scale(1.03)}
 .video-kaart .film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .video-kaart .film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
 .video-kaart.speelt .film-video{opacity:1}
@@ -256,15 +259,9 @@
 <section class="hfd licht" id="materiaal">
   <div class="kop-blok"><h2>Alles begint<br>bij het materiaal.</h2></div>
   <div class="lade-wrap"><div class="lade">
-    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi · de basis" loading="lazy"></div><div class="onder"><b>Crepi · de basis</b><p>Een egale, isolerende huid, altijd minimaal 60% van de gevel.<sup>1</sup></p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/atlas.jpg" alt="Atlas-natuursteen" loading="lazy"></div><div class="onder"><b>Atlas-natuursteen</b><p>Handgevormde travertijn, warm en robuust.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/freya.jpg" alt="Freya-natuursteen" loading="lazy"></div><div class="onder"><b>Freya-natuursteen</b><p>Koel grijs met een levendige breuk.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/hermes.jpg" alt="Hermes-natuursteen" loading="lazy"></div><div class="onder"><b>Hermes-natuursteen</b><p>Zandkleurig en uitgebalanceerd.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen op de gevel" loading="lazy"></div><div class="onder"><b>Natuursteen op de gevel</b><p>Met de hand gezet, steen voor steen. Geen twee gelijk.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/evergreen.jpg" alt="Evergreen-composiet houtlook" loading="lazy"></div><div class="onder"><b>Evergreen-composiet houtlook</b><p>Rustige tekening, warme ondertoon.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/ember.jpg" alt="Ember-composiet houtlook" loading="lazy"></div><div class="onder"><b>Ember-composiet houtlook</b><p>Gloeit als as die nog warm is.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/empire.jpg" alt="Empire-composiet houtlook" loading="lazy"></div><div class="onder"><b>Empire-composiet houtlook</b><p>Donker, egaal, scherp belijnd.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-hout.jpg" alt="Houtlook bij de entree" loading="lazy"></div><div class="onder"><b>Houtlook bij de entree</b><p>Verticale latten die het licht vangen. Nooit schilderen.<sup>2</sup></p></div></div>
+    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi" loading="lazy"></div><div class="onder"><b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60%.</p></div></div>
+    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen" loading="lazy"></div><div class="onder"><b>Natuursteen</b><p>Het accent dat de woning aardt. Met de hand gezet.</p></div></div>
+    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook" loading="lazy"></div><div class="onder"><b>Composiet houtlook</b><p>De warmte van hout, zonder onderhoud.</p></div></div>
   </div><div class="lade-nav"><button aria-label="Vorige" onclick="schuif(this,-1)">‹</button><button aria-label="Volgende" onclick="schuif(this,1)">›</button></div></div>
   <div class="alinea-blok"><a class="link" href="/collectie/">Bekijk de collectie</a></div>
 </section>
@@ -378,7 +375,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v76</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v77</span></div>
 </footer>
 
 <script>
