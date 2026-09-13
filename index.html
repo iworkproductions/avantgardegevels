@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=25">
+<link rel="stylesheet" href="/assets/site.css?v=26">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -103,11 +103,11 @@
 .vak-rij{display:flex;gap:2vw;padding:0 0 2vw}
 .vak-item{margin:0;position:relative;flex:1}
 .vak-item.groot{flex:1.7}
-.vak-item img{width:100%;height:72vh;object-fit:cover;display:block}
-.vak-item.vol img{height:92vh}
+.vak-item img,.vak-item video{width:100%;height:72vh;object-fit:cover;display:block;background:#000}
+.vak-item.vol img,.vak-item.vol video{height:92vh}
 .vak-item figcaption{position:absolute;left:24px;bottom:22px;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,237,227,.9)}
 .vak-slot{padding:14vh 8vw 6vh;font-size:clamp(34px,4.6vw,72px);letter-spacing:-.025em;line-height:1;color:var(--creme)}
-@media(max-width:760px){.vak-rij{flex-direction:column;gap:12px;padding-bottom:12px}.vak-item img{height:52vh}.vak-item.vol img{height:64vh}}
+@media(max-width:760px){.vak-rij{flex-direction:column;gap:12px;padding-bottom:12px}.vak-item img,.vak-item video{height:52vh}.vak-item.vol img,.vak-item.vol video{height:64vh}}
 
 /* ---------- 07 projecten: één project, één beeld ---------- */
 .projecten{padding-bottom:10vh}
@@ -213,7 +213,7 @@
 
 <!-- 03 · DE FILM (placeholder: /assets/film-materiaal.mp4 nog te leveren; tot die tijd toont het posterbeeld) -->
 <section class="film" id="film" aria-label="Van materiaal naar architectuur">
-  <video class="film-video" poster="/assets/materialen/villa-hero.jpg" muted playsinline loop autoplay preload="none" aria-hidden="true">
+  <video class="film-video" poster="/assets/materialen/villa-hero.jpg" muted playsinline loop preload="none" aria-hidden="true">
     <source src="/assets/film-materiaal.mp4" type="video/mp4">
   </video>
   <div class="film-in" data-in><div class="eye">De film</div><h2>Van materiaal<br>naar architectuur.</h2></div>
@@ -258,13 +258,13 @@
   </div>
   <div class="vak-rij">
     <figure class="vak-item groot" data-in><img src="/assets/detail-steen.jpg" alt="Natuursteen op de hoek, met de hand gezet" loading="lazy"><figcaption>Uitlijning</figcaption></figure>
-    <figure class="vak-item" data-in><img src="/assets/detail-crepi.jpg" alt="Overgang van crepi naar kozijn" loading="lazy"><figcaption>Overgangen</figcaption></figure>
+    <figure class="vak-item" data-in><video class="vak-video" poster="/assets/film-crepi.jpg" muted playsinline loop preload="none" aria-label="Crepi wordt aangebracht"><source src="/assets/film-crepi.mp4" type="video/mp4"></video><figcaption>Overgangen</figcaption></figure>
   </div>
   <div class="vak-rij">
     <figure class="vak-item" data-in><img src="/assets/materialen/atlas-detail.jpg" alt="Atlas-natuursteen van dichtbij" loading="lazy"><figcaption>Materiaal</figcaption></figure>
     <figure class="vak-item groot" data-in><img src="/assets/detail-hout.jpg" alt="Verticale latten composiet houtlook met verborgen bevestiging" loading="lazy"><figcaption>Afwerking</figcaption></figure>
   </div>
-  <figure class="vak-item vol" data-in><img src="/assets/gal-2.jpg" alt="Afgewerkte Avant-Garde gevel" loading="lazy"><figcaption>Precisie</figcaption></figure>
+  <figure class="vak-item vol" data-in><video class="vak-video" poster="/assets/film-vakmanschap.jpg" muted playsinline loop preload="none" aria-label="Voegwerk met de hand, van dichtbij"><source src="/assets/film-vakmanschap.mp4" type="video/mp4"></video><figcaption>Precisie</figcaption></figure>
   <p class="vak-slot" data-in>Dat is Avant-Garde.</p>
 </section>
 
@@ -348,7 +348,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v25</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v26</span></div>
 </footer>
 
 <script>
@@ -390,6 +390,9 @@ window.addEventListener('scroll',scroll,{passive:true});window.addEventListener(
 /* in beeld */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
+/* video's: alleen spelen als ze in beeld zijn, niet bij reduced motion */
+if(!rm){var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.readyState===0)v.load();v.play().catch(function(){});}else v.pause();})},{threshold:.25});
+document.querySelectorAll('video').forEach(function(v){vo.observe(v)});}
 /* achter de gevel: lagen uit elkaar */
 var lg=g('lagen'),lv=document.querySelectorAll('.laag-v'),lt=g('lagentekst');
 function lagen(){
