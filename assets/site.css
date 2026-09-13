@@ -14,13 +14,12 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'Manrope',sans-serif;font-weight:400;background:var(--zwart);color:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'Geist',sans-serif;font-weight:400;background:var(--zwart);color:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:-.005em}
-/* micro-labels: Manrope, wit op zwart */
-.eye{font-family:'Manrope',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--creme);margin-bottom:16px}
-.accent{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;letter-spacing:0}
+h1,h2,h3,h4{font-family:'Geist',sans-serif;font-weight:400;letter-spacing:-.025em}
+/* micro-labels: Geist Medium, wit op zwart */
+.eye{font-family:'Geist',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--creme);margin-bottom:16px}
 :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
 
 /* navigatie: 52 px, blur, wordmerk links, links rechts, pil */
@@ -37,11 +36,11 @@ h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond',serif;font-weight:400;letter
 @media(max-width:760px){.nav .links a:not(.pil){display:none}}
 
 /* knoppen: één pil, één dunne lijn */
-.pil{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--creme);color:var(--zwart);padding:11px 22px;border-radius:980px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1;border:0;cursor:pointer;transition:background .25s,color .25s,transform .25s;white-space:nowrap}
+.pil{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--creme);color:var(--zwart);padding:11px 22px;border-radius:980px;font-family:'Geist',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1;border:0;cursor:pointer;transition:background .25s,color .25s,transform .25s;white-space:nowrap}
 .pil:hover{background:var(--goud);color:var(--zwart)}
 .pil.groot{padding:16px 34px;font-size:15px;min-height:52px}
 .nav .pil{min-height:34px;padding:8px 16px;font-size:12px}
-.lijn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 24px;border:1px solid rgba(243,237,227,.38);border-radius:980px;color:var(--creme);font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1;background:transparent;cursor:pointer;transition:border-color .25s,color .25s;white-space:nowrap}
+.lijn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 24px;border:1px solid rgba(243,237,227,.38);border-radius:980px;color:var(--creme);font-family:'Geist',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em;line-height:1;background:transparent;cursor:pointer;transition:border-color .25s,color .25s;white-space:nowrap}
 .lijn:hover{border-color:var(--goud);color:var(--goud)}
 .lijn.groot{padding:16px 34px;font-size:15px;min-height:52px}
 .link{color:var(--goud);font-size:14px;letter-spacing:.02em;display:inline-block;padding:6px 0}
@@ -54,7 +53,7 @@ h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond',serif;font-weight:400;letter
 .uitgang .bg{position:absolute;inset:0;background:url(/assets/villa-na.jpg) center/cover;opacity:.32}
 .uitgang .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(var(--zwart),rgba(13,11,9,.5) 50%,var(--zwart))}
 .uitgang .in{position:relative}
-.uitgang h2{font-size:clamp(42px,6.2vw,88px);line-height:.98;color:var(--creme)}
+.uitgang h2{font-size:clamp(38px,5.6vw,80px);line-height:1;color:var(--creme)}
 .uitgang p{font-size:clamp(17px,2vw,21px);font-weight:300;color:var(--dim);margin:20px auto 34px;max-width:560px;line-height:1.5}
 
 /* voettekst */
