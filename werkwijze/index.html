@@ -14,22 +14,21 @@
 <meta name="theme-color" content="#0d0b09">
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=21">
 
 <style>
 .kop-blok{padding:14vh 24px 8vh;max-width:1120px;margin:0 auto}
-.eye{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--goud);margin-bottom:16px}
 .kop-blok h1{font-size:clamp(46px,7vw,96px);line-height:.98;max-width:860px}
 .kop-blok p{font-size:clamp(18px,2vw,22px);color:var(--dim);max-width:640px;margin-top:26px;line-height:1.5}
 
 /* vier stappen: een echte volgorde, dus genummerd */
 .stappen{width:min(1240px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--lijn);border-radius:22px;overflow:hidden}
 .stap{background:var(--kaart);padding:36px 30px 40px;min-height:300px;display:flex;flex-direction:column}
-.stap .nr{font-family:'Cormorant Garamond',serif;font-size:56px;line-height:1;color:var(--goud);margin-bottom:auto}
+.stap .nr{font-family:'Cormorant Garamond',serif;font-size:56px;line-height:1;color:var(--creme);margin-bottom:auto}
 .stap h2{font-size:30px;line-height:1.05;margin:36px 0 12px}
 .stap p{font-size:15px;line-height:1.6;color:var(--dim)}
-.stap p a{color:var(--goud)}.stap p a:hover{text-decoration:underline;text-underline-offset:4px}
+.stap p a{color:var(--creme);text-decoration:underline;text-underline-offset:4px}.stap p a:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.stappen{grid-template-columns:1fr 1fr;width:calc(100% - 36px)}}
 @media(max-width:560px){.stappen{grid-template-columns:1fr}.stap{min-height:0}.stap h2{margin-top:22px}}
 
@@ -41,7 +40,7 @@
 .waarde .c:first-child{border-left:0}
 .waarde .c b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,6.6vw,92px);line-height:1;color:var(--creme)}
 .waarde .c span{display:block;font-size:15px;color:var(--dim);margin-top:12px;line-height:1.55}
-.waarde sup,.stap sup{font-size:.6em;color:var(--goud)}
+.waarde sup,.stap sup{font-size:.6em;color:var(--creme)}
 @media(max-width:700px){.waarde .c{flex-basis:100%;border-left:0;border-top:1px solid var(--lijn)}.waarde .c:first-child{border-top:0}}
 
 /* vragen */
@@ -51,7 +50,7 @@
 .vragen details:last-child{border-bottom:1px solid var(--lijn)}
 .vragen summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.6vw,28px);line-height:1.15;min-height:44px}
 .vragen summary::-webkit-details-marker{display:none}
-.vragen summary::after{content:'+';flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1px solid rgba(243,237,227,.3);display:grid;place-items:center;font-family:'Jost',sans-serif;font-size:18px;font-weight:300;color:var(--goud);transition:transform .3s var(--ease)}
+.vragen summary::after{content:'+';flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1px solid rgba(243,237,227,.3);display:grid;place-items:center;font-family:'Manrope',sans-serif;font-size:18px;font-weight:400;color:var(--creme);transition:transform .3s var(--ease)}
 .vragen details[open] summary::after{transform:rotate(45deg)}
 .vragen details p{padding:0 0 26px;font-size:16px;line-height:1.65;color:var(--dim);max-width:640px}
 
@@ -62,7 +61,7 @@
 .advies>.in>p{font-size:clamp(17px,2vw,21px);color:var(--dim);margin:20px auto 40px;max-width:520px;line-height:1.5}
 .cf{text-align:left;display:grid;gap:12px}
 .cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.cf input,.cf textarea{width:100%;min-height:52px;background:rgba(243,237,227,.05);border:1px solid rgba(243,237,227,.18);border-radius:12px;color:var(--creme);padding:15px 18px;font-family:'Jost',sans-serif;font-size:16px;font-weight:300;transition:border-color .25s}
+.cf input,.cf textarea{width:100%;min-height:52px;background:rgba(243,237,227,.05);border:1px solid rgba(243,237,227,.18);border-radius:12px;color:var(--creme);padding:15px 18px;font-family:'Manrope',sans-serif;font-size:16px;font-weight:400;transition:border-color .25s}
 .cf input::placeholder,.cf textarea::placeholder{color:rgba(243,237,227,.45)}
 .cf input:focus,.cf textarea:focus{outline:none;border-color:var(--goud)}
 .cf textarea{min-height:120px;resize:vertical}
@@ -142,7 +141,7 @@
     <li>Gemiddelde besparing op aardgasverbruik door gevelisolatie volgens Milieu Centraal; het werkelijke effect hangt af van woning en gebruik.</li>
     <li>ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v20</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v21</span></div>
 </footer>
 
 <script>
