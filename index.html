@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=43">
+<link rel="stylesheet" href="/assets/site.css?v=44">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -56,17 +56,6 @@
 .manifest .groep+.groep{margin-top:clamp(28px,4.5vh,56px)}
 .manifest .slotregel{color:var(--creme)}
 @media(max-width:760px){.scene{height:140vh}.hero-in{flex-direction:column;align-items:flex-start;left:6vw;right:6vw;bottom:9vh;gap:26px}.hero .acties{justify-content:flex-start}.glas{padding:0 6vw}.manifest p{font-size:clamp(26px,7.4vw,38px)}}
-
-/* ---------- 03 film ---------- */
-.film{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
-.film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.film-video,.vak-item.vol .vak-video{position:absolute;left:50%;top:50%;width:max(100%,177.78vh);height:max(56.25vw,100%);transform:translate(-50%,-50%);object-fit:cover;background:transparent;border:0;outline:0}
-.film-video,.vak-video{opacity:0;visibility:hidden;transition:opacity .6s}
-.film-video.speelt,.vak-video.speelt{opacity:1;visibility:visible}
-.film-in{position:absolute;left:8vw;bottom:10vh;z-index:2}
-.film-in h2{font-size:clamp(40px,5.4vw,84px);line-height:.98;color:#0d0b09}
-.film-beeld{margin:0;background:var(--zwart)}
-.film-beeld img{width:100%;height:100vh;height:100svh;object-fit:cover;display:block}
 
 /* ---------- elk hoofdstuk opent hetzelfde: rustzone, label, kop van twee regels ---------- */
 .kop-blok{padding:26vh 8vw 8vh;max-width:1400px}
@@ -139,25 +128,6 @@
 .lagen-tekst.aan{opacity:1;transform:none}
 @media(max-width:900px){.lagen-scene{height:200vh}.lagen-plak{padding:0 6vw;gap:6vh}.lagen-stapel{width:58vw;height:52vw}.laag-v span{left:calc(100% + 14px);font-size:10px}.lagen-tekst{max-width:100%}}
 
-/* ---------- 09 vertrouwen ---------- */
-.bewijs{display:grid;grid-template-columns:repeat(2,1fr);gap:8vh 8vw;padding:0 8vw 20vh;max-width:1400px}
-.punt b{display:block;font-weight:400;font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em;line-height:1.05;color:#211d18}
-.punt p{margin-top:14px;font-size:16px;line-height:1.6;color:#5d564d;max-width:420px}
-.punt sup{font-size:.6em}
-@media(max-width:760px){.bewijs{grid-template-columns:1fr;gap:6vh;padding:0 6vw 14vh}}
-
-/* ---------- 10 proces: dunne lijn die meeloopt met de scroll ---------- */
-.stappen-lijn{list-style:none;position:relative;margin:0 8vw 20vh;padding-left:56px;max-width:720px;--vul:0%}
-.stappen-lijn::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(33,29,24,.15)}
-.stappen-lijn::after{content:'';position:absolute;left:0;top:0;width:1px;height:var(--vul);background:#211d18;transition:height .2s linear}
-.stappen-lijn li{position:relative;padding:0 0 9vh;opacity:.35;transition:opacity .5s}
-.stappen-lijn li.aan{opacity:1}
-.stappen-lijn .nr{position:absolute;left:-56px;top:6px;font-size:11px;font-weight:500;letter-spacing:.12em;color:#211d18}
-.stappen-lijn b{display:block;font-weight:400;font-size:clamp(28px,3vw,44px);letter-spacing:-.02em;line-height:1.05;color:#211d18}
-.stappen-lijn p{margin-top:10px;font-size:16px;line-height:1.6;color:#5d564d;max-width:460px}
-.stappen-lijn p a{color:#211d18;text-decoration:underline;text-underline-offset:4px}
-@media(max-width:760px){.stappen-lijn{margin:0 6vw 14vh;padding-left:44px}.stappen-lijn .nr{left:-44px}}
-
 /* ---------- 11 finale ---------- */
 .finale{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
 .finale img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -183,7 +153,64 @@
 .contact-of a{color:#211d18;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:760px){.contact{padding:14vh 6vw 12vh}.cf .twee{grid-template-columns:1fr}.cf .pil{justify-self:stretch}}
 
-@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.laag-v span,.lagen-tekst{opacity:1;transform:none}.stappen-lijn li{opacity:1}.stappen-lijn{--vul:100%}.opener .na{clip-path:none!important}.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}}
+
+/* ---------- splits: tekst / beeld ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;min-height:100svh;align-items:center}
+.split-tekst{padding:14vh 8vw}
+.split-tekst h2{font-size:clamp(40px,4.8vw,76px);line-height:.98;max-width:12ch}
+.split-tekst .intro-tekst{margin-top:32px;max-width:460px}
+.split-tekst .link{margin-top:24px}
+.split-beeld{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:#000}
+.split-beeld .film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split-beeld .film-video{position:absolute;left:50%;top:50%;width:max(100%,177.78vh);height:max(112.5vw,100%);transform:translate(-50%,-50%);object-fit:cover}
+.atlas{background:#000;color:var(--creme)}
+.atlas .split-beeld img{width:100%;height:100%;object-fit:contain;display:block;padding:8vh 6vw}
+.atlas .split-beeld{background:#000}
+@media(max-width:900px){.split{grid-template-columns:1fr;min-height:0}.split-beeld{min-height:64vh}.split-tekst{padding:12vh 6vw 8vh}.atlas .split{display:flex;flex-direction:column}.atlas .split-beeld{min-height:60vh}}
+
+/* ---------- 04 materialen: asymmetrisch grid, statisch ---------- */
+.mat-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:9vw;gap:2vw;padding:0 8vw 6vh}
+.mat-grid .m{margin:0;position:relative;overflow:hidden;background:#e6e0d4}
+.mat-grid .m img{width:100%;height:100%;object-fit:cover;display:block}
+.mat-grid figcaption{position:absolute;left:14px;bottom:12px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.m1{grid-column:1/6;grid-row:1/4}.m2{grid-column:6/9;grid-row:1/3}.m3{grid-column:9/13;grid-row:1/3}
+.m4{grid-column:6/9;grid-row:3/6;background:#000}.m5{grid-column:9/13;grid-row:3/5}.m6{grid-column:1/4;grid-row:4/6}.m7{grid-column:4/6;grid-row:4/6}
+.mat-grid .goud img{object-fit:cover}
+@media(max-width:760px){.mat-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:26vw;gap:3vw;padding:0 6vw 6vh}.m1{grid-column:1/7;grid-row:1/3}.m2{grid-column:1/4;grid-row:3/4}.m3{grid-column:4/7;grid-row:3/4}.m4{grid-column:1/4;grid-row:4/6}.m5{grid-column:4/7;grid-row:4/5}.m6{grid-column:4/7;grid-row:5/6}.m7{grid-column:1/7;grid-row:6/7}}
+
+/* ---------- 06 vakmanschap: één groot, twee klein ---------- */
+.vak-comp{display:grid;grid-template-columns:2fr 1fr;gap:2vw;padding:0 0 2vw}
+.vak-comp .vak-item.vol img,.vak-comp .vak-item.vol video{height:92vh}
+.vak-klein{display:grid;grid-template-rows:1fr 1fr;gap:2vw}
+.vak-klein .vak-item img{height:100%;min-height:0}
+.vak-klein .vak-item{overflow:hidden}
+@media(max-width:760px){.vak-comp{grid-template-columns:1fr;gap:12px}.vak-comp .vak-item.vol img,.vak-comp .vak-item.vol video{height:64vh}.vak-klein{grid-template-rows:none;grid-template-columns:1fr 1fr;gap:12px}.vak-klein .vak-item img{height:36vh}}
+
+/* ---------- 08 projecten: dominant + twee klein ---------- */
+.project-klein{display:grid;grid-template-columns:1fr 1fr;gap:2vw;padding:0 8vw 10vh}
+.project-klein .project{margin:0}
+.project-klein .project img{height:48vh}
+.project-klein .project figcaption{padding:14px 0 0}
+@media(max-width:760px){.project-klein{grid-template-columns:1fr;padding:0 6vw 8vh}.project-klein .project img{height:40vh}}
+
+/* ---------- 10 werkwijze: zes kleine stappen op één lijn ---------- */
+.stappen-strip{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:2vw;padding:0 8vw 20vh;position:relative}
+.stappen-strip::before{content:'';position:absolute;left:8vw;right:8vw;top:calc(12vw + 22px);height:1px;background:rgba(33,29,24,.18)}
+.stappen-strip li{position:relative}
+.stappen-strip img{width:100%;height:12vw;object-fit:cover;display:block;margin-bottom:34px}
+.stappen-strip .nr{position:absolute;top:calc(12vw + 14px);left:0;width:16px;height:16px;border-radius:50%;background:#f5f1ea;border:1px solid #211d18;font-size:0}
+.stappen-strip b{display:block;font-weight:500;font-size:16px;letter-spacing:-.01em;color:#211d18}
+.stappen-strip p{margin-top:8px;font-size:14px;line-height:1.5;color:#5d564d}
+.stappen-strip p a{color:#211d18;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.stappen-strip{grid-template-columns:repeat(2,1fr);gap:8vh 6vw;padding:0 6vw 14vh}.stappen-strip::before{display:none}.stappen-strip img{height:32vw;margin-bottom:16px}.stappen-strip .nr{display:none}}
+
+/* ---------- beweging met hiërarchie: alleen dominante beelden ---------- */
+.pushin{transform:scale(1);transition:transform 12s linear}
+.pushin.in{transform:scale(1.045)}
+.finale img{transform-origin:center}
+.project.vol{overflow:hidden}
+
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.pushin,.pushin.in{transform:none;transition:none}.laag-v span,.lagen-tekst{opacity:1;transform:none}.stappen-lijn li{opacity:1}.stappen-lijn{--vul:100%}.opener .na{clip-path:none!important}.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}}
 </style>
 </head>
 <body>
@@ -219,31 +246,38 @@
   </div>
 </section>
 
-<!-- 03 · DE FILM: crepi-close-up (wit), villa eronder -->
-<section class="film" id="film" aria-label="Van materiaal naar architectuur">
-  <img class="film-poster" src="/assets/film-crepi.jpg" alt="" aria-hidden="true">
-  <video class="film-video" muted playsinline loop preload="metadata" aria-hidden="true"><source src="/assets/film-crepi.mp4" type="video/mp4"></video>
-  <div class="film-in" data-in><h2>Van materiaal<br>naar architectuur.</h2></div>
-</section>
-<figure class="film-beeld"><img src="/assets/materialen/villa-hero.jpg" alt="Avant-Garde villa in avondlicht" loading="lazy"></figure>
-
-<!-- 04 · MATERIAAL -->
-<section class="materiaal licht" id="materiaal">
-  <div class="kop-blok">
-    <h2>Alles begint<br>bij het materiaal.</h2>
+<!-- 03 · ONTDEKKING · tekst links, materiaalfilm rechts -->
+<section class="ontdekking" id="ontdekking">
+  <div class="split">
+    <div class="split-tekst">
+      <h2>Van materiaal<br>naar architectuur.</h2>
+      <p class="intro-tekst">Elke Avant-Garde gevel bestaat uit dezelfde drie lagen. Crepi als rustige, isolerende basis, altijd minimaal 60%.<sup>1</sup> Natuursteen als het accent dat de woning aardt. Composiet houtlook als het accent dat de gevel laat leven.<sup>2</sup></p>
+    </div>
+    <div class="split-beeld">
+      <img class="film-poster" src="/assets/film-crepi.jpg" alt="Crepi wordt met de spaan aangebracht">
+      <video class="film-video" muted playsinline loop preload="metadata" aria-hidden="true"><source src="/assets/film-crepi.mp4" type="video/mp4"></video>
+    </div>
   </div>
-  <figure class="moment"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi, de egale isolerende basis, met natuursteen en composiet houtlook" loading="lazy"><figcaption><span class="eye">Crepi · de basis · textuur</span></figcaption></figure>
-  <div class="alinea-blok"><p class="intro-tekst">Elke Avant-Garde gevel bestaat uit dezelfde drie lagen. Crepi als rustige, isolerende basis, altijd minimaal 60%.<sup>1</sup> Natuursteen als het accent dat de woning aardt. Composiet houtlook als het accent dat de gevel laat leven.<sup>2</sup> Binnen dit systeem klopt elke combinatie.</p></div>
-  <figure class="moment smal rechts"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen op de gevel, van dichtbij" loading="lazy"><figcaption><span class="eye">Natuursteen · Atlas, Freya, Hermes · diepte</span></figcaption></figure>
-  <figure class="moment"><img src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook bij de entree, in avondlicht" loading="lazy"><figcaption><span class="eye">Composiet houtlook · Evergreen, Ember, Empire · licht</span></figcaption></figure>
+</section>
+
+<!-- 04 · MATERIALEN · zes materialen + de gouden Atlas -->
+<section class="materiaal licht" id="materiaal">
+  <div class="kop-blok"><h2>Alles begint<br>bij het materiaal.</h2></div>
+  <div class="mat-grid">
+    <figure class="m m1"><img src="/assets/materialen/atlas.jpg" alt="Atlas-natuursteen" loading="lazy"><figcaption>Atlas-natuursteen</figcaption></figure>
+    <figure class="m m2"><img src="/assets/materialen/freya.jpg" alt="Freya-natuursteen" loading="lazy"><figcaption>Freya-natuursteen</figcaption></figure>
+    <figure class="m m3"><img src="/assets/materialen/hermes.jpg" alt="Hermes-natuursteen" loading="lazy"><figcaption>Hermes-natuursteen</figcaption></figure>
+    <figure class="m m4 goud"><img src="/assets/materialen/atlas-gouden.jpg" alt="Atlas draagt de wereldbol" loading="lazy"><figcaption>Atlas</figcaption></figure>
+    <figure class="m m5"><img src="/assets/materialen/evergreen.jpg" alt="Evergreen-composiet houtlook" loading="lazy"><figcaption>Evergreen-composiet houtlook</figcaption></figure>
+    <figure class="m m6"><img src="/assets/materialen/ember.jpg" alt="Ember-composiet houtlook" loading="lazy"><figcaption>Ember-composiet houtlook</figcaption></figure>
+    <figure class="m m7"><img src="/assets/materialen/empire.jpg" alt="Empire-composiet houtlook" loading="lazy"><figcaption>Empire-composiet houtlook</figcaption></figure>
+  </div>
   <div class="materiaal-uit"><a class="link" href="/collectie/">Bekijk de collectie</a></div>
 </section>
 
 <!-- 05 · DE TRANSFORMATIE -->
 <section class="transformatie licht" id="transformatie">
-  <div class="kop-blok">
-    <h2>Dezelfde woning.<br>Een ander karakter.</h2>
-  </div>
+  <div class="kop-blok"><h2>Dezelfde woning.<br>Een ander karakter.</h2></div>
   <div class="opener" id="opener">
     <div class="plak">
       <div class="laag voor" id="voor"></div>
@@ -256,32 +290,41 @@
   </div>
 </section>
 
-<!-- 06 · VAKMANSCHAP -->
+<!-- 06 · VAKMANSCHAP · één groot beeld, twee kleine macro's -->
 <section class="vak" id="vakmanschap">
-  <div class="kop-blok">
-    <h2>Het verschil zit<br>in wat u bijna niet ziet.</h2>
+  <div class="kop-blok"><h2>Het verschil zit<br>in wat u bijna niet ziet.</h2></div>
+  <div class="vak-comp">
+    <figure class="vak-item vol"><img class="vak-poster" src="/assets/film-vakmanschap.jpg" alt="Voegwerk met de hand, van dichtbij" loading="lazy"><video class="vak-video" muted playsinline loop preload="metadata" aria-hidden="true"><source src="/assets/film-vakmanschap.mp4" type="video/mp4"></video><figcaption>Precisie</figcaption></figure>
+    <div class="vak-klein">
+      <figure class="vak-item"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen op de hoek" loading="lazy"><figcaption>Uitlijning</figcaption></figure>
+      <figure class="vak-item"><img src="/assets/detail-hout.jpg" alt="Latten composiet houtlook met verborgen bevestiging" loading="lazy"><figcaption>Afwerking</figcaption></figure>
+    </div>
   </div>
-  <div class="vak-rij">
-    <figure class="vak-item groot" data-in><img src="/assets/detail-steen.jpg" alt="Natuursteen op de hoek, met de hand gezet" loading="lazy"><figcaption>Uitlijning</figcaption></figure>
-    <figure class="vak-item" data-in><img src="/assets/detail-crepi.jpg" alt="Overgang van crepi naar kozijn" loading="lazy"><figcaption>Overgangen</figcaption></figure>
-  </div>
-  <div class="vak-rij">
-    <figure class="vak-item" data-in><img src="/assets/materialen/atlas-detail.jpg" alt="Atlas-natuursteen van dichtbij" loading="lazy"><figcaption>Materiaal</figcaption></figure>
-    <figure class="vak-item groot" data-in><img src="/assets/detail-hout.jpg" alt="Verticale latten composiet houtlook met verborgen bevestiging" loading="lazy"><figcaption>Afwerking</figcaption></figure>
-  </div>
-  <figure class="vak-item vol" data-in><img class="vak-poster" src="/assets/film-vakmanschap.jpg" alt="Voegwerk met de hand, van dichtbij" loading="lazy"><video class="vak-video" muted playsinline loop preload="metadata" aria-hidden="true"><source src="/assets/film-vakmanschap.mp4" type="video/mp4"></video><figcaption>Precisie</figcaption></figure>
-  <p class="vak-slot" data-in>Dat is Avant-Garde.</p>
 </section>
 
-<!-- 07 · PROJECTEN (placeholder: plaats en materiaal per project nog te leveren; foto's zijn bestaande beelden) -->
+<!-- 07 · ATLAS STEEN · beeld links, tekst rechts -->
+<section class="atlas" id="atlas">
+  <div class="split">
+    <div class="split-beeld atlas-beeld"><img src="/assets/materialen/atlas-gouden.jpg" alt="Atlas draagt de wereldbol" loading="lazy"></div>
+    <div class="split-tekst">
+      <h2>Atlas.<br>Steen met een oorsprong.</h2>
+      <p class="intro-tekst">Genoemd naar de titaan die de hemel torst. Handgevormde travertijn met diepe warme tinten, gevormd door de tijd en met de hand gezet op uw gevel.</p>
+      <a class="link" href="/collectie/">Bekijk de collectie</a>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · PROJECTBEWIJS · één dominant beeld, twee kleinere (plaats en materiaal per project nog te leveren) -->
 <section class="projecten licht" id="projecten">
   <div class="kop-blok"><h2>Gebouwd om<br>gezien te worden.</h2></div>
-  <figure class="project" data-in><img src="/assets/project-woning-avond.jpg" alt="Avant-Garde gevel, project 01" loading="lazy"><figcaption><span>Project 01</span><span>Noord-Brabant</span><span data-plaats>Plaats volgt</span></figcaption></figure>
-  <figure class="project smal" data-in><img src="/assets/project-entree-avond.jpg" alt="Avant-Garde gevel, project 02" loading="lazy"><figcaption><span>Project 02</span><span>Noord-Brabant</span><span data-plaats>Plaats volgt</span></figcaption></figure>
-  <figure class="project vol" data-in><img src="/assets/bungalow-na.jpg" alt="Avant-Garde gevel, project 03" loading="lazy"><figcaption><span>Project 03</span><span>Noord-Brabant</span><span data-plaats>Plaats volgt</span></figcaption></figure>
+  <figure class="project vol pushin"><img src="/assets/project-woning-avond.jpg" alt="Avant-Garde gevel, project 01" loading="lazy"><figcaption><span>Project 01</span><span>Noord-Brabant</span></figcaption></figure>
+  <div class="project-klein">
+    <figure class="project"><img src="/assets/project-entree-avond.jpg" alt="Avant-Garde gevel, project 02" loading="lazy"><figcaption><span>Project 02</span><span>Noord-Brabant</span></figcaption></figure>
+    <figure class="project"><img src="/assets/bungalow-na.jpg" alt="Avant-Garde gevel, project 03" loading="lazy"><figcaption><span>Project 03</span><span>Noord-Brabant</span></figcaption></figure>
+  </div>
 </section>
 
-<!-- 08 · ACHTER DE GEVEL -->
+<!-- 09 · TECHNIEK · rustige strip met het lagendiagram -->
 <section class="gevel" id="gevel">
   <div class="kop-blok"><h2>Wat u ziet<br>is slechts de buitenste laag.</h2></div>
   <div class="lagen-scene" id="lagen">
@@ -299,33 +342,22 @@
   </div>
 </section>
 
-<!-- 09 · VERTROUWEN (alleen geverifieerde punten; citaten volgen) -->
-<section class="vertrouwen licht" id="vertrouwen">
-  <div class="kop-blok"><h2>Mooi is<br>niet genoeg.</h2></div>
-  <div class="bewijs">
-    <div class="punt"><b>Eén aanspreekpunt</b><p>Gevel, kozijnen en bouwwerk in één hand, van eerste schets tot laatste steen.</p></div>
-    <div class="punt"><b>Nooit schilderen</b><p>Composiet houtlook vraagt geen schilder- of oliewerk. Nu niet, en over twintig jaar niet.<sup>2</sup></p></div>
-    <div class="punt"><b>Isolatie die zich terugverdient</b><p>Een goed geïsoleerde gevel bespaart 15 tot 25% aardgas, en wij rekenen de ISDE-subsidie voor uw situatie door.<sup>3</sup></p></div>
-    <div class="punt"><b>Noord-Brabant en omgeving</b><p>Wij komen bij u thuis kijken, en laten zien wat kan.</p></div>
-  </div>
-</section>
-
-<!-- 10 · HET PROCES -->
+<!-- 10 · WERKWIJZE · zes kleine visuele stappen als doorlopende lijn -->
 <section class="proces licht" id="proces">
   <div class="kop-blok"><h2>Van eerste idee<br>tot nieuwe gevel.</h2></div>
-  <ol class="stappen-lijn" id="stappen">
-    <li><span class="nr">01</span><b>Kennismaking</b><p>Wij komen bij u thuis en luisteren naar wat u wilt.</p></li>
-    <li><span class="nr">02</span><b>Woninganalyse</b><p>Gevel, kozijnen, isolatie en detaillering worden opgenomen.</p></li>
-    <li><span class="nr">03</span><b>Ontwerp &amp; materiaal</b><p>De verhouding crepi, natuursteen en composiet houtlook wordt bepaald.</p></li>
-    <li><span class="nr">04</span><b>Visualisatie</b><p>U ziet uw eigen woning met de nieuwe gevel voordat er iets gebouwd wordt. <a href="/reis/#start">Begin vanavond al zelf.</a></p></li>
-    <li><span class="nr">05</span><b>Uitvoering</b><p>Eén ploeg brengt isolatie, crepi, steen en latten aan.</p></li>
-    <li><span class="nr">06</span><b>Oplevering</b><p>Wij lopen alles met u na, tot in het detail.</p></li>
+  <ol class="stappen-strip" id="stappen">
+    <li><img src="/assets/gal-1.jpg" alt="" loading="lazy"><span class="nr">01</span><b>Kennismaking</b><p>Wij komen bij u thuis en luisteren.</p></li>
+    <li><img src="/assets/villa-voor.jpg" alt="" loading="lazy"><span class="nr">02</span><b>Woninganalyse</b><p>Gevel, kozijnen en isolatie worden opgenomen.</p></li>
+    <li><img src="/assets/materialen/closeup-crepi.jpg" alt="" loading="lazy"><span class="nr">03</span><b>Ontwerp &amp; materiaal</b><p>De verhouding crepi, steen en houtlook.</p></li>
+    <li><img src="/assets/villa-na.jpg" alt="" loading="lazy"><span class="nr">04</span><b>Visualisatie</b><p>U ziet uw woning met de nieuwe gevel vooraf. <a href="/reis/#start">Begin zelf.</a></p></li>
+    <li><img src="/assets/film-vakmanschap.jpg" alt="" loading="lazy"><span class="nr">05</span><b>Uitvoering</b><p>Eén ploeg voor isolatie, crepi, steen en latten.</p></li>
+    <li><img src="/assets/project-entree-avond.jpg" alt="" loading="lazy"><span class="nr">06</span><b>Oplevering</b><p>Wij lopen alles met u na, tot in het detail.</p></li>
   </ol>
 </section>
 
 <!-- 11 · FINALE -->
 <section class="finale" id="finale" aria-label="Zie wat uw woning kan worden">
-  <img src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning bij zonsondergang" loading="lazy">
+  <img class="pushin" src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning bij zonsondergang" loading="lazy">
   <div class="finale-in" data-in>
     <h2>Zie wat uw woning<br>kan worden.</h2>
     <div class="acties"><a class="pil groot" href="/reis/#start">Start uw gevelontwerp</a><a class="lijn groot" href="#projecten">Bekijk projecten</a></div>
@@ -353,7 +385,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v43</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v44</span></div>
 </footer>
 
 <script>
@@ -405,13 +437,10 @@ function lagen(){
   lv.forEach(function(el,i){var y=(i-mid)*gap*d;el.style.transform='translate3d(0,'+(-y)+'%,0) skewY(-8deg)';el.style.zIndex=i;el.classList.toggle('aan',d>.35+.12*(n-1-i));});
   lt.classList.toggle('aan',d>.85);
 }
-/* proces: lijn loopt mee */
-var st=g('stappen'),li=st.querySelectorAll('li');
-function proces(){
-  var r=st.getBoundingClientRect(),vh=window.innerHeight,p=rm?1:kl(vh*.7-r.top,0,r.height);
-  st.style.setProperty('--vul',(p*100)+'%');
-  li.forEach(function(el,i){el.classList.toggle('aan',p>=i/li.length+.02||rm)});
-}
+/* push-in op dominante beelden zodra ze in beeld komen */
+var po=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('in',e.isIntersecting)})},{threshold:.3});
+document.querySelectorAll('.pushin').forEach(function(el){po.observe(el)});
+function proces(){}
 window.verstuur=function(e){e.preventDefault();
  var n=g('cf-naam').value,m=g('cf-mail').value,t=g('cf-tel').value,pc=g('cf-pc').value,b=g('cf-ber').value;
  location.href='mailto:iworkproductions@outlook.com?subject='+encodeURIComponent('Gevelproject - '+n)+'&body='+encodeURIComponent('Naam: '+n+'\nE-mail: '+m+'\nTelefoon: '+t+'\nPostcode: '+pc+'\n\nWoning:\n'+b+'\n\n(Verzonden via avantgardegevels.nl)');
