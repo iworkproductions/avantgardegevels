@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=63">
+<link rel="stylesheet" href="/assets/site.css?v=64">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -373,7 +373,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · Noord-Brabant · v63</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · Noord-Brabant · v64</span></div>
 </footer>
 
 <script>
@@ -422,7 +422,7 @@ var lg=g('lagen'),stap=g('stapel'),lv=document.querySelectorAll('.laag-v'),lk=g(
 /* lv-volgorde in HTML: 0 bestaand (onder) .. 5 composiet (boven). Ze stapelen van onderaan omhoog. */
 function lagen(){
   var r=lg.getBoundingClientRect(),vh=window.innerHeight,p=kl(-r.top,0,r.height-vh);
-  var n=lv.length, prog=(rm?n:kl(p,.05,.95)*n); /* 0..n : hoeveel lagen "gevallen" zijn */
+  var n=lv.length, prog=(rm?n:1+kl(p,0,.9)*(n-1)); /* laag 1 staat er al; 2..n vallen erop */
   var slotH=100/n; /* elke laag krijgt een vaste rij, onderste = index 0 */
   lv.forEach(function(el,i){
     var top=(n-1-i)*slotH;               /* i=0 onderaan, i=n-1 bovenaan */
