@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=86">
+<link rel="stylesheet" href="/assets/site.css?v=87">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -26,241 +26,259 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
-.merk-reis{position:fixed;top:22px;left:max(24px,6vw);z-index:40}
+.merk-reis{position:fixed;top:22px;left:max(24px,6vw);z-index:60}
 .merk-reis img{height:24px;width:auto;filter:brightness(0)}
-.voortgang{position:fixed;top:0;left:0;height:2px;background:var(--goud);width:0;z-index:41;transition:width .2s linear}
+
+/* voortgang: CREPI — STEEN — HOUT — UW STIJL */
+.stappenbalk{position:fixed;top:0;left:0;right:0;z-index:55;display:flex;gap:26px;justify-content:center;padding:20px;background:linear-gradient(var(--creme),rgba(245,241,234,0));font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);pointer-events:none}
+.stappenbalk span{transition:color .4s}
+.stappenbalk span.aan{color:var(--goud)}
+.stappenbalk span.klaar{color:var(--zwart)}
+@media(max-width:600px){.stappenbalk{gap:14px;font-size:9px;letter-spacing:.1em}}
+
 .eye{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--creme);margin-bottom:16px}
 .lead{font-size:clamp(16px,1.4vw,19px);line-height:1.5;color:var(--dim)}
 [data-in]{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform 1s var(--ease)}
 [data-in].in{opacity:1;transform:none}
 
-.intro{min-height:92vh;min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px}
-.intro h1{font-size:clamp(48px,7.5vw,120px);letter-spacing:-.04em;line-height:.94}
-.intro .lead{margin-top:28px;max-width:46ch}
+/* intro */
+.intro{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px}
+.intro h1{font-size:clamp(44px,6.6vw,104px);letter-spacing:-.04em;line-height:.96;max-width:16ch}
+.intro .lead{margin-top:28px;max-width:48ch}
 .intro .scroldown{margin-top:48px;display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 .intro .scroldown svg{animation:dip 2s ease-in-out infinite}
 @keyframes dip{0%,100%{transform:translateY(-3px);opacity:.6}50%{transform:translateY(3px);opacity:1}}
 
-.boom{position:relative;max-width:1180px;margin:0 auto;padding:0 24px 12vh}
-.takken{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
-.takken path{fill:none;stroke:var(--lijn);stroke-width:2;stroke-linecap:round}
-.takken path.actief{stroke:var(--goud);stroke-width:2.5}
-.trap{position:relative;z-index:1;text-align:center;padding:9vh 0 0}
-.trap .titel{font-size:clamp(13px,1.3vw,15px);font-weight:500;letter-spacing:.06em;color:var(--dim);margin-bottom:34px}
-.stam{display:inline-flex;flex-direction:column;align-items:center;gap:12px}
-.stam .bol{width:76px;height:76px;border-radius:50%;background:var(--zwart);color:var(--creme);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:8px}
-.stam .lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.rij{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);max-width:900px;margin:0 auto}
-.kaart-keuze{position:relative;border:0;padding:0;background:none;cursor:pointer;font-family:inherit;text-align:center;opacity:.5;transform:scale(.97);transition:.45s var(--ease)}
-.kaart-keuze:hover{opacity:1}
-.kaart-keuze.gekozen{opacity:1;transform:scale(1)}
-.kaart-keuze .beeld{aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;background:#000;box-shadow:0 14px 34px rgba(33,29,24,.12)}
-.kaart-keuze .beeld img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.kaart-keuze:hover .beeld img{transform:scale(1.05)}
-.kaart-keuze.gekozen .beeld{outline:2.5px solid var(--goud);outline-offset:4px}
-.kaart-keuze .vink{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--goud);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.5);transition:.3s var(--ease);z-index:2}
-.kaart-keuze.gekozen .vink{opacity:1;transform:scale(1)}
-.kaart-keuze .naam{display:block;font-family:'Geist',sans-serif;font-weight:500;font-size:clamp(16px,1.5vw,20px);margin-top:16px;letter-spacing:-.01em}
-.kaart-keuze .naam s{font-weight:400;color:var(--dim);text-decoration:none}
-.kaart-keuze .kar{display:block;font-size:14px;color:var(--dim);margin-top:3px}
-.wacht{opacity:.35;pointer-events:none;filter:saturate(.5)}
-@media(max-width:760px){.rij{grid-template-columns:1fr;gap:16px;max-width:340px}.kaart-keuze .beeld{aspect-ratio:16/10}.takken{display:none}}
+/* atelier: links sticky streng, rechts de keuzestappen */
+.atelier{display:grid;grid-template-columns:1fr 1fr;max-width:1340px;margin:0 auto;padding:0 max(24px,5vw)}
+.streng-kolom{position:relative}
+.streng-plak{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center}
+.streng-stage{position:relative;width:100%;max-width:440px;aspect-ratio:1024/1536}
+.streng-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s var(--ease);will-change:opacity}
+.streng-stage img.zicht{opacity:1}
+.stappen-kolom{padding:0}
+.keuzestap{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:12vh 0}
+.keuzestap h2{font-size:clamp(30px,3.4vw,52px);max-width:14ch}
+.keuzestap .lead{margin-top:20px;max-width:42ch}
+.stalen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.staal{position:relative;border:0;padding:0;background:none;cursor:pointer;font-family:inherit;text-align:left;opacity:.55;transition:.4s var(--ease)}
+.staal:hover{opacity:1}
+.staal.gekozen{opacity:1}
+.staal .b{aspect-ratio:1/1;border-radius:16px;overflow:hidden;position:relative;background:#e6e0d4;box-shadow:0 10px 26px rgba(33,29,24,.1)}
+.staal .b img,.staal .b .kleur{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.staal:hover .b img{transform:scale(1.05)}
+.staal.gekozen .b{outline:2.5px solid var(--goud);outline-offset:3px}
+.staal .vink{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:var(--goud);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.5);transition:.3s var(--ease)}
+.staal.gekozen .vink{opacity:1;transform:scale(1)}
+.staal .n{display:block;font-weight:500;font-size:15px;margin-top:12px}
+.staal .k{display:block;font-size:13px;color:var(--dim);margin-top:2px}
+@media(max-width:900px){.atelier{grid-template-columns:1fr}.streng-plak{height:56vh;top:40px}.streng-stage{max-width:280px}.keuzestap{min-height:auto;padding:8vh 0}.stalen{gap:12px}}
 
-.verhouding{max-width:820px;margin:0 auto;padding:9vh 24px 0;text-align:center;position:relative;z-index:1}
-.verhouding .titel{font-size:clamp(13px,1.3vw,15px);font-weight:500;letter-spacing:.06em;color:var(--dim);margin-bottom:30px}
-.balk{display:flex;height:150px;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(33,29,24,.12)}
-.seg{position:relative;background-size:cover;background-position:center;transition:flex-basis .5s var(--ease);display:flex;align-items:flex-end;padding:16px}
-.seg span{position:relative;z-index:2;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-.seg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,.5))}
-.regelaars{margin-top:38px;display:grid;gap:30px;max-width:560px;margin-left:auto;margin-right:auto;text-align:left}
-.regel .kop{display:flex;justify-content:space-between;font-size:13px;color:var(--zwart);margin-bottom:12px}
-.regel .kop .num{color:var(--goud);font-weight:500}
-input[type=range]{-webkit-appearance:none;width:100%;height:2px;background:var(--lijn);border-radius:2px;outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--zwart);cursor:pointer;border:3px solid var(--creme);box-shadow:0 2px 8px rgba(0,0,0,.2)}
-input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--zwart);border:3px solid var(--creme);cursor:pointer}
+/* signatuur-moment */
+.signatuur{text-align:center;padding:20vh max(24px,6vw) 8vh;max-width:900px;margin:0 auto}
+.signatuur .groot{font-size:clamp(40px,6vw,92px);line-height:1;letter-spacing:-.04em}
+.signatuur .lead{margin:26px auto 0;max-width:44ch}
+.sig-cirkels{display:flex;justify-content:center;gap:clamp(24px,5vw,72px);margin-top:64px;flex-wrap:wrap}
+.sig-c{text-align:center}
+.sig-c .rond{width:clamp(84px,10vw,128px);height:clamp(84px,10vw,128px);border-radius:50%;overflow:hidden;margin:0 auto;box-shadow:0 12px 30px rgba(33,29,24,.14)}
+.sig-c .rond img,.sig-c .rond .kleur{width:100%;height:100%;object-fit:cover}
+.sig-c .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:16px}
+.sig-c .v{font-weight:500;margin-top:4px}
 
-.dossier{padding:9vh max(24px,8vw) 20vh;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center}
-.kaart-dossier{background:var(--pap);border-radius:16px;padding:44px;box-shadow:0 40px 100px rgba(33,29,24,.14)}
-.kaart-dossier .pb{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--creme);margin-bottom:20px}
-.kaart-dossier .ptitel{font-size:clamp(32px,3.4vw,46px);line-height:1.02}
-.kaart-dossier .ptitel .amp{color:var(--goud)}
-.kaart-dossier .pklant{font-size:16px;color:var(--dim);margin-top:8px}
-.dbalk{display:flex;height:14px;border-radius:8px;overflow:hidden;margin:28px 0 14px}
-.dbalk .d{transition:flex-basis .4s var(--ease)}
-.dlegenda{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:var(--dim)}
-.dlegenda b{color:var(--zwart);font-weight:500}.dlegenda .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
-.dmat{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-.dmat .m .b{aspect-ratio:16/10;border-radius:10px;background-size:cover;background-position:center}
-.dmat .m .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:8px}
-.dmat .m .n{font-weight:500;margin-top:2px}
-.form h3{font-size:clamp(28px,3vw,40px)}
-.form p{color:var(--dim);margin-top:14px;max-width:42ch;line-height:1.5}
-.cf{display:grid;gap:14px;margin-top:34px}
+/* woning-reveal */
+.woning{position:relative;height:92vh;overflow:hidden;margin-top:6vh}
+.woning img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.4s var(--ease)}
+.woning.in img{transform:scale(1)}
+.woning .op{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(rgba(13,11,9,0),rgba(13,11,9,.5))}
+.woning .txt{position:absolute;left:max(24px,6vw);bottom:8vh;z-index:2;color:#fff}
+.woning .txt h3{font-size:clamp(28px,4vw,56px);line-height:1}
+
+/* stijldossier floating card */
+.dossier-wrap{padding:14vh max(24px,6vw) 18vh;display:flex;justify-content:center}
+.dossier{background:var(--zwart);color:var(--creme);border-radius:20px;padding:clamp(32px,5vw,64px);max-width:720px;width:100%;box-shadow:0 50px 120px rgba(33,29,24,.3)}
+.dossier .eye{color:var(--creme)}
+.dossier h2{font-size:clamp(30px,3.6vw,52px);margin-bottom:16px}
+.dossier p{color:#c9c1b4;line-height:1.5;max-width:46ch}
+.dossier .samenvat{display:flex;gap:22px;flex-wrap:wrap;margin:32px 0 8px;font-size:14px;color:#c9c1b4}
+.dossier .samenvat b{color:var(--creme);font-weight:500}
+.cf{display:none;gap:14px;margin-top:32px}
+.dossier.open .cf{display:grid}
+.dossier.open .start{display:none}
 .cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cf input{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid var(--lijn);color:var(--zwart);padding:14px 0;font-family:'Geist',sans-serif;font-size:16px;transition:border-color .25s}
+.cf input{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid rgba(245,241,234,.25);color:var(--creme);padding:14px 0;font-family:'Geist',sans-serif;font-size:16px}
+.cf input::placeholder{color:rgba(245,241,234,.45)}
 .cf input:focus{outline:none;border-bottom-color:var(--goud)}
-.cf input::placeholder{color:#a89f92}
-.pil{display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:var(--zwart);color:var(--creme);padding:15px 34px;border-radius:980px;font-family:'Geist',sans-serif;font-weight:500;font-size:15px;border:0;cursor:pointer;transition:background .25s;margin-top:8px;justify-self:start}
-.pil:hover{background:#000}
-.cf .tel{margin-top:18px;font-size:14px;color:var(--dim)}.cf .tel b{color:var(--zwart)}
-.klaar-form{display:none}.form.verzonden .cf>*{display:none}.form.verzonden .klaar-form{display:block}
-@media(max-width:900px){.dossier{grid-template-columns:1fr;gap:8vh}.kaart-dossier{padding:32px}}
-@media(max-width:560px){.cf .twee{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.intro .scroldown svg{animation:none}html{scroll-behavior:auto}}
+.pil{display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:var(--creme);color:var(--zwart);padding:15px 34px;border-radius:980px;font-weight:500;font-size:15px;border:0;cursor:pointer;font-family:'Geist',sans-serif;transition:background .25s;margin-top:8px;justify-self:start}
+.pil:hover{background:#fff}
+.cf .tel{margin-top:16px;font-size:14px;color:#c9c1b4}.cf .tel b{color:var(--creme)}
+.klaar-form{display:none}.dossier.verzonden .cf{display:none}.dossier.verzonden .klaar-form{display:block}
+
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.intro .scroldown svg{animation:none}html{scroll-behavior:auto}.streng-stage img{transition:none}.woning img{transform:none}}
 </style>
 </head>
 <body>
 <a class="merk-reis" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a>
-<div class="voortgang" id="voortgang"></div>
+<div class="stappenbalk" id="stappenbalk"><span data-s="crepi">Crepi</span><span data-s="steen">Steen</span><span data-s="hout">Hout</span><span data-s="stijl">Uw stijl</span></div>
 
 <section class="intro" id="start">
   <div data-in>
-    <div class="eye">De Reis</div>
-    <h1>Ontwerp uw gevel.</h1>
-    <p class="lead">Volg de boom naar beneden. Elke keuze is een tak; onderaan komt alles samen in uw stijldossier.</p>
-    <a class="scroldown" href="#boom">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="eye">Het Gevelatelier</div>
+    <h1>Welkom in het Gevelatelier.</h1>
+    <p class="lead">Ontdek in een paar stappen welke materialen samen úw gevel vormen. Elke keuze wordt onderdeel van uw eigen Avant-Garde-signatuur.</p>
+    <a class="scroldown" href="#atelier">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 
-<div class="boom" id="boom">
-  <svg class="takken" id="takken" preserveAspectRatio="none" aria-hidden="true"></svg>
-
-  <div class="trap" id="trap-stam" data-in>
-    <div class="stam"><div class="bol" id="bol-stam">Uw gevel</div><div class="lbl">Kies uw natuursteen ↓</div></div>
-  </div>
-
-  <div class="trap" id="trap-steen" data-in>
-    <div class="titel">Eerste tak — natuursteen</div>
-    <div class="rij">
-      <button class="kaart-keuze" id="k-steen-Atlas" data-type="steen" data-naam="Atlas" data-kar="Warm, robuust" data-img="/assets/materialen/atlas.jpg" onclick="kies(this)"><div class="beeld"><img src="/assets/materialen/atlas.jpg" alt="Atlas-natuursteen" loading="lazy"><span class="vink"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="naam">Atlas<s>-natuursteen</s></span><span class="kar">Warm, robuust</span></button>
-      <button class="kaart-keuze" id="k-steen-Freya" data-type="steen" data-naam="Freya" data-kar="Koel, ingetogen" data-img="/assets/materialen/freya.jpg" onclick="kies(this)"><div class="beeld"><img src="/assets/materialen/freya.jpg" alt="Freya-natuursteen" loading="lazy"><span class="vink"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="naam">Freya<s>-natuursteen</s></span><span class="kar">Koel, ingetogen</span></button>
-      <button class="kaart-keuze" id="k-steen-Hermes" data-type="steen" data-naam="Hermes" data-kar="Elegant, tijdloos" data-img="/assets/materialen/hermes.jpg" onclick="kies(this)"><div class="beeld"><img src="/assets/materialen/hermes.jpg" alt="Hermes-natuursteen" loading="lazy"><span class="vink"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="naam">Hermes<s>-natuursteen</s></span><span class="kar">Elegant, tijdloos</span></button>
+<div class="atelier" id="atelier">
+  <div class="streng-kolom">
+    <div class="streng-plak">
+      <div class="streng-stage">
+        <img id="st-crepi" class="zicht" src="/assets/atelier/streng-crepi.jpg" alt="Gevelstreng — crepi">
+        <img id="st-steen" src="/assets/atelier/streng-steen.jpg" alt="Gevelstreng — crepi en natuursteen">
+        <img id="st-vol" src="/assets/atelier/streng-vol.jpg" alt="Gevelstreng — crepi, natuursteen en composiet houtlook">
+      </div>
     </div>
   </div>
+  <div class="stappen-kolom">
 
-  <div class="trap wacht" id="trap-hout" data-in>
-    <div class="titel">Tweede tak — composiet houtlook</div>
-    <div class="rij">
-      <button class="kaart-keuze" id="k-hout-Evergreen" data-type="hout" data-naam="Evergreen" data-kar="Tijdloos, natuurlijk" data-img="/assets/materialen/evergreen.jpg" onclick="kies(this)"><div class="beeld"><img src="/assets/materialen/evergreen.jpg" alt="Evergreen-composiet houtlook" loading="lazy"><span class="vink"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="naam">Evergreen<s>-composiet houtlook</s></span><span class="kar">Tijdloos, natuurlijk</span></button>
-      <button class="kaart-keuze" id="k-hout-Ember" data-type="hout" data-naam="Ember" data-kar="Warm, gloedvol" data-img="/assets/materialen/ember.jpg" onclick="kies(this)"><div class="beeld"><img src="/assets/materialen/ember.jpg" alt="Ember-composiet houtlook" loading="lazy"><span class="vink"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="naam">Ember<s>-composiet houtlook</s></span><span class="kar">Warm, gloedvol</span></button>
-      <button class="kaart-keuze" id="k-hout-Empire" data-type="hout" data-naam="Empire" data-kar="Strak, modern" data-img="/assets/materialen/empire.jpg" onclick="kies(this)"><div class="beeld"><img src="/assets/materialen/empire.jpg" alt="Empire-composiet houtlook" loading="lazy"><span class="vink"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><span class="naam">Empire<s>-composiet houtlook</s></span><span class="kar">Strak, modern</span></button>
+    <div class="keuzestap" id="stap-crepi">
+      <div data-in>
+        <div class="eye">De basis</div>
+        <h2>Crepi.<br>De rustige huid.</h2>
+        <p class="lead">Crepi is altijd de basis, minimaal 60% van de gevel. Kies de tint die de toon zet.</p>
+        <div class="stalen">
+          <button class="staal" data-type="crepi" data-naam="Warm wit" data-kleur="#efe9dd" onclick="kies(this)"><div class="b"><div class="kleur" style="background:#efe9dd"></div></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Warm wit</span><span class="k">Licht en tijdloos</span></button>
+          <button class="staal" data-type="crepi" data-naam="Zand" data-kleur="#d8cbb3" onclick="kies(this)"><div class="b"><div class="kleur" style="background:#d8cbb3"></div></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Zand</span><span class="k">Warm en natuurlijk</span></button>
+          <button class="staal" data-type="crepi" data-naam="Antraciet" data-kleur="#3a3733" onclick="kies(this)"><div class="b"><div class="kleur" style="background:#3a3733"></div></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Antraciet</span><span class="k">Strak en modern</span></button>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="verhouding wacht" id="trap-verhouding" data-in>
-    <div class="titel">De verhouding — schuif tot het klopt</div>
-    <div class="balk">
-      <div class="seg" id="seg-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
-      <div class="seg" id="seg-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span id="seg-steen-l">Atlas</span></div>
-      <div class="seg" id="seg-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span id="seg-hout-l">Evergreen</span></div>
+    <div class="keuzestap" id="stap-steen">
+      <div data-in>
+        <div class="eye">Het karakter</div>
+        <h2>Natuursteen.<br>Het accent dat aardt.</h2>
+        <div class="stalen">
+          <button class="staal" data-type="steen" data-naam="Atlas" data-kar="Warm, robuust" data-img="/assets/materialen/atlas.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/atlas.jpg" alt="Atlas-natuursteen" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Atlas</span><span class="k">Warm, robuust</span></button>
+          <button class="staal" data-type="steen" data-naam="Freya" data-kar="Koel, ingetogen" data-img="/assets/materialen/freya.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/freya.jpg" alt="Freya-natuursteen" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Freya</span><span class="k">Koel, ingetogen</span></button>
+          <button class="staal" data-type="steen" data-naam="Hermes" data-kar="Elegant, tijdloos" data-img="/assets/materialen/hermes.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/hermes.jpg" alt="Hermes-natuursteen" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Hermes</span><span class="k">Elegant, tijdloos</span></button>
+        </div>
+      </div>
     </div>
-    <div class="regelaars">
-      <div class="regel"><div class="kop"><span>Accent — steen &amp; houtlook</span><span class="num" id="num-accent">40%</span></div><input type="range" id="sl-accent" min="20" max="40" value="40" step="5" oninput="verdeel()"></div>
-      <div class="regel"><div class="kop"><span>Verdeling steen ↔ houtlook</span><span class="num" id="num-verdeling">50 / 50</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
+
+    <div class="keuzestap" id="stap-hout">
+      <div data-in>
+        <div class="eye">De warmte</div>
+        <h2>Composiet houtlook.<br>Het accent dat leeft.</h2>
+        <div class="stalen">
+          <button class="staal" data-type="hout" data-naam="Evergreen" data-kar="Tijdloos, natuurlijk" data-img="/assets/materialen/evergreen.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/evergreen.jpg" alt="Evergreen-composiet houtlook" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Evergreen</span><span class="k">Tijdloos</span></button>
+          <button class="staal" data-type="hout" data-naam="Ember" data-kar="Warm, gloedvol" data-img="/assets/materialen/ember.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/ember.jpg" alt="Ember-composiet houtlook" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Ember</span><span class="k">Warm, gloedvol</span></button>
+          <button class="staal" data-type="hout" data-naam="Empire" data-kar="Strak, modern" data-img="/assets/materialen/empire.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/empire.jpg" alt="Empire-composiet houtlook" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Empire</span><span class="k">Strak, modern</span></button>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
 
-<section class="dossier" id="dossier">
-  <div class="kaart-dossier" data-in>
-    <div class="pb">Uw Avant-Garde stijldossier</div>
-    <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
-    <div class="pklant" id="d-basis">Op een rustige basis van crepi · 60%</div>
-    <div class="dbalk">
-      <div class="d" id="d-bar-crepi" style="flex-basis:60%;background:#e0d7c5"></div>
-      <div class="d" id="d-bar-steen" style="flex-basis:20%;background:#b8a888"></div>
-      <div class="d" id="d-bar-hout" style="flex-basis:20%;background:#6b4a2e"></div>
-    </div>
-    <div class="dlegenda">
-      <span><span class="dot" style="background:#e0d7c5"></span><b>Crepi</b> <span id="lg-crepi">60%</span></span>
-      <span><span class="dot" style="background:#b8a888"></span><b id="lg-steen-n">Atlas</b> <span id="lg-steen">20%</span></span>
-      <span><span class="dot" style="background:#6b4a2e"></span><b id="lg-hout-n">Evergreen</b> <span id="lg-hout">20%</span></span>
-    </div>
-    <div class="dmat">
-      <div class="m"><div class="b" id="d-steen-b" style="background-image:url(/assets/materialen/atlas.jpg)"></div><div class="l">Natuursteen</div><div class="n" id="d-steen-n">Atlas</div></div>
-      <div class="m"><div class="b" id="d-hout-b" style="background-image:url(/assets/materialen/evergreen.jpg)"></div><div class="l">Composiet houtlook</div><div class="n" id="d-hout-n">Evergreen</div></div>
+<!-- SIGNATUUR-MOMENT -->
+<section class="signatuur" id="signatuur">
+  <div data-in>
+    <div class="eye">Uw gevelstijl is klaar</div>
+    <div class="groot">De perfecte balans.</div>
+    <p class="lead">Uw keuzes komen samen in een unieke Avant-Garde-signatuur.</p>
+    <div class="sig-cirkels">
+      <div class="sig-c"><div class="rond"><div class="kleur" id="sig-crepi-b" style="background:#efe9dd"></div></div><div class="l">Crepi</div><div class="v" id="sig-crepi">Warm wit</div></div>
+      <div class="sig-c"><div class="rond"><img id="sig-steen-b" src="/assets/materialen/atlas.jpg" alt=""></div><div class="l">Natuursteen</div><div class="v" id="sig-steen">Atlas</div></div>
+      <div class="sig-c"><div class="rond"><img id="sig-hout-b" src="/assets/materialen/evergreen.jpg" alt=""></div><div class="l">Composiet houtlook</div><div class="v" id="sig-hout">Evergreen</div></div>
     </div>
   </div>
-  <div class="form" id="form" data-in>
-    <h3>Zie het op<br>uw eigen woning.</h3>
-    <p>U ontvangt uw stijldossier direct per mail. Een van onze vaklui belt u kort om een afspraak in te plannen.</p>
+</section>
+
+<!-- WONING -->
+<section class="woning" id="woning">
+  <img src="/assets/atelier/woning.jpg" alt="Avant-Garde woning met uw materiaalcombinatie">
+  <div class="op"></div>
+  <div class="txt" data-in><h3>Losse keuzes,<br>nu architectuur.</h3></div>
+</section>
+
+<!-- STIJLDOSSIER -->
+<div class="dossier-wrap">
+  <div class="dossier" id="dossier" data-in>
+    <div class="eye">Uw persoonlijke stijldossier</div>
+    <h2>Staat klaar.</h2>
+    <p>Met uw materiaalcombinatie, inspiratie en advies. Wij brengen uw signatuur tot leven op uw eigen woning.</p>
+    <div class="samenvat">
+      <span>Crepi · <b id="sv-crepi">Warm wit</b></span>
+      <span>Natuursteen · <b id="sv-steen">Atlas</b></span>
+      <span>Houtlook · <b id="sv-hout">Evergreen</b></span>
+    </div>
+    <button class="pil start" onclick="document.getElementById('dossier').classList.add('open')">Ontvang mijn stijldossier →</button>
     <form class="cf" onsubmit="return verstuur(event)">
       <input id="f-naam" placeholder="Naam" autocomplete="name" required>
       <div class="twee"><input id="f-mail" type="email" placeholder="E-mailadres" autocomplete="email" required><input id="f-tel" type="tel" placeholder="Telefoonnummer" autocomplete="tel"></div>
       <input id="f-plaats" placeholder="Woonplaats" autocomplete="address-level2">
       <button type="submit" class="pil">Ontvang mijn stijldossier</button>
-      <div class="tel">of bel direct <b>06 40 50 64 51</b></div>
+      <div class="tel">Daarna plannen wij een <b>vrijblijvend adviesgesprek</b> · 06 40 50 64 51</div>
     </form>
-    <div class="klaar-form"><h3>Het is onderweg.</h3><p>Uw stijldossier staat binnen enkele minuten in uw mailbox. Wij bellen u kort voor een afspraak.</p></div>
+    <div class="klaar-form"><h2>Het is onderweg.</h2><p>Uw stijldossier staat binnen enkele minuten in uw mailbox. Wij bellen u kort voor een vrijblijvend adviesgesprek.</p></div>
   </div>
-</section>
+</div>
 
 <script>
 (function(){
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var g=function(i){return document.getElementById(i)};
-var keuze={steen:{naam:'Atlas',kar:'Warm, robuust',img:'/assets/materialen/atlas.jpg'},hout:{naam:'Evergreen',kar:'Tijdloos, natuurlijk',img:'/assets/materialen/evergreen.jpg'}};
-var steenGekozen=false, houtGekozen=false;
+var keuze={crepi:{naam:'Warm wit',kleur:'#efe9dd'},steen:{naam:'Atlas',img:'/assets/materialen/atlas.jpg'},hout:{naam:'Evergreen',img:'/assets/materialen/evergreen.jpg'}};
 
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1,rootMargin:'0px 0px -8% 0px'});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='woning')return;io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
-function voortgang(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);g('voortgang').style.width=(p*100)+'%';}
-addEventListener('scroll',voortgang,{passive:true});voortgang();
+var wio=new IntersectionObserver(function(es){es.forEach(function(e){g('woning').classList.toggle('in',e.isIntersecting)})},{threshold:.3});
+wio.observe(g('woning'));
 
-var svg=g('takken');
-function center(el,b){var r=el.getBoundingClientRect();return {x:r.left-b.left+r.width/2,top:r.top-b.top,bot:r.bottom-b.top,y:r.top-b.top+r.height/2};}
-function pad(x1,y1,x2,y2){var my=(y1+y2)/2;return 'M'+x1+' '+y1+' C '+x1+' '+my+' '+x2+' '+my+' '+x2+' '+y2;}
-function tekenTakken(){
-  var boom=g('boom'); if(!boom)return;
-  var bb=boom.getBoundingClientRect();
-  svg.setAttribute('viewBox','0 0 '+bb.width+' '+bb.height);
-  var stam=center(g('bol-stam'),bb);
-  var steenK=['Atlas','Freya','Hermes'].map(function(n){return g('k-steen-'+n)});
-  var houtK=['Evergreen','Ember','Empire'].map(function(n){return g('k-hout-'+n)});
-  var frag='';
-  steenK.forEach(function(k){var c=center(k,bb);var act=steenGekozen&&keuze.steen.naam===k.dataset.naam;frag+='<path d="'+pad(stam.x,stam.bot,c.x,c.top)+'" class="'+(act?'actief':'')+'"/>';});
-  var steenSel=steenGekozen?g('k-steen-'+keuze.steen.naam):null;
-  houtK.forEach(function(k){var c=center(k,bb);var from=steenSel?center(steenSel,bb):stam;var act=houtGekozen&&keuze.hout.naam===k.dataset.naam;frag+='<path d="'+pad(from.x,from.bot,c.x,c.top)+'" class="'+(act?'actief':'')+'"/>';});
-  if(houtGekozen){var hs=center(g('k-hout-'+keuze.hout.naam),bb),vh=center(g('trap-verhouding'),bb);frag+='<path d="'+pad(hs.x,hs.bot,vh.x,vh.top)+'" class="actief"/>';}
-  svg.innerHTML=frag;
+/* streng-staat volgen op scroll: welke keuzestap is in beeld */
+var stappen=[{el:g('stap-crepi'),s:'crepi'},{el:g('stap-steen'),s:'steen'},{el:g('stap-hout'),s:'hout'}];
+var balk=g('stappenbalk').querySelectorAll('span');
+function toonStreng(state){
+  g('st-crepi').classList.toggle('zicht',state==='crepi');
+  g('st-steen').classList.toggle('zicht',state==='steen');
+  g('st-vol').classList.toggle('zicht',state==='hout'||state==='stijl');
 }
-addEventListener('resize',tekenTakken);
-window.addEventListener('load',tekenTakken);
-setTimeout(tekenTakken,300);addEventListener('scroll',function(){requestAnimationFrame(tekenTakken)},{passive:true});
+function markeer(active){
+  var vol={crepi:false,steen:false,hout:false};
+  var order=['crepi','steen','hout','stijl'],ai=order.indexOf(active);
+  balk.forEach(function(sp){var s=sp.dataset.s,i=order.indexOf(s);sp.classList.toggle('aan',s===active);sp.classList.toggle('klaar',i<ai);});
+}
+function scan(){
+  var mid=innerHeight*0.5, cur='crepi';
+  stappen.forEach(function(st){var r=st.el.getBoundingClientRect();if(r.top<=mid&&r.bottom>=mid)cur=st.s;});
+  var sig=g('signatuur').getBoundingClientRect();
+  if(sig.top<=mid)cur='stijl';
+  toonStreng(cur); markeer(cur);
+}
+addEventListener('scroll',function(){requestAnimationFrame(scan)},{passive:true});addEventListener('resize',scan);scan();
 
 window.kies=function(btn){
   var t=btn.dataset.type;
-  document.querySelectorAll('.kaart-keuze[data-type="'+t+'"]').forEach(function(o){o.classList.remove('gekozen')});
+  document.querySelectorAll('.staal[data-type="'+t+'"]').forEach(function(o){o.classList.remove('gekozen')});
   btn.classList.add('gekozen');
-  keuze[t]={naam:btn.dataset.naam,kar:btn.dataset.kar,img:btn.dataset.img};
-  if(t==='steen'){steenGekozen=true;g('trap-hout').classList.remove('wacht');}
-  if(t==='hout'){houtGekozen=true;g('trap-verhouding').classList.remove('wacht');}
-  update();tekenTakken();
-  var next=t==='steen'?g('trap-hout'):g('trap-verhouding');
-  if(next&&!rm)setTimeout(function(){next.scrollIntoView({behavior:'smooth',block:'center'});tekenTakken();},300);
+  if(t==='crepi')keuze.crepi={naam:btn.dataset.naam,kleur:btn.dataset.kleur};
+  else keuze[t]={naam:btn.dataset.naam,img:btn.dataset.img};
+  update();
+  var next=t==='crepi'?g('stap-steen'):t==='steen'?g('stap-hout'):g('signatuur');
+  if(next&&!rm)setTimeout(function(){next.scrollIntoView({behavior:'smooth',block:'center'});},280);
 };
-window.verdeel=function(){update();};
 function update(){
-  var accent=+g('sl-accent').value, crepi=100-accent, vd=+g('sl-verdeling').value;
-  var hout=Math.round(accent*vd/100/5)*5, steen=accent-hout;
-  g('num-accent').textContent=accent+'%'; g('num-verdeling').textContent=(100-vd)+' / '+vd;
-  g('seg-crepi').style.flexBasis=crepi+'%'; g('seg-steen').style.flexBasis=steen+'%'; g('seg-hout').style.flexBasis=hout+'%';
-  g('seg-steen').style.backgroundImage='url('+keuze.steen.img+')'; g('seg-hout').style.backgroundImage='url('+keuze.hout.img+')';
-  g('seg-steen-l').textContent=keuze.steen.naam; g('seg-hout-l').textContent=keuze.hout.naam;
-  g('d-steen').textContent=keuze.steen.naam; g('d-hout').textContent=keuze.hout.naam;
-  g('d-basis').textContent='Op een rustige basis van crepi · '+crepi+'%';
-  g('d-bar-crepi').style.flexBasis=crepi+'%'; g('d-bar-steen').style.flexBasis=steen+'%'; g('d-bar-hout').style.flexBasis=hout+'%';
-  g('lg-crepi').textContent=crepi+'%'; g('lg-steen').textContent=steen+'%'; g('lg-hout').textContent=hout+'%';
-  g('lg-steen-n').textContent=keuze.steen.naam; g('lg-hout-n').textContent=keuze.hout.naam;
-  g('d-steen-b').style.backgroundImage='url('+keuze.steen.img+')'; g('d-hout-b').style.backgroundImage='url('+keuze.hout.img+')';
-  g('d-steen-n').textContent=keuze.steen.naam; g('d-hout-n').textContent=keuze.hout.naam;
+  g('sig-crepi').textContent=keuze.crepi.naam; g('sig-crepi-b').style.background=keuze.crepi.kleur;
+  g('sig-steen').textContent=keuze.steen.naam; g('sig-steen-b').src=keuze.steen.img;
+  g('sig-hout').textContent=keuze.hout.naam; g('sig-hout-b').src=keuze.hout.img;
+  g('sv-crepi').textContent=keuze.crepi.naam; g('sv-steen').textContent=keuze.steen.naam; g('sv-hout').textContent=keuze.hout.naam;
 }
 update();
 window.verstuur=function(e){e.preventDefault();
   var n=g('f-naam').value,m=g('f-mail').value,t=g('f-tel').value,p=g('f-plaats').value;
-  var accent=+g('sl-accent').value,crepi=100-accent,vd=+g('sl-verdeling').value,hout=Math.round(accent*vd/100/5)*5,steen=accent-hout;
-  var body='Naam: '+n+'\nE-mail: '+m+'\nTelefoon: '+t+'\nWoonplaats: '+p+'\n\nStijldossier:\n'+keuze.steen.naam+'-natuursteen '+steen+'% · '+keuze.hout.naam+'-composiet houtlook '+hout+'% · crepi '+crepi+'%';
-  g('form').classList.add('verzonden');
+  var body='Naam: '+n+'\nE-mail: '+m+'\nTelefoon: '+t+'\nWoonplaats: '+p+'\n\nStijldossier:\nCrepi '+keuze.crepi.naam+' · '+keuze.steen.naam+'-natuursteen · '+keuze.hout.naam+'-composiet houtlook';
+  g('dossier').classList.add('verzonden');
   location.href='mailto:iworkproductions@outlook.com?subject='+encodeURIComponent('Stijldossier: '+keuze.steen.naam+' & '+keuze.hout.naam+' - '+n)+'&body='+encodeURIComponent(body);
   return false;};
 })();
