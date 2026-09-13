@@ -13,7 +13,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=19">
+<link rel="stylesheet" href="/assets/site.css?v=20">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><style>
 :root{--pap:#f0e9dc;--steen:#b8a888;--crepikl:#e0d7c5}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -172,6 +172,15 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .form .klaar{display:none}.form.verzonden .velden,.form.verzonden .btn,.form.verzonden .tel,.form.verzonden>.lead,.form.verzonden>.rust{display:none}.form.verzonden .klaar{display:block;animation:landing .8s cubic-bezier(.2,.8,.2,1) forwards}
 .form .btn[disabled]{opacity:.55;cursor:wait}
 @media(max-width:820px){h1{font-size:44px}.keuze{grid-template-columns:1fr}.kaart .lbl{padding-bottom:20px}.kaart .lbl .naam{font-size:30px}.keuze.banen .kaart .info{display:none}.keuze.banen .kaart .lbl{padding-left:28px}.flits .fnaam{font-size:56px}.pmat{grid-template-columns:1fr}.paspoort{padding:32px 26px}.paspoort .ptitel{font-size:40px}.pgevel{height:220px}.paspoort-vlak{gap:40px}.form{text-align:center}.verhouding-kop{padding:80px 16px 22px}.verhouding-kop h2{font-size:36px}.stroken{flex-direction:column;width:calc(100% - 36px);height:58vh;min-height:0}.strook{transition:flex-basis .6s cubic-bezier(.2,.8,.2,1)}.strook+.strook{box-shadow:0 -1px 0 rgba(250,248,244,.55)}.strook .lbl{padding-bottom:16px}.strook .lbl .naam{font-size:24px}.strook .lbl .pct{margin-top:4px}}
+
+/* gedeelde knopstijl en donkere omgeving; het stijldossier blijft papier */
+.btn,.btn.dark{text-transform:none;letter-spacing:.04em;font-size:15px;font-family:'Jost',sans-serif;padding:16px 34px;min-height:52px;border-radius:980px}
+.btn:hover,.btn.dark:hover{background:var(--goud);transform:none}
+.form .btn{font-size:15px;padding:16px 34px}
+.paspoort{--ink:#211d18;--zacht:#6a6258;--lijn:#d3c9b3;--creme:#faf8f4;color:#211d18}
+.merk-reis{position:absolute;top:22px;left:38px;z-index:6;font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;color:var(--creme);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.terug{left:auto;right:38px;top:34px;min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:820px){.merk-reis{left:20px;top:18px;font-size:19px}.terug{right:16px;top:26px}}
 
 /* gedeelde knopstijl en donkere omgeving; het stijldossier blijft papier */
 .btn,.btn.dark{text-transform:none;letter-spacing:.04em;font-size:15px;font-family:'Jost',sans-serif;padding:16px 34px;min-height:52px;border-radius:980px}
