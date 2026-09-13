@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=122">
+<link rel="stylesheet" href="/assets/site.css?v=123">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -78,7 +78,14 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .staal .k{display:block;font-size:13px;color:var(--dim);margin-top:2px}
 @media(max-width:900px){.atelier{grid-template-columns:1fr}.streng-plak{height:56vh;top:40px}.streng-stage{max-width:280px}.keuzestap{min-height:auto;padding:8vh 0}.stalen{gap:12px}}
 
-/* verhouding-stap */
+/* verhouding · volledige breedte */
+.verhouding-vol{padding:16vh max(24px,8vw) 12vh;background:var(--creme)}
+.vh-in{max-width:1100px;margin:0 auto;text-align:center}
+.vh-in h2{font-size:clamp(40px,5.4vw,84px)}
+.vh-in .lead{margin:20px auto 0;max-width:52ch}
+.verhouding-vol .vbalk{height:200px;margin-top:56px;max-width:1100px}
+.verhouding-vol .vregelaars{max-width:640px;margin-left:auto;margin-right:auto;text-align:left}
+/* verhouding-stap (oud) */
 .vbalk{display:flex;height:130px;border-radius:14px;overflow:hidden;margin-top:36px;box-shadow:0 18px 44px rgba(33,29,24,.12)}
 .vseg{position:relative;background-size:cover;background-position:center;transition:flex-basis .5s var(--ease);display:flex;align-items:flex-end;padding:14px}
 .vseg span{position:relative;z-index:2;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
@@ -259,25 +266,26 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
     </div>
     </div>
 
-    <div class="keuzestap" id="stap-verhouding">
-      <div data-in>
-        <div class="eye">De balans</div>
-        <h2>Bepaal de verhouding.</h2>
-        <p class="lead">Crepi is de rustige basis. Schuif hoeveel steen en houtlook de gevel mogen accentueren.</p>
-        <div class="vbalk">
-          <div class="vseg" id="vs-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
-          <div class="vseg" id="vs-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span id="vs-steen-l">Atlas</span></div>
-          <div class="vseg" id="vs-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span id="vs-hout-l">Evergreen</span></div>
-        </div>
-        <div class="vregelaars">
-          <div class="vregel"><div class="vkop"><span>Crepi — de basis</span><span class="num" id="num-crepi">60%</span></div><input type="range" id="sl-crepi" min="60" max="80" value="60" step="5" oninput="verdeel()"></div>
-          <div class="vregel"><div class="vkop"><span>Accent — steen ↔ houtlook</span><span class="num" id="num-verdeling">20% steen · 20% houtlook</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
+
+<!-- DE VERHOUDING · volledige breedte -->
+<section class="verhouding-vol" id="stap-verhouding">
+  <div class="vh-in" data-in>
+    <div class="eye">De balans</div>
+    <h2>Bepaal de verhouding.</h2>
+    <p class="lead">Crepi is de rustige basis. Schuif hoeveel steen en houtlook de gevel mogen accentueren.</p>
+    <div class="vbalk">
+      <div class="vseg" id="vs-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
+      <div class="vseg" id="vs-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span id="vs-steen-l">Atlas</span></div>
+      <div class="vseg" id="vs-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span id="vs-hout-l">Evergreen</span></div>
+    </div>
+    <div class="vregelaars">
+      <div class="vregel"><div class="vkop"><span>Crepi — de basis</span><span class="num" id="num-crepi">60%</span></div><input type="range" id="sl-crepi" min="60" max="80" value="60" step="5" oninput="verdeel()"></div>
+      <div class="vregel"><div class="vkop"><span>Accent — steen ↔ houtlook</span><span class="num" id="num-verdeling">20% steen · 20% houtlook</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
+    </div>
+  </div>
+</section>
 
 <!-- SIGNATUUR-MOMENT -->
 <!-- STIJLDOSSIER + FORMULIER -->
