@@ -31,7 +31,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:20}
 .hero-cta{display:inline-block;margin-top:38px;background:transparent;color:#fff;text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;padding:15px 44px;border:1px solid rgba(255,255,255,.75);transition:.3s cubic-bezier(.4,0,.2,1)}
 .hero-cta:hover{background:#fff;color:var(--ink);border-color:#fff}
 .hero-knoppen{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:38px}.hero-knoppen .hero-cta{margin-top:0}
-.hero-cta.hout{color:#e2b98a;border-color:rgba(226,185,138,.85)}.hero-cta.hout:hover{background:var(--hout);border-color:var(--hout);color:#fff}
+.rust-cta{display:inline-block;margin-top:34px;color:var(--hout);border:1px solid var(--hout);padding:15px 44px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;transition:.3s cubic-bezier(.4,0,.2,1)}.rust-cta:hover{background:var(--hout);color:#fff}
 .scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
 /* INTRO */
 .intro-sec{padding:150px 0 120px;text-align:center}
@@ -164,7 +164,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div>
     <h1>Gevelrenovatie die vooroploopt.<br><span class="ag">Avant-Garde</span><span class="ag-sub">Premium gevelrenovatie</span></h1>
     <p>Crepi, natuursteen en hout, vakkundig gecombineerd tot één moderne gevel die isoleert én er prachtig uitziet. Uw gevel, kozijnen en bouwwerk in één hand. Wij ontzorgen, u geniet.</p>
-    <div class="hero-knoppen"><a class="hero-cta" href="/ontwerp/">Ontwerp uw gevel</a><a class="hero-cta hout" href="#advies" onclick="glij('#advies');return false">Ontdek Avant-Garde Gevels</a></div>
+    <a class="hero-cta" href="/ontwerp/">Ontwerp uw gevel</a>
   </div>
   <a class="scroll" id="scrollbtn" href="#intro-tekst"><span>Ontdek</span><span class="arr">&#8595;</span></a>
 </section>
@@ -181,6 +181,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
 
 <section class="rust" id="intro-tekst"><div class="narrow">
   <p class="rustzin">Mensen zien het, en willen het ook.</p>
+  <a class="rust-cta" href="#advies" onclick="glij('#advies');return false">Ontdek Avant-Garde Gevels</a>
 </div></section>
 <section class="voorb"><div class="wrap">
   <div class="head"><div class="eyebrow">De transformatie</div><h2>Van bestaand naar tijdloos.</h2>
@@ -263,7 +264,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div class="cf-of">of bel ons direct</div>
   <a class="cf-tel" href="tel:+31640506451">06 40 50 64 51</a>
 </div></section>
-<footer>Avant-Garde Gevels · Compositie in crepi, natuursteen en composiet houtlook · v7</footer>
+<footer>Avant-Garde Gevels · Compositie in crepi, natuursteen en composiet houtlook · v8</footer>
 <script>
 // intro fade out
 window.addEventListener('load',function(){setTimeout(function(){var i=document.getElementById('intro');if(i)i.classList.add('done');},2200);});
