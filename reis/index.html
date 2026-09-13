@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=109">
+<link rel="stylesheet" href="/assets/site.css?v=112">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -113,6 +113,12 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .slot{padding:12vh max(24px,6vw) 20vh}
 .slot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
 .dossier-blok{}
+.dk-cirkels{display:flex;justify-content:space-between;gap:16px;margin-top:28px}
+.dk-cirkels .sig-c{text-align:center;flex:1}
+.dk-cirkels .rond{width:clamp(56px,7vw,78px);height:clamp(56px,7vw,78px);border-radius:50%;overflow:hidden;margin:0 auto;box-shadow:0 8px 20px rgba(33,29,24,.12)}
+.dk-cirkels .rond img,.dk-cirkels .rond .kleur{width:100%;height:100%;object-fit:cover;display:block}
+.dk-cirkels .l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+.dk-cirkels .v{font-weight:500;font-size:14px;margin-top:2px}
 .dk-titel{font-size:clamp(20px,2vw,28px);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--goud);margin-bottom:22px;text-align:center}
 .dossier-kaart{background:var(--pap);border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(33,29,24,.16)}
 .dk-beeld{aspect-ratio:16/10;overflow:hidden;position:relative}
@@ -262,19 +268,6 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 </div>
 
 <!-- SIGNATUUR-MOMENT -->
-<section class="signatuur" id="signatuur">
-  <div data-in>
-    <div class="eye">Uw gevelstijl is klaar</div>
-    <div class="groot">De perfecte balans.</div>
-    <p class="lead">Uw keuzes komen samen in een unieke Avant-Garde-signatuur.</p>
-    <div class="sig-cirkels">
-      <div class="sig-c"><div class="rond"><div class="kleur" id="sig-crepi-b" style="background:#efe9dd"></div></div><div class="l">Crepi</div><div class="v" id="sig-crepi">Warm wit</div></div>
-      <div class="sig-c"><div class="rond"><img id="sig-steen-b" src="/assets/materialen/atlas.jpg" alt=""></div><div class="l">Natuursteen</div><div class="v" id="sig-steen">Atlas</div></div>
-      <div class="sig-c"><div class="rond"><img id="sig-hout-b" src="/assets/materialen/evergreen.jpg" alt=""></div><div class="l">Composiet houtlook</div><div class="v" id="sig-hout">Evergreen</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- STIJLDOSSIER + FORMULIER -->
 <section class="slot" id="dossier">
   <div class="slot-grid">
@@ -285,10 +278,10 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
         <div class="dk-body">
           <div class="dk-merk"><img src="/assets/logo-ag.png" alt="Avant-Garde Gevels"></div>
           <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
-          <div class="samenvat">
-            <span class="chip"><span class="dot" id="d-crepi-dot" style="background:#efe9dd"></span>Crepi · <b id="sv-crepi">Warm wit</b></span>
-            <span class="chip"><span class="dot" style="background:#b8a888"></span>Steen · <b id="sv-steen">Atlas</b></span>
-            <span class="chip"><span class="dot" style="background:#6b4a2e"></span>Houtlook · <b id="sv-hout">Evergreen</b></span>
+          <div class="dk-cirkels">
+            <div class="sig-c"><div class="rond"><div class="kleur" id="sig-crepi-b" style="background:#efe9dd"></div></div><div class="l">Crepi</div><div class="v" id="sig-crepi">Warm wit</div></div>
+            <div class="sig-c"><div class="rond"><img id="sig-steen-b" src="/assets/materialen/atlas.jpg" alt=""></div><div class="l">Natuursteen</div><div class="v" id="sig-steen">Atlas</div></div>
+            <div class="sig-c"><div class="rond"><img id="sig-hout-b" src="/assets/materialen/evergreen.jpg" alt=""></div><div class="l">Composiet houtlook</div><div class="v" id="sig-hout">Evergreen</div></div>
           </div>
           <div class="dk-naam" id="dk-naam"></div>
         </div>
@@ -342,8 +335,7 @@ function markeer(active){
 function scan(){
   var mid=innerHeight*0.5, cur='crepi';
   stappen.forEach(function(st){var r=st.el.getBoundingClientRect();if(r.top<=mid&&r.bottom>=mid)cur=st.s;});
-  var sig=g('signatuur').getBoundingClientRect();
-  if(sig.top<=mid)cur='stijl';
+  var dos=g('dossier');if(dos){var sig=dos.getBoundingClientRect();if(sig.top<=mid)cur='stijl';}
   toonStreng(cur); markeer(cur);
 }
 addEventListener('scroll',function(){requestAnimationFrame(scan)},{passive:true});addEventListener('resize',scan);scan();
@@ -370,10 +362,10 @@ window.verdeel=function(){
 };
 var verh={crepi:60,steen:20,hout:20};
 function update(){
+  g('d-steen').textContent=keuze.steen.naam; g('d-hout').textContent=keuze.hout.naam;
   g('sig-crepi').textContent=keuze.crepi.naam; g('sig-crepi-b').style.background=keuze.crepi.kleur;
   g('sig-steen').textContent=keuze.steen.naam; g('sig-steen-b').src=keuze.steen.img;
   g('sig-hout').textContent=keuze.hout.naam; g('sig-hout-b').src=keuze.hout.img;
-  g('sv-crepi').textContent=keuze.crepi.naam; g('sv-steen').textContent=keuze.steen.naam; g('sv-hout').textContent=keuze.hout.naam;
 }
 update();
 window.fotosGekozen=function(){var f=g('f-fotos').files,l=g('upload-lbl'),t=g('up-txt');if(f.length){l.classList.add('heeft');t.textContent=f.length+(f.length===1?' foto toegevoegd':' foto\'s toegevoegd');}else{l.classList.remove('heeft');t.innerHTML='Voeg 2 foto\'s van uw woning toe <em>(optioneel)</em>';}};
