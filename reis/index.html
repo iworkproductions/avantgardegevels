@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=105">
+<link rel="stylesheet" href="/assets/site.css?v=106">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -246,7 +246,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
         </div>
         <div class="vregelaars">
           <div class="vregel"><div class="vkop"><span>Crepi — de basis</span><span class="num" id="num-crepi">60%</span></div><input type="range" id="sl-crepi" min="60" max="80" value="60" step="5" oninput="verdeel()"></div>
-          <div class="vregel"><div class="vkop"><span>Accent — steen ↔ houtlook</span><span class="num" id="num-verdeling">50 / 50</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
+          <div class="vregel"><div class="vkop"><span>Accent — steen ↔ houtlook</span><span class="num" id="num-verdeling">20% steen · 20% houtlook</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
         </div>
       </div>
     </div>
@@ -349,7 +349,7 @@ window.verdeel=function(){
   var crepi=+g('sl-crepi').value, accent=100-crepi, vd=+g('sl-verdeling').value;
   var hout=Math.round(accent*vd/100/5)*5, steen=accent-hout;
   verh={crepi:crepi,steen:steen,hout:hout};
-  g('num-crepi').textContent=crepi+'%'; g('num-verdeling').textContent=(100-vd)+' / '+vd;
+  g('num-crepi').textContent=crepi+'%'; g('num-verdeling').textContent=steen+'% steen · '+hout+'% houtlook';
   g('vs-crepi').style.flexBasis=crepi+'%'; g('vs-steen').style.flexBasis=steen+'%'; g('vs-hout').style.flexBasis=hout+'%';
   g('vs-steen').style.backgroundImage='url('+keuze.steen.img+')'; g('vs-hout').style.backgroundImage='url('+keuze.hout.img+')';
   g('vs-steen-l').textContent=keuze.steen.naam; g('vs-hout-l').textContent=keuze.hout.naam;
