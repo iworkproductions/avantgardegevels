@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=55">
+<link rel="stylesheet" href="/assets/site.css?v=59">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -118,15 +118,21 @@
 
 /* ---------- 08 achter de gevel: lagen schuiven uit elkaar op de scroll ---------- */
 .gevel{background:var(--zwart);color:var(--creme)}
-.lagen-scene{position:relative;height:260vh}
-.lagen-plak{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;gap:6vh}
-.lagen-stapel{position:relative;width:min(44vw,600px);height:min(34vw,470px)}
-.laag-v{position:absolute;left:0;right:0;top:50%;height:14%;margin-top:-7%;background-size:cover;background-position:center;transform:skewY(-8deg);box-shadow:0 30px 60px rgba(0,0,0,.45);transition:none}
-.laag-v span{position:absolute;left:calc(100% + 24px);top:50%;transform:translateY(-50%) skewY(8deg);white-space:nowrap;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--creme);opacity:0;transition:opacity .4s}
+.lagen-scene{position:relative;height:320vh}
+.lagen-plak{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:6vw;padding:0 8vw}
+.lagen-stapel{position:relative;width:100%;max-width:600px;height:70vh;margin:0 auto;perspective:1400px}
+.laag-v{position:absolute;left:0;right:0;height:64px;top:50%;margin-top:-32px;background-size:cover;background-position:center;border-radius:8px;box-shadow:0 20px 44px rgba(0,0,0,.55);will-change:transform;transition:box-shadow .3s}
+.laag-v span{position:absolute;left:16px;bottom:9px;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.85);opacity:0;transition:opacity .4s}
 .laag-v.aan span{opacity:1}
-.lagen-tekst{max-width:420px;font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:var(--dim);opacity:0;transform:translateY(16px);transition:opacity .6s,transform .8s var(--ease)}
-.lagen-tekst.aan{opacity:1;transform:none}
-@media(max-width:900px){.lagen-scene{height:200vh}.lagen-plak{padding:0 6vw;gap:6vh}.lagen-stapel{width:58vw;height:52vw}.laag-v span{left:calc(100% + 14px);font-size:10px}.lagen-tekst{max-width:100%}}
+.laag-v.actief{box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 0 1px rgba(201,168,119,.5)}
+.lagen-uitleg{max-width:400px}
+.lagen-uitleg h3{font-size:clamp(26px,2.4vw,38px);letter-spacing:-.02em;line-height:1.08;color:var(--creme);margin-bottom:18px}
+.lagen-uitleg p{font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:var(--dim)}
+.lagen-index{list-style:none;margin-top:30px;border-top:1px solid var(--lijn)}
+.lagen-index li{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--lijn);font-size:14px;color:var(--dim);cursor:pointer;transition:color .3s}
+.lagen-index li .n{font-size:11px;font-weight:500;letter-spacing:.12em;color:var(--dim);width:22px;flex:0 0 auto}
+.lagen-index li.aan{color:var(--creme)}.lagen-index li.aan .n{color:var(--goud)}
+@media(max-width:900px){.lagen-scene{height:260vh}.lagen-plak{grid-template-columns:1fr;gap:4vh;padding:0 6vw;align-content:center}.lagen-stapel{max-width:88vw;height:44vh}.laag-v{height:46px;margin-top:-23px}.lagen-uitleg{max-width:100%}.lagen-index{display:none}}
 
 /* ---------- 11 finale ---------- */
 .finale{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
@@ -196,7 +202,7 @@
 .atlas-beeld img{width:min(640px,80vw);height:auto;display:block}
 .hfd{padding:0}
 
-@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.pushin,.pushin.in{transform:none;transition:none}.laag-v span,.lagen-tekst{opacity:1;transform:none}.stappen-lijn li{opacity:1}.stappen-lijn{--vul:100%}.opener .na{clip-path:none!important}.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}}
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.pushin,.pushin.in{transform:none;transition:none}.laag-v span{opacity:1}.lagen-uitleg{opacity:1}.stappen-lijn li{opacity:1}.stappen-lijn{--vul:100%}.opener .na{clip-path:none!important}.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}}
 </style>
 </head>
 <body>
@@ -302,14 +308,25 @@
   <div class="lagen-scene" id="lagen">
     <div class="lagen-plak">
       <div class="lagen-stapel" id="stapel">
-        <div class="laag-v" style="background-image:url(/assets/materialen/laag-bestaand.jpg)"><span>Bestaande gevel</span></div>
-        <div class="laag-v" style="background-image:url(/assets/materialen/laag-isolatie.jpg)"><span>Isolatie</span></div>
-        <div class="laag-v" style="background-image:url(/assets/materialen/laag-wapening.jpg)"><span>Wapening met net</span></div>
-        <div class="laag-v" style="background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
-        <div class="laag-v" style="background-image:url(/assets/materialen/atlas.jpg)"><span>Natuursteen</span></div>
-        <div class="laag-v" style="background-image:url(/assets/materialen/evergreen.jpg)"><span>Composiet houtlook</span></div>
+        <div class="laag-v" data-kop="Bestaande gevel" data-uit="De woning zoals hij er nu bij staat. Alles wat volgt, komt hier overheen." style="background-image:url(/assets/materialen/laag-bestaand.jpg)"><span>Bestaande gevel</span></div>
+        <div class="laag-v" data-kop="Isolatie" data-uit="EPS-platen tegen de bestaande gevel. Hier zit de energiewinst: warmer, stiller, zuiniger." style="background-image:url(/assets/materialen/laag-isolatie.jpg)"><span>Isolatie</span></div>
+        <div class="laag-v" data-kop="Wapening met net" data-uit="Een wapeningslaag met net over de isolatie, zodat één vlakke, egale ondergrond ontstaat." style="background-image:url(/assets/materialen/laag-wapening.jpg)"><span>Wapening met net</span></div>
+        <div class="laag-v" data-kop="Crepi" data-uit="De rustige, isolerende basis. Altijd minimaal 60% van de gevel." style="background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
+        <div class="laag-v" data-kop="Natuursteen" data-uit="Het accent dat de woning aardt. Met de hand gezet, steen voor steen." style="background-image:url(/assets/materialen/atlas.jpg)"><span>Natuursteen</span></div>
+        <div class="laag-v" data-kop="Composiet houtlook" data-uit="De buitenste laag. Verticale latten die het licht vangen, zonder onderhoud." style="background-image:url(/assets/materialen/evergreen.jpg)"><span>Composiet houtlook</span></div>
       </div>
-      <p class="lagen-tekst" id="lagentekst">De isolatie zit onder de crepi. Over de isolatie komt een wapeningslaag met net, zodat één egale ondergrond ontstaat; daarna volgt de crepi, dan de natuursteen en als laatste de latten van composiet houtlook.</p>
+      <div class="lagen-uitleg">
+        <h3 id="lagenkop">Zes lagen, één gevel.</h3>
+        <p id="lagentekst">Scroll en zie hoe de gevel wordt opgebouwd, van de bestaande muur tot de buitenste laat.</p>
+        <ol class="lagen-index" id="lagenindex">
+          <li data-i="0"><span class="n">01</span>Bestaande gevel</li>
+          <li data-i="1"><span class="n">02</span>Isolatie</li>
+          <li data-i="2"><span class="n">03</span>Wapening met net</li>
+          <li data-i="3"><span class="n">04</span>Crepi</li>
+          <li data-i="4"><span class="n">05</span>Natuursteen</li>
+          <li data-i="5"><span class="n">06</span>Composiet houtlook</li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -357,7 +374,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v55</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v59</span></div>
 </footer>
 
 <script>
@@ -402,16 +419,17 @@ document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
 if(!rm){var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.readyState===0)v.load();v.play().catch(function(){});}else v.pause();})},{threshold:.25});
 document.querySelectorAll('video').forEach(function(v){v.addEventListener('timeupdate',function(){if(!v.paused&&v.currentTime>0.05)v.classList.add('speelt')});v.addEventListener('pause',function(){});vo.observe(v)});}
 /* achter de gevel: lagen uit elkaar */
-var lg=g('lagen'),lv=document.querySelectorAll('.laag-v'),lt=g('lagentekst');
+var lg=g('lagen'),stap=g('stapel'),lv=document.querySelectorAll('.laag-v'),lk=g('lagenkop'),lt=g('lagentekst'),lix=g('lagenindex').querySelectorAll('li');
 function lagen(){
   var r=lg.getBoundingClientRect(),vh=window.innerHeight,p=kl(-r.top,0,r.height-vh);
-  var d=rm?1:kl(p,.1,.7),n=lv.length,mid=(n-1)/2,gap=112;
-  lv.forEach(function(el,i){var y=(i-mid)*gap*d;el.style.transform='translate3d(0,'+(-y)+'%,0) skewY(-8deg)';el.style.zIndex=i;el.classList.toggle('aan',d>.35+.12*(n-1-i));});
-  lt.classList.toggle('aan',d>.85);
+  var n=lv.length,d=rm?1:kl(p,.06,.6),mid=(n-1)/2;
+  var H=stap?stap.clientHeight:480, span=H*0.82, step=span/(n-1);
+  lv.forEach(function(el,i){var y=(mid-i)*step*d;el.style.transform='translate3d(0,'+y+'px,0)';el.style.zIndex=i;el.classList.toggle('aan',d>.25);});
+  var act=Math.min(n-1,Math.max(0,Math.round(kl(p,.12,.95)*(n-1))));
+  var el=lv[act]; if(el&&lk&&lk.dataset.cur!=act){lk.dataset.cur=act;lk.textContent=el.dataset.kop;lt.textContent=el.dataset.uit;}
+  lv.forEach(function(e,i){e.classList.toggle('actief',i===act)});
+  lix.forEach(function(li){li.classList.toggle('aan', +li.dataset.i===act)});
 }
-/* push-in op dominante beelden zodra ze in beeld komen */
-var po=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('in',e.isIntersecting)})},{threshold:.3});
-document.querySelectorAll('.pushin').forEach(function(el){po.observe(el)});
 function proces(){}
 /* galleries: pijlen en drag */
 window.schuif=function(btn,dir){var l=btn.parentElement.previousElementSibling,k=l.querySelector('.kaart'),st=k?k.getBoundingClientRect().width+20:400;l.scrollBy({left:dir*st,behavior:'smooth'});};
