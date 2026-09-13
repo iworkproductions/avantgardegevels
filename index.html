@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
 <style>
 /* ---------- intro-logo ---------- */
-.intro{position:fixed;inset:0;background:var(--zwart);z-index:100;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s;opacity:1}
+.intro{position:fixed;inset:0;background:#fff;z-index:100;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s;opacity:1}
 .intro.done{opacity:0;visibility:hidden;pointer-events:none}
 .intro-logo{width:min(46vw,420px);opacity:0;transform:translateY(10px);animation:introin 1s ease forwards}
 @keyframes introin{to{opacity:1;transform:translateY(0)}}
@@ -47,8 +47,10 @@
 .glas{position:absolute;inset:0;z-index:3;transform:translateY(100%);will-change:transform;background:rgba(245,241,234,.62);-webkit-backdrop-filter:blur(6px) saturate(90%);backdrop-filter:blur(6px) saturate(90%);display:flex;align-items:center;padding:0 8vw;border-top:1px solid rgba(255,255,255,.35)}
 .na-glas{height:38vh;background:linear-gradient(#f5f1ea,var(--zwart))}
 .manifest{max-width:1100px;margin:0 auto;width:100%}
-.manifest p{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,5vw,82px);line-height:1.04;color:#211d18;opacity:0;transform:translateY(20px);will-change:opacity,transform}
-@media(max-width:760px){.scene{height:140vh}.hero-in{flex-direction:column;align-items:flex-start;left:6vw;right:6vw;bottom:9vh;gap:26px}.hero .acties{justify-content:flex-start}.glas{padding:0 6vw}.manifest p{font-size:clamp(30px,8.6vw,44px)}}
+.manifest p{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4.2vw,64px);line-height:1.06;color:#211d18;opacity:0;transform:translateY(20px);will-change:opacity,transform}
+.manifest .groep+.groep{margin-top:clamp(28px,4.5vh,56px)}
+.manifest .slotregel{font-size:clamp(44px,7vw,112px);line-height:.98}
+@media(max-width:760px){.scene{height:140vh}.hero-in{flex-direction:column;align-items:flex-start;left:6vw;right:6vw;bottom:9vh;gap:26px}.hero .acties{justify-content:flex-start}.glas{padding:0 6vw}.manifest p{font-size:clamp(26px,7.4vw,38px)}.manifest .slotregel{font-size:clamp(40px,11vw,60px)}}
 
 /* ---------- transformatie: vastgepind, de villa verandert onder de scroll ---------- */
 .opener{position:relative;height:260vh;margin-top:12vh}
@@ -68,6 +70,9 @@
 
 /* ---------- hoofdstuk: eyebrow · kop · beeld · alinea · galerij ---------- */
 .hfd{padding:16vh 0 6vh}
+.hfd.licht{padding:12vh 0 12vh;margin-top:-1px}
+.hfd.licht .media{box-shadow:0 40px 100px rgba(33,29,24,.22)}
+.hfd.licht .lade-nav button{background:rgba(33,29,24,.08);color:#211d18}
 .hfd .kop{padding:0 24px;max-width:1120px;margin:0 auto 48px}
 .eye{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--goud);margin-bottom:16px}
 .hfd h2{font-size:clamp(42px,5.8vw,84px);line-height:1;max-width:860px}
@@ -142,9 +147,9 @@ a.kaart:hover .f{transform:scale(1.05)}
 </head>
 <body>
 
-<div class="nav"><a class="merk" href="/">Avant-Garde Gevels</a><nav class="links"><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/werkwijze/#advies">Adviesgesprek</a><a class="pil" href="/reis/#start">Ontwerp uw gevel</a></nav></div>
+<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/werkwijze/#advies">Adviesgesprek</a><a class="pil" href="/reis/#start">Ontwerp uw gevel</a></nav></div>
 
-<div class="intro" id="intro"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels" class="intro-logo"></div>
+<div class="intro" id="intro"><img src="/assets/logo-ag.png" alt="Avant-Garde Gevels" class="intro-logo"></div>
 
 <!-- 01 HERO + 02 MANIFEST · één scène -->
 <section class="scene" id="scene">
@@ -163,13 +168,9 @@ a.kaart:hover .f{transform:scale(1.05)}
     </div>
     <div class="glas" id="glas">
       <div class="manifest" id="manifest">
-        <p>Geen afwerking.</p>
-        <p>Maar architectuur.</p>
-        <p>Gevormd door materiaal.</p>
-        <p>Verfijnd in detail.</p>
-        <p>Gebouwd met vakmanschap.</p>
-        <p>Ontworpen voor uw woning.</p>
-        <p>Gemaakt om te blijven.</p>
+        <div class="groep"><p>Geen afwerking.</p><p>Maar architectuur.</p><p>Gevormd door materiaal.</p></div>
+        <div class="groep"><p>Verfijnd in detail.</p><p>Gebouwd met vakmanschap.</p><p>Ontworpen voor uw woning.</p></div>
+        <div class="groep"><p class="slotregel">Gemaakt om te blijven.</p></div>
       </div>
     </div>
   </div>
@@ -177,7 +178,7 @@ a.kaart:hover .f{transform:scale(1.05)}
 <div class="na-glas" aria-hidden="true"></div>
 
 <!-- HOOFDSTUK 1 · HET SYSTEEM -->
-<section class="hfd" id="systeem">
+<section class="hfd licht" id="systeem">
   <div class="kop"><div class="eye">Het systeem</div><h2>Drie lagen.<br>Eén handschrift.</h2></div>
   <div class="media" data-in style="background-image:url(/assets/detail-crepi.jpg)"><div class="bijschrift">Crepi · de basis</div></div>
   <p class="alinea">Elke Avant-Garde gevel is opgebouwd uit dezelfde drie lagen. <b>Crepi</b> als rustige, isolerende basis, altijd minimaal 60%.<sup>1</sup> <b>Natuursteen</b> als het accent dat de woning aardt. <b>Composiet houtlook</b> als het accent dat de gevel laat leven. Binnen dit systeem klopt elke combinatie. U hoeft geen ontwerper te zijn; het systeem is het ontwerp.</p>

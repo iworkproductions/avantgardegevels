@@ -22,7 +22,11 @@ h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter
 
 /* navigatie: 52 px, blur, wordmerk links, links rechts, pil */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc(50% - 560px));background:rgba(13,11,9,.62);backdrop-filter:saturate(160%) blur(20px);-webkit-backdrop-filter:saturate(160%) blur(20px);border-bottom:1px solid var(--lijn)}
-.nav .merk{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;color:var(--creme);white-space:nowrap}
+.nav .merk{display:flex;align-items:center;height:52px}
+.nav .merk img{height:26px;width:auto}
+@media(max-width:760px){.nav .merk img{height:22px}}
+/* licht hoofdstuk: warm gebroken wit */
+.licht{--zwart:#f5f1ea;--creme:#211d18;--dim:#6a6258;--kaart:#ebe5d9;--lijn:rgba(33,29,24,.12);--goud:#9c7a4a;background:#f5f1ea;color:#211d18}
 .nav .links{display:flex;align-items:center;gap:26px;font-size:12px;letter-spacing:.06em;color:rgba(243,237,227,.72)}
 .nav .links a:not(.pil){transition:color .25s;padding:12px 0}
 .nav .links a:not(.pil):hover{color:var(--creme)}
