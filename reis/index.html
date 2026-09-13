@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=123">
+<link rel="stylesheet" href="/assets/site.css?v=124">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -28,6 +28,8 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
 .merk-reis{position:fixed;top:22px;left:max(24px,6vw);z-index:60}
 .merk-reis img{height:24px;width:auto;filter:brightness(0)}
+.terug-home{position:fixed;top:20px;right:max(24px,6vw);z-index:60;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--zwart);background:rgba(245,241,234,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 16px;border-radius:980px;border:1px solid var(--lijn);min-height:40px;transition:background .25s,border-color .25s}
+.terug-home:hover{background:#fff;border-color:var(--goud)}
 
 /* voortgang: CREPI — STEEN — HOUT — UW STIJL */
 .stappenbalk{position:fixed;top:0;left:0;right:0;z-index:55;display:flex;gap:26px;justify-content:center;padding:20px;background:linear-gradient(var(--creme),rgba(245,241,234,0));font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);pointer-events:none}
@@ -203,6 +205,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 </head>
 <body>
 <a class="merk-reis" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a>
+<a class="terug-home" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Home</a>
 <div class="stappenbalk" id="stappenbalk"><span data-s="crepi">Crepi</span><span data-s="steen">Steen</span><span data-s="hout">Hout</span><span data-s="stijl">Uw stijl</span></div>
 
 <section class="intro" id="start">
