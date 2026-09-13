@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=35">
+<link rel="stylesheet" href="/assets/site.css?v=36">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -30,16 +30,16 @@
 .nav+.scene{padding-top:0}
 .scene{position:relative;height:170vh}
 .scene .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
-.hero{position:absolute;inset:0;will-change:transform;transform-origin:center}
-.glas .wazig{position:absolute;inset:-40px;background-image:url(/assets/farm-na.jpg);background-size:cover;background-position:center;filter:blur(28px) saturate(.85);opacity:.8;will-change:transform;pointer-events:none}
-.glas .vlak{position:absolute;inset:0;background:rgba(13,11,9,.45);z-index:1;will-change:opacity}
+.hero{position:absolute;inset:0;transform-origin:center}
+.glas .wazig{position:absolute;inset:0;background-image:url(/assets/farm-na-wazig.jpg);background-size:cover;background-position:center;opacity:.8;pointer-events:none}
+.glas .vlak{position:absolute;inset:0;background:rgba(13,11,9,.45);z-index:1}
 .glas .manifest{position:relative;z-index:2}
-.donker{position:absolute;inset:0;background:#0d0b09;opacity:0;z-index:1;will-change:opacity;pointer-events:none}
+.donker{position:absolute;inset:0;background:#0d0b09;opacity:0;z-index:1;pointer-events:none}
 .hero.stil .foto{animation-play-state:paused}
 .foto{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.02);animation:adem 14s ease-in-out infinite alternate}
 @keyframes adem{to{transform:scale(1.07)}}
 .hero-tint{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,.42),rgba(13,11,9,.08) 40%,rgba(13,11,9,.72));z-index:1}
-.hero-in{position:absolute;left:8vw;right:8vw;bottom:12vh;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;will-change:opacity,transform}
+.hero-in{position:absolute;left:8vw;right:8vw;bottom:12vh;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:40px,transform}
 .hero .eye{margin-bottom:18px;opacity:0;animation:komop 1s var(--ease) .9s forwards}
 .hero h1{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(52px,7vw,120px);line-height:.96;letter-spacing:-.035em;color:var(--creme);max-width:12ch;text-shadow:0 2px 24px rgba(0,0,0,.4);opacity:0;animation:komop 1s var(--ease) 1s forwards}
 .hero .sub{font-size:clamp(15px,1.3vw,17px);color:rgba(243,237,227,.82);margin-top:20px;max-width:440px;line-height:1.5;opacity:0;animation:komop 1s var(--ease) 1.1s forwards}
@@ -47,10 +47,10 @@
 .hero .stil{display:inline-flex;align-items:center;min-height:44px;padding:11px 20px;border:1px solid rgba(243,237,227,.45);color:var(--creme);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:background .35s,color .35s,border-color .35s;white-space:nowrap}
 .hero .stil:hover{background:var(--creme);color:var(--zwart);border-color:var(--creme)}
 @keyframes komop{to{opacity:1;transform:none}}
-.glas{position:absolute;inset:0;z-index:3;transform:translateY(100%);will-change:transform;background:#0d0b09;display:flex;align-items:center;padding:0 8vw;overflow:hidden}
+.glas{position:absolute;inset:0;z-index:3;transform:translateY(100%);background:#0d0b09;display:flex;align-items:center;padding:0 8vw;overflow:hidden}
 .na-glas{height:38vh;background:linear-gradient(#f5f1ea,var(--zwart))}
 .manifest{max-width:1100px;margin:0 auto;width:100%}
-.manifest p{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.8vw,58px);line-height:1.08;letter-spacing:-.025em;color:var(--creme);opacity:0;transform:translateY(20px);will-change:opacity,transform;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.manifest p{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(26px,3.8vw,58px);line-height:1.08;letter-spacing:-.025em;color:var(--creme);opacity:0;transform:translateY(20px),transform;text-shadow:0 2px 20px rgba(0,0,0,.35)}
 .manifest .groep+.groep{margin-top:clamp(28px,4.5vh,56px)}
 .manifest .slotregel{color:var(--creme)}
 @media(max-width:760px){.scene{height:140vh}.hero-in{flex-direction:column;align-items:flex-start;left:6vw;right:6vw;bottom:9vh;gap:26px}.hero .acties{justify-content:flex-start}.glas{padding:0 6vw}.manifest p{font-size:clamp(26px,7.4vw,38px)}}
@@ -92,7 +92,7 @@
 /* ---------- 05 transformatie: vastgepind, de gevel verandert onder de scroll ---------- */
 .opener{position:relative;height:320vh}
 .opener .plak{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--zwart)}
-.opener .laag{position:absolute;inset:0;background-size:cover;background-position:center 40%;will-change:clip-path}
+.opener .laag{position:absolute;inset:0;background-size:cover;background-position:center 40%}
 .opener .voor{background-image:url(/assets/villa-voor.jpg)}
 .opener .na{background-image:url(/assets/villa-na.jpg);clip-path:inset(0 100% 0 0)}
 .opener .vignet{position:absolute;inset:0;background:linear-gradient(rgba(13,11,9,0) 70%,rgba(13,11,9,.7))}
@@ -131,7 +131,7 @@
 .lagen-scene{position:relative;height:260vh}
 .lagen-plak{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:0 8vw;gap:6vh}
 .lagen-stapel{position:relative;width:min(44vw,600px);height:min(34vw,470px)}
-.laag-v{position:absolute;left:0;right:0;top:50%;height:14%;margin-top:-7%;background-size:cover;background-position:center;transform:skewY(-8deg);box-shadow:0 30px 60px rgba(0,0,0,.45);will-change:transform;transition:none}
+.laag-v{position:absolute;left:0;right:0;top:50%;height:14%;margin-top:-7%;background-size:cover;background-position:center;transform:skewY(-8deg);box-shadow:0 30px 60px rgba(0,0,0,.45);transition:none}
 .laag-v span{position:absolute;left:calc(100% + 24px);top:50%;transform:translateY(-50%) skewY(8deg);white-space:nowrap;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--creme);opacity:0;transition:opacity .4s}
 .laag-v.aan span{opacity:1}
 .lagen-tekst{max-width:420px;font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:var(--dim);opacity:0;transform:translateY(16px);transition:opacity .6s,transform .8s var(--ease)}
@@ -353,7 +353,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v35</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v36</span></div>
 </footer>
 
 <script>

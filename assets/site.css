@@ -23,7 +23,7 @@ h1,h2,h3,h4{font-family:'Geist',sans-serif;font-weight:400;letter-spacing:-.025e
 :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
 
 /* navigatie: 52 px, blur, wordmerk links, links rechts, pil */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc(50% - 560px));background:rgba(13,11,9,.62);backdrop-filter:saturate(160%) blur(20px);-webkit-backdrop-filter:saturate(160%) blur(20px);border-bottom:1px solid var(--lijn)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc(50% - 560px));background:rgba(13,11,9,.86);border-bottom:1px solid var(--lijn)}
 .nav .merk{display:flex;align-items:center;height:52px}
 .nav .merk img{height:26px;width:auto}
 @media(max-width:760px){.nav .merk img{height:22px}}
