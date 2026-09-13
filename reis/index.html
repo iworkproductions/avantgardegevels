@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=114">
+<link rel="stylesheet" href="/assets/site.css?v=115">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -119,6 +119,14 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .dk-cirkels .rond img,.dk-cirkels .rond .kleur{width:100%;height:100%;object-fit:cover;display:block}
 .dk-cirkels .l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:12px}
 .dk-cirkels .v{font-weight:500;font-size:14px;margin-top:2px}
+.dk-dna{position:absolute;top:-10px;right:18px;height:150px;width:auto;opacity:.14;pointer-events:none}
+.dk-verhouding{margin-top:28px}
+.dk-balk{display:flex;height:26px;border-radius:8px;overflow:hidden}
+.dk-seg{display:flex;align-items:center;justify-content:center;transition:flex-basis .4s var(--ease)}
+.dk-seg span{font-size:11px;font-weight:500;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dk-seg#dk-bar-crepi span{color:#8a7f68;text-shadow:none}
+.dk-legenda{display:flex;gap:20px;margin-top:12px;font-size:13px;color:var(--dim)}
+.dk-legenda .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
 .dk-titel{font-size:clamp(20px,2vw,28px);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--goud);margin-bottom:22px;text-align:center}
 .dossier-kaart{background:var(--pap);border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(33,29,24,.16)}
 .dk-beeld{aspect-ratio:16/10;overflow:hidden;position:relative}
@@ -277,12 +285,25 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
       <div class="dossier-kaart">
         <div class="dk-beeld"><img src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning" loading="lazy"></div>
         <div class="dk-body">
+          <img class="dk-dna" src="/assets/atelier/streng-vol.png" alt="" aria-hidden="true">
           <div class="dk-merk"><img src="/assets/logo-ag.png" alt="Avant-Garde Gevels"></div>
           <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
           <div class="dk-cirkels">
             <div class="sig-c"><div class="rond"><div class="kleur" id="sig-crepi-b" style="background:#efe9dd"></div></div><div class="l">Crepi</div><div class="v" id="sig-crepi">Warm wit</div></div>
             <div class="sig-c"><div class="rond"><img id="sig-steen-b" src="/assets/materialen/atlas.jpg" alt=""></div><div class="l">Natuursteen</div><div class="v" id="sig-steen">Atlas</div></div>
             <div class="sig-c"><div class="rond"><img id="sig-hout-b" src="/assets/materialen/evergreen.jpg" alt=""></div><div class="l">Composiet houtlook</div><div class="v" id="sig-hout">Evergreen</div></div>
+          </div>
+          <div class="dk-verhouding">
+            <div class="dk-balk">
+              <div class="dk-seg" id="dk-bar-crepi" style="flex-basis:60%;background:#e0d7c5"><span id="dk-p-crepi">60%</span></div>
+              <div class="dk-seg" id="dk-bar-steen" style="flex-basis:20%;background:#b8a888"><span id="dk-p-steen">20%</span></div>
+              <div class="dk-seg" id="dk-bar-hout" style="flex-basis:20%;background:#6b4a2e"><span id="dk-p-hout">20%</span></div>
+            </div>
+            <div class="dk-legenda">
+              <span><span class="dot" style="background:#e0d7c5"></span>Crepi</span>
+              <span><span class="dot" style="background:#b8a888"></span><span id="dk-lg-steen">Atlas</span></span>
+              <span><span class="dot" style="background:#6b4a2e"></span><span id="dk-lg-hout">Evergreen</span></span>
+            </div>
           </div>
           <div class="dk-naam" id="dk-naam"></div>
         </div>
@@ -361,6 +382,9 @@ function update(){
   g('sig-crepi').textContent=keuze.crepi.naam; g('sig-crepi-b').style.background=keuze.crepi.kleur;
   g('sig-steen').textContent=keuze.steen.naam; g('sig-steen-b').src=keuze.steen.img;
   g('sig-hout').textContent=keuze.hout.naam; g('sig-hout-b').src=keuze.hout.img;
+  g('dk-bar-crepi').style.flexBasis=verh.crepi+'%'; g('dk-bar-steen').style.flexBasis=verh.steen+'%'; g('dk-bar-hout').style.flexBasis=verh.hout+'%';
+  g('dk-p-crepi').textContent=verh.crepi+'%'; g('dk-p-steen').textContent=verh.steen+'%'; g('dk-p-hout').textContent=verh.hout+'%';
+  g('dk-lg-steen').textContent=keuze.steen.naam; g('dk-lg-hout').textContent=keuze.hout.naam;
   tallyLink();
 }
 update();
