@@ -30,6 +30,8 @@ header{position:absolute;top:0;left:0;right:0;z-index:20}
 .hero p{font-size:20px;max-width:560px;margin:0 auto;font-weight:300;opacity:.95;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 .hero-cta{display:inline-block;margin-top:38px;background:transparent;color:#fff;text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;padding:15px 44px;border:1px solid rgba(255,255,255,.75);transition:.3s cubic-bezier(.4,0,.2,1)}
 .hero-cta:hover{background:#fff;color:var(--ink);border-color:#fff}
+.hero-knoppen{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:38px}.hero-knoppen .hero-cta{margin-top:0}
+.hero-cta.hout{color:#e2b98a;border-color:rgba(226,185,138,.85)}.hero-cta.hout:hover{background:var(--hout);border-color:var(--hout);color:#fff}
 .scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:#fff;font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
 /* INTRO */
 .intro-sec{padding:150px 0 120px;text-align:center}
@@ -162,7 +164,7 @@ footer{background:#16130f;color:#7a7266;padding:50px 0;text-align:center;font-si
   <div>
     <h1>Gevelrenovatie die vooroploopt.<br><span class="ag">Avant-Garde</span><span class="ag-sub">Premium gevelrenovatie</span></h1>
     <p>Crepi, natuursteen en hout, vakkundig gecombineerd tot één moderne gevel die isoleert én er prachtig uitziet. Uw gevel, kozijnen en bouwwerk in één hand. Wij ontzorgen, u geniet.</p>
-    <a class="hero-cta" href="/reis/#start">Ontwerp uw gevel</a>
+    <div class="hero-knoppen"><a class="hero-cta" href="/reis/#start">Ontwerp uw gevel</a><a class="hero-cta hout" href="#advies" onclick="glij('#advies');return false">Ontdek Avant-Garde Gevels</a></div>
   </div>
   <a class="scroll" id="scrollbtn" href="#intro-tekst"><span>Ontdek</span><span class="arr">&#8595;</span></a>
 </section>
@@ -299,4 +301,10 @@ document.addEventListener('click',function(e){
  var t=document.querySelector('.cf-tel');
  if(t){t.addEventListener('click',function(e){e.preventDefault();});t.style.cursor='default';}
 })();
+</script><script>
+function glij(sel){var el=document.querySelector(sel);if(!el)return;
+ var van=window.pageYOffset,naar=el.getBoundingClientRect().top+van-40,afst=naar-van,duur=1600,t0=null;
+ function ease(t){return 1-Math.pow(1-t,4);} /* snel weg, heel zacht remmen aan het eind */
+ function stap(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/duur,1);window.scrollTo(0,van+afst*ease(p));if(p<1)requestAnimationFrame(stap);}
+ requestAnimationFrame(stap);}
 </script></body></html>
