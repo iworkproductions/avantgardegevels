@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=96">
+<link rel="stylesheet" href="/assets/site.css?v=98">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -77,6 +77,18 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .staal .n{display:block;font-weight:500;font-size:15px;margin-top:12px}
 .staal .k{display:block;font-size:13px;color:var(--dim);margin-top:2px}
 @media(max-width:900px){.atelier{grid-template-columns:1fr}.streng-plak{height:56vh;top:40px}.streng-stage{max-width:280px}.keuzestap{min-height:auto;padding:8vh 0}.stalen{gap:12px}}
+
+/* verhouding-stap */
+.vbalk{display:flex;height:130px;border-radius:14px;overflow:hidden;margin-top:36px;box-shadow:0 18px 44px rgba(33,29,24,.12)}
+.vseg{position:relative;background-size:cover;background-position:center;transition:flex-basis .5s var(--ease);display:flex;align-items:flex-end;padding:14px}
+.vseg span{position:relative;z-index:2;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.vseg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,.5))}
+.vregelaars{margin-top:34px;display:grid;gap:26px}
+.vregel .vkop{display:flex;justify-content:space-between;font-size:13px;color:var(--zwart);margin-bottom:12px}
+.vregel .vkop .num{color:var(--goud);font-weight:500}
+.vregel input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--lijn);border-radius:2px;outline:none}
+.vregel input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:var(--zwart);cursor:pointer;border:3px solid var(--creme);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.vregel input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--zwart);border:3px solid var(--creme);cursor:pointer}
 
 /* signatuur-moment */
 .signatuur{text-align:center;padding:20vh max(24px,6vw) 8vh;max-width:900px;margin:0 auto}
@@ -216,6 +228,24 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
         </div>
       </div>
     </div>
+    </div>
+
+    <div class="keuzestap" id="stap-verhouding">
+      <div data-in>
+        <div class="eye">De balans</div>
+        <h2>Bepaal de verhouding.</h2>
+        <p class="lead">Crepi is de rustige basis. Schuif hoeveel steen en houtlook de gevel mogen accentueren.</p>
+        <div class="vbalk">
+          <div class="vseg" id="vs-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
+          <div class="vseg" id="vs-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span id="vs-steen-l">Atlas</span></div>
+          <div class="vseg" id="vs-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span id="vs-hout-l">Evergreen</span></div>
+        </div>
+        <div class="vregelaars">
+          <div class="vregel"><div class="vkop"><span>Accent — steen &amp; houtlook</span><span class="num" id="num-accent">40%</span></div><input type="range" id="sl-accent" min="20" max="40" value="40" step="5" oninput="verdeel()"></div>
+          <div class="vregel"><div class="vkop"><span>Verdeling steen ↔ houtlook</span><span class="num" id="num-verdeling">50 / 50</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -278,7 +308,7 @@ document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
 
 
 /* streng-staat volgen op scroll: welke keuzestap is in beeld */
-var stappen=[{el:g('stap-crepi'),s:'crepi'},{el:g('stap-steen'),s:'steen'},{el:g('stap-hout'),s:'hout'}];
+var stappen=[{el:g('stap-crepi'),s:'crepi'},{el:g('stap-steen'),s:'steen'},{el:g('stap-hout'),s:'hout'},{el:g('stap-verhouding'),s:'hout'}];
 var balk=g('stappenbalk').querySelectorAll('span');
 function toonStreng(state){
   g('st-crepi').classList.toggle('zicht',state==='crepi');
@@ -306,9 +336,20 @@ window.kies=function(btn){
   if(t==='crepi')keuze.crepi={naam:btn.dataset.naam,kleur:btn.dataset.kleur};
   else keuze[t]={naam:btn.dataset.naam,img:btn.dataset.img};
   update();
-  var next=t==='crepi'?g('stap-steen'):t==='steen'?g('stap-hout'):g('signatuur');
+  var next=t==='crepi'?g('stap-steen'):t==='steen'?g('stap-hout'):g('stap-verhouding');
   if(next&&!rm)setTimeout(function(){next.scrollIntoView({behavior:'smooth',block:'center'});},280);
 };
+window.verdeel=function(){
+  var accent=+g('sl-accent').value, crepi=100-accent, vd=+g('sl-verdeling').value;
+  var hout=Math.round(accent*vd/100/5)*5, steen=accent-hout;
+  verh={crepi:crepi,steen:steen,hout:hout};
+  g('num-accent').textContent=accent+'%'; g('num-verdeling').textContent=(100-vd)+' / '+vd;
+  g('vs-crepi').style.flexBasis=crepi+'%'; g('vs-steen').style.flexBasis=steen+'%'; g('vs-hout').style.flexBasis=hout+'%';
+  g('vs-steen').style.backgroundImage='url('+keuze.steen.img+')'; g('vs-hout').style.backgroundImage='url('+keuze.hout.img+')';
+  g('vs-steen-l').textContent=keuze.steen.naam; g('vs-hout-l').textContent=keuze.hout.naam;
+  update();
+};
+var verh={crepi:60,steen:20,hout:20};
 function update(){
   g('sig-crepi').textContent=keuze.crepi.naam; g('sig-crepi-b').style.background=keuze.crepi.kleur;
   g('sig-steen').textContent=keuze.steen.naam; g('sig-steen-b').src=keuze.steen.img;
