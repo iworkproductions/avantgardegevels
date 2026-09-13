@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Het Gevelatelier · Avant-Garde Gevels</title>
+<meta name="description" content="Kies uw natuursteen, uw composiet houtlook en de verhouding. Ontvang uw persoonlijke Avant-Garde stijldossier.">
+<link rel="canonical" href="https://avantgardegevels.nl/gevelatelier/">
+<meta property="og:type" content="website"><meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Het Gevelatelier · Avant-Garde Gevels">
+<meta property="og:description" content="Kies uw natuursteen, uw composiet houtlook en de verhouding. Ontvang uw persoonlijke Avant-Garde stijldossier.">
+<meta property="og:url" content="https://avantgardegevels.nl/gevelatelier/">
+<meta property="og:image" content="https://avantgardegevels.nl/assets/villa-na.jpg">
+<meta name="theme-color" content="#0d0b09">
+<link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=126">
+
+<style>
+:root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Geist',sans-serif;font-weight:400;background:var(--creme);color:var(--zwart);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.merk-reis{position:fixed;top:22px;left:max(24px,6vw);z-index:60}
+.merk-reis img{height:24px;width:auto;filter:brightness(0)}
+.terug-home{position:fixed;top:20px;right:max(24px,6vw);z-index:60;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--zwart);background:rgba(245,241,234,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 16px;border-radius:980px;border:1px solid var(--lijn);min-height:40px;transition:background .25s,border-color .25s}
+.terug-home:hover{background:#fff;border-color:var(--goud)}
+
+/* voortgang: CREPI — STEEN — HOUT — UW STIJL */
+.stappenbalk{position:fixed;top:0;left:0;right:0;z-index:55;display:flex;gap:26px;justify-content:center;padding:20px;background:linear-gradient(var(--creme),rgba(245,241,234,0));font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);pointer-events:none}
+.stappenbalk span{transition:color .4s}
+.stappenbalk span.aan{color:var(--goud)}
+.stappenbalk span.klaar{color:var(--zwart)}
+@media(max-width:600px){.stappenbalk{gap:14px;font-size:9px;letter-spacing:.1em}}
+
+.eye{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--creme);margin-bottom:16px}
+.lead{font-size:clamp(16px,1.4vw,19px);line-height:1.5;color:var(--dim)}
+[data-in]{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform 1s var(--ease)}
+[data-in].in{opacity:1;transform:none}
+
+/* intro */
+.intro{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px}
+.intro-logo{height:auto;width:min(360px,60vw);filter:brightness(0);margin:0 auto 44px}
+.intro h1{font-size:clamp(44px,6.6vw,104px);letter-spacing:-.04em;line-height:.96;max-width:16ch}
+.intro .lead{margin:28px auto 0;max-width:48ch}
+.intro .scroldown{margin:48px auto 0;display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.intro .scroldown svg{animation:dip 2s ease-in-out infinite}
+@keyframes dip{0%,100%{transform:translateY(-3px);opacity:.6}50%{transform:translateY(3px);opacity:1}}
+
+/* atelier: links sticky streng, rechts de keuzestappen */
+.atelier{display:grid;grid-template-columns:1fr 1fr;max-width:1340px;margin:0 auto;padding:0 max(24px,5vw)}
+.streng-kolom{position:relative}
+.streng-plak{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding-top:60px}
+.streng-kop{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.streng-logo{height:26px;width:auto;filter:brightness(0)}
+.streng-dna{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(15px,1.5vw,20px);letter-spacing:.14em;color:var(--goud);padding-left:.14em}
+.streng-stage{position:relative;width:100%;max-width:400px;aspect-ratio:1024/1536}
+.streng-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s var(--ease);will-change:opacity}
+.streng-stage img.zicht{opacity:1}
+.stappen-kolom{padding:0}
+.keuzestap{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:12vh 0}
+.keuzestap h2{font-size:clamp(30px,3.4vw,52px);max-width:14ch}
+.keuzestap .lead{margin-top:20px;max-width:42ch}
+.stalen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.staal{position:relative;border:0;padding:0;background:none;cursor:pointer;font-family:inherit;text-align:left;opacity:.55;transition:.4s var(--ease)}
+.staal:hover{opacity:1}
+.staal.gekozen{opacity:1}
+.staal .b{aspect-ratio:1/1;border-radius:16px;overflow:hidden;position:relative;background:#e6e0d4;box-shadow:0 10px 26px rgba(33,29,24,.1)}
+.staal .b img,.staal .b .kleur{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.staal:hover .b img{transform:scale(1.05)}
+.staal.gekozen .b{outline:2.5px solid var(--goud);outline-offset:3px}
+.staal .vink{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;background:var(--goud);display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.5);transition:.3s var(--ease)}
+.staal.gekozen .vink{opacity:1;transform:scale(1)}
+.staal .n{display:block;font-weight:500;font-size:15px;margin-top:12px}
+.staal .k{display:block;font-size:13px;color:var(--dim);margin-top:2px}
+@media(max-width:900px){.atelier{grid-template-columns:1fr}.streng-plak{height:56vh;top:40px}.streng-stage{max-width:280px}.keuzestap{min-height:auto;padding:8vh 0}.stalen{gap:12px}}
+
+/* verhouding · volledige breedte */
+.verhouding-vol{padding:16vh max(24px,8vw) 12vh;background:var(--creme)}
+.vh-in{max-width:1100px;margin:0 auto;text-align:center}
+.vh-in h2{font-size:clamp(40px,5.4vw,84px)}
+.vh-in .lead{margin:20px auto 0;max-width:52ch}
+.verhouding-vol .vbalk{height:200px;margin-top:56px;max-width:1100px}
+.verhouding-vol .vregelaars{max-width:640px;margin-left:auto;margin-right:auto;text-align:left}
+/* verhouding-stap (oud) */
+.vbalk{display:flex;height:130px;border-radius:14px;overflow:hidden;margin-top:36px;box-shadow:0 18px 44px rgba(33,29,24,.12)}
+.vseg{position:relative;background-size:cover;background-position:center;transition:flex-basis .5s var(--ease);display:flex;align-items:flex-end;padding:14px}
+.vseg span{position:relative;z-index:2;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.vseg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,.5))}
+.vregelaars{margin-top:34px;display:grid;gap:26px}
+.vregel .vkop{display:flex;justify-content:space-between;font-size:13px;color:var(--zwart);margin-bottom:12px}
+.vregel .vkop .num{color:var(--goud);font-weight:500}
+.vregel input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:var(--lijn);border-radius:2px;outline:none}
+.vregel input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:var(--zwart);cursor:pointer;border:3px solid var(--creme);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.vregel input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--zwart);border:3px solid var(--creme);cursor:pointer}
+
+/* signatuur-moment */
+.signatuur{text-align:center;padding:20vh max(24px,6vw) 8vh;max-width:900px;margin:0 auto}
+.signatuur .groot{font-size:clamp(40px,6vw,92px);line-height:1;letter-spacing:-.04em}
+.signatuur .lead{margin:26px auto 0;max-width:44ch}
+.sig-cirkels{display:flex;justify-content:center;gap:clamp(24px,5vw,72px);margin-top:64px;flex-wrap:wrap}
+.sig-c{text-align:center}
+.sig-c .rond{width:clamp(84px,10vw,128px);height:clamp(84px,10vw,128px);border-radius:50%;overflow:hidden;margin:0 auto;box-shadow:0 12px 30px rgba(33,29,24,.14)}
+.sig-c .rond img,.sig-c .rond .kleur{width:100%;height:100%;object-fit:cover}
+.sig-c .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:16px}
+.sig-c .v{font-weight:500;margin-top:4px}
+
+/* woning-reveal */
+.woning{position:relative;height:92vh;overflow:hidden;margin-top:6vh}
+.woning img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.4s var(--ease)}
+.woning.in img{transform:scale(1)}
+.woning .op{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(rgba(13,11,9,0),rgba(13,11,9,.5))}
+.woning .txt{position:absolute;left:max(24px,6vw);bottom:8vh;z-index:2;color:#fff}
+.woning .txt h3{font-size:clamp(28px,4vw,56px);line-height:1}
+
+/* slot: links dossier, rechts formulier */
+.slot{padding:12vh max(24px,6vw) 20vh}
+.slot-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.dossier-blok{}
+.dk-cirkels{display:flex;justify-content:space-between;gap:16px;margin-top:28px}
+.dk-cirkels .sig-c{text-align:center;flex:1}
+.dk-cirkels .rond{width:clamp(56px,7vw,78px);height:clamp(56px,7vw,78px);border-radius:50%;overflow:hidden;margin:0 auto;box-shadow:0 8px 20px rgba(33,29,24,.12)}
+.dk-cirkels .rond img,.dk-cirkels .rond .kleur{width:100%;height:100%;object-fit:cover;display:block}
+.dk-cirkels .l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:12px}
+.dk-cirkels .v{font-weight:500;font-size:14px;margin-top:2px}
+.dk-verhouding{margin-top:28px}
+.dk-balk{display:flex;height:26px;border-radius:8px;overflow:hidden}
+.dk-seg{display:flex;align-items:center;justify-content:center;transition:flex-basis .4s var(--ease)}
+.dk-seg span{font-size:11px;font-weight:500;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.dk-seg#dk-bar-crepi span{color:#8a7f68;text-shadow:none}
+.dk-legenda{display:flex;gap:20px;margin-top:12px;font-size:13px;color:var(--dim)}
+.dk-legenda .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.dk-titel{font-size:clamp(20px,2vw,28px);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--goud);margin-bottom:22px;text-align:center}
+.dossier-kaart{background:var(--pap);border-radius:18px;overflow:hidden;box-shadow:0 40px 100px rgba(33,29,24,.16)}
+.dk-beeld{aspect-ratio:16/10;overflow:hidden;position:relative}
+.dk-beeld img.dk-logo-op{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(180px,44%);height:auto;filter:brightness(0) invert(1);opacity:.95;z-index:2}
+
+.dk-beeld img{width:100%;height:100%;object-fit:cover;display:block}
+.dk-body{padding:clamp(28px,3vw,40px);position:relative}
+.dk-merk img{height:22px;width:auto;margin-bottom:22px}
+.dk-naam{font-size:15px;color:var(--dim);margin-top:20px;text-align:right}
+.dk-naam:empty{display:none}
+.dossier-kaart .pb{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--creme);margin-bottom:12px}
+.dossier-kaart .ptitel{font-size:clamp(28px,3vw,42px);line-height:1.02}
+.dossier-kaart .ptitel .amp{color:var(--goud)}
+.samenvat{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.samenvat .chip{font-size:15px;color:var(--dim)}
+.samenvat .chip b{color:var(--zwart);font-weight:500}
+.samenvat .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:9px;vertical-align:middle}
+#tally-embed{margin-top:24px;background:transparent}
+.slot.klaar .form-kolom .eye{color:var(--creme)}
+.form-kolom .klaar-hint{display:none;margin-top:14px;font-size:13px;color:var(--goud);opacity:0;transform:translateY(6px);transition:opacity .6s,transform .6s}
+.slot.klaar .form-kolom .klaar-hint{display:block;opacity:1;transform:none}
+.slot.klaar .dossier-kaart{box-shadow:0 40px 100px rgba(33,29,24,.16),0 0 0 2px rgba(156,122,74,.5);transition:box-shadow .8s var(--ease)}
+.form-kolom h2{font-size:clamp(30px,3.4vw,52px);margin:14px 0 0}
+.form-kolom .lead{margin-top:18px;max-width:40ch}
+.cf{display:grid;gap:14px;margin-top:32px}
+.cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf input{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid var(--lijn);color:var(--zwart);padding:14px 0;font-family:'Geist',sans-serif;font-size:16px;transition:border-color .25s}
+.cf input:focus{outline:none;border-bottom-color:var(--goud)}
+.cf input::placeholder{color:#a89f92}
+.upload{display:flex;align-items:center;gap:12px;min-height:52px;border:1px dashed var(--lijn);border-radius:12px;padding:12px 16px;cursor:pointer;transition:border-color .25s,background .25s;color:var(--dim)}
+.upload:hover{border-color:var(--goud);background:rgba(156,122,74,.04)}
+.upload input[type=file]{display:none}
+.up-ic{flex:0 0 auto;color:var(--goud);display:flex}
+.up-txt{font-size:14px}.up-txt em{font-style:normal;color:#a89f92}
+.upload.heeft{border-style:solid;border-color:var(--goud);color:var(--zwart)}
+.up-hint{font-size:12px;color:#a89f92;margin-top:-4px}
+.pil{display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:var(--zwart);color:var(--creme);padding:15px 34px;border-radius:980px;font-weight:500;font-size:15px;border:0;cursor:pointer;font-family:'Geist',sans-serif;transition:background .25s;margin-top:8px;justify-self:start}
+.pil:hover{background:#000}
+.cf .tel{margin-top:16px;font-size:14px;color:var(--dim)}.cf .tel b{color:var(--zwart)}
+.klaar-form{display:none}.form-kolom.verzonden .cf{display:none}.form-kolom.verzonden .klaar-form{display:block}
+@media(max-width:900px){.slot-grid{grid-template-columns:1fr;gap:6vh}}
+@media(max-width:560px){.cf .twee{grid-template-columns:1fr}}
+
+/* (oude floating card CSS hieronder ongebruikt) */
+.OUD-floating{
+.dossier-wrap{padding:14vh max(24px,6vw) 18vh;display:flex;justify-content:center}
+.dossier{background:var(--zwart);color:var(--creme);border-radius:20px;padding:clamp(32px,5vw,64px);max-width:720px;width:100%;box-shadow:0 50px 120px rgba(33,29,24,.3)}
+.dossier-visual{width:100%;max-width:220px;border-radius:12px;margin-bottom:28px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.dossier .eye{color:var(--creme)}
+.dossier h2{font-size:clamp(30px,3.6vw,52px);margin-bottom:16px}
+.dossier p{color:#c9c1b4;line-height:1.5;max-width:46ch}
+.dossier .samenvat{display:flex;gap:22px;flex-wrap:wrap;margin:32px 0 8px;font-size:14px;color:#c9c1b4}
+.dossier .samenvat b{color:var(--creme);font-weight:500}
+.cf{display:none;gap:14px;margin-top:32px}
+.dossier.open .cf{display:grid}
+.dossier.open .start{display:none}
+.cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf input{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid rgba(245,241,234,.25);color:var(--creme);padding:14px 0;font-family:'Geist',sans-serif;font-size:16px}
+.cf input::placeholder{color:rgba(245,241,234,.45)}
+.cf input:focus{outline:none;border-bottom-color:var(--goud)}
+.pil{display:inline-flex;align-items:center;justify-content:center;min-height:52px;background:var(--creme);color:var(--zwart);padding:15px 34px;border-radius:980px;font-weight:500;font-size:15px;border:0;cursor:pointer;font-family:'Geist',sans-serif;transition:background .25s;margin-top:8px;justify-self:start}
+.pil:hover{background:#fff}
+.cf .tel{margin-top:16px;font-size:14px;color:#c9c1b4}.cf .tel b{color:var(--creme)}
+.klaar-form{display:none}.dossier.verzonden .cf{display:none}.dossier.verzonden .klaar-form{display:block}
+
+@media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.intro .scroldown svg{animation:none}html{scroll-behavior:auto}.streng-stage img{transition:none}.woning img{transform:none}}
+</style>
+</head>
+<body>
+<a class="merk-reis" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a>
+<a class="terug-home" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Home</a>
+<div class="stappenbalk" id="stappenbalk"><span data-s="crepi">Crepi</span><span data-s="steen">Steen</span><span data-s="hout">Hout</span><span data-s="stijl">Uw stijl</span></div>
+
+<section class="intro" id="start">
+  <div data-in>
+    <img class="intro-logo" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels">
+    <div class="eye">Het Gevelatelier</div>
+    <h1>Welkom in het Gevelatelier.</h1>
+    <p class="lead">Ontdek in een paar stappen welke materialen samen úw gevel vormen. Elke keuze wordt onderdeel van uw eigen Avant-Garde-signatuur.</p>
+    <a class="scroldown" href="#atelier">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+
+<div class="atelier" id="atelier">
+  <div class="streng-kolom">
+    <div class="streng-plak">
+      <div class="streng-kop"><img class="streng-logo" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"><span class="streng-dna">Uw Avant-Garde DNA</span></div>
+      <div class="streng-stage">
+        <img id="st-crepi" class="zicht" src="/assets/atelier/streng-crepi.png" alt="Gevelstreng — crepi">
+        <img id="st-steen" src="/assets/atelier/streng-steen.png" alt="Gevelstreng — crepi en natuursteen">
+        <img id="st-vol" src="/assets/atelier/streng-vol.png" alt="Gevelstreng — crepi, natuursteen en composiet houtlook">
+      </div>
+    </div>
+  </div>
+  <div class="stappen-kolom">
+
+    <div class="keuzestap" id="stap-crepi">
+      <div data-in>
+        <div class="eye">De basis</div>
+        <h2>Crepi.<br>De rustige huid.</h2>
+        <p class="lead">Crepi is altijd de basis, minimaal 60% van de gevel. Kies de tint die de toon zet.</p>
+        <div class="stalen">
+          <button class="staal" data-type="crepi" data-naam="Warm wit" data-kleur="#efe9dd" onclick="kies(this)"><div class="b"><div class="kleur" style="background:#efe9dd"></div></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Warm wit</span><span class="k">Licht en tijdloos</span></button>
+          <button class="staal" data-type="crepi" data-naam="Zand" data-kleur="#d8cbb3" onclick="kies(this)"><div class="b"><div class="kleur" style="background:#d8cbb3"></div></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Zand</span><span class="k">Warm en natuurlijk</span></button>
+          <button class="staal" data-type="crepi" data-naam="Antraciet" data-kleur="#3a3733" onclick="kies(this)"><div class="b"><div class="kleur" style="background:#3a3733"></div></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Antraciet</span><span class="k">Strak en modern</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="keuzestap" id="stap-steen">
+      <div data-in>
+        <div class="eye">Het karakter</div>
+        <h2>Natuursteen.<br>Het accent dat aardt.</h2>
+        <div class="stalen">
+          <button class="staal" data-type="steen" data-naam="Atlas" data-kar="Warm, robuust" data-img="/assets/materialen/atlas.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/atlas.jpg" alt="Atlas-natuursteen" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Atlas</span><span class="k">Warm, robuust</span></button>
+          <button class="staal" data-type="steen" data-naam="Freya" data-kar="Koel, ingetogen" data-img="/assets/materialen/freya.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/freya.jpg" alt="Freya-natuursteen" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Freya</span><span class="k">Koel, ingetogen</span></button>
+          <button class="staal" data-type="steen" data-naam="Hermes" data-kar="Elegant, tijdloos" data-img="/assets/materialen/hermes.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/hermes.jpg" alt="Hermes-natuursteen" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Hermes</span><span class="k">Elegant, tijdloos</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="keuzestap" id="stap-hout">
+      <div data-in>
+        <div class="eye">De warmte</div>
+        <h2>Composiet houtlook.<br>Het accent dat leeft.</h2>
+        <div class="stalen">
+          <button class="staal" data-type="hout" data-naam="Evergreen" data-kar="Tijdloos, natuurlijk" data-img="/assets/materialen/evergreen.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/evergreen.jpg" alt="Evergreen-composiet houtlook" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Evergreen</span><span class="k">Tijdloos</span></button>
+          <button class="staal" data-type="hout" data-naam="Ember" data-kar="Warm, gloedvol" data-img="/assets/materialen/ember.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/ember.jpg" alt="Ember-composiet houtlook" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Ember</span><span class="k">Warm, gloedvol</span></button>
+          <button class="staal" data-type="hout" data-naam="Empire" data-kar="Strak, modern" data-img="/assets/materialen/empire.jpg" onclick="kies(this)"><div class="b"><img src="/assets/materialen/empire.jpg" alt="Empire-composiet houtlook" loading="lazy"></div><span class="vink"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7.5l3 3 5-6" stroke="#f5f1ea" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="n">Empire</span><span class="k">Strak, modern</span></button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DE VERHOUDING · volledige breedte -->
+<section class="verhouding-vol" id="stap-verhouding">
+  <div class="vh-in" data-in>
+    <div class="eye">De balans</div>
+    <h2>Bepaal de verhouding.</h2>
+    <p class="lead">Crepi is de rustige basis. Schuif hoeveel steen en houtlook de gevel mogen accentueren.</p>
+    <div class="vbalk">
+      <div class="vseg" id="vs-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
+      <div class="vseg" id="vs-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span id="vs-steen-l">Atlas</span></div>
+      <div class="vseg" id="vs-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span id="vs-hout-l">Evergreen</span></div>
+    </div>
+    <div class="vregelaars">
+      <div class="vregel"><div class="vkop"><span>Crepi — de basis</span><span class="num" id="num-crepi">60%</span></div><input type="range" id="sl-crepi" min="60" max="80" value="60" step="5" oninput="verdeel()"></div>
+      <div class="vregel"><div class="vkop"><span>Accent — steen ↔ houtlook</span><span class="num" id="num-verdeling">20% steen · 20% houtlook</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATUUR-MOMENT -->
+<!-- STIJLDOSSIER + FORMULIER -->
+<section class="slot" id="dossier">
+  <div class="slot-grid">
+    <div class="dossier-blok" data-in>
+      <div class="dk-titel">Avant-Garde Stijldossier</div>
+      <div class="dossier-kaart">
+        <div class="dk-beeld"><img src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning" loading="lazy"></div>
+        <div class="dk-body">
+          <div class="dk-merk"><img src="/assets/logo-ag.png" alt="Avant-Garde Gevels"></div>
+          <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
+          <div class="dk-cirkels">
+            <div class="sig-c"><div class="rond"><div class="kleur" id="sig-crepi-b" style="background:#efe9dd"></div></div><div class="l">Crepi</div><div class="v" id="sig-crepi">Warm wit</div></div>
+            <div class="sig-c"><div class="rond"><img id="sig-steen-b" src="/assets/materialen/atlas.jpg" alt=""></div><div class="l">Natuursteen</div><div class="v" id="sig-steen">Atlas</div></div>
+            <div class="sig-c"><div class="rond"><img id="sig-hout-b" src="/assets/materialen/evergreen.jpg" alt=""></div><div class="l">Composiet houtlook</div><div class="v" id="sig-hout">Evergreen</div></div>
+          </div>
+          <div class="dk-verhouding">
+            <div class="dk-balk">
+              <div class="dk-seg" id="dk-bar-crepi" style="flex-basis:60%;background:#e0d7c5"><span id="dk-p-crepi">60%</span></div>
+              <div class="dk-seg" id="dk-bar-steen" style="flex-basis:20%;background:#b8a888"><span id="dk-p-steen">20%</span></div>
+              <div class="dk-seg" id="dk-bar-hout" style="flex-basis:20%;background:#6b4a2e"><span id="dk-p-hout">20%</span></div>
+            </div>
+            <div class="dk-legenda">
+              <span><span class="dot" style="background:#e0d7c5"></span>Crepi</span>
+              <span><span class="dot" style="background:#b8a888"></span><span id="dk-lg-steen">Atlas</span></span>
+              <span><span class="dot" style="background:#6b4a2e"></span><span id="dk-lg-hout">Evergreen</span></span>
+            </div>
+          </div>
+          <div class="dk-naam" id="dk-naam"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-kolom" data-in>
+      <div class="eye">Ontvang uw stijldossier</div>
+      <h2>Zie het op<br>uw eigen woning.</h2>
+      <div class="klaar-hint">✓ Uw stijl is compleet — ontvang uw dossier hieronder.</div>
+      <p class="lead">U ontvangt uw stijldossier per mail. Voeg desgewenst twee foto's van uw woning toe; wij bewerken ze in uw gekozen Avant-Garde-look. Daarna plannen wij een vrijblijvend adviesgesprek.</p>
+      <iframe id="tally-embed" data-tally-src="https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Stijldossier"></iframe>
+      <div class="tel">of bel direct <b>06 40 50 64 51</b></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<script>
+(function(){
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var g=function(i){return document.getElementById(i)};
+var keuze={crepi:{naam:'Warm wit',kleur:'#efe9dd'},steen:{naam:'Atlas',img:'/assets/materialen/atlas.jpg'},hout:{naam:'Evergreen',img:'/assets/materialen/evergreen.jpg'}};
+var geraakt={crepi:false,steen:false,hout:false};
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
+
+
+/* streng-staat volgen op scroll: welke keuzestap is in beeld */
+var stappen=[{el:g('stap-crepi'),s:'crepi'},{el:g('stap-steen'),s:'steen'},{el:g('stap-hout'),s:'hout'},{el:g('stap-verhouding'),s:'hout'}];
+var balk=g('stappenbalk').querySelectorAll('span');
+function toonStreng(state){
+  g('st-crepi').classList.toggle('zicht',state==='crepi');
+  g('st-steen').classList.toggle('zicht',state==='steen');
+  g('st-vol').classList.toggle('zicht',state==='hout'||state==='stijl');
+}
+function markeer(active){
+  var vol={crepi:false,steen:false,hout:false};
+  var order=['crepi','steen','hout','stijl'],ai=order.indexOf(active);
+  balk.forEach(function(sp){var s=sp.dataset.s,i=order.indexOf(s);sp.classList.toggle('aan',s===active);sp.classList.toggle('klaar',i<ai);});
+}
+function scan(){
+  var mid=innerHeight*0.5, cur='crepi';
+  stappen.forEach(function(st){var r=st.el.getBoundingClientRect();if(r.top<=mid&&r.bottom>=mid)cur=st.s;});
+  var dos=g('dossier');if(dos){var sig=dos.getBoundingClientRect();if(sig.top<=mid)cur='stijl';}
+  toonStreng(cur); markeer(cur);
+}
+addEventListener('scroll',function(){requestAnimationFrame(scan)},{passive:true});addEventListener('resize',scan);scan();
+
+window.kies=function(btn){
+  var t=btn.dataset.type;
+  document.querySelectorAll('.staal[data-type="'+t+'"]').forEach(function(o){o.classList.remove('gekozen')});
+  btn.classList.add('gekozen');
+  if(t==='crepi')keuze.crepi={naam:btn.dataset.naam,kleur:btn.dataset.kleur};
+  else keuze[t]={naam:btn.dataset.naam,img:btn.dataset.img};
+  geraakt[t]=true;checkKlaar();
+  update();
+  var next=t==='crepi'?g('stap-steen'):t==='steen'?g('stap-hout'):g('stap-verhouding');
+  if(next&&!rm)setTimeout(function(){next.scrollIntoView({behavior:'smooth',block:'center'});},280);
+};
+function checkKlaar(){ if(geraakt.crepi&&geraakt.steen&&geraakt.hout){var d=g('dossier');if(d)d.classList.add('klaar');} }
+window.verdeel=function(){
+  var crepi=+g('sl-crepi').value, accent=100-crepi, vd=+g('sl-verdeling').value;
+  var hout=Math.round(accent*vd/100/5)*5, steen=accent-hout;
+  verh={crepi:crepi,steen:steen,hout:hout};
+  g('num-crepi').textContent=crepi+'%'; g('num-verdeling').textContent=steen+'% steen · '+hout+'% houtlook';
+  g('vs-crepi').style.flexBasis=crepi+'%'; g('vs-steen').style.flexBasis=steen+'%'; g('vs-hout').style.flexBasis=hout+'%';
+  g('vs-steen').style.backgroundImage='url('+keuze.steen.img+')'; g('vs-hout').style.backgroundImage='url('+keuze.hout.img+')';
+  g('vs-steen-l').textContent=keuze.steen.naam; g('vs-hout-l').textContent=keuze.hout.naam;
+  update();
+};
+var verh={crepi:60,steen:20,hout:20};
+function tallyLink(){
+  var f=g('tally-embed'); if(!f)return;
+  var q='&crepi='+encodeURIComponent(keuze.crepi.naam)+'&steen='+encodeURIComponent(keuze.steen.naam)+'&houtlook='+encodeURIComponent(keuze.hout.naam)+'&verhouding='+encodeURIComponent('Crepi '+verh.crepi+'% · '+keuze.steen.naam+' '+verh.steen+'% · '+keuze.hout.naam+' '+verh.hout+'%');
+  f.setAttribute('data-tally-src','https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'+q);
+}
+function update(){
+  g('d-steen').textContent=keuze.steen.naam; g('d-hout').textContent=keuze.hout.naam;
+  g('sig-crepi').textContent=keuze.crepi.naam; g('sig-crepi-b').style.background=keuze.crepi.kleur;
+  g('sig-steen').textContent=keuze.steen.naam; g('sig-steen-b').src=keuze.steen.img;
+  g('sig-hout').textContent=keuze.hout.naam; g('sig-hout-b').src=keuze.hout.img;
+  g('dk-bar-crepi').style.flexBasis=verh.crepi+'%'; g('dk-bar-steen').style.flexBasis=verh.steen+'%'; g('dk-bar-hout').style.flexBasis=verh.hout+'%';
+  g('dk-p-crepi').textContent=verh.crepi+'%'; g('dk-p-steen').textContent=verh.steen+'%'; g('dk-p-hout').textContent=verh.hout+'%';
+  g('dk-lg-steen').textContent=keuze.steen.naam; g('dk-lg-hout').textContent=keuze.hout.naam;
+  tallyLink();
+}
+update();
+})();
+</script>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>
