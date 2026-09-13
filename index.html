@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=78">
+<link rel="stylesheet" href="/assets/site.css?v=79">
 
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","description":"Premium gevelrenovatie: crepi, natuursteen en composiet houtlook in één gevel. Noord-Brabant.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"iworkproductions@outlook.com","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -206,6 +206,16 @@
 @media(hover:none){.lade-nav{display:none}}
 @media(max-width:760px){.lade{padding:0 6vw 20px;gap:12px;scroll-padding-left:6vw}.lade .onder{font-size:15px}.lade .kaart{flex-basis:68vw}.lade .media{aspect-ratio:4/5;border-radius:18px}}
 
+/* ---------- 04 materialen: drie op één scherm ---------- */
+.mat-drie{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;padding:0 8vw}
+.mat-kaart{margin:0}
+.mat-kaart .media{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#e6e0d4}
+.mat-kaart .media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.mat-kaart:hover .media img{transform:scale(1.04)}
+.mat-kaart b{display:block;font-weight:500;font-size:clamp(17px,1.6vw,20px);letter-spacing:-.01em;color:#211d18;margin-top:18px}
+.mat-kaart p{font-size:15px;line-height:1.5;color:#5d564d;margin-top:6px;max-width:34ch}
+@media(max-width:760px){.mat-drie{grid-template-columns:1fr;gap:5vh;padding:0 6vw}.mat-kaart .media{aspect-ratio:16/11}}
+
 /* ---------- Atlas: museaal ---------- */
 .atlas{background:#000;color:var(--creme)}
 .atlas-beeld{margin:0;display:flex;justify-content:center;padding:0 24px}
@@ -255,14 +265,14 @@
   <div class="alinea-blok"><p class="intro-tekst">Elke Avant-Garde gevel bestaat uit dezelfde drie lagen. Crepi als rustige, isolerende basis, altijd minimaal 60%.<sup>1</sup> Natuursteen als het accent dat de woning aardt. Composiet houtlook als het accent dat de gevel laat leven.<sup>2</sup> Binnen dit systeem klopt elke combinatie.</p></div>
 </section>
 
-<!-- 04 · MATERIALEN · horizontale gallery -->
+<!-- 04 · MATERIALEN · drie naast elkaar, past op één scherm -->
 <section class="hfd licht" id="materiaal">
   <div class="kop-blok"><h2>Alles begint<br>bij het materiaal.</h2></div>
-  <div class="lade-wrap"><div class="lade">
-    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi" loading="lazy"></div><div class="onder"><b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60%.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen" loading="lazy"></div><div class="onder"><b>Natuursteen</b><p>Het accent dat de woning aardt. Met de hand gezet.</p></div></div>
-    <div class="kaart"><div class="media"><img src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook" loading="lazy"></div><div class="onder"><b>Composiet houtlook</b><p>De warmte van hout, zonder onderhoud.</p></div></div>
-  </div><div class="lade-nav"><button aria-label="Vorige" onclick="schuif(this,-1)">‹</button><button aria-label="Volgende" onclick="schuif(this,1)">›</button></div></div>
+  <div class="mat-drie">
+    <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi" loading="lazy"></div><b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60%.</p></figure>
+    <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen" loading="lazy"></div><b>Natuursteen</b><p>Het accent dat de woning aardt. Met de hand gezet.</p></figure>
+    <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook" loading="lazy"></div><b>Composiet houtlook</b><p>De warmte van hout, zonder onderhoud.</p></figure>
+  </div>
   <div class="alinea-blok"><a class="link" href="/collectie/">Bekijk de collectie</a></div>
 </section>
 
@@ -375,7 +385,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v78</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v79</span></div>
 </footer>
 
 <script>
