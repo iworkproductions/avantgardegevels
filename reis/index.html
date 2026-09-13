@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=87">
+<link rel="stylesheet" href="/assets/site.css?v=90">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -52,8 +52,11 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 /* atelier: links sticky streng, rechts de keuzestappen */
 .atelier{display:grid;grid-template-columns:1fr 1fr;max-width:1340px;margin:0 auto;padding:0 max(24px,5vw)}
 .streng-kolom{position:relative}
-.streng-plak{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center}
-.streng-stage{position:relative;width:100%;max-width:440px;aspect-ratio:1024/1536}
+.streng-plak{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding-top:60px}
+.streng-kop{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.streng-logo{height:26px;width:auto;filter:brightness(0)}
+.streng-dna{font-family:'Geist',sans-serif;font-weight:400;font-size:clamp(22px,2.4vw,34px);letter-spacing:.28em;color:var(--goud);padding-left:.28em}
+.streng-stage{position:relative;width:100%;max-width:400px;aspect-ratio:1024/1536}
 .streng-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s var(--ease);will-change:opacity}
 .streng-stage img.zicht{opacity:1}
 .stappen-kolom{padding:0}
@@ -132,10 +135,11 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 <div class="atelier" id="atelier">
   <div class="streng-kolom">
     <div class="streng-plak">
+      <div class="streng-kop"><img class="streng-logo" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"><span class="streng-dna">DNA</span></div>
       <div class="streng-stage">
-        <img id="st-crepi" class="zicht" src="/assets/atelier/streng-crepi.jpg" alt="Gevelstreng — crepi">
-        <img id="st-steen" src="/assets/atelier/streng-steen.jpg" alt="Gevelstreng — crepi en natuursteen">
-        <img id="st-vol" src="/assets/atelier/streng-vol.jpg" alt="Gevelstreng — crepi, natuursteen en composiet houtlook">
+        <img id="st-crepi" class="zicht" src="/assets/atelier/streng-crepi.png" alt="Gevelstreng — crepi">
+        <img id="st-steen" src="/assets/atelier/streng-steen.png" alt="Gevelstreng — crepi en natuursteen">
+        <img id="st-vol" src="/assets/atelier/streng-vol.png" alt="Gevelstreng — crepi, natuursteen en composiet houtlook">
       </div>
     </div>
   </div>
