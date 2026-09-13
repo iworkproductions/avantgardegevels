@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Werkwijze · Avant-Garde Gevels</title>
+<meta name="description" content="Zo werkt een Avant-Garde gevelrenovatie: adviesgesprek, ontwerp en stijldossier, uitvoering, oplevering. Cijfers, veelgestelde vragen en een adviesgesprek bij u thuis.">
+<link rel="canonical" href="https://avantgardegevels.nl/werkwijze/">
+<meta property="og:type" content="website"><meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="Werkwijze · Avant-Garde Gevels">
+<meta property="og:description" content="Zo werkt een Avant-Garde gevelrenovatie: adviesgesprek, ontwerp en stijldossier, uitvoering, oplevering. Cijfers, veelgestelde vragen en een adviesgesprek bij u thuis.">
+<meta property="og:url" content="https://avantgardegevels.nl/werkwijze/">
+<meta property="og:image" content="https://avantgardegevels.nl/assets/villa-na.jpg">
+<meta name="theme-color" content="#0d0b09">
+<link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=16">
+
+<style>
+.kop-blok{padding:14vh 24px 8vh;max-width:1120px;margin:0 auto}
+.eye{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--goud);margin-bottom:16px}
+.kop-blok h1{font-size:clamp(46px,7vw,96px);line-height:.98;max-width:860px}
+.kop-blok p{font-size:clamp(18px,2vw,22px);color:var(--dim);max-width:640px;margin-top:26px;line-height:1.5}
+
+/* vier stappen: een echte volgorde, dus genummerd */
+.stappen{width:min(1240px,calc(100% - 48px));margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--lijn);border-radius:22px;overflow:hidden}
+.stap{background:var(--kaart);padding:36px 30px 40px;min-height:300px;display:flex;flex-direction:column}
+.stap .nr{font-family:'Cormorant Garamond',serif;font-size:56px;line-height:1;color:var(--goud);margin-bottom:auto}
+.stap h2{font-size:30px;line-height:1.05;margin:36px 0 12px}
+.stap p{font-size:15px;line-height:1.6;color:var(--dim)}
+.stap p a{color:var(--goud)}.stap p a:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.stappen{grid-template-columns:1fr 1fr;width:calc(100% - 36px)}}
+@media(max-width:560px){.stappen{grid-template-columns:1fr}.stap{min-height:0}.stap h2{margin-top:22px}}
+
+/* de waarde: cijfers met voetnoten */
+.waarde{padding:18vh 24px 10vh;text-align:center}
+.waarde h2{font-size:clamp(36px,4.8vw,64px);line-height:1.04;max-width:820px;margin:0 auto 64px}
+.waarde .rij{display:flex;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto}
+.waarde .c{flex:1 1 260px;padding:26px 22px;border-left:1px solid var(--lijn)}
+.waarde .c:first-child{border-left:0}
+.waarde .c b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(48px,6.6vw,92px);line-height:1;color:var(--creme)}
+.waarde .c span{display:block;font-size:15px;color:var(--dim);margin-top:12px;line-height:1.55}
+.waarde sup,.stap sup{font-size:.6em;color:var(--goud)}
+@media(max-width:700px){.waarde .c{flex-basis:100%;border-left:0;border-top:1px solid var(--lijn)}.waarde .c:first-child{border-top:0}}
+
+/* vragen */
+.vragen{max-width:760px;margin:0 auto;padding:10vh 24px 12vh}
+.vragen h2{font-size:clamp(36px,4.8vw,64px);line-height:1.04;margin-bottom:40px}
+.vragen details{border-top:1px solid var(--lijn)}
+.vragen details:last-child{border-bottom:1px solid var(--lijn)}
+.vragen summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.6vw,28px);line-height:1.15;min-height:44px}
+.vragen summary::-webkit-details-marker{display:none}
+.vragen summary::after{content:'+';flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1px solid rgba(243,237,227,.3);display:grid;place-items:center;font-family:'Jost',sans-serif;font-size:18px;font-weight:300;color:var(--goud);transition:transform .3s var(--ease)}
+.vragen details[open] summary::after{transform:rotate(45deg)}
+.vragen details p{padding:0 0 26px;font-size:16px;line-height:1.65;color:var(--dim);max-width:640px}
+
+/* adviesgesprek */
+.advies{padding:12vh 24px 14vh;background:var(--kaart);scroll-margin-top:52px}
+.advies .in{max-width:640px;margin:0 auto;text-align:center}
+.advies h2{font-size:clamp(40px,5.6vw,80px);line-height:.98}
+.advies>.in>p{font-size:clamp(17px,2vw,21px);color:var(--dim);margin:20px auto 40px;max-width:520px;line-height:1.5}
+.cf{text-align:left;display:grid;gap:12px}
+.cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf input,.cf textarea{width:100%;min-height:52px;background:rgba(243,237,227,.05);border:1px solid rgba(243,237,227,.18);border-radius:12px;color:var(--creme);padding:15px 18px;font-family:'Jost',sans-serif;font-size:16px;font-weight:300;transition:border-color .25s}
+.cf input::placeholder,.cf textarea::placeholder{color:rgba(243,237,227,.45)}
+.cf input:focus,.cf textarea:focus{outline:none;border-color:var(--goud)}
+.cf textarea{min-height:120px;resize:vertical}
+.cf .pil{width:100%;margin-top:6px}
+.advies .of{margin-top:26px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.advies .bel{display:inline-block;margin-top:10px;font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--creme);min-height:44px}
+.advies .bel:hover{color:var(--goud)}
+@media(max-width:560px){.cf .twee{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="nav"><a class="merk" href="/">Avant-Garde Gevels</a><nav class="links"><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/werkwijze/#advies">Adviesgesprek</a><a class="pil" href="/reis/#start">Ontwerp uw gevel</a></nav></div>
+
+<section class="kop-blok">
+  <div class="eye">Werkwijze</div>
+  <h1>Van eerste gesprek<br>tot opgeleverde gevel.</h1>
+  <p>Vier stappen. Eén ploeg voor gevel, kozijnen en bouwwerk. Eén aanspreekpunt van begin tot eind.</p>
+</section>
+
+<section class="stappen" aria-label="Zo werkt het">
+  <div class="stap"><div class="nr">1</div><h2>Adviesgesprek</h2><p>Wij komen bij u thuis, bekijken de woning en luisteren naar wat u wilt. U krijgt een eerlijk antwoord over wat kan.</p></div>
+  <div class="stap"><div class="nr">2</div><h2>Ontwerp &amp; stijldossier</h2><p>Wij vertalen uw woning naar een gevelontwerp: de verhouding crepi, natuursteen en composiet houtlook. Of begin vanavond zelf en <a href="/reis/#start">ontvang uw stijldossier</a>.</p></div>
+  <div class="stap"><div class="nr">3</div><h2>Uitvoering</h2><p>Onze vakmensen brengen de isolatie aan, zetten de steen met de hand en monteren de latten. Alles strak, alles in één hand.</p></div>
+  <div class="stap"><div class="nr">4</div><h2>Oplevering</h2><p>Uw gevel is klaar: beter geïsoleerd en een compleet nieuwe uitstraling. Wij lopen alles met u na tot in het detail.</p></div>
+</section>
+
+<section class="waarde" aria-label="De waarde">
+  <div class="eye">De waarde</div>
+  <h2>Schoonheid die zich terugverdient.</h2>
+  <div class="rij">
+    <div class="c"><b>15–25%</b><span>minder aardgasverbruik door<br>een goed geïsoleerde gevel<sup>1</sup></span></div>
+    <div class="c"><b>€40,50</b><span>ISDE-subsidie per m² bij twee<br>isolatiemaatregelen; €20,25 bij één<sup>2</sup></span></div>
+    <div class="c"><b>2 in 1</b><span>isolatie en architectuur<br>onder één gevel</span></div>
+  </div>
+</section>
+
+<section class="vragen" id="vragen" aria-label="Veelgestelde vragen">
+  <div class="eye">Veelgestelde vragen</div>
+  <h2>Goed om te weten.</h2>
+  <details><summary>Hoe lang duurt een gevelrenovatie?</summary><p>Voor een gemiddelde woning enkele weken van start tot oplevering. In het adviesgesprek krijgt u een concrete planning.</p></details>
+  <details><summary>Kan het bij mijn woning?</summary><p>Buitengevelisolatie met crepi past bij vrijstaande woningen, twee-onder-een-kap, rijwoningen en boerderijen. Is er al spouwisolatie, dan brengen wij de crepi direct op de bestaande gevel aan.</p></details>
+  <details><summary>Heb ik een vergunning nodig?</summary><p>Dat verschilt per gemeente, vooral als de voorgevel verandert of aan de stoep grenst. Wij kennen de regels en verzorgen de aanvraag waar nodig.</p></details>
+  <details><summary>Hoeveel subsidie kan ik krijgen?</summary><p>Voor gevelisolatie geldt in 2026 ISDE-subsidie van €20,25 per m², en €40,50 per m² wanneer u twee isolatiemaatregelen combineert. Wij rekenen het voor uw situatie door.<sup>2</sup></p></details>
+  <details><summary>Blijven de naden van de isolatieplaten zichtbaar?</summary><p>Nee. Over de isolatie komt een wapeningslaag met net, daarna de crepi. Het resultaat is één doorlopende gevel.</p></details>
+  <details><summary>Werken jullie ook in mijn regio?</summary><p>Wij werken in Noord-Brabant en omgeving. Bel of app ons met uw adres; dan kijken we mee.</p></details>
+</section>
+
+<section class="advies" id="advies">
+  <div class="in">
+    <div class="eye">Adviesgesprek</div>
+    <h2>Laat uw woning<br>opnieuw ontstaan.</h2>
+    <p>Wij komen bij u thuis, kijken naar de woning en vertalen haar karakter naar een gevel die blijft.</p>
+    <form class="cf" id="cf" onsubmit="return verstuur(event)">
+      <input type="text" id="cf-naam" placeholder="Naam" autocomplete="name" required>
+      <div class="twee"><input type="tel" id="cf-tel" placeholder="Telefoonnummer" autocomplete="tel"><input type="email" id="cf-mail" placeholder="E-mailadres" autocomplete="email" required></div>
+      <input type="text" id="cf-plaats" placeholder="Woonplaats" autocomplete="address-level2">
+      <textarea id="cf-ber" placeholder="Waar kunnen we u mee helpen?"></textarea>
+      <button type="submit" class="pil groot">Plan een adviesgesprek</button>
+    </form>
+    <div class="of">of bel direct</div>
+    <a class="bel" href="tel:+31640506451">06 40 50 64 51</a>
+  </div>
+</section>
+
+<section class="uitgang">
+  <div class="bg"></div>
+  <div class="in">
+    <h2>Mensen zien het,<br>en willen het ook.</h2>
+    <p>Kies uw natuursteen, uw composiet houtlook en de verhouding. Uw stijldossier staat binnen enkele minuten in uw mailbox.</p>
+    <div class="acties"><a class="pil groot" href="/reis/#start">Ontwerp uw gevel</a><a class="lijn groot" href="/werkwijze/#advies">Plan een adviesgesprek</a></div>
+  </div>
+</section>
+
+<footer class="voet">
+  <ol>
+    <li>Gemiddelde besparing op aardgasverbruik door gevelisolatie volgens Milieu Centraal; het werkelijke effect hangt af van woning en gebruik.</li>
+    <li>ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
+  </ol>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:iworkproductions@outlook.com">iworkproductions@outlook.com</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a></span><span>Avant-Garde Gevels · Noord-Brabant · v16</span></div>
+</footer>
+
+<script>
+function verstuur(e){e.preventDefault();
+ var n=document.getElementById('cf-naam').value,t=document.getElementById('cf-tel').value,
+     m=document.getElementById('cf-mail').value,p=document.getElementById('cf-plaats').value,
+     b=document.getElementById('cf-ber').value;
+ var subject=encodeURIComponent('Adviesgesprek - '+n);
+ var body=encodeURIComponent('Naam: '+n+'\nTelefoon: '+t+'\nE-mail: '+m+'\nWoonplaats: '+p+'\n\nBericht:\n'+b+'\n\n(Verzonden via avantgardegevels.nl/werkwijze/)');
+ window.location.href='mailto:iworkproductions@outlook.com?subject='+subject+'&body='+body;
+ return false;}
+</script>
+</body>
+</html>

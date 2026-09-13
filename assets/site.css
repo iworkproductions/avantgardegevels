@@ -1,0 +1,60 @@
+/* Avant-Garde Gevels · gedeelde stijl: kleuren, fonts, navigatie, knoppen, voettekst */
+:root{
+  --zwart:#0d0b09;
+  --creme:#f3ede3;
+  --dim:#a89f92;
+  --goud:#c9a877;
+  --kaart:#17140f;
+  --lijn:rgba(243,237,227,.12);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --ink:var(--creme);      /* tekstkleur, zodat oudere pagina-CSS meegaat */
+  --wit:var(--zwart);
+  --hout:var(--goud);
+  --zacht:var(--dim);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Jost',sans-serif;font-weight:300;background:var(--zwart);color:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,h4,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-.005em}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+
+/* navigatie: 52 px, blur, wordmerk links, links rechts, pil */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 max(22px,calc(50% - 560px));background:rgba(13,11,9,.62);backdrop-filter:saturate(160%) blur(20px);-webkit-backdrop-filter:saturate(160%) blur(20px);border-bottom:1px solid var(--lijn)}
+.nav .merk{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;color:var(--creme);white-space:nowrap}
+.nav .links{display:flex;align-items:center;gap:26px;font-size:12px;letter-spacing:.06em;color:rgba(243,237,227,.72)}
+.nav .links a:not(.pil){transition:color .25s;padding:12px 0}
+.nav .links a:not(.pil):hover{color:var(--creme)}
+.nav+*{padding-top:52px}
+@media(max-width:760px){.nav .links a:not(.pil){display:none}}
+
+/* knoppen: één pil, één dunne lijn */
+.pil{display:inline-flex;align-items:center;justify-content:center;min-height:44px;background:var(--creme);color:var(--zwart);padding:11px 22px;border-radius:980px;font-family:'Jost',sans-serif;font-size:13px;font-weight:400;letter-spacing:.04em;line-height:1;border:0;cursor:pointer;transition:background .25s,color .25s,transform .25s;white-space:nowrap}
+.pil:hover{background:var(--goud);color:var(--zwart)}
+.pil.groot{padding:16px 34px;font-size:15px;min-height:52px}
+.nav .pil{min-height:34px;padding:8px 16px;font-size:12px}
+.lijn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 24px;border:1px solid rgba(243,237,227,.38);border-radius:980px;color:var(--creme);font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.04em;line-height:1;background:transparent;cursor:pointer;transition:border-color .25s,color .25s;white-space:nowrap}
+.lijn:hover{border-color:var(--goud);color:var(--goud)}
+.lijn.groot{padding:16px 34px;font-size:15px;min-height:52px}
+.link{color:var(--goud);font-size:14px;letter-spacing:.02em;display:inline-block;padding:6px 0}
+.link::after{content:' ›'}
+.link:hover{text-decoration:underline;text-underline-offset:4px}
+.acties{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+
+/* uitgang: elke pagina eindigt hier, richting de Reis */
+.uitgang{position:relative;padding:18vh 24px;text-align:center;overflow:hidden;background:var(--zwart)}
+.uitgang .bg{position:absolute;inset:0;background:url(/assets/villa-na.jpg) center/cover;opacity:.32}
+.uitgang .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(var(--zwart),rgba(13,11,9,.5) 50%,var(--zwart))}
+.uitgang .in{position:relative}
+.uitgang h2{font-size:clamp(42px,6.2vw,88px);line-height:.98;color:var(--creme)}
+.uitgang p{font-size:clamp(17px,2vw,21px);font-weight:300;color:var(--dim);margin:20px auto 34px;max-width:560px;line-height:1.5}
+
+/* voettekst */
+.voet{padding:44px max(24px,calc(50% - 560px)) 56px;border-top:1px solid var(--lijn);color:var(--dim);font-size:12px;line-height:1.7;background:var(--zwart)}
+.voet ol{padding-left:18px;max-width:820px;margin-bottom:30px}
+.voet .rij{display:flex;justify-content:space-between;gap:14px 28px;flex-wrap:wrap;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.voet .rij a:hover{color:var(--creme)}
+.voet .rij span{display:inline-flex;gap:22px;flex-wrap:wrap}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
