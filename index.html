@@ -370,13 +370,7 @@
 <section class="contact licht" id="contact">
   <div class="contact-in">
     <h2>Vertel ons over<br>uw woning.</h2>
-    <form class="cf" id="cf" onsubmit="return verstuur(event)">
-      <input type="text" id="cf-naam" placeholder="Naam" autocomplete="name" required>
-      <div class="twee"><input type="email" id="cf-mail" placeholder="E-mailadres" autocomplete="email" required><input type="tel" id="cf-tel" placeholder="Telefoonnummer" autocomplete="tel"></div>
-      <input type="text" id="cf-pc" placeholder="Postcode" autocomplete="postal-code">
-      <textarea id="cf-ber" placeholder="Vertel kort over uw woning"></textarea>
-      <button type="submit" class="pil groot">Vrijblijvend adviesgesprek</button>
-    </form>
+    <iframe data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Adviesgesprek"></iframe>
     <p class="contact-of">of bel <a href="tel:+31640506451">06 40 50 64 51</a></p>
   </div>
 </section>
@@ -387,7 +381,7 @@
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
     <li>Gemiddelde besparing volgens Milieu Centraal; ISDE-subsidie gevelisolatie 2026 via RVO. Bedragen en voorwaarden wijzigen; wij maken een actuele opgave voor uw situatie.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v127</span></div>
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a></span><span>Avant-Garde Gevels · v128</span></div>
 </footer>
 
 <script>
@@ -452,11 +446,8 @@ window.toggleVid=function(btn){var wrap=btn.parentElement,v=wrap.querySelector('
 window.schuif=function(btn,dir){var l=btn.parentElement.previousElementSibling,k=l.querySelector('.kaart'),st=k?k.getBoundingClientRect().width+20:400;l.scrollBy({left:dir*st,behavior:'smooth'});};
 document.querySelectorAll('.lade').forEach(function(l){var nav=l.nextElementSibling.querySelectorAll('button');function st(){nav[0].disabled=l.scrollLeft<4;nav[1].disabled=l.scrollLeft+l.clientWidth>l.scrollWidth-4;}l.addEventListener('scroll',st,{passive:true});st();window.addEventListener('resize',st);
  var down=false,sx=0,sl=0;l.addEventListener('mousedown',function(e){down=true;sx=e.pageX;sl=l.scrollLeft;l.style.scrollSnapType='none';});window.addEventListener('mouseup',function(){if(down){down=false;l.style.scrollSnapType='';}});l.addEventListener('mousemove',function(e){if(!down)return;e.preventDefault();l.scrollLeft=sl-(e.pageX-sx);});});
-window.verstuur=function(e){e.preventDefault();
- var n=g('cf-naam').value,m=g('cf-mail').value,t=g('cf-tel').value,pc=g('cf-pc').value,b=g('cf-ber').value;
- location.href='mailto:info@avantgardegevels.nl?subject='+encodeURIComponent('Adviesgesprek - '+n)+'&body='+encodeURIComponent('Naam: '+n+'\nE-mail: '+m+'\nTelefoon: '+t+'\nPostcode: '+pc+'\n\nWoning:\n'+b+'\n\n(Verzonden via avantgardegevels.nl)');
- return false;};
 })();
 </script>
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
