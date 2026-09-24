@@ -217,6 +217,16 @@ body{background:#ffffff}
 .wsm{background:#ffffff}
 
 .intro .lead{color:#6a6258;margin-top:14px}
+
+body,.intro,.verhouding-vol,.wsm{background:#fff}
+.dossier{background:#fff;color:var(--zwart)}
+.dossier .eye{color:var(--goud)}
+.dossier h2,.dossier h3,.dossier strong,.dossier b{color:var(--zwart)}
+.dossier p,.dossier label,.dossier small{color:#6a6258}
+.dossier-kaart{background:#fff;border:1px solid var(--lijn)}
+.dossier .cf input{color:var(--zwart);border-color:var(--lijn)}
+.dossier .pil{background:var(--zwart);color:#fff}
+.dossier .pil:hover{background:#000}
 </style>
 </head>
 <body>
@@ -224,13 +234,15 @@ body{background:#ffffff}
 <a class="terug-home" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Home</a>
 <div class="stappenbalk" id="stappenbalk"><span data-s="crepi">Crepi</span><span data-s="steen">Steen</span><span data-s="hout">Hout</span><span data-s="stijl">Uw stijl</span></div>
 
-<span id="start" aria-hidden="true"></span>
-<section class="wsm" id="samenstellen">
-  <div class="wsm-kop">
-    <img class="wsm-logo" src="/assets/logo-ag.png" alt="Avant-Garde Gevels">
+<section class="intro" id="start">
+  <div data-in>
+    <img class="intro-logo" src="/assets/logo-ag.png" alt="Avant-Garde Gevels">
     <h1>Zo kan uw huis worden.</h1>
     <p class="lead">Iedere dag een gevoel met Avant-Garde gevels.</p>
+    <a class="scroldown" href="#samenstellen">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
+</section>
+<section class="wsm" id="samenstellen">
   <div id="wsmHost"></div>
   <a class="scroldown wsm-door" href="#atelier">Verder naar uw materialen<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </section>
