@@ -208,6 +208,43 @@ details .inhoud p+p{margin-top:10px}
 .voet .rij a:hover{color:var(--creme)}
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== Licht thema: witte achtergrond, zwarte tekst ===== */
+:root:root:root{--zwart:#ffffff;--creme:#0d0b09;--dim:#6a6258;--goud:#9c7a4a;--kaart:#f7f4ef;--kaart2:#efeae2;--lijn:rgba(13,11,9,.12)}
+html{background:#fff}
+body{background:#fff;color:#0d0b09}
+/* foto-vlakken houden witte tekst */
+.hero{--zwart:#0d0b09;--creme:#f3ede3;--dim:#d6cfc4;--goud:#c9a877;color:#f3ede3}
+.hero::after{background:linear-gradient(90deg,rgba(13,11,9,.55) 0%,rgba(13,11,9,0) 60%),linear-gradient(180deg,rgba(13,11,9,.35) 0%,rgba(13,11,9,.1) 35%,rgba(13,11,9,.62) 100%)}
+.hero .lijn{border-color:rgba(243,237,227,.5)}
+/* navigatie */
+.nav{background:rgba(255,255,255,.88);border-bottom-color:rgba(13,11,9,.08)}
+.nav .merk img{filter:brightness(0)}
+.nav .links{color:rgba(13,11,9,.62)}
+/* knoppen en keuzes */
+.lijn{border-color:rgba(13,11,9,.28)}
+.pil:hover{background:var(--goud);color:#fff}
+.keuze:hover{border-color:rgba(13,11,9,.3)}
+.keuze[aria-pressed="true"] .klein{color:rgba(255,255,255,.7)}
+.keuze .vink{border-color:rgba(13,11,9,.22)}
+.keuze[aria-pressed="true"] .vink{background:var(--goud);border-color:var(--goud)}
+.keuze .vink svg path{stroke:#fff}
+.tegel .vink{background:rgba(13,11,9,.45);border-color:rgba(255,255,255,.5)}
+.melding{color:rgba(13,11,9,.8)}
+/* schuiven en segmenten */
+input[type=range]::-webkit-slider-runnable-track{background:linear-gradient(90deg,var(--creme) var(--p,50%),rgba(13,11,9,.12) var(--p,50%))}
+input[type=range]::-moz-range-track{background:rgba(13,11,9,.12)}
+input[type=range]::-webkit-slider-thumb{box-shadow:0 0 0 6px #fff,0 2px 10px rgba(13,11,9,.25)}
+.segment{background:rgba(13,11,9,.04)}
+/* teller en uitslag */
+.teller{background:rgba(255,255,255,.86);border-color:rgba(13,11,9,.1);box-shadow:0 12px 40px rgba(13,11,9,.12)}
+.teller .x2{color:#fff}
+.balk{background:rgba(13,11,9,.08)}
+.meter .volgende{color:rgba(13,11,9,.75)}
+details .inhoud{color:rgba(13,11,9,.78)}
+/* slotbeeld licht */
+.uitgang .bg{opacity:.35}
+.uitgang .bg::after{background:linear-gradient(#fff,rgba(255,255,255,.5) 50%,#fff)}
 </style>
 </head>
 <body>
