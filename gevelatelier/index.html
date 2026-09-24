@@ -201,6 +201,15 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 .klaar-form{display:none}.dossier.verzonden .cf{display:none}.dossier.verzonden .klaar-form{display:block}
 
 @media(prefers-reduced-motion:reduce){[data-in]{opacity:1;transform:none}.intro .scroldown svg{animation:none}html{scroll-behavior:auto}.streng-stage img{transition:none}.woning img{transform:none}}
+
+.samensteller{background:var(--creme);padding:clamp(48px,7vw,96px) clamp(18px,5vw,56px) clamp(32px,5vw,64px)}
+.samensteller-kop{max-width:1500px;margin:0 auto clamp(22px,3vw,38px)}
+.samensteller-kop h2{margin:8px 0 12px}
+.samensteller-kop .lead{max-width:52ch}
+.samensteller-frame{max-width:1500px;margin:0 auto}
+.samensteller-frame iframe{width:100%;border:0;display:block;min-height:760px;background:transparent}
+.samensteller-door{display:inline-flex;align-items:center;gap:8px;margin-top:26px}
+@media(max-width:760px){.samensteller-frame iframe{min-height:1180px}}
 </style>
 </head>
 <body>
@@ -214,8 +223,20 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
     <div class="eye">Het Gevelatelier</div>
     <h1>Welkom in het Gevelatelier.</h1>
     <p class="lead">Ontdek in een paar stappen welke materialen samen úw gevel vormen. Elke keuze wordt onderdeel van uw eigen Avant-Garde-signatuur.</p>
-    <a class="scroldown" href="#atelier">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a class="scroldown" href="#samenstellen">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
+</section>
+
+<section class="samensteller" id="samenstellen">
+  <div class="samensteller-kop" data-in>
+    <div class="eye">Uw woning</div>
+    <h2>Zie het eerst.<br>Kies daarna.</h2>
+    <p class="lead">Kies uw woningtype en stel gevel, dak en kozijnen samen. U ziet meteen wat het met uw huis doet. Daarna gaan we de materialen tot in detail kiezen.</p>
+  </div>
+  <div class="samensteller-frame">
+    <iframe id="agSamensteller" src="/samenstellen/?embed=1" title="Stel uw woning samen" loading="lazy" scrolling="no"></iframe>
+  </div>
+  <a class="scroldown samensteller-door" href="#atelier">Verder naar uw materialen<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </section>
 
 <div class="atelier" id="atelier">
@@ -408,5 +429,13 @@ update();
 })();
 </script>
 <script async src="https://tally.so/widgets/embed.js"></script>
+<script>
+addEventListener('message',function(e){
+  var h=e&&e.data&&e.data.agHoogte;
+  if(!h)return;
+  var f=document.getElementById('agSamensteller');
+  if(f) f.style.height=(h+24)+'px';
+});
+</script>
 </body>
 </html>
