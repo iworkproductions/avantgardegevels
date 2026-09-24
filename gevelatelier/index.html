@@ -45,7 +45,7 @@ h1,h2,h3{font-weight:400;letter-spacing:-.03em;line-height:1}
 
 /* intro */
 .intro{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 24px}
-.intro-logo{height:auto;width:min(360px,60vw);filter:brightness(0);margin:0 auto 44px}
+.intro-logo{height:auto;width:min(360px,60vw);filter:none;margin:0 auto 30px}
 .intro h1{font-size:clamp(44px,6.6vw,104px);letter-spacing:-.04em;line-height:.96;max-width:16ch}
 .intro .lead{margin:28px auto 0;max-width:48ch}
 .intro .scroldown{margin:48px auto 0;display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
@@ -210,6 +210,8 @@ body{background:#fffdf9}
 .stappenbalk{background:linear-gradient(#fffdf9,rgba(255,253,249,0))}
 .terug-home{background:rgba(255,253,249,.72)}
 .wsm{background:#fffdf9}
+
+.intro .lead{color:#6a6258;margin-top:14px}
 </style>
 </head>
 <body>
@@ -219,8 +221,9 @@ body{background:#fffdf9}
 
 <section class="intro" id="start">
   <div data-in>
-    <img class="intro-logo" src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels">
+    <img class="intro-logo" src="/assets/logo-ag.png" alt="Avant-Garde Gevels">
     <h1>Zo kan uw huis worden.</h1>
+    <p class="lead">Iedere dag een gevoel met Avant-Garde gevels.</p>
     <a class="scroldown" href="#samenstellen">Begin<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
