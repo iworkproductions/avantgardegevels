@@ -70,3 +70,5 @@ h1,h2,h3,h4{font-family:'Geist',sans-serif;font-weight:400;letter-spacing:-.025e
 .nav .links .pil+.pil{margin-left:-14px}
 @media(max-width:760px){.nav .links{gap:6px}.nav .links .pil+.pil{margin-left:0}.nav .pil{padding:7px 11px;font-size:11px;min-height:32px}}
 @media(max-width:400px){.nav{padding-left:16px;padding-right:16px}.nav .merk img{height:16px}.nav .pil{padding:6px 9px}}
+.form-privacy{font-size:13px;line-height:1.5;color:var(--dim);margin-top:14px}.form-privacy a{text-decoration:underline;text-underline-offset:3px}
+.c-form .form-privacy,.advies-form .form-privacy{color:#6a6258}.c-form .form-privacy a,.advies-form .form-privacy a{color:#211d18}
