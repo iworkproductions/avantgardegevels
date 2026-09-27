@@ -519,5 +519,22 @@ renderAll();
 
 })();
 </script>
+<script>
+/* Na 1,5 seconde vanzelf naar de samensteller, tenzij de bezoeker zelf al scrolt of klikt */
+(function(){
+  var h=location.hash;
+  if(h&&h!=='#start'&&h!=='#samenstellen')return;
+  var geannuleerd=false,stop=function(){geannuleerd=true;};
+  ['wheel','touchstart','keydown','pointerdown'].forEach(function(e){window.addEventListener(e,stop,{once:true,passive:true});});
+  function ga(){
+    if(geannuleerd||window.scrollY>80)return;
+    var doel=document.getElementById('samenstellen');if(!doel)return;
+    var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({top:doel.getBoundingClientRect().top+window.scrollY,behavior:rm?'auto':'smooth'});
+  }
+  function plan(){setTimeout(ga,1500);}
+  if(document.readyState==='complete')plan();else window.addEventListener('load',plan);
+})();
+</script>
 </body>
 </html>
