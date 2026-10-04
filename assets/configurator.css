@@ -83,3 +83,7 @@
  .agc-zweef .kort{display:inline}
 }
 @media(prefers-reduced-motion:reduce){.agc *,.agc-zweef{transition:none!important}}
+/* rechte hoeken: architectonisch strak */
+.agc-beeld,.agc-optie,.agc-optie img,.agc-opties.twee .agc-optie img,.agc-slot,.agc-slot a,.agc-seg,.agc-seg button,.agc-et,.agc-zweef,.agc-zweef a,.agc-balk,.agc-balk i{border-radius:0!important}
+.agc-optie.aan{box-shadow:inset 0 0 0 1.5px var(--z)}
+.agc-seg{padding:3px}
