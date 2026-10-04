@@ -467,7 +467,7 @@ function verzend(){
  verstuur.disabled=true;verstuur.textContent='Bezig met versturen…';
  var q=new URLSearchParams(location.search),d=new URLSearchParams();
  d.append('naam',form.naam.value.trim());d.append('telefoon',form.telefoon.value.trim());d.append('email',form.email.value.trim());
- d.append('postcode',form.postcode.value.trim().toUpperCase());d.append('huisnummer',form.huisnummer.value.trim());d.append('straat',adres.straat);d.append('plaats',adres.plaats||form.plaats.value.trim());d.append('land','NL');
+ var pcN=form.postcode.value.replace(/\s/g,'').toUpperCase();d.append('postcode',pcN.slice(0,4)+' '+pcN.slice(4));d.append('huisnummer',form.huisnummer.value.trim());d.append('straat',adres.straat);d.append('plaats',adres.plaats||form.plaats.value.trim());d.append('land','NL');
  vragen.forEach(function(v,n){d.append(v.k,keuze[n].join(', '));});
  d.append('keuzes',samen());d.append('bron','Website');d.append('pagina',location.pathname);
  ['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(function(k){d.append(k,q.get(k)||'');});
