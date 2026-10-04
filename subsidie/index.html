@@ -257,11 +257,23 @@ details .inhoud{color:rgba(13,11,9,.78)}
 @media(max-width:760px){.nav .merk img{height:22px}.nav .links a:not(.pil){display:none}.nav .links{gap:6px}.nav .links .pil+.pil{margin-left:0}.nav .pil{padding:7px 11px;font-size:11px;min-height:32px}}
 @media(max-width:400px){.nav{padding-left:16px;padding-right:16px}.nav .merk img{height:16px}.nav .pil{padding:6px 9px}}
 .voet .rij span{display:inline-flex;gap:18px;flex-wrap:wrap}.voet .rij a:hover{color:#0d0b09}
+@media(max-width:760px){.hero::after{background:linear-gradient(180deg,rgba(13,11,9,.35) 0%,rgba(13,11,9,.25) 25%,rgba(13,11,9,.78) 55%,rgba(13,11,9,.9) 100%)}.hero p{color:rgba(243,237,227,.9)}}
+/* mobiel menu */
+.nav .menu-knop{display:none}
+@media(max-width:760px){
+.nav .links{margin-left:auto}
+.nav .menu-knop{display:inline-flex;align-items:center;justify-content:center;min-width:64px;height:34px;padding:0 14px;margin-left:8px;border-radius:999px;border:1px solid rgba(243,237,227,.35);background:transparent;color:#f3ede3;font:500 12px/1 'Geist',sans-serif;letter-spacing:.04em;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.nav .links .pil.lijnpil{display:none}
+.nav.open .links{position:fixed;top:52px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:6px 22px 22px;background:rgba(13,11,9,.97);border-bottom:1px solid rgba(243,237,227,.12);margin:0}
+.nav.open .links a:not(.pil){display:block;padding:17px 0;font-size:17px;letter-spacing:0;color:#f3ede3;border-bottom:1px solid rgba(243,237,227,.1)}
+.nav.open .links .pil{display:flex;justify-content:center;align-items:center;margin:14px 0 0;min-height:48px;font-size:14px}
+.nav.open .links .pil.lijnpil{display:flex}
+}
 </style>
 </head>
 <body>
 
-<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav><div class="voortgang" id="voortgang"></div></div>
+<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav><button type="button" class="menu-knop" aria-expanded="false" onclick="var n=this.closest('.nav'),o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Sluit':'Menu'">Menu</button><div class="voortgang" id="voortgang"></div></div>
 
 <header class="hero">
   <div class="foto" role="img" aria-label="Villa met Avant-Garde gevel"></div>

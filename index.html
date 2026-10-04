@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=130">
+<link rel="stylesheet" href="/assets/site.css?v=131">
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","alternateName":"Avant-Garde","slogan":"Duurzaam wonen, in stijl.","description":"Woningrenovatie als één geheel: geïsoleerde gevel in crepi, natuursteen en composiet houtlook, nieuw dak en nieuwe kozijnen. Uitgevoerd door Avant-Garde Partners in de regio.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"info@avantgardegevels.nl","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
 <style>
@@ -180,7 +180,7 @@
 .kies-sla{display:block;margin:18px auto 0}
 .kies-samen{font-size:14px;color:#5d564d;margin:0 0 6px;line-height:1.5}
 .kies-samen b{color:#211d18;font-weight:500}
-@media(max-width:560px){.kies-knoppen{grid-template-columns:1fr}}
+@media(max-width:560px){.kies-knoppen button{font-size:14px;padding:14px 12px;hyphens:auto;overflow-wrap:anywhere}.contact-kaart{padding:20px 16px 14px}.kies-vraag{margin:20px 0 14px}}
 
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:44px}.contact-kaart{padding:24px 20px 16px}}
 .cf{display:grid;gap:12px}
@@ -202,11 +202,12 @@
 @media(prefers-reduced-motion:reduce){.hero .eye,.hero h1,.hero .sub,.hero .acties{opacity:1;animation:none}.foto{animation:none}.glas{position:relative;transform:none;height:auto;padding:16vh 8vw}.manifest p{opacity:1;transform:none}.scene{height:auto}.scene .stage{position:relative;height:auto}.hero{position:relative;height:100vh}.intro{display:none}.w-beeld img{transition:none}.w-balk{display:none}}
 /* vangnet: als de pagina in een venster zonder eigen scroll staat, alles statisch tonen */
 .statisch .glas{position:relative;transform:none!important;height:auto;padding:16vh 8vw}.statisch .manifest p{opacity:1!important;transform:none!important}.statisch .scene{height:auto}.statisch .scene .stage{position:relative;height:auto}.statisch .hero{position:relative;height:100vh}
+@media(max-width:760px){.mat-drie{gap:28px}.mat-kaart .media{aspect-ratio:16/10}.mat-kaart b{margin-top:12px}}
 </style>
 </head>
 <body>
 
-<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav></div>
+<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav><button type="button" class="menu-knop" aria-expanded="false" onclick="var n=this.closest('.nav'),o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Sluit':'Menu'">Menu</button></div>
 
 <div class="intro" id="intro"><img src="/assets/logo-ag.png" alt="Avant-Garde" class="intro-logo"></div>
 
