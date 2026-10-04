@@ -271,22 +271,38 @@ details .inhoud{color:rgba(13,11,9,.78)}
 }
 *,*::before,*::after{border-radius:0!important}
 .keuze .vink{border-radius:50%!important}
+
+/* menselijke binnenkomer */
+.sbh{background:#fff;color:#16130f;padding:calc(52px + clamp(48px,9vh,110px)) 24px clamp(56px,9vh,110px)}
+.sbh-in{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,90px);align-items:center}
+.sbh h1{font-weight:400;font-size:clamp(42px,5.6vw,84px);line-height:.98;letter-spacing:-.04em;color:#16130f;max-width:none}
+.sbh p{margin:26px 0 0;font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#5d564d;max-width:34ch;font-weight:300}
+.sbh-knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.sbh-knoppen a{text-decoration:none;font-size:15px;padding:16px 24px;transition:background .25s,border-color .25s}
+.sbh-hoofd{background:#16130f;color:#f3ede3}
+.sbh-hoofd:hover{background:#000}
+.sbh-twee{border:1px solid rgba(22,19,15,.3);color:#16130f}
+.sbh-twee:hover{border-color:#16130f}
+.sbh small{display:block;margin-top:22px;font-size:13px;color:#8a8276}
+.sbh-beeld{aspect-ratio:4/3;overflow:hidden;background:#e7e1d8}
+.sbh-beeld img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:900px){.sbh-in{grid-template-columns:1fr;gap:32px}.sbh-beeld{order:-1;aspect-ratio:16/10}}
+@media(max-width:560px){.sbh{padding:calc(52px + 20px) 12px 56px}.sbh-knoppen a{flex:1 1 100%;text-align:center}}
 </style>
 </head>
 <body>
 
 <div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav><button type="button" class="menu-knop" aria-expanded="false" onclick="var n=this.closest('.nav'),o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Sluit':'Menu'">Menu</button><div class="voortgang" id="voortgang"></div></div>
 
-<header class="hero">
-  <div class="foto" role="img" aria-label="Villa met Avant-Garde gevel"></div>
-  <div class="in">
-    <h1>Hoeveel betaalt de overheid mee?</h1>
-    <p>Stel uw verbouwing samen en zie direct hoeveel subsidie u terugkrijgt. Vijf vragen, twee minuten, geen gegevens nodig.</p>
-    <div class="rij">
-      <a class="pil groot" href="#spel" id="startknop">Subsidiecheck</a>
-      <a class="lijn groot" href="#spelregels">Bekijk de spelregels</a>
+<header class="sbh">
+  <div class="sbh-in">
+    <div class="sbh-tekst">
+      <h1>Een warmer huis.<br>De overheid<br>betaalt mee.</h1>
+      <p>Wij rekenen het in twee minuten voor u uit. Vijf korte vragen over uw woning, en u ziet direct wat u terugkrijgt voor uw gevel, dak, kozijnen en warmtepomp.</p>
+      <div class="sbh-knoppen"><a class="sbh-hoofd" href="#spel" id="startknop">Start de subsidiecheck</a><a class="sbh-twee" href="#spelregels">Bekijk de spelregels</a></div>
+      <small>Geen gegevens nodig. Gerekend met de bedragen van RVO voor 2026.</small>
     </div>
-    <small>Gerekend met de ISDE-bedragen van RVO voor werk uitgevoerd in 2025 of later, gecontroleerd september 2026.</small>
+    <div class="sbh-beeld"><img src="/assets/proces-analyse.jpg" alt="Adviseur bekijkt een woning en de mogelijkheden op een tablet"></div>
   </div>
 </header>
 
@@ -463,7 +479,7 @@ details .inhoud{color:rgba(13,11,9,.78)}
   <div class="bg"></div>
   <div class="in">
     <h2>Zie wat uw woning kan worden.</h2>
-    <p>Kies uw natuursteen, uw composiet houtlook en de verhouding. Daarna rekenen wij alles precies voor u door.</p>
+    <p>Stel uw woning samen in het Gevelatelier en zie direct hoe hij kan worden.</p>
     <div class="acties">
       <a class="pil groot" href="https://avantgardegevels.nl/gevelatelier/#start">Ontwerp uw woning</a>
       <a class="lijn groot" href="https://avantgardegevels.nl/contact/">Plan een adviesgesprek</a>
