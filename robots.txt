@@ -1,2 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /studio/
+Disallow: /archief/
+Disallow: /samenstellen/
+
+Sitemap: https://avantgardegevels.nl/sitemap.xml
