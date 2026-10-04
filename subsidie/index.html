@@ -288,6 +288,50 @@ details .inhoud{color:rgba(13,11,9,.78)}
 .sbh-beeld img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:900px){.sbh-in{grid-template-columns:1fr;gap:32px}.sbh-beeld{order:-1;aspect-ratio:16/10}}
 @media(max-width:560px){.sbh{padding:calc(52px + 20px) 12px 56px}.sbh-knoppen a{flex:1 1 100%;text-align:center}}
+
+/* ultra pro: rustig, wit, strak */
+.spel{background:#fff;padding-top:clamp(56px,9vh,110px)}
+.sbv{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:1120px;margin:0 0 34px}
+.sbv i{height:3px;background:rgba(22,19,15,.1);position:relative;overflow:hidden}
+.sbv i::after{content:'';position:absolute;inset:0;background:#16130f;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.sbv i.vol::after{transform:scaleX(1)}
+.sbv.klaar{opacity:0;height:0;margin:0;transition:opacity .4s}
+.spel .stapteller{font-size:13px;font-weight:400;color:#9a9288;letter-spacing:0}
+.spel .stap h2{font-size:clamp(32px,3.8vw,54px);line-height:1.04;letter-spacing:-.035em;color:#16130f;font-weight:400}
+.spel .stap .uitleg{font-size:17px;color:#6e675e;margin:16px 0 36px}
+.spel .keuze{background:#fff;border:1px solid rgba(22,19,15,.14);color:#16130f;min-height:128px;padding:22px 22px 20px;box-shadow:none;transition:border-color .25s,background .25s,transform .2s cubic-bezier(.22,1,.36,1)}
+.spel .keuze:hover{border-color:#16130f;transform:none}
+.spel .keuze:active{transform:scale(.985)}
+.spel .keuze .groot{font-size:20px;letter-spacing:-.015em}
+.spel .keuze .klein{color:#6e675e;font-size:14px}
+.spel .keuze[aria-pressed="true"]{background:#16130f;border-color:#16130f;color:#f3ede3}
+.spel .keuze[aria-pressed="true"] .klein{color:rgba(243,237,227,.65)}
+.spel .keuze[aria-pressed="true"] .bedrag{color:#b9dcae}
+.spel .keuze .vink{border-color:rgba(22,19,15,.22)}
+.spel .keuze[aria-pressed="true"] .vink{background:#f3ede3;border-color:#f3ede3}
+.spel .keuze[aria-pressed="true"] .vink svg path{stroke:#16130f}
+.spel .tegel{min-height:300px;padding:0}
+.spel .tegel .beeld{height:170px;border-bottom:0}
+.spel .tegel .tekst{padding:18px 20px 20px}
+.spel .tegel .bedrag{color:#4f7a45}
+.spel .melding{background:#faf8f4;border:0;border-left:2px solid #9c7a4a;color:#3d3832}
+.spel .navstap .pil,.spel .acties .pil{background:#16130f;color:#f3ede3;border:0;padding:16px 26px;font-size:15px}
+.spel .navstap .pil:disabled{opacity:.25}
+.spel .navstap .lijn,.spel .acties .lijn{background:transparent;border:1px solid rgba(22,19,15,.3);color:#16130f;padding:16px 24px;font-size:15px}
+.spel .navstap .lijn:hover,.spel .acties .lijn:hover{border-color:#16130f}
+.spel .regels input[type=range]{-webkit-appearance:none;appearance:none;height:2px;background:rgba(22,19,15,.18)}
+.spel .regels input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#16130f;border:4px solid #fff;box-shadow:0 0 0 1px #16130f,0 4px 12px rgba(0,0,0,.18);margin-top:0}
+.spel .regels input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#16130f;border:4px solid #fff;box-shadow:0 0 0 1px #16130f}
+.spel .uitslag h2{font-size:clamp(32px,3.6vw,48px)}
+.spel .totaal{color:#16130f;font-weight:300}
+.spel .meter{background:#faf8f4;border:0;padding:26px 28px}
+.spel .stapel div{background:#faf8f4;border:0}
+.spel .post .eur{color:#16130f}
+.teller{background:rgba(22,19,15,.9)!important;border:0!important;color:#f3ede3;box-shadow:0 20px 50px -20px rgba(0,0,0,.5)!important;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.teller .lbl{color:rgba(243,237,227,.6)}
+.teller .som{color:#f3ede3}
+.teller .x2{background:#4f7a45!important;color:#fff!important}
+.toast{background:#16130f;color:#f3ede3}
 </style>
 </head>
 <body>
@@ -308,6 +352,7 @@ details .inhoud{color:rgba(13,11,9,.78)}
 
 <main>
 <section class="spel" id="spel" aria-live="polite">
+  <div class="sbv" id="sbv" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
   <!-- 1 -->
   <div class="stap actief" data-stap="1">
@@ -769,6 +814,11 @@ details .inhoud{color:rgba(13,11,9,.78)}
 
   knoppen(); update();
 })();
+</script>
+<script>
+(function(){var v=document.getElementById('sbv');if(!v)return;var ii=v.querySelectorAll('i');
+function bij(){var a=document.querySelector('#spel .stap.actief');if(!a)return;var n=+a.getAttribute('data-stap')||1;ii.forEach(function(e,k){e.classList.toggle('vol',k<n-1||n>5)});v.classList.toggle('klaar',n>5);}
+new MutationObserver(bij).observe(document.getElementById('spel'),{subtree:true,attributes:true,attributeFilter:['class']});bij();})();
 </script>
 </body>
 </html>
