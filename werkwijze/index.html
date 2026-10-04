@@ -120,6 +120,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 .band-wit .stap{min-height:0;justify-content:flex-start}
 .band-wit .stap .nr{margin-bottom:34px}
 .band-wit .stap h2{margin-top:0}
+.ww-hero{position:relative;overflow:hidden;background:#0d0b09}
+
+
+.ww-hero::before{content:'';position:absolute;top:0;bottom:0;right:0;left:38%;background:url(/assets/werkwijze-achtergrond.jpg?v=2) center 30%/cover no-repeat;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%);mask-image:linear-gradient(90deg,transparent 0%,#000 45%)}
+.ww-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.15) 0%,rgba(13,11,9,0) 50%,rgba(13,11,9,.75) 100%)}
+.ww-hero .kop-blok{position:relative;z-index:2;padding-top:18vh;padding-bottom:14vh}
+@media(max-width:760px){.ww-hero::before{left:0;background-position:62% 30%;opacity:.3;-webkit-mask-image:none;mask-image:none}.ww-hero::after{background:linear-gradient(180deg,rgba(13,11,9,.35) 0%,rgba(13,11,9,.55) 60%,rgba(13,11,9,.92) 100%)}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Met wie sluit ik de overeenkomst?", "acceptedAnswer": {"@type": "Answer", "text": "Met elk vakbedrijf apart. Ieder vakbedrijf staat zelf in voor zijn werk en garantie. Avant-Garde ontwerpt en stemt de planning af. Natuursteen en composiet houtlook zetten wij zelf."}}, {"@type": "Question", "name": "Hoe lang duurt het?", "acceptedAnswer": {"@type": "Answer", "text": "De uitvoering duurt bij een gemiddelde woning enkele weken. Is er een vergunning nodig, dan komt daar voorbereidingstijd bij. In het adviesgesprek krijgt u een concrete planning."}}, {"@type": "Question", "name": "Kan het bij mijn woning?", "acceptedAnswer": {"@type": "Answer", "text": "Buitengevelisolatie met crepi past bij vrijstaande woningen, twee-onder-een-kap, rijwoningen en boerderijen. Is er al spouwisolatie, dan komt de crepi direct op de bestaande gevel."}}, {"@type": "Question", "name": "Heb ik een vergunning nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Dat verschilt per gemeente, vooral als de voorgevel, het dak of de kozijnen aan de straatkant veranderen. Wij kijken met u mee via de vergunningcheck. De aanvraag doet u zelf, of wij regelen hem voor u tegen een vaste vergoeding."}}, {"@type": "Question", "name": "Kan ik subsidie krijgen?", "acceptedAnswer": {"@type": "Answer", "text": "Isolatie van gevel en dak en nieuwe kozijnen kunnen in aanmerking komen voor subsidie. Doe de subsidiecheck , of laat ons de aanvraag voor u verzorgen."}}, {"@type": "Question", "name": "Blijven de naden van de isolatieplaten zichtbaar?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Over de isolatie komt een wapeningslaag met net, daarna de crepi. Het resultaat is één doorlopende gevel."}}, {"@type": "Question", "name": "Werken jullie ook in mijn regio?", "acceptedAnswer": {"@type": "Answer", "text": "Wij werken in Noord-Brabant en omgeving. Bel of app ons met uw adres, dan kijken we mee."}}]}</script>
 </head>
@@ -127,11 +134,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 
 <div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/over-ons/">Over ons</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav><button type="button" class="menu-knop" aria-expanded="false" onclick="var n=this.closest('.nav'),o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Sluit':'Menu'">Menu</button></div>
 
+<div class="ww-hero">
 <section class="kop-blok">
   <div class="eye">Werkwijze</div>
   <h1>Van eerste gesprek<br>tot opgeleverde woning.</h1>
-  <p>Vier stappen. Wij ontwerpen en stemmen af, vakbedrijven uit uw regio bouwen.</p>
+  <p>Vier stappen. Wij ontwerpen en stemmen af, ons netwerk van vakmensen bouwt.</p>
 </section>
+</div>
 
 <div class="band licht band-wit">
 <section class="stappen" aria-label="Zo werkt het">
