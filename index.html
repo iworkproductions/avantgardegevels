@@ -185,6 +185,14 @@
 /* vangnet: als de pagina in een venster zonder eigen scroll staat, alles statisch tonen */
 .statisch .glas{position:relative;transform:none!important;height:auto;padding:16vh 8vw}.statisch .manifest p{opacity:1!important;transform:none!important}.statisch .scene{height:auto}.statisch .scene .stage{position:relative;height:auto}.statisch .hero{position:relative;height:100vh}
 @media(max-width:760px){.mat-drie{gap:28px}.mat-kaart .media{aspect-ratio:16/10}.mat-kaart b{margin-top:12px}}
+.werkt.licht{background:#fff}
+.werkt.licht .feit{border-top-color:rgba(33,29,24,.14)}
+.materiaal{background:var(--zwart);color:var(--creme)}
+.materiaal .kop h2{color:var(--creme)}
+.materiaal .mat-kaart b{color:#f3ede3}
+.materiaal .mat-kaart p{color:rgba(243,237,227,.66)}
+.materiaal .mat-kaart .media{background:#1c1814}
+.materiaal sup{color:rgba(243,237,227,.5)}
 </style>
 </head>
 <body>
@@ -219,8 +227,8 @@
 </section>
 
 <!-- 3 · HOE HET WERKT · de belofte in vier feiten -->
-<section class="hfd werkt" id="werkt">
-  <div class="kop"><h2>Wij ontwerpen.<br>Vakmensen uit uw regio bouwen.</h2></div>
+<section class="hfd licht werkt" id="werkt">
+  <div class="kop"><h2>Wij bedenken het geheel.<br>Specialisten maken het waar.</h2></div>
   <div class="feiten">
     <div class="feit"><b>Ontwerp en regie</b><p>Avant-Garde ontwerpt uw woning en stemt de planning tussen de vakbedrijven af.</p></div>
     <div class="feit"><b>Vakbedrijven uit uw regio</b><p>Elk onderdeel wordt gemaakt door een specialist uit uw regio. Natuursteen en composiet houtlook zetten wij zelf, met de hand.</p></div>
@@ -231,7 +239,7 @@
 </section>
 
 <!-- 4 · MATERIAAL -->
-<section class="hfd licht materiaal" id="materiaal">
+<section class="hfd materiaal" id="materiaal">
   <div class="kop"><h2>Drie materialen.<br>Eén handschrift.</h2></div>
   <div class="mat-drie">
     <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi van dichtbij" loading="lazy"></div><b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60% van de gevel.<sup>1</sup></p></figure>
