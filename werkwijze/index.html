@@ -127,6 +127,18 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 .ww-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.15) 0%,rgba(13,11,9,0) 50%,rgba(13,11,9,.75) 100%)}
 .ww-hero .kop-blok{position:relative;z-index:2;padding-top:18vh;padding-bottom:14vh}
 @media(max-width:760px){.ww-hero::before{left:0;background-position:62% 30%;opacity:.3;-webkit-mask-image:none;mask-image:none}.ww-hero::after{background:linear-gradient(180deg,rgba(13,11,9,.35) 0%,rgba(13,11,9,.55) 60%,rgba(13,11,9,.92) 100%)}}
+.band-creme-g{background:#f5f1ea;padding:12vh 0}
+.gidsen{max-width:1120px;margin:0 auto;padding:0 24px}
+.g-kop h2{font-weight:400;font-size:clamp(34px,4vw,56px);letter-spacing:-.035em;line-height:1;color:#16130f;margin:0}
+.g-kop p{margin:16px 0 0;font-size:17px;line-height:1.6;color:#5d564d;max-width:52ch}
+.g-kaarten{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.g-kaart{display:block;background:#fff;padding:30px 30px 28px;text-decoration:none;color:#16130f;border:1px solid rgba(22,19,15,.08);transition:border-color .25s,transform .25s}
+.g-kaart:hover{border-color:#16130f}
+.g-kaart small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9c7a4a}
+.g-kaart b{display:block;font-weight:400;font-size:26px;letter-spacing:-.02em;margin:12px 0 10px}
+.g-kaart span{display:block;font-size:15px;line-height:1.55;color:#6e675e}
+.g-kaart i{display:block;font-style:normal;font-size:15px;margin-top:22px}
+@media(max-width:760px){.g-kaarten{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Met wie sluit ik de overeenkomst?", "acceptedAnswer": {"@type": "Answer", "text": "Met elk vakbedrijf apart. Ieder vakbedrijf staat zelf in voor zijn werk en garantie. Avant-Garde ontwerpt en stemt de planning af. Natuursteen en composiet houtlook zetten wij zelf."}}, {"@type": "Question", "name": "Hoe lang duurt het?", "acceptedAnswer": {"@type": "Answer", "text": "De uitvoering duurt bij een gemiddelde woning enkele weken. Is er een vergunning nodig, dan komt daar voorbereidingstijd bij. In het adviesgesprek krijgt u een concrete planning."}}, {"@type": "Question", "name": "Kan het bij mijn woning?", "acceptedAnswer": {"@type": "Answer", "text": "Buitengevelisolatie met crepi past bij vrijstaande woningen, twee-onder-een-kap, rijwoningen en boerderijen. Is er al spouwisolatie, dan komt de crepi direct op de bestaande gevel."}}, {"@type": "Question", "name": "Heb ik een vergunning nodig?", "acceptedAnswer": {"@type": "Answer", "text": "Dat verschilt per gemeente, vooral als de voorgevel, het dak of de kozijnen aan de straatkant veranderen. Wij kijken met u mee via de vergunningcheck. De aanvraag doet u zelf, of wij regelen hem voor u tegen een vaste vergoeding."}}, {"@type": "Question", "name": "Kan ik subsidie krijgen?", "acceptedAnswer": {"@type": "Answer", "text": "Isolatie van gevel en dak en nieuwe kozijnen kunnen in aanmerking komen voor subsidie. Doe de subsidiecheck , of laat ons de aanvraag voor u verzorgen."}}, {"@type": "Question", "name": "Blijven de naden van de isolatieplaten zichtbaar?", "acceptedAnswer": {"@type": "Answer", "text": "Nee. Over de isolatie komt een wapeningslaag met net, daarna de crepi. Het resultaat is één doorlopende gevel."}}, {"@type": "Question", "name": "Werken jullie ook in mijn regio?", "acceptedAnswer": {"@type": "Answer", "text": "Wij werken in Noord-Brabant en omgeving. Bel of app ons met uw adres, dan kijken we mee."}}]}</script>
 </head>
@@ -164,6 +176,15 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 
 
 </div>
+<div class="band licht band-creme-g" id="gidsen">
+<section class="gidsen" aria-label="Gidsen">
+  <div class="g-kop"><h2>Goed voorbereid.</h2><p>Twee korte gidsen, zodat u precies weet waar u aan toe bent. Lees ze online of download ze als PDF.</p></div>
+  <div class="g-kaarten">
+    <a class="g-kaart" href="/gids/subsidie-2026/"><small>Gids</small><b>Subsidiegids 2026</b><span>Bedragen per m², de verdubbeling, wat erbuiten valt en hoe u aanvraagt.</span><i>Lees de gids →</i></a>
+    <a class="g-kaart" href="/gids/vergunning/"><small>Gids</small><b>Vergunning en voorbereiding</b><span>Wanneer u een vergunning nodig heeft, hoe het verloopt en wat u vooraf al kunt doen.</span><i>Lees de gids →</i></a>
+  </div>
+</section>
+</div>
 <div class="band licht band-wit">
 <section class="vragen" id="vragen" aria-label="Veelgestelde vragen">
   <div class="eye">Veelgestelde vragen</div>
@@ -171,8 +192,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
   <details><summary>Met wie sluit ik de overeenkomst?</summary><p>Met elk vakbedrijf apart. Ieder vakbedrijf staat zelf in voor zijn werk en garantie. Avant-Garde ontwerpt en stemt de planning af. Natuursteen en composiet houtlook zetten wij zelf.</p></details>
   <details><summary>Hoe lang duurt het?</summary><p>De uitvoering duurt bij een gemiddelde woning enkele weken. Is er een vergunning nodig, dan komt daar voorbereidingstijd bij. In het adviesgesprek krijgt u een concrete planning.</p></details>
   <details><summary>Kan het bij mijn woning?</summary><p>Buitengevelisolatie met crepi past bij vrijstaande woningen, twee-onder-een-kap, rijwoningen en boerderijen. Is er al spouwisolatie, dan komt de crepi direct op de bestaande gevel.</p></details>
-  <details><summary>Heb ik een vergunning nodig?</summary><p>Dat verschilt per gemeente, vooral als de voorgevel, het dak of de kozijnen aan de straatkant veranderen. Wij kijken met u mee via de vergunningcheck. De aanvraag doet u zelf, of wij regelen hem voor u tegen een vaste vergoeding.</p></details>
-  <details><summary>Kan ik subsidie krijgen?</summary><p>Isolatie van gevel en dak en nieuwe kozijnen kunnen in aanmerking komen voor subsidie. Doe de <a href="/subsidie/">subsidiecheck</a>, of laat ons de aanvraag voor u verzorgen.</p></details>
+  <details><summary>Heb ik een vergunning nodig?</summary><p>Dat verschilt per gemeente, vooral als de voorgevel, het dak of de kozijnen aan de straatkant veranderen. Wij kijken met u mee via de vergunningcheck. De aanvraag doet u zelf, of wij regelen hem voor u tegen een vaste vergoeding. Meer weten? Lees de <a href="/gids/vergunning/">vergunningengids</a>.</p></details>
+  <details><summary>Kan ik subsidie krijgen?</summary><p>Isolatie van gevel en dak en nieuwe kozijnen kunnen in aanmerking komen voor subsidie. Doe de <a href="/subsidie/">subsidiecheck</a>, of laat ons de aanvraag voor u verzorgen. Alles op een rij in de <a href="/gids/subsidie-2026/">subsidiegids 2026</a>.</p></details>
   <details><summary>Blijven de naden van de isolatieplaten zichtbaar?</summary><p>Nee. Over de isolatie komt een wapeningslaag met net, daarna de crepi. Het resultaat is één doorlopende gevel.</p></details>
   <details><summary>Werken jullie ook in mijn regio?</summary><p>Wij werken in Noord-Brabant en omgeving. Bel of app ons met uw adres, dan kijken we mee.</p></details>
 </section>
@@ -187,7 +208,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 </section>
 
 <footer class="voet">
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/subsidie/">Subsidie</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v128 -->
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/subsidie/">Subsidie</a><a href="/werkwijze/#gidsen">Gidsen</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v128 -->
 </footer>
 
 

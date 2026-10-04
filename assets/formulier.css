@@ -44,3 +44,4 @@
 .kies-over button{background:none;border:0;padding:0;font:inherit;font-size:14px;color:#211d18;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 .kies-anders{grid-column:1/-1;width:100%;height:50px;border-radius:12px;border:1px solid #211d18;background:#fff;padding:0 14px;font:inherit;font-size:16px;color:#211d18;outline:none}
 .kies-anders.fout{border-color:#b4462f}
+.kies-gidsen{margin:18px 0 0;font-size:14px;color:#5d564d}.kies-gidsen a{color:#211d18;text-underline-offset:4px}
