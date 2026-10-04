@@ -101,6 +101,25 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 .advies .bel{display:inline-block;margin-top:10px;font-family:'Geist',sans-serif;font-size:30px;color:var(--creme);min-height:44px}
 .advies .bel:hover{color:var(--goud)}
 @media(max-width:560px){.cf .twee{grid-template-columns:1fr}}
+
+.band{width:100%}
+.band-wit{background:#fff;padding:12vh 0}
+.band-zwart{background:var(--zwart);padding:12vh 0}
+.band-wit .stappen{background:rgba(33,29,24,.12);gap:1px}
+.band-wit .stap{background:#fff}
+.band-wit .stap .nr{color:#211d18;font-weight:300}
+.band-wit .stap h2{color:#211d18}
+.band-wit .stap p{color:#5d564d}
+.band-zwart .pakketten{margin-top:0}
+.band-zwart .pk-rij{background:rgba(243,237,227,.12)}
+.band-wit .vragen{padding:0 24px}
+.band-wit .vragen summary{color:#211d18}
+.band-wit .vragen summary::after{border-color:rgba(33,29,24,.25);color:#211d18}
+.band-wit .vragen details p{color:#5d564d}
+.band-wit .vragen details p a{color:#211d18}
+.band-wit .stap{min-height:0;justify-content:flex-start}
+.band-wit .stap .nr{margin-bottom:34px}
+.band-wit .stap h2{margin-top:0}
 </style>
 </head>
 <body>
@@ -113,13 +132,15 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
   <p>Vier stappen. Wij ontwerpen en stemmen af, vakbedrijven uit uw regio bouwen.</p>
 </section>
 
+<div class="band licht band-wit">
 <section class="stappen" aria-label="Zo werkt het">
   <div class="stap"><div class="nr">1</div><h2>Adviesgesprek</h2><p>Wij komen bij u thuis, bekijken de woning en luisteren naar wat u wilt. U krijgt een eerlijk antwoord over wat kan.</p></div>
   <div class="stap"><div class="nr">2</div><h2>Ontwerp</h2><p>Wij vertalen uw woning naar één ontwerp voor gevel, dak en kozijnen. U kiest uw pakket, materialen en kleuren.</p></div>
   <div class="stap"><div class="nr">3</div><h2>Uitvoering</h2><p>Vakbedrijven uit uw regio brengen de isolatie aan en vernieuwen dak en kozijnen. Natuursteen en composiet houtlook zetten wij zelf. Wij stemmen de planning af.</p></div>
   <div class="stap"><div class="nr">4</div><h2>Oplevering</h2><p>Samen lopen we alles na, tot in het detail. U ontvangt uw Avant-Garde stijldossier.</p></div>
 </section>
-
+</div>
+<div class="band band-zwart">
 <section class="pakketten" aria-label="De pakketten">
   <div class="eye">De pakketten</div>
   <div class="pk-rij">
@@ -132,6 +153,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 </section>
 
 
+</div>
+<div class="band licht band-wit">
 <section class="vragen" id="vragen" aria-label="Veelgestelde vragen">
   <div class="eye">Veelgestelde vragen</div>
   <h2>Goed om te weten.</h2>
@@ -143,7 +166,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
   <details><summary>Blijven de naden van de isolatieplaten zichtbaar?</summary><p>Nee. Over de isolatie komt een wapeningslaag met net, daarna de crepi. Het resultaat is één doorlopende gevel.</p></details>
   <details><summary>Werken jullie ook in mijn regio?</summary><p>Wij werken in Noord-Brabant en omgeving. Bel of app ons met uw adres, dan kijken we mee.</p></details>
 </section>
-
+</div>
 <section class="uitgang">
   <div class="bg"></div>
   <div class="in">
