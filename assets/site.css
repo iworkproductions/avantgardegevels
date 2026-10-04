@@ -84,3 +84,6 @@ h1,h2,h3,h4{font-family:'Geist',sans-serif;font-weight:400;letter-spacing:-.025e
 .nav.open .links .pil{display:flex;justify-content:center;align-items:center;margin:14px 0 0;min-height:48px;font-size:14px}
 .nav.open .links .pil.lijnpil{display:flex}
 }
+/* rechte hoeken op de hele site; handvatten en vinkjes blijven rond */
+*,*::before,*::after{border-radius:0!important}
+.agc-lijn i,.staal .vink,.keuze .vink{border-radius:50%!important}

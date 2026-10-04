@@ -15,7 +15,7 @@
 <link rel="icon" href="/assets/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=131">
+<link rel="stylesheet" href="/assets/site.css?v=132">
 <link rel="stylesheet" href="/assets/formulier.css?v=7">
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Avant-Garde Gevels","alternateName":"Avant-Garde","slogan":"Duurzaam wonen, in stijl.","description":"Woningrenovatie als één geheel: geïsoleerde gevel in crepi, natuursteen en composiet houtlook, nieuw dak en nieuwe kozijnen. Uitgevoerd door Avant-Garde Partners in de regio.","url":"https://avantgardegevels.nl/","telephone":"+31640506451","email":"info@avantgardegevels.nl","areaServed":{"@type":"State","name":"Noord-Brabant"},"address":{"@type":"PostalAddress","addressRegion":"Noord-Brabant","addressCountry":"NL"}}</script>
@@ -194,6 +194,10 @@
 .materiaal .mat-kaart p{color:rgba(243,237,227,.66)}
 .materiaal .mat-kaart .media{background:#1c1814}
 .materiaal sup{color:rgba(243,237,227,.5)}
+@font-face{font-family:'Corinthia';src:url(/assets/fonts/corinthia.woff2) format('woff2');font-display:swap}
+.werkt .kop h2{max-width:none}
+.werkt .kop h2 .hand{display:block;font-family:'Corinthia',cursive;font-weight:400;font-size:1em;letter-spacing:0;line-height:1.05;white-space:nowrap;margin-top:.12em;color:#211d18}
+@media(max-width:760px){.werkt .kop h2 .hand{white-space:normal;font-size:1.05em}.werkt .kop h2 br{display:none}}
 </style>
 </head>
 <body>
@@ -229,7 +233,7 @@
 
 <!-- 3 · HOE HET WERKT · de belofte in vier feiten -->
 <section class="hfd licht werkt" id="werkt">
-  <div class="kop"><h2>Samen bedenken we het geheel.<br>Specialistisch vakwerk maakt het waar.</h2></div>
+  <div class="kop"><h2>Samen bedenken we<br>het geheel.<span class="hand">Specialistisch vakwerk maakt het waar.</span></h2></div>
   <div class="feiten">
     <div class="feit"><b>Ontwerp en regie</b><p>Avant-Garde ontwerpt uw woning en stemt de planning tussen de vakbedrijven af.</p></div>
     <div class="feit"><b>Vakbedrijven uit uw regio</b><p>Elk onderdeel wordt gemaakt door een specialist uit uw regio. Natuursteen en composiet houtlook zetten wij zelf, met de hand.</p></div>
