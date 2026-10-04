@@ -194,6 +194,8 @@
 .veld-rij{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .veld-rij.kort{grid-template-columns:3fr 2fr}
 .veld-weg{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.adres-ok{margin:-2px 0 12px;font-size:14px;color:#4d6b45}
+.adres-ok::before{content:"\2713  "}
 .kies-fout{min-height:0;margin:2px 0 0;font-size:14px;color:#b4462f}
 .kies-fout:empty{display:none}
 .kies-verder[disabled]{opacity:.5;cursor:wait}
@@ -324,6 +326,8 @@
             <label class="veld"><span>Postcode</span><input name="postcode" autocomplete="postal-code" maxlength="7" required></label>
             <label class="veld"><span>Huisnummer</span><input name="huisnummer" inputmode="text" maxlength="10" required></label>
           </div>
+          <p class="adres-ok" id="adresOk" hidden></p>
+          <label class="veld" id="plaatsVeld" hidden><span>Plaats</span><input name="plaats" autocomplete="address-level2"></label>
           <label class="veld-weg" aria-hidden="true">Laat leeg<input name="website" tabindex="-1" autocomplete="off"></label>
           <p class="kies-fout" id="kiesFout" role="alert"></p>
           <button type="submit" class="kies-verder" id="kiesVerstuur">Verstuur aanvraag</button>
@@ -411,7 +415,7 @@ function gegevens(){
  i=3;stap.textContent='Vraag 4 van 4';balk.style.width='75%';terug.hidden=false;sla.hidden=true;
  scherm.hidden=true;form.hidden=false;
  var t=samen();g('kiesSamen').textContent=t?'Uw keuze: '+t:'';
- setTimeout(function(){form.naam.focus({preventScroll:true});},50);
+ try{form.naam.focus({preventScroll:true});}catch(e){}
 }
 function tally(){
  balk.style.width='100%';
@@ -434,13 +438,36 @@ function check(){
  if(!ok){fout.textContent='Controleer de rood gemarkeerde velden.';eerste.focus();}
  return ok;
 }
+var adres={straat:'',plaats:''},zoek=null,adresP=Promise.resolve();
+function zoekAdres(){
+ var pc=form.postcode.value.replace(/\s/g,'').toUpperCase(),hn=form.huisnummer.value.trim();
+ adres={straat:'',plaats:''};g('adresOk').hidden=true;
+ if(!/^[1-9][0-9]{3}[A-Z]{2}$/.test(pc)||!hn)return;
+ var nr=hn.match(/^\d+/);if(!nr)return toonPlaats();
+ clearTimeout(zoek);adresP=new Promise(function(klaar){zoek=setTimeout(function(){
+  fetch('https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?fq=type:adres&rows=1&fl=straatnaam,woonplaatsnaam,huisnummer&q='+encodeURIComponent('postcode:'+pc+' and huisnummer:'+nr[0]))
+  .then(function(r){return r.json()}).then(function(j){
+   var d=j&&j.response&&j.response.docs&&j.response.docs[0];
+   if(d&&d.woonplaatsnaam){adres={straat:d.straatnaam||'',plaats:d.woonplaatsnaam};
+    g('adresOk').textContent=(adres.straat?adres.straat+' '+hn+', ':'')+adres.plaats;g('adresOk').hidden=false;
+    g('plaatsVeld').hidden=true;form.plaats.required=false;}
+   else toonPlaats();
+  }).catch(toonPlaats).then(klaar);
+ },350);});
+}
+function toonPlaats(){g('plaatsVeld').hidden=false;form.plaats.required=true;}
+form.postcode.addEventListener('input',zoekAdres);form.huisnummer.addEventListener('input',zoekAdres);
 form.addEventListener('input',function(e){if(e.target.classList.contains('fout'))e.target.classList.remove('fout');fout.textContent='';});
 form.addEventListener('submit',function(e){
- e.preventDefault();if(form.website.value)return;if(!check())return;
+ e.preventDefault();if(form.website.value)return;
+ verstuur.disabled=true;
+ adresP.then(function(){verstuur.disabled=false;if(!check())return;verzend();});
+});
+function verzend(){
  verstuur.disabled=true;verstuur.textContent='Bezig met versturen…';
  var q=new URLSearchParams(location.search),d=new URLSearchParams();
  d.append('naam',form.naam.value.trim());d.append('telefoon',form.telefoon.value.trim());d.append('email',form.email.value.trim());
- d.append('postcode',form.postcode.value.trim().toUpperCase());d.append('huisnummer',form.huisnummer.value.trim());
+ d.append('postcode',form.postcode.value.trim().toUpperCase());d.append('huisnummer',form.huisnummer.value.trim());d.append('straat',adres.straat);d.append('plaats',adres.plaats||form.plaats.value.trim());d.append('land','NL');
  vragen.forEach(function(v,n){d.append(v.k,keuze[n].join(', '));});
  d.append('keuzes',samen());d.append('bron','website');d.append('pagina',location.pathname);
  ['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(function(k){if(q.get(k))d.append(k,q.get(k));});
@@ -453,7 +480,7 @@ form.addEventListener('submit',function(e){
   verstuur.disabled=false;verstuur.textContent='Verstuur aanvraag';
   fout.innerHTML='Versturen lukte niet. Probeer het opnieuw of bel <a href="tel:+31640506451">06 40 50 64 51</a>.';
  });
-});
+}
 teken();
 })();
 </script>
