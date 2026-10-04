@@ -1,0 +1,42 @@
+.contact-kaart{background:#fff;border:1px solid rgba(33,29,24,.1);border-radius:16px;padding:34px 34px 22px;box-shadow:0 30px 60px -40px rgba(13,11,9,.35)}
+.kies-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.kies-stap{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a8276}
+.kies-terug{background:none;border:0;padding:0;font:inherit;font-size:14px;color:#5d564d;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.kies-balk{height:3px;background:rgba(33,29,24,.1);border-radius:3px;overflow:hidden}
+.kies-balk i{display:block;height:100%;width:0;background:#211d18;transition:width .35s ease}
+.kies-vraag{font-family:'Geist',sans-serif;font-size:clamp(22px,2.2vw,28px);line-height:1.15;letter-spacing:-.02em;color:#211d18;margin:26px 0 18px}
+.kies-knoppen{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kies-knoppen button{font:inherit;font-size:15px;text-align:left;padding:16px 18px;border-radius:12px;border:1px solid rgba(33,29,24,.18);background:#fff;color:#211d18;cursor:pointer;transition:border-color .2s,background .2s,transform .1s}
+.kies-knoppen button:hover{border-color:#211d18}
+.kies-knoppen button:active{transform:scale(.98)}
+.kies-knoppen button.aan{background:#211d18;color:#f5f1ea;border-color:#211d18}
+.kies-verder{margin-top:16px;width:100%;font:inherit;font-size:15px;padding:15px;border-radius:999px;border:0;background:#211d18;color:#f5f1ea;cursor:pointer}
+.kies-verder.leeg{opacity:.35}
+.kies-samen{font-size:14px;color:#5d564d;margin:0 0 6px;line-height:1.5}
+.kies-samen b{color:#211d18;font-weight:500}
+.kies [hidden],.contact-kaart [hidden]{display:none!important}
+.kies-scherm,.kies-form,.kies-dank{animation:kiesIn .35s ease}
+@keyframes kiesIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kies-form .kies-vraag{margin-bottom:6px}
+.kies-form .kies-samen{margin-bottom:18px}
+.veld{display:block;margin-bottom:12px}
+.veld span{display:block;font-size:12px;letter-spacing:.06em;color:#8a8276;margin-bottom:6px}
+.veld input{width:100%;height:50px;border-radius:12px;border:1px solid rgba(33,29,24,.18);background:#fff;padding:0 14px;font:inherit;font-size:16px;color:#211d18;transition:border-color .2s,box-shadow .2s}
+.veld input:focus{outline:none;border-color:#211d18;box-shadow:0 0 0 3px rgba(33,29,24,.08)}
+.veld input.fout{border-color:#b4462f}
+.veld-rij{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.veld-rij.kort{grid-template-columns:3fr 2fr}
+.veld-weg{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.adres-ok{margin:-2px 0 12px;font-size:14px;color:#4d6b45}
+.adres-ok::before{content:"\2713  "}
+.kies-fout{min-height:0;margin:2px 0 0;font-size:14px;color:#b4462f}
+.kies-fout:empty{display:none}
+.kies-verder[disabled]{opacity:.5;cursor:wait}
+.kies-dank{text-align:center;padding:10px 0 6px}
+.dank-vink svg{width:64px;height:64px;margin:6px auto 0;display:block;fill:none;stroke:#211d18;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dank-vink circle{stroke-dasharray:151;stroke-dashoffset:151;animation:vinkTeken .6s ease forwards}
+.dank-vink path{stroke-dasharray:40;stroke-dashoffset:40;animation:vinkTeken .4s .45s ease forwards}
+@keyframes vinkTeken{to{stroke-dashoffset:0}}
+@media(max-width:560px){.veld-rij{grid-template-columns:1fr;gap:0}.veld-rij.kort{grid-template-columns:3fr 2fr;gap:10px}}
+@media(prefers-reduced-motion:reduce){.kies-scherm,.kies-form,.kies-dank{animation:none}.dank-vink circle,.dank-vink path{animation:none;stroke-dashoffset:0}}
+@media(max-width:560px){.kies-knoppen button{font-size:14px;padding:14px 12px;hyphens:auto;overflow-wrap:anywhere}.contact-kaart{padding:20px 16px 14px}.kies-vraag{margin:20px 0 14px}}

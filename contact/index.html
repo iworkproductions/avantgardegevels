@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=131">
+<link rel="stylesheet" href="/assets/formulier.css?v=1">
 
 <style>
 .c-kop{padding:16vh 8vw 8vh;max-width:1120px}
@@ -49,8 +50,41 @@
 
 <div class="c-grid">
   <div class="c-form">
-    <iframe id="formulier" style="scroll-margin-top:120px" data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Adviesgesprek"></iframe>
-    <p class="form-privacy">Wij gebruiken uw gegevens alleen om contact met u op te nemen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
+    <div class="contact-kaart" id="formulier" style="scroll-margin-top:90px">
+      <div class="kies" id="kies" aria-live="polite">
+        <div class="kies-top"><span class="kies-stap" id="kiesStap">Vraag 1 van 4</span><button type="button" class="kies-terug" id="kiesTerug" hidden>Terug</button></div>
+        <div class="kies-balk"><i id="kiesBalk"></i></div>
+        <div class="kies-scherm" id="kiesScherm">
+          <p class="kies-vraag" id="kiesVraag"></p>
+          <div class="kies-knoppen" id="kiesKnoppen"></div>
+          <button type="button" class="kies-verder" id="kiesVerder" hidden>Verder</button>
+        </div>
+        <form class="kies-form" id="kiesForm" novalidate hidden>
+          <p class="kies-vraag">Waar kunnen we u bereiken?</p>
+          <p class="kies-samen" id="kiesSamen"></p>
+          <div class="veld-rij"><label class="veld"><span>Voornaam</span><input name="voornaam" autocomplete="given-name" required></label><label class="veld"><span>Achternaam</span><input name="achternaam" autocomplete="family-name" required></label></div>
+          <div class="veld-rij">
+            <label class="veld"><span>Telefoon</span><input name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required></label>
+            <label class="veld"><span>E-mail</span><input name="email" type="email" inputmode="email" autocomplete="email" required></label>
+          </div>
+          <div class="veld-rij kort">
+            <label class="veld"><span>Postcode</span><input name="postcode" autocomplete="postal-code" maxlength="7" required></label>
+            <label class="veld"><span>Huisnummer</span><input name="huisnummer" inputmode="text" maxlength="10" required></label>
+          </div>
+          <p class="adres-ok" id="adresOk" hidden></p>
+          <label class="veld" id="plaatsVeld" hidden><span>Plaats</span><input name="plaats" autocomplete="address-level2"></label>
+          <label class="veld-weg" aria-hidden="true">Laat leeg<input name="website" tabindex="-1" autocomplete="off"></label>
+          <p class="kies-fout" id="kiesFout" role="alert"></p>
+          <button type="submit" class="kies-verder" id="kiesVerstuur">Verstuur aanvraag</button>
+        </form>
+        <div class="kies-dank" id="kiesDank" hidden>
+          <div class="dank-vink"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+          <p class="kies-vraag" id="dankKop">Dank u. Uw aanvraag is binnen.</p>
+          <p class="kies-samen">Wij nemen contact met u op om een adviesgesprek bij u thuis te plannen.</p>
+        </div>
+      </div>
+      <p class="form-privacy">Wij gebruiken uw gegevens alleen om contact met u op te nemen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
+    </div>
   </div>
   <div class="c-info">
     <div class="c-blok"><div class="l">Telefoon</div><a href="tel:+31640506451">06 40 50 64 51</a></div>
@@ -73,6 +107,6 @@
   <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/werkwijze/">Werkwijze</a><a href="/subsidie/">Subsidie</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v128 -->
 </footer>
 
-<script async src="https://tally.so/widgets/embed.js"></script>
+<script src="/assets/formulier.js?v=1" defer></script>
 </body>
 </html>
