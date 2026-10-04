@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=134">
-<link rel="stylesheet" href="/assets/formulier.css?v=8">
+<link rel="stylesheet" href="/assets/formulier.css?v=9">
 <link rel="preload" as="image" href="/assets/farm-na.jpg" fetchpriority="high">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Avant-Garde Gevels", "alternateName": "Avant-Garde", "slogan": "Duurzaam wonen, in stijl.", "description": "Gevel, dak en kozijnen vernieuwd als één ontwerp: buitengevelisolatie met crepi, natuursteen en composiet houtlook, een nieuw dak en nieuwe kozijnen, uitgevoerd door ons netwerk van vakmensen. Avant-Garde is ontwerper en bouwregisseur; elk vakbedrijf is de aannemer van zijn eigen onderdeel.", "url": "https://avantgardegevels.nl/", "logo": "https://avantgardegevels.nl/assets/logo-ag-wit.png", "image": "https://avantgardegevels.nl/assets/samenstellen/vrijstaand-12.jpg", "telephone": "+31640506451", "email": "info@avantgardegevels.nl", "areaServed": {"@type": "State", "name": "Noord-Brabant"}, "address": {"@type": "PostalAddress", "addressRegion": "Noord-Brabant", "addressCountry": "NL"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "08:00", "closes": "18:00"}], "knowsAbout": ["Buitengevelisolatie", "Crepi", "Natuursteen gevelbekleding", "Composiet houtlook", "Dakrenovatie", "Kozijnen", "ISDE-subsidie"], "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Pakketten", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Avant-Garde Crepi"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Avant-Garde Look"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Look & Dak"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Avant-Garde Compleet"}}]}}</script>
 <style>
@@ -268,6 +268,7 @@
     <div class="contact-tekst">
       <h2>Vertel ons over<br>uw woning.</h2>
       <p class="contact-lead">Laat uw gegevens achter. Wij nemen contact met u op om een adviesgesprek bij u thuis te plannen.</p>
+      <ul class="contact-zeker"><li>Vrijblijvend adviesgesprek bij u thuis</li><li>Ontwerp en advies kosteloos</li><li>Bereikbaar maandag t/m zaterdag, 08:00–18:00</li></ul>
       <div class="contact-direct">
         <span>Liever direct contact?</span>
         <a href="tel:+31640506451">06 40 50 64 51</a>
@@ -286,17 +287,17 @@
         <form class="kies-form" id="kiesForm" novalidate hidden>
           <p class="kies-vraag">Waar kunnen we u bereiken?</p>
           <p class="kies-samen" id="kiesSamen"></p>
-          <div class="veld-rij"><label class="veld"><span>Voornaam</span><input name="voornaam" autocomplete="given-name" required></label><label class="veld"><span>Achternaam</span><input name="achternaam" autocomplete="family-name" required></label></div>
+          <div class="veld-rij"><label class="veld"><span>Voornaam</span><input placeholder=" " name="voornaam" autocomplete="given-name" required></label><label class="veld"><span>Achternaam</span><input placeholder=" " name="achternaam" autocomplete="family-name" required></label></div>
           <div class="veld-rij">
-            <label class="veld"><span>Telefoon</span><input name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required></label>
-            <label class="veld"><span>E-mail</span><input name="email" type="email" inputmode="email" autocomplete="email" required></label>
+            <label class="veld"><span>Telefoon</span><input placeholder=" " name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required></label>
+            <label class="veld"><span>E-mail</span><input placeholder=" " name="email" type="email" inputmode="email" autocomplete="email" required></label>
           </div>
           <div class="veld-rij kort">
-            <label class="veld"><span>Postcode</span><input name="postcode" autocomplete="postal-code" maxlength="7" required></label>
-            <label class="veld"><span>Huisnummer</span><input name="huisnummer" inputmode="text" maxlength="10" required></label>
+            <label class="veld"><span>Postcode</span><input placeholder=" " name="postcode" autocomplete="postal-code" maxlength="7" required></label>
+            <label class="veld"><span>Huisnummer</span><input placeholder=" " name="huisnummer" inputmode="text" maxlength="10" required></label>
           </div>
           <p class="adres-ok" id="adresOk" hidden></p>
-          <label class="veld" id="plaatsVeld" hidden><span>Plaats</span><input name="plaats" autocomplete="address-level2"></label>
+          <label class="veld" id="plaatsVeld" hidden><span>Plaats</span><input placeholder=" " name="plaats" autocomplete="address-level2"></label>
           <label class="veld-weg" aria-hidden="true">Laat leeg<input name="website" tabindex="-1" autocomplete="off"></label>
           <p class="kies-fout" id="kiesFout" role="alert"></p>
           <button type="submit" class="kies-verder" id="kiesVerstuur">Verstuur aanvraag</button>

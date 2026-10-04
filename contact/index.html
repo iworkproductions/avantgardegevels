@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=134">
-<link rel="stylesheet" href="/assets/formulier.css?v=8">
+<link rel="stylesheet" href="/assets/formulier.css?v=9">
 
 <style>
 .c-kop{padding:16vh 8vw 8vh;max-width:1120px}
@@ -70,17 +70,17 @@
         <form class="kies-form" id="kiesForm" novalidate hidden>
           <p class="kies-vraag">Waar kunnen we u bereiken?</p>
           <p class="kies-samen" id="kiesSamen"></p>
-          <div class="veld-rij"><label class="veld"><span>Voornaam</span><input name="voornaam" autocomplete="given-name" required></label><label class="veld"><span>Achternaam</span><input name="achternaam" autocomplete="family-name" required></label></div>
+          <div class="veld-rij"><label class="veld"><span>Voornaam</span><input placeholder=" " name="voornaam" autocomplete="given-name" required></label><label class="veld"><span>Achternaam</span><input placeholder=" " name="achternaam" autocomplete="family-name" required></label></div>
           <div class="veld-rij">
-            <label class="veld"><span>Telefoon</span><input name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required></label>
-            <label class="veld"><span>E-mail</span><input name="email" type="email" inputmode="email" autocomplete="email" required></label>
+            <label class="veld"><span>Telefoon</span><input placeholder=" " name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required></label>
+            <label class="veld"><span>E-mail</span><input placeholder=" " name="email" type="email" inputmode="email" autocomplete="email" required></label>
           </div>
           <div class="veld-rij kort">
-            <label class="veld"><span>Postcode</span><input name="postcode" autocomplete="postal-code" maxlength="7" required></label>
-            <label class="veld"><span>Huisnummer</span><input name="huisnummer" inputmode="text" maxlength="10" required></label>
+            <label class="veld"><span>Postcode</span><input placeholder=" " name="postcode" autocomplete="postal-code" maxlength="7" required></label>
+            <label class="veld"><span>Huisnummer</span><input placeholder=" " name="huisnummer" inputmode="text" maxlength="10" required></label>
           </div>
           <p class="adres-ok" id="adresOk" hidden></p>
-          <label class="veld" id="plaatsVeld" hidden><span>Plaats</span><input name="plaats" autocomplete="address-level2"></label>
+          <label class="veld" id="plaatsVeld" hidden><span>Plaats</span><input placeholder=" " name="plaats" autocomplete="address-level2"></label>
           <label class="veld-weg" aria-hidden="true">Laat leeg<input name="website" tabindex="-1" autocomplete="off"></label>
           <p class="kies-fout" id="kiesFout" role="alert"></p>
           <button type="submit" class="kies-verder" id="kiesVerstuur">Verstuur aanvraag</button>
