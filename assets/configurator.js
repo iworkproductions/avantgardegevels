@@ -1,8 +1,7 @@
 (function(){
 var root=document.getElementById('agc');if(!root)return;
 var TYPES=[{k:'vrijstaand',n:'Vrijstaand huis',s:'Jaren-tachtig, zadeldak'},{k:'villa',n:'Villa',s:'Breed, met schilddak'},{k:'bungalow',n:'Bungalow',s:'Eén laag, plat dak'},{k:'hoek',n:'Hoekwoning',s:'Einde van een rij'}];
-var st={type:'vrijstaand',gevel:'huidig',dak:'oud',kozijnen:'oud',wp:false,avond:false,verg:false,split:50};
-try{var o=JSON.parse(localStorage.getItem('ag-config-v12')||'null');if(o&&TYPES.some(function(t){return t.k===o.type}))for(var k in o)if(k!=='avond'&&k!=='verg')st[k]=o[k]}catch(e){}
+var st={type:'bungalow',gevel:'huidig',dak:'oud',kozijnen:'oud',wp:false,avond:false,verg:false,split:50};
 var $=function(i){return document.getElementById(i)};
 function nr(s){var b=s.gevel==='huidig'?1:s.gevel==='crepi'?5:9;return b+(s.kozijnen==='nieuw'?1:0)+(s.dak==='nieuw'?2:0)}
 function pad(n){return (n<10?'0':'')+n}
