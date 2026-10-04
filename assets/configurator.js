@@ -25,9 +25,19 @@ function beeld(){
  var p=score();$('agcBalkI').style.width=p+'%';$('agcPct').textContent=p+'%';
  $('agcPk').innerHTML='<span>Uw ontwerp</span> '+pakket();var sp=$('agcSlotPk');if(sp)sp.textContent=pakket();
  [1,5,9,11,12].forEach(function(n){var i=new Image();i.src='/assets/samenstellen/'+st.type+'-'+pad(n)+'.jpg'});
- bewaar();if(window.agcZweef)window.agcZweef();
+ bewaar();slot();if(window.agcZweef)window.agcZweef();
 }
 function optie(g,v,titel,sub,img,plus){var aan=g==='wp'?((v==='ja')===st.wp):st[g]===v;return '<button type="button" class="agc-optie'+(img?'':' tekst')+(aan?' aan':'')+'" data-g="'+g+'" data-v="'+v+'" aria-pressed="'+aan+'">'+(img?'<img src="'+img+'" alt="" loading="lazy">':'')+'<span class="t"><b>'+titel+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span>'+(plus?'<span class="plus">'+plus+'</span>':'')+'</button>'}
+function slot(){
+ var img=document.getElementById('agsImg');if(!img)return;
+ var u=src(st,st.avond);if(img.getAttribute('src')!==u)img.src=u;
+ var t=TYPES.filter(function(x){return x.k===st.type})[0],l=[t.n];
+ if(st.gevel==='crepi')l.push('Crepi');else if(st.gevel==='avant')l.push('Avant-Garde Look');
+ if(st.dak==='nieuw')l.push('Nieuw dak');if(st.kozijnen==='nieuw')l.push('Nieuwe kozijnen');if(st.wp)l.push('Warmtepomp');
+ var p=score();if(p>0)l.push(p+'% duurzaamheidswinst');else l.push('Huidige staat');
+ document.getElementById('agsPakket').textContent=pakket();
+ document.getElementById('agsLabels').innerHTML=l.map(function(x){return '<span>'+x+'</span>'}).join('');
+}
 function keuzes(){
  var k=st.type,h='';
  h+='<div class="agc-blok"><h2>Woning. <span>Welk type heeft u?</span></h2><div class="agc-opties twee">'+TYPES.map(function(t){return optie('type',t.k,t.n,t.s,'/assets/samenstellen/'+t.k+'-01.jpg')}).join('')+'</div></div>';
@@ -45,7 +55,7 @@ $('agcDag').onclick=function(){st.avond=false;beeld()};
 $('agcAvond').onclick=function(){st.avond=true;beeld()};
 $('agcVerg').onclick=function(){st.verg=!st.verg;beeld()};
 $('agcSchuif').oninput=function(){st.split=+this.value;$('agcBeeld').style.setProperty('--split',st.split+'%')};
-var zweef=$('agcZweef');if('IntersectionObserver' in window){var inBeeld=false;window.agcZweef=function(){zweef.classList.toggle('zicht',inBeeld&&(nr(st)>1||st.wp))};new IntersectionObserver(function(e){inBeeld=e[0].isIntersecting;window.agcZweef()},{rootMargin:'-30% 0px -30% 0px'}).observe(root)}else zweef.classList.add('zicht');
+var zweef=$('agcZweef');if('IntersectionObserver' in window){var inBeeld=false;var slotZicht=false;window.agcZweef=function(){zweef.classList.toggle('zicht',inBeeld&&!slotZicht&&(nr(st)>1||st.wp))};var so=document.getElementById('uw-ontwerp');if(so)new IntersectionObserver(function(e){slotZicht=e[0].isIntersecting;window.agcZweef()},{threshold:0}).observe(so);new IntersectionObserver(function(e){inBeeld=e[0].isIntersecting;window.agcZweef()},{rootMargin:'-30% 0px -30% 0px'}).observe(root)}else zweef.classList.add('zicht');
 keuzes();beeld();
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="/#contact"]');if(a&&(root.contains(a)||a.closest('#agcZweef'))){try{sessionStorage.setItem('ag-van-atelier','1')}catch(x){}}},true);
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="/#contact"]');if(a&&(root.contains(a)||a.closest('#agcZweef')||a.closest('#uw-ontwerp'))){try{sessionStorage.setItem('ag-van-atelier','1')}catch(x){}}},true);
 })();

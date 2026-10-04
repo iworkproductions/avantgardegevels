@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=132">
-<link rel="stylesheet" href="/assets/configurator.css?v=5">
+<link rel="stylesheet" href="/assets/configurator.css?v=8">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -319,46 +319,22 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
 
 <!-- SIGNATUUR-MOMENT -->
 <!-- STIJLDOSSIER + FORMULIER -->
-<section class="slot" id="dossier">
-  <div class="slot-grid">
-    <div class="dossier-blok" data-in>
-      <div class="dk-titel">Avant-Garde Stijldossier</div>
-      <div class="dossier-kaart">
-        <div class="dk-beeld"><img src="/assets/finale-villa-avond.jpg" alt="Avant-Garde woning" loading="lazy"></div>
-        <div class="dk-body">
-          <div class="dk-merk"><img src="/assets/logo-ag.png" alt="Avant-Garde Gevels"></div>
-          <div class="ptitel"><span id="d-steen">Atlas</span> <span class="amp">&amp;</span> <span id="d-hout">Evergreen</span></div>
-          <div class="dk-cirkels">
-            <div class="sig-c"><div class="rond"><div class="kleur" id="sig-crepi-b" style="background:#efe9dd"></div></div><div class="l">Crepi</div><div class="v" id="sig-crepi">Warm wit</div></div>
-            <div class="sig-c"><div class="rond"><img id="sig-steen-b" src="/assets/materialen/atlas.jpg" alt=""></div><div class="l">Natuursteen</div><div class="v" id="sig-steen">Atlas</div></div>
-            <div class="sig-c"><div class="rond"><img id="sig-hout-b" src="/assets/materialen/evergreen.jpg" alt=""></div><div class="l">Composiet houtlook</div><div class="v" id="sig-hout">Evergreen</div></div>
-          </div>
-          <div class="dk-verhouding">
-            <div class="dk-balk">
-              <div class="dk-seg" id="dk-bar-crepi" style="flex-basis:60%;background:#e0d7c5"><span id="dk-p-crepi">60%</span></div>
-              <div class="dk-seg" id="dk-bar-steen" style="flex-basis:20%;background:#b8a888"><span id="dk-p-steen">20%</span></div>
-              <div class="dk-seg" id="dk-bar-hout" style="flex-basis:20%;background:#6b4a2e"><span id="dk-p-hout">20%</span></div>
-            </div>
-            <div class="dk-legenda">
-              <span><span class="dot" style="background:#e0d7c5"></span>Crepi</span>
-              <span><span class="dot" style="background:#b8a888"></span><span id="dk-lg-steen">Atlas</span></span>
-              <span><span class="dot" style="background:#6b4a2e"></span><span id="dk-lg-hout">Evergreen</span></span>
-            </div>
-          </div>
-          <div class="dk-naam" id="dk-naam"></div>
-        </div>
-      </div>
+<section class="ags" id="uw-ontwerp">
+  <div class="ags-raster">
+    <div class="ags-links">
+      <div class="ags-beeld"><img id="agsImg" alt="Uw ontwerp"></div>
+      <div class="ags-onder"><small>Uw ontwerp</small><h3 id="agsPakket">Nog geen keuze</h3><div class="ags-labels" id="agsLabels"></div></div>
     </div>
-    <div class="form-kolom" data-in>
-      <div class="eye">Ontvang uw stijldossier</div>
-      <h2>Zie het op<br>uw eigen woning.</h2>
-      <div class="klaar-hint">✓ Uw stijl is compleet — ontvang uw dossier hieronder.</div>
-      <p class="lead">U ontvangt uw stijldossier per mail. Voeg desgewenst twee foto's van uw woning toe; wij bewerken ze in uw gekozen Avant-Garde-look. Daarna plannen wij een vrijblijvend adviesgesprek.</p>
-      <iframe id="tally-embed" data-tally-src="https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde Stijldossier"></iframe>
-      <p class="form-privacy">Wij gebruiken uw gegevens alleen om contact met u op te nemen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
-      <div class="tel">of bel direct <b>06 40 50 64 51</b></div>
+    <div class="ags-rechts">
+      <h2>Uw ontwerp.<br>In het echt.</h2>
+      <p class="ags-lead">Zo gaat het verder.</p>
+      <ol class="ags-stappen">
+        <li><b>Adviesgesprek bij u thuis</b><span>We bekijken samen uw woning en uw wensen.</span></li>
+        <li><b>Ontwerp voor uw eigen woning</b><span>Uw huis, in de stijl die u net koos.</span></li>
+        <li><b>Vaste prijzen per onderdeel</b><span>Zo weet u vooraf waar u aan toe bent.</span></li>
+      </ol>
+      <div class="ags-knoppen"><a class="ags-hoofd" href="/#contact">Plan een adviesgesprek</a><a class="ags-twee" href="/subsidie/">Bereken uw subsidie</a></div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -368,60 +344,11 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
 
 <script>
 (function(){
-var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var g=function(i){return document.getElementById(i)};
-var keuze={crepi:{naam:'Warm wit',kleur:'#efe9dd'},steen:{naam:'Atlas',img:'/assets/materialen/atlas.jpg'},hout:{naam:'Evergreen',img:'/assets/materialen/evergreen.jpg'}};
-var geraakt={crepi:false,steen:false,hout:false};
-
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('[data-in]').forEach(function(el){io.observe(el)});
-
-
-
-window.kies=function(btn){
-  var t=btn.dataset.type;
-  document.querySelectorAll('.staal[data-type="'+t+'"]').forEach(function(o){o.classList.remove('gekozen')});
-  btn.classList.add('gekozen');
-  if(t==='crepi')keuze.crepi={naam:btn.dataset.naam,kleur:btn.dataset.kleur};
-  else keuze[t]={naam:btn.dataset.naam,img:btn.dataset.img};
-  geraakt[t]=true;checkKlaar();
-  update();
-};
-function checkKlaar(){ if(geraakt.crepi&&geraakt.steen&&geraakt.hout){var d=g('dossier');if(d)d.classList.add('klaar');} }
-window.verdeel=function(){
-  var crepi=+g('sl-crepi').value, accent=100-crepi, vd=+g('sl-verdeling').value;
-  var hout=Math.round(accent*vd/100/5)*5, steen=accent-hout;
-  verh={crepi:crepi,steen:steen,hout:hout};
-  g('num-crepi').textContent=crepi+'%'; g('num-verdeling').textContent=steen+'% steen · '+hout+'% houtlook';
-  g('vs-crepi').style.flexBasis=crepi+'%'; g('vs-steen').style.flexBasis=steen+'%'; g('vs-hout').style.flexBasis=hout+'%';
-  g('vs-steen').style.backgroundImage='url('+keuze.steen.img+')'; g('vs-hout').style.backgroundImage='url('+keuze.hout.img+')';
-  g('vs-steen-l').textContent=keuze.steen.naam; g('vs-hout-l').textContent=keuze.hout.naam;
-  g('vs-crepi-p').textContent=crepi+'%'; g('vs-steen-p').textContent=steen+'%'; g('vs-hout-p').textContent=hout+'%';
-  [['vs-crepi',crepi],['vs-steen',steen],['vs-hout',hout]].forEach(function(x){g(x[0]).classList.toggle('leeg',x[1]<15)});
-  g('lg-crepi').textContent=crepi+'%'; g('lg-steen').textContent=steen+'%'; g('lg-hout').textContent=hout+'%'; g('lg-steen-n').textContent=keuze.steen.naam; g('lg-hout-n').textContent=keuze.hout.naam;
-  update();
-};
-var verh={crepi:60,steen:20,hout:20};
-function tallyLink(){
-  var f=g('tally-embed'); if(!f)return;
-  var q='&crepi='+encodeURIComponent(keuze.crepi.naam)+'&steen='+encodeURIComponent(keuze.steen.naam)+'&houtlook='+encodeURIComponent(keuze.hout.naam)+'&verhouding='+encodeURIComponent('Crepi '+verh.crepi+'% · '+keuze.steen.naam+' '+verh.steen+'% · '+keuze.hout.naam+' '+verh.hout+'%');
-  f.setAttribute('data-tally-src','https://tally.so/embed/RGAZKP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'+q);
-}
-function update(){
-  g('d-steen').textContent=keuze.steen.naam; g('d-hout').textContent=keuze.hout.naam;
-  g('sig-crepi').textContent=keuze.crepi.naam; g('sig-crepi-b').style.background=keuze.crepi.kleur;
-  g('sig-steen').textContent=keuze.steen.naam; g('sig-steen-b').src=keuze.steen.img;
-  g('sig-hout').textContent=keuze.hout.naam; g('sig-hout-b').src=keuze.hout.img;
-  g('dk-bar-crepi').style.flexBasis=verh.crepi+'%'; g('dk-bar-steen').style.flexBasis=verh.steen+'%'; g('dk-bar-hout').style.flexBasis=verh.hout+'%';
-  g('dk-p-crepi').textContent=verh.crepi+'%'; g('dk-p-steen').textContent=verh.steen+'%'; g('dk-p-hout').textContent=verh.hout+'%';
-  g('dk-lg-steen').textContent=keuze.steen.naam; g('dk-lg-hout').textContent=keuze.hout.naam;
-  tallyLink();
-}
-update();
 })();
 </script>
-<script async src="https://tally.so/widgets/embed.js"></script>
-<script src="/assets/configurator.js?v=7" defer></script>
+<script src="/assets/configurator.js?v=9" defer></script>
 <script>
 /* Na 1,5 seconde vanzelf naar de samensteller, tenzij de bezoeker zelf al scrolt of klikt */
 (function(){

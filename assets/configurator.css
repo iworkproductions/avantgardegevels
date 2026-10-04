@@ -87,3 +87,31 @@
 .agc-beeld,.agc-optie,.agc-optie img,.agc-opties.twee .agc-optie img,.agc-slot,.agc-slot a,.agc-seg,.agc-seg button,.agc-et,.agc-zweef,.agc-zweef a,.agc-balk,.agc-balk i{border-radius:0!important}
 .agc-optie.aan{box-shadow:inset 0 0 0 1.5px var(--z)}
 .agc-seg{padding:3px}
+
+/* slotblok: uw ontwerp, in het echt */
+.ags{background:#16130f;color:#f3ede3;padding:clamp(64px,11vh,130px) 24px;font-family:'Geist',-apple-system,BlinkMacSystemFont,sans-serif}
+.ags-raster{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,90px);align-items:center}
+.ags-beeld{aspect-ratio:16/10;overflow:hidden;background:#2a241d}
+.ags-beeld img{width:100%;height:100%;object-fit:cover;display:block}
+.ags-onder{margin-top:20px}
+.ags-onder small{font-size:13px;color:rgba(243,237,227,.55)}
+.ags-onder h3{font-weight:400;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.025em;margin:4px 0 14px;color:#f3ede3}
+.ags-labels{display:flex;flex-wrap:wrap;gap:8px}
+.ags-labels span{font-size:13px;padding:7px 12px;border:1px solid rgba(243,237,227,.22);color:rgba(243,237,227,.85)}
+.ags-labels span:last-child{border-color:rgba(143,191,127,.55);color:#b9dcae}
+.ags-rechts h2{font-weight:400;font-size:clamp(40px,5vw,76px);line-height:.98;letter-spacing:-.04em;margin:0;color:#f3ede3}
+.ags-lead{margin:20px 0 0;font-size:17px;color:rgba(243,237,227,.6);font-weight:300}
+.ags-stappen{list-style:none;margin:28px 0 0;padding:0;counter-reset:s}
+.ags-stappen li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;padding:18px 0;border-top:1px solid rgba(243,237,227,.14)}
+.ags-stappen li:last-child{border-bottom:1px solid rgba(243,237,227,.14)}
+.ags-stappen li::before{content:counter(s);grid-row:span 2;font-weight:300;font-size:22px;color:rgba(243,237,227,.45);line-height:1.2}
+.ags-stappen b{font-weight:500;font-size:16px;color:#f3ede3}
+.ags-stappen span{font-size:14px;color:rgba(243,237,227,.6);margin-top:3px;line-height:1.45}
+.ags-knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.ags-knoppen a{text-decoration:none;font-size:15px;padding:16px 24px;transition:background .25s,color .25s}
+.ags-hoofd{background:#f3ede3;color:#16130f}
+.ags-hoofd:hover{background:#fff}
+.ags-twee{border:1px solid rgba(243,237,227,.35);color:#f3ede3}
+.ags-twee:hover{border-color:#f3ede3}
+@media(max-width:900px){.ags-raster{grid-template-columns:1fr;gap:36px}.ags-rechts{order:-1}}
+@media(max-width:560px){.ags{padding:56px 12px 64px}.ags-knoppen a{flex:1 1 100%;text-align:center}}
