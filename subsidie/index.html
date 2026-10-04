@@ -334,6 +334,10 @@ details .inhoud{color:rgba(13,11,9,.78)}
 .toast{background:#16130f;color:#f3ede3}
 @media (pointer:coarse){.voet a,.nav .pil,.nav .menu-knop{position:relative}.voet a::after{content:'';position:absolute;left:-4px;right:-4px;top:-12px;bottom:-12px}.nav .pil::after,.nav .menu-knop::after{content:'';position:absolute;inset:-6px -2px}}
 .hero h1{max-width:none}
+
+/* golden hour: subtiel warmer, echter licht */
+.hero .foto{filter:saturate(1.1) sepia(.1) contrast(1.04) brightness(1.03)}
+.hero .foto::after{content:'';position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(120% 95% at 88% 6%,rgba(255,170,85,.6) 0%,rgba(255,170,85,.2) 42%,rgba(255,170,85,0) 72%),linear-gradient(180deg,rgba(255,190,120,.16),rgba(255,150,80,.1))}
 </style>
 </head>
 <body>
