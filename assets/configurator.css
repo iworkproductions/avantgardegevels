@@ -115,3 +115,11 @@
 .ags-twee:hover{border-color:#f3ede3}
 @media(max-width:900px){.ags-raster{grid-template-columns:1fr;gap:36px}.ags-rechts{order:-1}}
 @media(max-width:560px){.ags{padding:56px 12px 64px}.ags-knoppen a{flex:1 1 100%;text-align:center}}
+@media (pointer:coarse){.agc-seg button{min-height:38px}}
+/* telefoon liggend: beeld en keuzes naast elkaar */
+@media (orientation:landscape) and (max-height:520px) and (max-width:1050px){
+ .agc-raster{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px}
+ .agc-podium{position:sticky;top:64px;margin:0;padding:0;background:none;box-shadow:none}
+ .agc-beeld{aspect-ratio:16/10;max-height:calc(100vh - 120px)}
+ .agc-titel h1{font-size:28px}
+}
