@@ -2,18 +2,18 @@
 var WEBHOOK='https://hook.eu1.make.com/d11l86yufvlnq827fyve9fipe0693gwq';
 var vragen=[
  {k:'vernieuwen',q:'Wat wilt u vernieuwen?',multi:true,o:['Gevel','Dak','Kozijnen','Warmtepomp']},
- {k:'woning',q:'Wat voor woning heeft u?',o:['Vrijstaand','Twee-onder-een-kap','Bungalow','Boerderij']},
+ {k:'woning',q:'Wat voor woning heeft u?',o:['Vrijstaand','Twee-onder-een-kap','Hoekwoning','Bungalow','Boerderij','Anders']},
  {k:'start',q:'Wanneer wilt u starten?',o:['Binnen 3 maanden','Dit jaar','Volgend jaar','Ik oriënteer me']}
 ];
 var g=function(i){return document.getElementById(i)};
 var kies=g('kies');if(!kies)return;
-var i=0,keuze=[[],[],[]],totaal=4;
+var i=0,keuze=[[],[],[]],totaal=4,andersOpen=false;
 var stap=g('kiesStap'),balk=g('kiesBalk'),scherm=g('kiesScherm'),vraag=g('kiesVraag'),knoppen=g('kiesKnoppen'),verder=g('kiesVerder'),terug=g('kiesTerug'),form=g('kiesForm'),fout=g('kiesFout'),verstuur=g('kiesVerstuur');
 var overgenomen='',over=document.createElement('p');over.className='kies-over';over.hidden=true;vraag.parentNode.insertBefore(over,vraag);
 try{if(sessionStorage.getItem('ag-van-atelier')==='1'){sessionStorage.removeItem('ag-van-atelier');
  var c=JSON.parse(localStorage.getItem('ag-config-v12')||'null');
  if(c){var vv=[];if(c.gevel&&c.gevel!=='huidig')vv.push('Gevel');if(c.dak==='nieuw')vv.push('Dak');if(c.kozijnen==='nieuw')vv.push('Kozijnen');if(c.wp)vv.push('Warmtepomp');
-  var w={vrijstaand:'Vrijstaand',villa:'Vrijstaand',bungalow:'Bungalow'}[c.type];
+  var w={vrijstaand:'Vrijstaand',villa:'Vrijstaand',bungalow:'Bungalow',hoek:'Hoekwoning'}[c.type];
   if(vv.length){keuze[0]=vv;i=1;if(w){keuze[1]=[w];i=2;}overgenomen=[vv.join(', '),w].filter(Boolean).join(' · ');}}}}catch(e){}
 function samen(){return keuze.map(function(k){return k.join(', ')}).filter(Boolean).join(' · ')}
 function teken(){
@@ -22,15 +22,18 @@ function teken(){
  stap.textContent='Vraag '+(i+1)+' van '+totaal;balk.style.width=(i/totaal*100)+'%';terug.hidden=i===0;
  vraag.textContent=v.q;knoppen.innerHTML='';
  over.hidden=!(overgenomen&&i>0);if(!over.hidden){over.innerHTML='';var s=document.createElement('span');s.textContent='Uit het Gevelatelier: '+overgenomen;var wz=document.createElement('button');wz.type='button';wz.textContent='Wijzig';wz.onclick=function(){overgenomen='';i=0;teken();};over.appendChild(s);over.appendChild(wz);}
- v.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.textContent=o;if(keuze[i].indexOf(o)>-1)b.className='aan';
+ var eigen=i===1&&keuze[1].length&&v.o.indexOf(keuze[1][0])<0;
+ v.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.textContent=o;if(keuze[i].indexOf(o)>-1||(o==='Anders'&&(eigen||andersOpen)))b.className='aan';
   b.onclick=function(){
    if(v.multi){var p=keuze[i].indexOf(o);if(p>-1)keuze[i].splice(p,1);else keuze[i].push(o);teken();}
-   else{keuze[i]=[o];volgende();}
+   else if(o==='Anders'){andersOpen=true;teken();var a=g('kiesAnders');if(a)a.focus();}
+   else{andersOpen=false;keuze[i]=[o];volgende();}
   };knoppen.appendChild(b);});
- verder.hidden=!v.multi;verder.textContent='Verder';verder.classList.toggle('leeg',v.multi&&!keuze[i].length);
+ if(i===1&&(andersOpen||eigen)){andersOpen=true;var inp=document.createElement('input');inp.id='kiesAnders';inp.className='kies-anders';inp.placeholder='Bijvoorbeeld rijwoning of herenhuis';inp.maxLength=60;inp.value=eigen?keuze[1][0]:'';inp.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();verder.click();}};knoppen.appendChild(inp);}
+ verder.hidden=!(v.multi||(i===1&&andersOpen));verder.textContent='Verder';verder.classList.toggle('leeg',v.multi&&!keuze[i].length);
 }
 function volgende(){if(i<2){i++;teken();}else gegevens();}
-verder.onclick=function(){if(keuze[i].length)volgende();else verder.textContent='Kies er minstens één';};
+verder.onclick=function(){if(i===1&&andersOpen){var t=(g('kiesAnders').value||'').trim().replace(/\s+/g,' ');if(!t){g('kiesAnders').classList.add('fout');g('kiesAnders').focus();return;}keuze[1]=[t];volgende();return;}if(keuze[i].length)volgende();else verder.textContent='Kies er minstens één';};
 terug.onclick=function(){if(!form.hidden){i=2;teken();}else if(i>0){i--;teken();}};
 function gegevens(){
  i=3;stap.textContent='Vraag 4 van 4';balk.style.width='75%';terug.hidden=false;
