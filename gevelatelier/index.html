@@ -244,6 +244,38 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
 /* hele pagina rechte hoeken; alleen de schuifknop en vinkjes blijven rond */
 *,*::before,*::after{border-radius:0!important}
 .agc-lijn i,.staal .vink{border-radius:50%!important}
+
+/* verhouding in de stijl van de configurator */
+.vh2{padding:clamp(56px,9vh,110px) 24px clamp(64px,10vh,120px);border-top:1px solid rgba(33,29,24,.08)}
+.vh2-raster{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(28px,4vw,64px);align-items:center}
+.vh2-beeld{display:flex;aspect-ratio:16/10;overflow:hidden;background:#e7e1d8;box-shadow:0 50px 100px -50px rgba(22,19,15,.45)}
+.vh2-beeld .vseg{position:relative;background-size:cover;background-position:center;transition:flex-basis .7s cubic-bezier(.22,1,.36,1);display:flex;align-items:flex-end;padding:0;min-width:0}
+.vh2-beeld .vseg+.vseg{box-shadow:inset 1px 0 0 rgba(255,255,255,.55)}
+.vh2-beeld .vseg::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0) 55%,rgba(0,0,0,.45))}
+.vh2-beeld .vseg span{position:relative;z-index:2;display:block;padding:0 0 22px 22px;color:#fff;font-size:13px;letter-spacing:.02em;text-transform:none;white-space:nowrap;text-shadow:none}
+.vh2-beeld .vseg span b{display:block;font-weight:300;font-size:clamp(28px,3vw,46px);letter-spacing:-.03em;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.vh2-beeld .vseg span i{font-style:normal}
+.vh2-beeld .vseg.leeg span{opacity:0}
+.vh2-paneel h2{font-weight:400;font-size:24px;letter-spacing:-.02em;line-height:1.2;margin:0 0 30px;color:#16130f}
+.vh2-paneel h2 span{color:#9a9288}
+.vh2-regel{padding:18px 0 20px;border-top:1px solid rgba(22,19,15,.1)}
+.vh2-regel:last-of-type{border-bottom:1px solid rgba(22,19,15,.1)}
+.vh2-kop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.vh2-kop b{font-weight:500;font-size:15px;color:#16130f}
+.vh2-kop .num{font-size:14px;color:#6e675e;font-variant-numeric:tabular-nums}
+.vh2-schaal{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;color:#9a9288}
+.vh2 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:rgba(22,19,15,.18);outline:none;margin:0;cursor:pointer}
+.vh2 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#16130f;border:4px solid #fff;box-shadow:0 0 0 1px #16130f,0 4px 12px rgba(0,0,0,.18);cursor:grab}
+.vh2 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#16130f;border:4px solid #fff;box-shadow:0 0 0 1px #16130f;cursor:grab}
+.vh2 input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 1px #16130f,0 0 0 5px rgba(156,122,74,.35)}
+.vh2-noot{margin:22px 0 0;font-size:13px;line-height:1.55;color:#6e675e}
+@media(max-width:1050px){.vh2-raster{grid-template-columns:1fr;gap:28px}.vh2-beeld{aspect-ratio:16/9}}
+@media(max-width:560px){.vh2{padding:48px 12px 64px}.vh2-beeld .vseg span{padding:0 0 14px 12px;font-size:11px}.vh2-beeld .vseg span b{font-size:22px}.vh2-paneel h2{font-size:21px}}
+.vh2-legenda{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;padding:0 4px;font-size:14px;color:#6e675e}
+.vh2-legenda span{display:inline-flex;align-items:center;gap:8px}
+.vh2-legenda i{width:14px;height:14px;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.vh2-legenda em{font-style:normal}
+.vh2-legenda b{font-weight:500;color:#16130f;font-variant-numeric:tabular-nums}
 </style>
 <!-- build 2026-09-24 19:38 · wit -->
 </head>
@@ -284,19 +316,33 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
 </section>
 
 <!-- DE VERHOUDING · volledige breedte -->
-<section class="verhouding-vol" id="stap-verhouding">
-  <div class="vh-in" data-in>
-    <div class="eye">De balans</div>
-    <h2>Bepaal de verhouding.</h2>
-    <p class="lead">Crepi is de rustige basis. Schuif hoeveel steen en houtlook de gevel mogen accentueren.</p>
-    <div class="vbalk">
-      <div class="vseg" id="vs-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi.jpg)"><span>Crepi</span></div>
-      <div class="vseg" id="vs-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span id="vs-steen-l">Atlas</span></div>
-      <div class="vseg" id="vs-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span id="vs-hout-l">Evergreen</span></div>
+<section class="verhouding-vol vh2" id="stap-verhouding">
+  <div class="vh2-raster">
+    <div class="vh2-links">
+    <div class="vh2-beeld" aria-hidden="true">
+      <div class="vseg" id="vs-crepi" style="flex-basis:60%;background-image:url(/assets/materialen/crepi-textuur.jpg)"><span><b id="vs-crepi-p">60%</b>Crepi</span></div>
+      <div class="vseg" id="vs-steen" style="flex-basis:20%;background-image:url(/assets/materialen/atlas.jpg)"><span><b id="vs-steen-p">20%</b><i id="vs-steen-l">Atlas</i></span></div>
+      <div class="vseg" id="vs-hout" style="flex-basis:20%;background-image:url(/assets/materialen/evergreen.jpg)"><span><b id="vs-hout-p">20%</b><i id="vs-hout-l">Evergreen</i></span></div>
     </div>
-    <div class="vregelaars">
-      <div class="vregel"><div class="vkop"><span>Crepi — de basis</span><span class="num" id="num-crepi">60%</span></div><input type="range" id="sl-crepi" min="60" max="80" value="60" step="5" oninput="verdeel()"></div>
-      <div class="vregel"><div class="vkop"><span>Accent — steen ↔ houtlook</span><span class="num" id="num-verdeling">20% steen · 20% houtlook</span></div><input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()"></div>
+    <div class="vh2-legenda" aria-live="polite">
+      <span><i style="background-image:url(/assets/materialen/crepi-textuur.jpg)"></i>Crepi <b id="lg-crepi">60%</b></span>
+      <span><i id="lg-steen-i" style="background-image:url(/assets/materialen/atlas.jpg)"></i><em id="lg-steen-n">Atlas</em> <b id="lg-steen">20%</b></span>
+      <span><i id="lg-hout-i" style="background-image:url(/assets/materialen/evergreen.jpg)"></i><em id="lg-hout-n">Evergreen</em> <b id="lg-hout">20%</b></span>
+    </div>
+    </div>
+    <div class="vh2-paneel">
+      <h2>Verhouding. <span>Hoeveel accent krijgt uw gevel?</span></h2>
+      <div class="vh2-regel">
+        <div class="vh2-kop"><b>Crepi</b><span class="num" id="num-crepi">60%</span></div>
+        <input type="range" id="sl-crepi" min="60" max="80" value="60" step="5" oninput="verdeel()" aria-label="Aandeel crepi">
+        <div class="vh2-schaal"><span>60%</span><span>80%</span></div>
+      </div>
+      <div class="vh2-regel">
+        <div class="vh2-kop"><b>Accent</b><span class="num" id="num-verdeling">20% steen · 20% houtlook</span></div>
+        <input type="range" id="sl-verdeling" min="0" max="100" value="50" step="10" oninput="verdeel()" aria-label="Verdeling natuursteen en houtlook">
+        <div class="vh2-schaal"><span>Meer natuursteen</span><span>Meer houtlook</span></div>
+      </div>
+      <p class="vh2-noot">In elk Avant-Garde ontwerp is crepi de rustige basis: altijd minimaal 60% van de gevel. De rest verdeelt u tussen natuursteen en composiet houtlook.</p>
     </div>
   </div>
 </section>
@@ -380,6 +426,9 @@ window.verdeel=function(){
   g('vs-crepi').style.flexBasis=crepi+'%'; g('vs-steen').style.flexBasis=steen+'%'; g('vs-hout').style.flexBasis=hout+'%';
   g('vs-steen').style.backgroundImage='url('+keuze.steen.img+')'; g('vs-hout').style.backgroundImage='url('+keuze.hout.img+')';
   g('vs-steen-l').textContent=keuze.steen.naam; g('vs-hout-l').textContent=keuze.hout.naam;
+  g('vs-crepi-p').textContent=crepi+'%'; g('vs-steen-p').textContent=steen+'%'; g('vs-hout-p').textContent=hout+'%';
+  [['vs-crepi',crepi],['vs-steen',steen],['vs-hout',hout]].forEach(function(x){g(x[0]).classList.toggle('leeg',x[1]<15)});
+  g('lg-crepi').textContent=crepi+'%'; g('lg-steen').textContent=steen+'%'; g('lg-hout').textContent=hout+'%'; g('lg-steen-n').textContent=keuze.steen.naam; g('lg-hout-n').textContent=keuze.hout.naam;
   update();
 };
 var verh={crepi:60,steen:20,hout:20};
