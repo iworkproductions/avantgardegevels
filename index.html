@@ -164,6 +164,24 @@
 .contact-direct a:hover{text-decoration:underline;text-underline-offset:4px}
 .contact-kaart{background:#fff;border:1px solid rgba(33,29,24,.1);border-radius:16px;padding:34px 34px 22px;box-shadow:0 30px 60px -40px rgba(13,11,9,.35)}
 .contact-kaart iframe{display:block}
+.kies-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.kies-stap{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a8276}
+.kies-terug,.kies-sla{background:none;border:0;padding:0;font:inherit;font-size:14px;color:#5d564d;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.kies-balk{height:3px;background:rgba(33,29,24,.1);border-radius:3px;overflow:hidden}
+.kies-balk i{display:block;height:100%;width:0;background:#211d18;transition:width .35s ease}
+.kies-vraag{font-family:'Geist',sans-serif;font-size:clamp(22px,2.2vw,28px);line-height:1.15;letter-spacing:-.02em;color:#211d18;margin:26px 0 18px}
+.kies-knoppen{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kies-knoppen button{font:inherit;font-size:15px;text-align:left;padding:16px 18px;border-radius:12px;border:1px solid rgba(33,29,24,.18);background:#fff;color:#211d18;cursor:pointer;transition:border-color .2s,background .2s,transform .1s}
+.kies-knoppen button:hover{border-color:#211d18}
+.kies-knoppen button:active{transform:scale(.98)}
+.kies-knoppen button.aan{background:#211d18;color:#f5f1ea;border-color:#211d18}
+.kies-verder{margin-top:16px;width:100%;font:inherit;font-size:15px;padding:15px;border-radius:999px;border:0;background:#211d18;color:#f5f1ea;cursor:pointer}
+.kies-verder.leeg{opacity:.35}
+.kies-sla{display:block;margin:18px auto 0}
+.kies-samen{font-size:14px;color:#5d564d;margin:0 0 6px;line-height:1.5}
+.kies-samen b{color:#211d18;font-weight:500}
+@media(max-width:560px){.kies-knoppen{grid-template-columns:1fr}}
+
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:44px}.contact-kaart{padding:24px 20px 16px}}
 .cf{display:grid;gap:12px}
 .cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -261,7 +279,18 @@
       </div>
     </div>
     <div class="contact-kaart">
-      <iframe data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde adviesgesprek"></iframe>
+      <div class="kies" id="kies" aria-live="polite">
+        <div class="kies-top"><span class="kies-stap" id="kiesStap">Vraag 1 van 3</span><button type="button" class="kies-terug" id="kiesTerug" hidden>Terug</button></div>
+        <div class="kies-balk"><i id="kiesBalk"></i></div>
+        <p class="kies-vraag" id="kiesVraag"></p>
+        <div class="kies-knoppen" id="kiesKnoppen"></div>
+        <button type="button" class="kies-verder" id="kiesVerder" hidden>Verder</button>
+        <button type="button" class="kies-sla" id="kiesSla">Direct naar uw gegevens</button>
+      </div>
+      <div class="kies-klaar" id="kiesKlaar" hidden>
+        <p class="kies-samen" id="kiesSamen"></p>
+        <iframe id="tallyForm" data-src-basis="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="420" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde adviesgesprek"></iframe>
+      </div>
       <p class="form-privacy">Wij gebruiken uw gegevens alleen om contact met u op te nemen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
     </div>
   </div>
@@ -299,6 +328,46 @@ function scene(){
 }
 var tick=false;function scroll(){if(tick)return;tick=true;requestAnimationFrame(function(){scene();tick=false;});}
 window.addEventListener('scroll',scroll,{passive:true,capture:true});window.addEventListener('resize',scroll);scroll();
+})();
+</script>
+<script>
+(function(){
+var vragen=[
+ {k:'vernieuwen',q:'Wat wilt u vernieuwen?',multi:true,o:['Gevel','Dak','Kozijnen','Warmtepomp']},
+ {k:'woning',q:'Wat voor woning heeft u?',o:['Vrijstaand','Twee-onder-een-kap','Bungalow','Boerderij']},
+ {k:'start',q:'Wanneer wilt u starten?',o:['Binnen 3 maanden','Dit jaar','Volgend jaar','Ik oriënteer me']}
+];
+var g=function(i){return document.getElementById(i)};
+var kies=g('kies');if(!kies)return;
+var i=0,keuze=[[],[],[]];
+var stap=g('kiesStap'),balk=g('kiesBalk'),vraag=g('kiesVraag'),knoppen=g('kiesKnoppen'),verder=g('kiesVerder'),terug=g('kiesTerug'),sla=g('kiesSla');
+function teken(){
+ var v=vragen[i];
+ stap.textContent='Vraag '+(i+1)+' van 3';balk.style.width=(i/3*100)+'%';terug.hidden=i===0;
+ vraag.textContent=v.q;knoppen.innerHTML='';
+ v.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.textContent=o;if(keuze[i].indexOf(o)>-1)b.className='aan';
+  b.onclick=function(){
+   if(v.multi){var p=keuze[i].indexOf(o);if(p>-1)keuze[i].splice(p,1);else keuze[i].push(o);teken();}
+   else{keuze[i]=[o];volgende();}
+  };knoppen.appendChild(b);});
+ verder.hidden=!v.multi;verder.textContent='Verder';verder.classList.toggle('leeg',v.multi&&!keuze[i].length);
+}
+function volgende(){if(i<2){i++;teken();}else klaar();}
+verder.onclick=function(){if(keuze[i].length)volgende();else verder.textContent='Kies er minstens één';};
+terug.onclick=function(){if(i>0){i--;teken();}};
+sla.onclick=function(){klaar();};
+function klaar(){
+ balk.style.width='100%';
+ var tekst=keuze.map(function(k){return k.join(', ')}).filter(Boolean).join(' · ');
+ var f=g('tallyForm'),url=f.getAttribute('data-src-basis');
+ if(tekst)url+='&keuzes='+encodeURIComponent(tekst);
+ vragen.forEach(function(v,n){if(keuze[n].length)url+='&'+v.k+'='+encodeURIComponent(keuze[n].join(', '));});
+ g('kiesSamen').innerHTML=tekst?'Uw keuze: <b>'+tekst.replace(/</g,'')+'</b>':'';
+ kies.hidden=true;g('kiesKlaar').hidden=false;
+ f.setAttribute('data-tally-src',url);
+ if(window.Tally&&Tally.loadEmbeds)Tally.loadEmbeds();else f.src=url;
+}
+teken();
 })();
 </script>
 <script async src="https://tally.so/widgets/embed.js"></script>
