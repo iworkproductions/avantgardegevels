@@ -317,7 +317,7 @@
         <form class="kies-form" id="kiesForm" novalidate hidden>
           <p class="kies-vraag">Waar kunnen we u bereiken?</p>
           <p class="kies-samen" id="kiesSamen"></p>
-          <label class="veld"><span>Naam</span><input name="naam" autocomplete="name" required></label>
+          <div class="veld-rij"><label class="veld"><span>Voornaam</span><input name="voornaam" autocomplete="given-name" required></label><label class="veld"><span>Achternaam</span><input name="achternaam" autocomplete="family-name" required></label></div>
           <div class="veld-rij">
             <label class="veld"><span>Telefoon</span><input name="telefoon" type="tel" inputmode="tel" autocomplete="tel" required></label>
             <label class="veld"><span>E-mail</span><input name="email" type="email" inputmode="email" autocomplete="email" required></label>
@@ -415,7 +415,7 @@ function gegevens(){
  i=3;stap.textContent='Vraag 4 van 4';balk.style.width='75%';terug.hidden=false;sla.hidden=true;
  scherm.hidden=true;form.hidden=false;
  var t=samen();g('kiesSamen').textContent=t?'Uw keuze: '+t:'';
- try{form.naam.focus({preventScroll:true});}catch(e){}
+ try{form.voornaam.focus({preventScroll:true});}catch(e){}
 }
 function tally(){
  balk.style.width='100%';
@@ -466,13 +466,13 @@ form.addEventListener('submit',function(e){
 function verzend(){
  verstuur.disabled=true;verstuur.textContent='Bezig met versturen…';
  var q=new URLSearchParams(location.search),d=new URLSearchParams();
- d.append('naam',form.naam.value.trim());d.append('telefoon',form.telefoon.value.trim());d.append('email',form.email.value.trim());
+ var vn=form.voornaam.value.trim().replace(/\s+/g,' '),an=form.achternaam.value.trim().replace(/\s+/g,' ');
+ d.append('naam',(vn+' '+an).trim());d.append('voornaam',vn);d.append('achternaam',an);d.append('telefoon',form.telefoon.value.trim());d.append('email',form.email.value.trim());
  var pcN=form.postcode.value.replace(/\s/g,'').toUpperCase();d.append('postcode',pcN.slice(0,4)+' '+pcN.slice(4));d.append('huisnummer',form.huisnummer.value.trim());d.append('straat',adres.straat);d.append('plaats',adres.plaats||form.plaats.value.trim());d.append('land','NL');
  vragen.forEach(function(v,n){d.append(v.k,keuze[n].join(', '));});
  d.append('keuzes',samen());d.append('bron','Website');d.append('pagina',location.pathname);
  ['utm_source','utm_medium','utm_campaign','utm_content','fbclid'].forEach(function(k){d.append(k,q.get(k)||'');});
  fetch(WEBHOOK,{method:'POST',body:d}).then(function(r){if(!r.ok)throw new Error('status '+r.status);
-  var vn=form.naam.value.trim().split(' ')[0];
   g('dankKop').textContent=(vn?'Dank u, '+vn+'. ':'Dank u. ')+'Uw aanvraag is binnen.';
   form.hidden=true;g('kiesDank').hidden=false;stap.textContent='Verstuurd';balk.style.width='100%';terug.hidden=true;
   if(window.fbq)fbq('track','Lead');
