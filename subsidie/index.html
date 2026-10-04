@@ -332,7 +332,7 @@ details .inhoud{color:rgba(13,11,9,.78)}
 .teller .som{color:#f3ede3}
 .teller .x2{background:#4f7a45!important;color:#fff!important}
 .toast{background:#16130f;color:#f3ede3}
-@media (pointer:coarse){.voet a{display:inline-flex;align-items:center;min-height:44px}.nav .pil,.nav .menu-knop{min-height:40px}}
+@media (pointer:coarse){.voet a,.nav .pil,.nav .menu-knop{position:relative}.voet a::after{content:'';position:absolute;left:-4px;right:-4px;top:-12px;bottom:-12px}.nav .pil::after,.nav .menu-knop::after{content:'';position:absolute;inset:-6px -2px}}
 </style>
 </head>
 <body>

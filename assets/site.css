@@ -87,10 +87,9 @@ h1,h2,h3,h4{font-family:'Geist',sans-serif;font-weight:400;letter-spacing:-.025e
 /* rechte hoeken op de hele site; handvatten en vinkjes blijven rond */
 *,*::before,*::after{border-radius:0!important}
 .agc-lijn i,.staal .vink,.keuze .vink{border-radius:50%!important}
-/* grotere tikvlakken op touchscreens */
+/* grotere tikvlakken op touchscreens, zonder dat het er anders uitziet */
 @media (pointer:coarse){
-.voet a{display:inline-flex;align-items:center;min-height:44px}
-.contact-direct a,.c-blok a{display:inline-flex;align-items:center;min-height:44px}
-.link{padding:12px 0}
-.nav .pil,.menu-knop{min-height:40px}
+.voet a,.contact-direct a,.c-blok a,.link,.nav .pil,.menu-knop{position:relative}
+.voet a::after,.contact-direct a::after,.c-blok a::after,.link::after{content:'';position:absolute;left:-4px;right:-4px;top:-12px;bottom:-12px}
+.nav .pil::after,.menu-knop::after{content:'';position:absolute;inset:-6px -2px}
 }
