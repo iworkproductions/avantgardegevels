@@ -48,4 +48,5 @@ $('agcVerg').onclick=function(){st.verg=!st.verg;beeld()};
 $('agcSchuif').oninput=function(){st.split=+this.value;$('agcBeeld').style.setProperty('--split',st.split+'%')};
 var zweef=$('agcZweef');if('IntersectionObserver' in window){var inBeeld=false;window.agcZweef=function(){zweef.classList.toggle('zicht',inBeeld&&(nr(st)>1||st.wp))};new IntersectionObserver(function(e){inBeeld=e[0].isIntersecting;window.agcZweef()},{rootMargin:'-30% 0px -30% 0px'}).observe(root)}else zweef.classList.add('zicht');
 keuzes();beeld();
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="/#contact"]');if(a&&(root.contains(a)||a.closest('#agcZweef'))){try{sessionStorage.setItem('ag-van-atelier','1')}catch(x){}}},true);
 })();

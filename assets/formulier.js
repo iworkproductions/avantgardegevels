@@ -9,12 +9,19 @@ var g=function(i){return document.getElementById(i)};
 var kies=g('kies');if(!kies)return;
 var i=0,keuze=[[],[],[]],totaal=4;
 var stap=g('kiesStap'),balk=g('kiesBalk'),scherm=g('kiesScherm'),vraag=g('kiesVraag'),knoppen=g('kiesKnoppen'),verder=g('kiesVerder'),terug=g('kiesTerug'),form=g('kiesForm'),fout=g('kiesFout'),verstuur=g('kiesVerstuur');
+var overgenomen='',over=document.createElement('p');over.className='kies-over';over.hidden=true;vraag.parentNode.insertBefore(over,vraag);
+try{if(sessionStorage.getItem('ag-van-atelier')==='1'){sessionStorage.removeItem('ag-van-atelier');
+ var c=JSON.parse(localStorage.getItem('ag-config-v12')||'null');
+ if(c){var vv=[];if(c.gevel&&c.gevel!=='huidig')vv.push('Gevel');if(c.dak==='nieuw')vv.push('Dak');if(c.kozijnen==='nieuw')vv.push('Kozijnen');if(c.wp)vv.push('Warmtepomp');
+  var w={vrijstaand:'Vrijstaand',villa:'Vrijstaand',bungalow:'Bungalow'}[c.type];
+  if(vv.length){keuze[0]=vv;i=1;if(w){keuze[1]=[w];i=2;}overgenomen=[vv.join(', '),w].filter(Boolean).join(' · ');}}}}catch(e){}
 function samen(){return keuze.map(function(k){return k.join(', ')}).filter(Boolean).join(' · ')}
 function teken(){
  form.hidden=true;scherm.hidden=false;
  var v=vragen[i];
  stap.textContent='Vraag '+(i+1)+' van '+totaal;balk.style.width=(i/totaal*100)+'%';terug.hidden=i===0;
  vraag.textContent=v.q;knoppen.innerHTML='';
+ over.hidden=!(overgenomen&&i>0);if(!over.hidden){over.innerHTML='';var s=document.createElement('span');s.textContent='Uit het Gevelatelier: '+overgenomen;var wz=document.createElement('button');wz.type='button';wz.textContent='Wijzig';wz.onclick=function(){overgenomen='';i=0;teken();};over.appendChild(s);over.appendChild(wz);}
  v.o.forEach(function(o){var b=document.createElement('button');b.type='button';b.textContent=o;if(keuze[i].indexOf(o)>-1)b.className='aan';
   b.onclick=function(){
    if(v.multi){var p=keuze[i].indexOf(o);if(p>-1)keuze[i].splice(p,1);else keuze[i].push(o);teken();}
