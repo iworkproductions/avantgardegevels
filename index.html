@@ -154,9 +154,17 @@
 @media(max-width:760px){.finale-in{left:6vw;right:6vw;bottom:8vh}}
 
 /* ---------- contact ---------- */
-.contact{padding:18vh 8vw 16vh}
-.contact-in{max-width:640px}
-.contact h2{font-size:clamp(36px,4.6vw,72px);line-height:1;margin-bottom:40px}
+.contact{padding:16vh 8vw 14vh}
+.contact-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:6vw;align-items:start;max-width:1240px}
+.contact h2{font-size:clamp(36px,4.6vw,72px);line-height:1;margin-bottom:28px}
+.contact-lead{font-size:17px;line-height:1.6;color:#5d564d;max-width:34ch}
+.contact-direct{margin-top:44px;padding-top:22px;border-top:1px solid rgba(33,29,24,.15);display:grid;gap:8px;font-size:15px}
+.contact-direct span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8a8276}
+.contact-direct a{color:#211d18;text-decoration:none}
+.contact-direct a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-kaart{background:#fff;border:1px solid rgba(33,29,24,.1);border-radius:16px;padding:34px 34px 22px;box-shadow:0 30px 60px -40px rgba(13,11,9,.35)}
+.contact-kaart iframe{display:block}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:44px}.contact-kaart{padding:24px 20px 16px}}
 .cf{display:grid;gap:12px}
 .cf .twee{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cf input,.cf textarea{width:100%;min-height:52px;background:transparent;border:0;border-bottom:1px solid rgba(33,29,24,.25);color:#211d18;padding:14px 0;font-family:'Geist',sans-serif;font-size:16px;transition:border-color .25s;border-radius:0}
@@ -180,7 +188,7 @@
 </head>
 <body>
 
-<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav></div>
+<div class="nav"><a class="merk" href="/" aria-label="Avant-Garde Gevels, home"><img src="/assets/logo-ag-wit.png" alt="Avant-Garde Gevels"></a><nav class="links"><a href="/werkwijze/">Werkwijze</a><a href="/contact/">Contact</a><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="pil lijnpil" href="/subsidie/">Subsidiecheck</a></nav></div>
 
 <div class="intro" id="intro"><img src="/assets/logo-ag.png" alt="Avant-Garde" class="intro-logo"></div>
 
@@ -209,43 +217,13 @@
   </div>
 </section>
 
-<!-- 2 · DE WONING · één huis, vijf niveaus. Laat zien dat Avant-Garde meer doet dan de gevel, en legt de pakketnamen uit. -->
-<section class="hfd woning" id="woning" aria-labelledby="woning-kop">
-  <div class="kop"><h2 id="woning-kop">Een nieuw huis.<br>Zonder te verhuizen.</h2></div>
-  <div class="w-scene" id="wscene">
-    <div class="w-plak">
-      <div class="w-beeld" id="wbeeld">
-        <img src="/assets/samenstellen/vrijstaand-01.jpg" alt="Vrijstaande woning in de huidige staat, rode baksteen en oude kozijnen">
-        <img src="/assets/samenstellen/vrijstaand-05.jpg" alt="Dezelfde woning met een nieuwe gevel in crepi" loading="lazy">
-        <img src="/assets/samenstellen/vrijstaand-09.jpg" alt="Dezelfde woning in de Avant-Garde Look: crepi, natuursteen en composiet houtlook" loading="lazy">
-        <img src="/assets/samenstellen/vrijstaand-11.jpg" alt="Dezelfde woning in de Avant-Garde Look met een nieuw antraciet dak" loading="lazy">
-        <img src="/assets/samenstellen/vrijstaand-12.jpg" alt="Dezelfde woning compleet vernieuwd: gevel, dak en nieuwe kozijnen" loading="lazy">
-        <img src="/assets/samenstellen/vrijstaand-avond.jpg" alt="De compleet vernieuwde woning bij avond" loading="lazy">
-        <div class="w-label" id="wlabel" aria-live="polite">Zoals hij nu staat</div>
-      </div>
-      
-      <div class="w-tekst">
-        <div class="w-balk" aria-hidden="true" style="margin:0 0 18px"><i id="wbalk"></i></div>
-        <ol class="w-lijst" id="wlijst">
-          <li class="aan"><button data-i="0"><b>Zoals hij nu staat</b><span>Een degelijk huis, maar koud, gedateerd en toe aan onderhoud.</span></button></li>
-          <li><button data-i="1"><b>Avant-Garde Crepi</b><span>Een nieuwe, geïsoleerde buitenschil in crepi. Warmer binnen, strak buiten.</span></button></li>
-          <li><button data-i="2"><b>Avant-Garde Look</b><span>Crepi met accenten in natuursteen en composiet houtlook. Het handschrift van Avant-Garde.</span></button></li>
-          <li><button data-i="3"><b>Look &amp; Dak</b><span>Daarbij een compleet nieuw dak, in pannen of riet, inclusief de schoorsteen.</span></button></li>
-          <li><button data-i="4"><b>Avant-Garde Compleet</b><span>Gevel, dak én nieuwe kozijnen met voordeur. Eén plan, één keer de steiger.</span></button></li>
-        </ol>
-        <div class="w-uit"><a class="pil" href="/gevelatelier/#start">Ontwerp uw woning</a><a class="lijn" href="/subsidie/">Subsidiecheck</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 3 · HOE HET WERKT · de belofte in vier feiten -->
 <section class="hfd werkt" id="werkt">
   <div class="kop"><h2>Wij ontwerpen.<br>Vakmensen uit uw regio bouwen.</h2></div>
   <div class="feiten">
-    <div class="feit"><b>Eén aanspreekpunt</b><p>Van het eerste gesprek tot de oplevering houdt Avant-Garde het overzicht. U hoeft niet zelf met losse partijen te schakelen.</p></div>
-    <div class="feit"><b>Een Avant-Garde Partner bij u in de buurt</b><p>Het werk wordt uitgevoerd door een vakbedrijf uit uw regio dat met ons ontwerp en onze werkwijze werkt.</p></div>
-    <div class="feit"><b>Eén prijs na de inmeting</b><p>Wij komen bij u thuis, meten in en geven u één duidelijke prijs voor het hele plan.</p></div>
+    <div class="feit"><b>Ontwerp en regie</b><p>Avant-Garde ontwerpt uw woning en stemt de planning tussen de vakbedrijven af.</p></div>
+    <div class="feit"><b>Vakbedrijven uit uw regio</b><p>Elk onderdeel wordt gemaakt door een specialist uit uw regio. Natuursteen en composiet houtlook zetten wij zelf, met de hand.</p></div>
+    <div class="feit"><b>Heldere afspraken</b><p>Elk vakbedrijf meet exact in en geeft een vaste prijs voor zijn onderdeel. U tekent rechtstreeks met ieder vakbedrijf.</p></div>
     <div class="feit"><b>Subsidie meegenomen</b><p>Isolatie, dak en kozijnen kunnen in aanmerking komen voor subsidie. <a href="/subsidie/">Doe de subsidiecheck</a>.</p></div>
   </div>
   <div class="stappen-uit"><a class="link" href="/werkwijze/">Alles over de werkwijze</a></div>
@@ -258,17 +236,6 @@
     <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi van dichtbij" loading="lazy"></div><b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60% van de gevel.<sup>1</sup></p></figure>
     <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen van dichtbij" loading="lazy"></div><b>Natuursteen</b><p>Het accent dat de woning aardt. Met de hand gezet.</p></figure>
     <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook van dichtbij" loading="lazy"></div><b>Composiet houtlook</b><p>De warmte van hout, zonder schilderwerk.<sup>2</sup></p></figure>
-  </div>
-  <div class="mat-uit"><a class="link" href="/collectie/">Bekijk de collectie</a></div>
-</section>
-
-<!-- 5 · PROJECTEN · pakketnaam per woningtype -->
-<section class="hfd projecten" id="projecten">
-  <div class="kop"><h2>Gebouwd om<br>gezien te worden.</h2></div>
-  <div class="p-grid">
-    <figure class="p-kaart groot"><img src="/assets/project-entree-avond.jpg" alt="Villa met Avant-Garde Compleet: crepi, natuursteen en composiet houtlook bij avond" loading="lazy"><figcaption><b>Avant-Garde Compleet</b><span>De Villa</span></figcaption></figure>
-    <figure class="p-kaart"><img src="/assets/project-boerderij.jpg" alt="Boerderij met Look &amp; Dak" loading="lazy"><figcaption><b>Look &amp; Dak</b><span>De Boerderij</span></figcaption></figure>
-    <figure class="p-kaart"><img src="/assets/bungalow-na.jpg" alt="Bungalow in de Avant-Garde Look" loading="lazy"><figcaption><b>Avant-Garde Look</b><span>De Bungalow</span></figcaption></figure>
   </div>
 </section>
 
@@ -283,11 +250,20 @@
 
 <!-- 8 · CONTACT -->
 <section class="contact licht" id="contact">
-  <div class="contact-in">
-    <h2>Vertel ons over<br>uw woning.</h2>
-    <iframe data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde adviesgesprek"></iframe>
-    <p class="form-privacy">Wij gebruiken uw gegevens alleen om contact met u op te nemen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
-    <p class="contact-of">of bel <a href="tel:+31640506451">06 40 50 64 51</a></p>
+  <div class="contact-grid">
+    <div class="contact-tekst">
+      <h2>Vertel ons over<br>uw woning.</h2>
+      <p class="contact-lead">Laat uw gegevens achter. Wij nemen contact met u op om een adviesgesprek bij u thuis te plannen.</p>
+      <div class="contact-direct">
+        <span>Liever direct contact?</span>
+        <a href="tel:+31640506451">06 40 50 64 51</a>
+        <a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a>
+      </div>
+    </div>
+    <div class="contact-kaart">
+      <iframe data-tally-src="https://tally.so/embed/vGl0Dg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="560" frameborder="0" marginheight="0" marginwidth="0" title="Avant-Garde adviesgesprek"></iframe>
+      <p class="form-privacy">Wij gebruiken uw gegevens alleen om contact met u op te nemen. Lees onze <a href="/privacy/">privacyverklaring</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -297,7 +273,7 @@
     <li>In elk Avant-Garde ontwerp vormt crepi minimaal 60% van het gevelvlak; de verhouding natuursteen en composiet houtlook bepaalt u zelf binnen de overige 40%.</li>
     <li>Composiet houtlook vraagt geen schilder- of oliewerk. Periodiek reinigen met water wordt aanbevolen, zoals bij elke gevel.</li>
   </ol>
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/collectie/">Collectie</a><a href="/werkwijze/">Werkwijze</a><a href="/subsidie/">Subsidie</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v129 -->
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/werkwijze/">Werkwijze</a><a href="/subsidie/">Subsidie</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v129 -->
 </footer>
 
 <script>
@@ -321,32 +297,6 @@ function scene(){
   var k=1-kl(p,.12,.34);heroin.style.opacity=k;heroin.style.transform='translate3d(0,'+(-24*(1-k))+'px,0)';
   var n=regels.length;regels.forEach(function(el,i){var a=.26+.6*i/n,f=kl(p,a,a+.12);el.style.opacity=f;el.style.transform='translate3d(0,'+(20*(1-f))+'px,0)';});
 }
-/* 2: de woning verandert vanzelf zodra hij in beeld is; klikken neemt het over */
-var ws=g('wscene'),beelden=g('wbeeld').querySelectorAll('img'),items=g('wlijst').querySelectorAll('li'),label=g('wlabel'),balk=g('wbalk'),nu=-1,timer=null,inBeeld=false,handmatig=false;
-var namen=['Zoals hij nu staat','Avant-Garde Crepi','Avant-Garde Look','Look & Dak','Avant-Garde Compleet','Avant-Garde Compleet'];
-var duur=[2200,2600,2600,2600,2200,3800];
-function zet(f){
-  nu=f;
-  beelden.forEach(function(im,i){im.classList.toggle('aan',i<=f)});
-  var it=Math.min(f,4);items.forEach(function(li,i){li.classList.toggle('aan',i===it)});
-  label.textContent=namen[f]+(f===5?', bij avond':'');
-}
-function loopBalk(ms){balk.classList.remove('loopt');balk.style.width='0';void balk.offsetWidth;if(rm)return;balk.classList.add('loopt');balk.style.transitionDuration=ms+'ms';balk.style.width='100%';}
-function volgende(){
-  clearTimeout(timer);
-  if(!inBeeld||handmatig)return;
-  var f=(nu+1)%6;zet(f);loopBalk(duur[f]);
-  timer=setTimeout(volgende,duur[f]);
-}
-function start(){clearTimeout(timer);if(handmatig||rm)return;loopBalk(duur[nu<0?0:nu]);timer=setTimeout(volgende,duur[nu<0?0:nu]);}
-zet(0);
-if('IntersectionObserver' in window){
-  new IntersectionObserver(function(es){es.forEach(function(e){inBeeld=e.isIntersecting;if(inBeeld)start();else{clearTimeout(timer);}})},{threshold:.45}).observe(g('wbeeld'));
-}
-items.forEach(function(li){li.querySelector('button').addEventListener('click',function(){
-  handmatig=true;clearTimeout(timer);balk.classList.remove('loopt');balk.style.width='0';
-  var i=+this.dataset.i;zet(i===4&&nu===4?5:i);
-})});
 var tick=false;function scroll(){if(tick)return;tick=true;requestAnimationFrame(function(){scene();tick=false;});}
 window.addEventListener('scroll',scroll,{passive:true,capture:true});window.addEventListener('resize',scroll);scroll();
 })();
