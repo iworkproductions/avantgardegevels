@@ -83,3 +83,55 @@
  .agc-zweef .kort{display:inline}
 }
 @media(prefers-reduced-motion:reduce){.agc *,.agc-zweef{transition:none!important}}
+/* compacte bediening: alles in één scherm */
+@media(min-width:1051px){.agc-raster{grid-template-columns:minmax(0,1fr) 380px;align-items:stretch}}
+.agc-podium{align-self:start}
+.agc-paneel{display:flex;flex-direction:column;gap:18px}
+.agc-paneel h1{font-weight:400;font-size:clamp(28px,2.4vw,36px);letter-spacing:-.035em;line-height:1.05;margin:0}
+.agc-paneel .sub{margin:6px 0 0;font-size:15px;color:var(--g);font-weight:300}
+.agc-groep{display:grid;gap:8px}
+.agc-groep .kop{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--g)}
+.agc-groep .kop b{font-weight:500;color:var(--z);font-size:14px}
+.agc-groep .kop .w{color:var(--groen)}
+.agc-types{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.agc-type{border:0;background:none;padding:0;text-align:center;font-size:12px;color:var(--g)}
+.agc-type img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:inset 0 0 0 1px var(--lijn);transition:box-shadow .25s,transform .2s var(--veer);margin-bottom:6px;outline:2px solid transparent;outline-offset:2px}
+.agc-type.aan img{outline-color:var(--z)}
+.agc-type.aan{color:var(--z)}
+.agc-type:active img{transform:scale(.96)}
+.agc-schak{display:flex;background:var(--vlak);border-radius:14px;padding:4px;gap:4px}
+.agc-schak button{flex:1;border:0;background:none;border-radius:10px;padding:10px 6px;font-size:14px;line-height:1.2;color:var(--g);transition:background .3s var(--veer),color .3s,box-shadow .3s}
+.agc-schak button small{display:block;font-size:11px;color:var(--l);margin-top:2px}
+.agc-schak button.aan{background:#fff;color:var(--z);box-shadow:0 1px 2px rgba(22,19,15,.08),0 4px 12px rgba(22,19,15,.06)}
+.agc-schak button.aan small{color:var(--groen)}
+.agc-uitleg{font-size:13px;color:var(--g);line-height:1.4;min-height:18px}
+.agc-wissel{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--vlak);border-radius:14px;padding:12px 14px;border:0;width:100%;text-align:left}
+.agc-wissel b{display:block;font-weight:500;font-size:14px}
+.agc-wissel small{display:block;font-size:12px;color:var(--g);margin-top:1px}
+.agc-wissel i{flex:none;position:relative;width:46px;height:28px;border-radius:999px;background:rgba(22,19,15,.18);transition:background .3s var(--veer)}
+.agc-wissel i::after{content:'';position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .35s var(--veer)}
+.agc-wissel.aan i{background:#4f7a45}
+.agc-wissel.aan i::after{transform:translateX(18px)}
+.agc-paneel .agc-slot{margin-top:auto;padding:18px 20px}
+.agc-paneel .agc-slot h3{font-size:22px;margin:4px 0 0}
+.agc-paneel .agc-slot a{margin-top:14px;padding:13px}
+@media(max-width:1050px){.agc-paneel{gap:16px}.agc-paneel h1{font-size:28px}}
+@media(max-width:560px){.agc-types{gap:6px}.agc-type{font-size:11px}.agc-schak button{font-size:13px;padding:9px 4px}.agc-paneel .sub{display:none}}
+@media(min-width:1051px) and (max-height:860px){
+ .agc-paneel{gap:11px}
+ .agc-paneel h1{font-size:26px}
+ .agc-paneel .sub{display:none}
+ .agc-types img{aspect-ratio:16/10;margin-bottom:4px}
+ .agc-schak button{padding:7px 6px;font-size:13px}
+ .agc-schak button small{font-size:10px;margin-top:1px}
+ .agc-uitleg{font-size:12px;min-height:0}
+ .agc-wissel{padding:9px 12px}
+ .agc-paneel .agc-slot{padding:13px 16px}
+ .agc-paneel .agc-slot h3{font-size:18px}
+ .agc-paneel .agc-slot a{margin-top:10px;padding:10px}
+ .agc-podium{top:84px}
+}
+@media(min-width:1051px) and (max-height:760px){.agc-groep .kop{font-size:12px}.agc-groep{gap:5px}.agc-types{gap:6px}.agc-type{font-size:11px}}
+.agc-duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:1050px){.agc-paneel>div:first-child{display:none}.agc-paneel{gap:14px}}
+@media(max-width:560px){.agc-types img{aspect-ratio:16/10}.agc-paneel .agc-slot{padding:16px 18px}.agc-paneel .agc-slot h3{font-size:20px}.agc-paneel .agc-slot a{padding:12px;margin-top:12px}.agc-uitleg{font-size:12px}}

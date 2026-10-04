@@ -24,28 +24,28 @@ function beeld(){
  $('agcBeeld').classList.toggle('verg',st.verg);$('agcVerg').setAttribute('aria-pressed',String(st.verg));$('agcBeeld').style.setProperty('--split',st.split+'%');
  var t=TYPES.filter(function(x){return x.k===st.type})[0];$('agcNaam').innerHTML=t.n+' <span>· impressie</span>';
  var p=score();$('agcBalkI').style.width=p+'%';$('agcPct').textContent=p+'%';
- $('agcPk').innerHTML='<span>Uw ontwerp</span> '+pakket();var sp=$('agcSlotPk');if(sp)sp.textContent=pakket();
+var sp=$('agcSlotPk');if(sp)sp.textContent=pakket();
  [1,5,9,11,12].forEach(function(n){var i=new Image();i.src='/assets/samenstellen/'+st.type+'-'+pad(n)+'.jpg'});
- bewaar();if(window.agcZweef)window.agcZweef();
+ bewaar();
 }
-function optie(g,v,titel,sub,img,plus){var aan=g==='wp'?((v==='ja')===st.wp):st[g]===v;return '<button type="button" class="agc-optie'+(img?'':' tekst')+(aan?' aan':'')+'" data-g="'+g+'" data-v="'+v+'" aria-pressed="'+aan+'">'+(img?'<img src="'+img+'" alt="" loading="lazy">':'')+'<span class="t"><b>'+titel+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span>'+(plus?'<span class="plus">'+plus+'</span>':'')+'</button>'}
+var GEVEL=[{v:'huidig',n:'Huidig',w:'',u:'De gevel blijft zoals hij nu is.'},{v:'crepi',n:'Crepi',w:'+30%',u:'Nieuwe, geïsoleerde buitenschil in crepi.'},{v:'avant',n:'Look',w:'+40%',u:'Crepi met natuursteen en composiet houtlook.'}];
+function schak(g,opties){return '<div class="agc-schak" role="group">'+opties.map(function(o){var aan=st[g]===o.v;return '<button type="button" data-g="'+g+'" data-v="'+o.v+'" class="'+(aan?'aan':'')+'" aria-pressed="'+aan+'">'+o.n+(o.w?'<small>'+o.w+'</small>':'<small>&nbsp;</small>')+'</button>'}).join('')+'</div>'}
 function keuzes(){
- var k=st.type,h='';
- h+='<div class="agc-blok"><h2>Woning. <span>Welk type heeft u?</span></h2><div class="agc-opties twee">'+TYPES.map(function(t){return optie('type',t.k,t.n,t.s,'/assets/samenstellen/'+t.k+'-01.jpg')}).join('')+'</div></div>';
- h+='<div class="agc-blok"><h2>Gevel. <span>Welke uitstraling?</span></h2><div class="agc-opties">'+optie('gevel','huidig','Huidige gevel','Zoals hij nu is','/assets/samenstellen/'+k+'-01.jpg')+optie('gevel','crepi','Avant-Garde Crepi','Nieuwe, geïsoleerde buitenschil in crepi','/assets/materialen/closeup-crepi.jpg','+30%')+optie('gevel','avant','Avant-Garde Look','Crepi met natuursteen en composiet houtlook','/assets/materialen/closeup-steen.jpg','+40%')+'</div></div>';
- h+='<div class="agc-blok"><h2>Dak. <span>Nieuw of zo laten?</span></h2><div class="agc-opties">'+optie('dak','oud','Huidig dak','',null)+optie('dak','nieuw',k==='bungalow'?'Nieuwe daktrim':'Nieuw dak','Nieuwe pannen en isolatie',null,'+15%')+'</div></div>';
- h+='<div class="agc-blok"><h2>Kozijnen. <span>Het laatste detail.</span></h2><div class="agc-opties">'+optie('kozijnen','oud','Huidige kozijnen','',null)+optie('kozijnen','nieuw','Nieuwe kozijnen','Aluminium antraciet, met nieuwe voordeur',null,'+20%')+'</div></div>';
- h+='<div class="agc-blok"><h2>Warmtepomp. <span>Aanvulling op elk pakket.</span></h2><div class="agc-opties">'+optie('wp','nee','Geen warmtepomp','',null)+optie('wp','ja','Met warmtepomp','Hybride of volledig elektrisch',null,'+25%')+'</div></div>';
- h+='<div class="agc-blok agc-slot"><small>Uw ontwerp</small><h3 id="agcSlotPk">'+pakket()+'</h3><p>Wij maken een ontwerp voor uw eigen woning en komen vrijblijvend bij u langs.</p><a href="/#contact">Plan een adviesgesprek</a></div>';
- $('agcKeuzes').innerHTML=h;
- [].forEach.call(root.querySelectorAll('.agc-optie'),function(b){b.onclick=function(){var g=b.dataset.g,v=b.dataset.v;if(g==='wp')st.wp=v==='ja';else st[g]=v;
-  [].forEach.call(root.querySelectorAll('.agc-optie[data-g="'+g+'"]'),function(x){x.classList.toggle('aan',x===b);x.setAttribute('aria-pressed',String(x===b))});
-  if(g==='type')keuzes();beeld();}});
+ var k=st.type,gv=GEVEL.filter(function(o){return o.v===st.gevel})[0],h='';
+ h+='<div><h1>Ontwerp uw woning.</h1><p class="sub">Kies, en zie uw huis direct veranderen.</p></div>';
+ h+='<div class="agc-groep"><div class="kop"><b>Woning</b><span>'+TYPES.filter(function(t){return t.k===k})[0].s+'</span></div><div class="agc-types">'+TYPES.map(function(t){var aan=t.k===k;return '<button type="button" class="agc-type'+(aan?' aan':'')+'" data-g="type" data-v="'+t.k+'" aria-pressed="'+aan+'"><img src="/assets/samenstellen/'+t.k+'-01.jpg" alt="">'+t.n.replace(' huis','')+'</button>'}).join('')+'</div></div>';
+ h+='<div class="agc-groep"><div class="kop"><b>Gevel</b></div>'+schak('gevel',GEVEL)+'<div class="agc-uitleg">'+gv.u+'</div></div>';
+ h+='<div class="agc-duo"><div class="agc-groep"><div class="kop"><b>Dak</b></div>'+schak('dak',[{v:'oud',n:'Huidig'},{v:'nieuw',n:'Nieuw',w:'+15%'}])+'</div>';
+ h+='<div class="agc-groep"><div class="kop"><b>Kozijnen</b></div>'+schak('kozijnen',[{v:'oud',n:'Huidig'},{v:'nieuw',n:'Nieuw',w:'+20%'}])+'</div></div>';
+ h+='<button type="button" class="agc-wissel'+(st.wp?' aan':'')+'" id="agcWp" role="switch" aria-checked="'+st.wp+'"><span><b>Warmtepomp</b><small>Aanvulling op elk pakket · +25%</small></span><i></i></button>';
+ h+='<div class="agc-slot"><small>Uw ontwerp</small><h3 id="agcSlotPk">'+pakket()+'</h3><a href="/#contact">Plan een adviesgesprek</a></div>';
+ $('agcKeuzes').innerHTML=h;$('agcKeuzes').className='agc-keuzes agc-paneel';
+ [].forEach.call(root.querySelectorAll('[data-g]'),function(b){b.onclick=function(){st[b.dataset.g]=b.dataset.v;keuzes();beeld();}});
+ $('agcWp').onclick=function(){st.wp=!st.wp;keuzes();beeld();};
 }
 $('agcDag').onclick=function(){st.avond=false;beeld()};
 $('agcAvond').onclick=function(){st.avond=true;beeld()};
 $('agcVerg').onclick=function(){st.verg=!st.verg;beeld()};
 $('agcSchuif').oninput=function(){st.split=+this.value;$('agcBeeld').style.setProperty('--split',st.split+'%')};
-var zweef=$('agcZweef');if('IntersectionObserver' in window){var inBeeld=false;window.agcZweef=function(){zweef.classList.toggle('zicht',inBeeld&&(nr(st)>1||st.wp))};new IntersectionObserver(function(e){inBeeld=e[0].isIntersecting;window.agcZweef()},{rootMargin:'-30% 0px -30% 0px'}).observe(root)}else zweef.classList.add('zicht');
 keuzes();beeld();
 })();

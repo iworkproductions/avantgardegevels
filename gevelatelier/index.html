@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=131">
-<link rel="stylesheet" href="/assets/configurator.css?v=1">
+<link rel="stylesheet" href="/assets/configurator.css?v=4">
 
 <style>
 :root{--zwart:#211d18;--creme:#f5f1ea;--pap:#faf8f4;--dim:#6a6258;--goud:#9c7a4a;--lijn:#e2dbcf;--ease:cubic-bezier(.2,.8,.2,1)}
@@ -238,7 +238,8 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
 @media(max-width:1050px){body::before{content:'';position:fixed;top:0;left:0;right:0;height:64px;background:rgba(245,241,234,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(33,29,24,.08);z-index:54}.stappenbalk{background:none}}
 @media(max-width:900px){.atelier{display:block;padding:0 16px}.streng-kolom{position:sticky;top:64px;z-index:20;background:var(--creme);padding:8px 0 8px;box-shadow:0 14px 16px -18px rgba(33,29,24,.6)}.streng-plak{position:static;height:auto;padding-top:0;gap:14px;flex-direction:row;justify-content:center}.streng-kop{gap:6px}.streng-logo{height:16px}.streng-dna{font-size:12px}.streng-stage{max-width:none;width:auto;height:22vh;aspect-ratio:1024/1536}.keuzestap{min-height:0;padding:7vh 0}.stalen{gap:10px;margin-top:24px}}
 @media(max-width:760px){body::before{height:58px}.stappenbalk{display:none}.merk-reis{top:18px;left:16px}.merk-reis img{height:20px}.terug-home{top:10px;right:12px;padding:8px 14px}.wsm{padding:76px 12px 40px}.streng-kolom{top:58px}.staal .n{font-size:14px}.staal .k{font-size:12px}}
-@media(min-width:1051px){.wsm{padding-left:24px;padding-right:24px}}
+@media(min-width:1051px){.wsm{padding:96px 24px 40px}}
+@media(min-width:1051px) and (max-height:860px){.wsm{padding-top:84px}}
 @media(min-width:901px){.atelier{max-width:1400px;grid-template-columns:.8fr 1.2fr}}
 </style>
 <!-- build 2026-09-24 19:38 · wit -->
@@ -258,7 +259,6 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
 </section>
 <section class="wsm" id="samenstellen">
   <div class="agc" id="agc">
-  <div class="agc-titel"><h1>Ontwerp uw woning.</h1><p>Kies, en zie uw huis direct veranderen.</p></div>
   <div class="agc-raster">
     <section class="agc-podium" aria-label="Uw woning">
       <div class="agc-beeld" id="agcBeeld">
@@ -277,7 +277,7 @@ body,.intro,.verhouding-vol,.wsm{background:#fff}
     <section class="agc-keuzes" id="agcKeuzes"></section>
   </div>
 </div>
-<div class="agc-zweef" id="agcZweef"><div class="agc-pk" id="agcPk"></div><a href="/#contact"><span class="lang">Plan een adviesgesprek</span><span class="kort">Adviesgesprek</span></a></div>
+
   <a class="scroldown wsm-door" href="#atelier">Verder naar uw materialen<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </section>
 
@@ -476,7 +476,7 @@ update();
 })();
 </script>
 <script async src="https://tally.so/widgets/embed.js"></script>
-<script src="/assets/configurator.js?v=2" defer></script>
+<script src="/assets/configurator.js?v=4" defer></script>
 <script>
 /* Na 1,5 seconde vanzelf naar de samensteller, tenzij de bezoeker zelf al scrolt of klikt */
 (function(){
