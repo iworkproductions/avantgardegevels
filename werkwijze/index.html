@@ -131,7 +131,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 .gidsen{max-width:1120px;margin:0 auto;padding:0 24px}
 .g-kop h2{font-weight:400;font-size:clamp(34px,4vw,56px);letter-spacing:-.035em;line-height:1;color:#16130f;margin:0}
 .g-kop p{margin:16px 0 0;font-size:17px;line-height:1.6;color:#5d564d;max-width:52ch}
-.g-kaarten{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.g-kaarten{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:1000px){.g-kaarten{grid-template-columns:1fr 1fr}}
 .g-kaart{display:block;background:#fff;padding:30px 30px 28px;text-decoration:none;color:#16130f;border:1px solid rgba(22,19,15,.08);transition:border-color .25s,transform .25s}
 .g-kaart:hover{border-color:#16130f}
 .g-kaart small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9c7a4a}
@@ -144,7 +145,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 
 
 
-<script id="ag-versie">(function(){var V="20261005032810";try{fetch("/versie.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){if(j&&j.v&&j.v!==V){var k="ag-herladen-"+j.v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.reload();}}}).catch(function(){})}catch(e){}})();</script>
+
+<script id="ag-versie">(function(){var V="20261005033407";try{fetch("/versie.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){if(j&&j.v&&j.v!==V){var k="ag-herladen-"+j.v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.reload();}}}).catch(function(){})}catch(e){}})();</script>
 </head>
 <body>
 
@@ -182,10 +184,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 </div>
 <div class="band licht band-creme-g" id="gidsen">
 <section class="gidsen" aria-label="Gidsen">
-  <div class="g-kop"><h2>Goed voorbereid.</h2><p>Twee korte gidsen, zodat u precies weet waar u aan toe bent. Lees ze online of download ze als PDF.</p></div>
+  <div class="g-kop"><h2>Goed voorbereid.</h2><p>Twee korte gidsen en onze brochure, zodat u precies weet waar u aan toe bent.</p></div>
   <div class="g-kaarten">
     <a class="g-kaart" href="/gids/subsidie-2026/"><small>Gids</small><b>Subsidiegids 2026</b><span>Bedragen per m², de verdubbeling, wat erbuiten valt en hoe u aanvraagt.</span><i>Lees de gids →</i></a>
     <a class="g-kaart" href="/gids/vergunning/"><small>Gids</small><b>Vergunning en voorbereiding</b><span>Wanneer u een vergunning nodig heeft, hoe het verloopt en wat u vooraf al kunt doen.</span><i>Lees de gids →</i></a>
+    <a class="g-kaart" href="/brochure/avant-garde-brochure.pdf" download><small>Brochure</small><b>Avant-Garde in 12 pagina’s</b><span>Onze pakketten, materialen en werkwijze, om rustig door te bladeren.</span><i>Download de PDF ↓</i></a>
   </div>
 </section>
 </div>
@@ -212,7 +215,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radiu
 </section>
 
 <footer class="voet">
-  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/subsidie/">Subsidie</a><a href="/werkwijze/#gidsen">Gidsen</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v128 -->
+  <div class="rij"><span><a href="tel:+31640506451">06 40 50 64 51</a><a href="mailto:info@avantgardegevels.nl">info@avantgardegevels.nl</a><a href="/werkwijze/">Werkwijze</a><a href="/over-ons/">Over ons</a><a href="/subsidie/">Subsidie</a><a href="/werkwijze/#gidsen">Gidsen</a><a href="/brochure/avant-garde-brochure.pdf">Brochure</a><a href="/contact/">Contact</a><a href="/voorwaarden/">Voorwaarden</a><a href="/privacy/">Privacy</a></span><span>Avant-Garde · KvK 20144471</span></div><!-- v128 -->
 </footer>
 
 
