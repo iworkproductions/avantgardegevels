@@ -235,7 +235,8 @@
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Avant-Garde Gevels", "url": "https://avantgardegevels.nl/", "inLanguage": "nl-NL", "publisher": {"@type": "Organization", "name": "Avant-Garde Gevels"}}</script>
 
-<script id="ag-versie">(function(){var V="20261006180210";try{fetch("/versie.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){if(j&&j.v&&j.v!==V){var k="ag-herladen-"+j.v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.reload();}}}).catch(function(){})}catch(e){}})();</script>
+
+<script id="ag-versie">(function(){var V="20261006190355";try{fetch("/versie.json?t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json()}).then(function(j){if(j&&j.v&&j.v!==V){var k="ag-herladen-"+j.v;if(!sessionStorage.getItem(k)){sessionStorage.setItem(k,"1");location.reload();}}}).catch(function(){})}catch(e){}})();</script>
 </head>
 <body>
 
@@ -410,6 +411,9 @@ window.addEventListener('scroll',scroll,{passive:true,capture:true});window.addE
 <script src="/assets/formulier.js?v=11" defer></script>
 <script>
 document.querySelectorAll('.materiaal .mat-kaart .media').forEach(function(m){m.addEventListener('click',function(){m.parentNode.classList.toggle('aan')})});
+(function(){if(!matchMedia('(hover: none)').matches||!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>0.6){var k=e.target;setTimeout(function(){k.classList.add('aan')},900);io.unobserve(k);}})},{threshold:[0,0.6,1]});
+document.querySelectorAll('.materiaal .mat-kaart').forEach(function(k){io.observe(k)});})();
 </script>
 </body>
 </html>
