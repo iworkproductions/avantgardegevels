@@ -201,6 +201,30 @@
 .brochure-link{display:inline-block;margin-top:26px;color:#f3ede3;font-size:15px;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(243,237,227,.4)}
 .brochure-link span{color:rgba(243,237,227,.6);text-decoration:none;margin-left:6px}
 .brochure-link:hover{text-decoration-color:#c9a877}
+
+/* materialen: textuur eerst, de woning bij aanraken */
+.materiaal .mat-kaart{outline:none}
+.materiaal .mat-kaart .media{position:relative;cursor:pointer}
+.materiaal .mat-kaart .media img{position:absolute;inset:0}
+.materiaal .mat-kaart .media img.sfeer{opacity:0;transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .8s var(--ease)}
+.materiaal .mat-kaart:hover .media img.sfeer,.materiaal .mat-kaart.aan .media img.sfeer,.materiaal .mat-kaart:focus-visible .media img.sfeer{opacity:1}
+.materiaal .wissel{position:absolute;left:14px;bottom:14px;z-index:2;font-size:12px;letter-spacing:.04em;padding:7px 11px;background:rgba(13,11,9,.55);color:#f3ede3;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:opacity .4s}
+.materiaal .mat-kaart:hover .wissel,.materiaal .mat-kaart.aan .wissel{opacity:0}
+.materiaal .stalen{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:16px;font-size:13px;color:rgba(243,237,227,.75)}
+.materiaal .stalen span{display:inline-flex;align-items:center;gap:8px}
+.materiaal .stalen i{display:inline-block;width:22px;height:22px;background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px rgba(243,237,227,.18)}
+.materiaal .stalen em{font-style:normal;margin-left:2px}
+.materiaal .mat-meer{display:inline-block;margin-top:16px;font-size:14px;color:#c9a877;text-decoration:none}
+.materiaal .mat-meer:hover{text-decoration:underline;text-underline-offset:4px}
+.materiaal .verhouding{padding:7vh 8vw 5vh}
+.materiaal .vb{display:flex;height:10px;gap:3px}
+.materiaal .vb span{background-size:cover;background-position:center}
+.materiaal .vb .c{background-image:url(/assets/materialen/crepi-textuur.jpg)}
+.materiaal .vb .s{background-image:url(/assets/materialen/atlas.jpg)}
+.materiaal .vb .h{background-image:url(/assets/materialen/evergreen.jpg)}
+.materiaal .vl{display:flex;gap:3px;margin-top:14px;font-size:14px;color:rgba(243,237,227,.7)}
+.materiaal .vl b{color:#f3ede3;font-weight:500}
+@media(max-width:760px){.materiaal .verhouding{padding:5vh 6vw 4vh}.materiaal .vl{flex-direction:column;gap:6px}.materiaal .vl span{flex-basis:auto!important}}
 </style>
 
 
@@ -260,12 +284,30 @@
 <section class="hfd materiaal" id="materiaal">
   <div class="kop"><h2>Drie materialen.<br>Eén handschrift.</h2></div>
   <div class="mat-drie">
-    <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-crepi.jpg" alt="Crepi van dichtbij" loading="lazy"></div><b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60% van de gevel.<sup>1</sup></p></figure>
-    <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen van dichtbij" loading="lazy"></div><b>Natuursteen</b><p>Het accent dat de woning aardt. Met de hand gezet.</p></figure>
-    <figure class="mat-kaart"><div class="media"><img src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook van dichtbij" loading="lazy"></div><b>Composiet houtlook</b><p>De warmte van hout, zonder schilderwerk.<sup>2</sup></p></figure>
+    <figure class="mat-kaart" tabindex="0">
+      <div class="media"><img src="/assets/materialen/crepi-textuur.jpg" alt="Crepi van dichtbij" loading="lazy"><img class="sfeer" src="/assets/materialen/closeup-crepi.jpg" alt="Crepi op een woning" loading="lazy"><span class="wissel">Op een woning</span></div>
+      <b>Crepi</b><p>De rustige, isolerende basis. Altijd minimaal 60% van de gevel.<sup>1</sup></p>
+      <div class="stalen"><i style="background:#ece6da"></i><i style="background:#d9cdb6"></i><i style="background:#b9b3a8"></i><i style="background:#5f5b55"></i><em>In elke kleur</em></div>
+      <a class="mat-meer" href="/kennis/crepi-natuursteen-houtlook/#crepi">Meer over crepi ›</a>
+    </figure>
+    <figure class="mat-kaart" tabindex="0">
+      <div class="media"><img src="/assets/materialen/atlas.jpg" alt="Natuursteen Atlas van dichtbij" loading="lazy"><img class="sfeer" src="/assets/materialen/closeup-steen.jpg" alt="Natuursteen op een woning" loading="lazy"><span class="wissel">Op een woning</span></div>
+      <b>Natuursteen</b><p>Het accent dat de woning aardt. Met de hand gezet.</p>
+      <div class="stalen"><span><i style="background-image:url(/assets/materialen/atlas.jpg)"></i>Atlas</span><span><i style="background-image:url(/assets/materialen/freya.jpg)"></i>Freya</span><span><i style="background-image:url(/assets/materialen/hermes.jpg)"></i>Hermes</span></div>
+      <a class="mat-meer" href="/kennis/crepi-natuursteen-houtlook/#natuursteen">Meer over natuursteen ›</a>
+    </figure>
+    <figure class="mat-kaart" tabindex="0">
+      <div class="media"><img src="/assets/materialen/evergreen.jpg" alt="Composiet houtlook Evergreen van dichtbij" loading="lazy"><img class="sfeer" src="/assets/materialen/closeup-hout.jpg" alt="Composiet houtlook op een woning" loading="lazy"><span class="wissel">Op een woning</span></div>
+      <b>Composiet houtlook</b><p>De warmte van hout, zonder schilderwerk.<sup>2</sup></p>
+      <div class="stalen"><span><i style="background-image:url(/assets/materialen/evergreen.jpg)"></i>Evergreen</span><span><i style="background-image:url(/assets/materialen/ember.jpg)"></i>Ember</span><span><i style="background-image:url(/assets/materialen/empire.jpg)"></i>Empire</span></div>
+      <a class="mat-meer" href="/kennis/crepi-natuursteen-houtlook/#houtlook">Meer over houtlook ›</a>
+    </figure>
   </div>
-
-  <div class="kop" style="padding-top:0;padding-bottom:12vh"><a class="link" href="/kennis/crepi-natuursteen-houtlook/" style="color:#f3ede3">Crepi, natuursteen of houtlook: lees de uitleg ›</a></div>
+  <div class="verhouding">
+    <div class="vb"><span class="c" style="flex-basis:60%"></span><span class="s" style="flex-basis:20%"></span><span class="h" style="flex-basis:20%"></span></div>
+    <div class="vl"><span style="flex-basis:60%"><b>Minimaal 60%</b> crepi, de rustige basis</span><span style="flex-basis:40%"><b>Tot 40%</b> natuursteen en houtlook als accent</span></div>
+  </div>
+  <div class="kop" style="padding-top:0;padding-bottom:12vh"><a class="link" href="/kennis/crepi-natuursteen-houtlook/" style="color:#f3ede3">Welke combinatie past bij uw woning? Lees de uitleg</a></div>
 </section>
 
 <!-- 7 · FINALE -->
@@ -366,5 +408,8 @@ window.addEventListener('scroll',scroll,{passive:true,capture:true});window.addE
 })();
 </script>
 <script src="/assets/formulier.js?v=11" defer></script>
+<script>
+document.querySelectorAll('.materiaal .mat-kaart .media').forEach(function(m){m.addEventListener('click',function(){m.parentNode.classList.toggle('aan')})});
+</script>
 </body>
 </html>
